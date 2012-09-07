@@ -1,8 +1,8 @@
-Git Help
-========
+Help for GIT
+==============
 
-# Every command related to git start with ‘git’
-# To access the help for a specific command (here commit)
+Every command related to git start with ‘git’
+To access the help for a specific command (here commit)
 
     git help commit				# Access help for git command ‘commit’
     git commit --help			# Access help for git command ‘commit’
