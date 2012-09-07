@@ -25,19 +25,21 @@ To Setup user name and email (required), password caching (optional), and comman
     git config --global alias.delete rm                     # git delete = git rm
     git config -l				                            # show ~/.gitconfig and repo/.git/config contents
 
-ITERACT WITH A REMOTE GIT REPOSITORY
--------------------------------------   
-To create a local copy of a GIT repository (with history, etc)
+Iteract with a remote GIT repository
+------------------------------------   
+
+To create a local copy of a remote GIT repository (with history, etc), you need to clone it.
+Function of the open port and GIT server configuration, you can use https or ssh to do so.
+
+    git clone ssh://git@github.com:emayssat/sandbox.git     
+    git clone https://github.com/emayssat/sandbox.git       
+
+Either way a directory named "sandbox" should have appeared in your dir
+
 To clone Henry’s intial directory (For the password, ask Henry!)
-
-    git clone ssh://git@github.com:emayssat/sandbox.git
-    git clone https://github.com/emayssat/sandbox.git
-    git clone ssh://git@ccafe.no-ip.info/bigmap.git motu    # Local top dir is ‘motu’
-    git clone motu motu2        		                    # create a new repo (motu2) based on another local repo
-    git config -l            		                        # Show where the remote is and which branch
-    git ls-remote				                            # Show info about remote (all references/branches, etc)
-
 A directory named “bigmap” should have appeared in your local dir   
+
+    git clone ssh://git@ccafe.no-ip.info/bigmap.git motu    # Local top dir is ‘motu’
 
     cd motu
     touch YYY				                                # Create an empty file YYY
@@ -53,9 +55,13 @@ If you do not push to master repository, others cannot see
     git push origin master            	                    # origin is parent repo
     git fetch                		                        # Update local *refs* with remote’s *refs*
 
-basic operations
+Other operations
 ------------------
 
+
+    git clone motu motu2        		                    # create a new repo (motu2) based on another local repo
+    git config -l            		                        # Show where the remote is and which branch
+    git ls-remote				                            # Show info about remote (all references/branches, etc)
     git mv YYY XXX            		                        # rename the monitored file YYY to XXX
     git rm XXX                		                        # delete the file
     git commit -m “removed XXX”    		                    # commit changes
