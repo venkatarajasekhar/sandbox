@@ -11,8 +11,8 @@ Configure GIT
 -------------
 
 To Configure your locla git repositoryi, there are 2 configuration files:
-    * The GIT global config file is ~/.gitconfig
-    * The repository specific configuration file is repo/.git/config
+* The GIT global config file is ~/.gitconfig
+* The repository specific configuration file is repo/.git/config
 
 To Setup user name and email (required), password caching (optional), and command aliases (optional)
 
