@@ -1,0 +1,10 @@
+In the proxy class the class needs to reserve the size of a pointer not the size of the class/instance it is pointing to.
+Hence the compiler is happy with the
+* forward class
+* pointer declaration
+
+Notice that the only mentions in class Interface of the proprietary Implementation
+class are in the pionter declaration and forward class declaration.
+NO INCLUDE HEADER is required!
+
+The file Interface.cpp has the header Interface.h, but it is compiled for the client

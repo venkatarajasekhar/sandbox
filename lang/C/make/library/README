@@ -1,0 +1,50 @@
+For the static lib:
+sudo yum install glibc-static-2.14.90-24.fc16.7.x86_64
+
+#----------------------------------------------------------------------
+$ ldd main_static
+Not a dynamically executable
+
+$ ldd main_dynamic 
+        linux-vdso.so.1 =>  (0x00007fff0adff000)
+        libmy.so => not found						<-- require LD_LIBRARY_PATH to be set 
+        libc.so.6 => /lib64/libc.so.6 (0x00007f4972455000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007f497283e000)
+
+$ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:.
+$ ldd main_dynamic 
+        linux-vdso.so.1 =>  (0x00007fff7952d000)
+        libmy.so (0x00007f75a2ce0000)
+        libc.so.6 => /lib64/libc.so.6 (0x000000342ae00000)
+        /lib64/ld-linux-x86-64.so.2 (0x000000342aa00000)
+
+
+
+#----------------------------------------------------------------------
+To execute the dynamicall y linked program
+$ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:.				<-- required to be run !
+$ ./main_dynamic
+
+
+
+
+#----------------------------------------------------------------------
+$ nm libmy.a
+
+func1.o:
+                 U _GLOBAL_OFFSET_TABLE_
+0000000000000000 T celconvert1
+                 U printf
+
+func2.o:
+                 U _GLOBAL_OFFSET_TABLE_
+0000000000000000 T celconvert2
+                 U printf
+#----------------------------------------------------------------------
+$ file libmy.so
+libmy.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, not stripped
+
+$ file libmy.a
+libmy.a: current ar archive
+
+

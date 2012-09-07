@@ -1,0 +1,164 @@
+#----------------------------------------------------------------------
+## Global
+#----------------------------------------------------------------------
+#set print_command = "a2ps -1 --font-size=12.0 --output=- | lpr -Pnetprinter1"
+set print_command = "a2ps -1 --font-size=12.0 --output=- | lpr -PHP-LaserJet-5100-Dtn-48"
+set print=ask-yes			# p to print
+
+set editor=vi
+
+# Spell checking with F6 in vi
+# Require in .vimrc
+# map <F6> :!ispell %<CR>:e %<CR>
+# yum install aspell-en  (Dictionary)
+set ispell="/usr/bin/ispell"
+set postponed="$HOME/Mail/postponed"
+set signature="~/.mutt_signature"
+
+
+#----------------------------------------------------------------------
+# Index
+#----------------------------------------------------------------------
+set status_format=" %r %b %f %n      Del %d      Msgs %m %l %> (%P)"
+set date_format="!%H:%M %a %d %b     "
+set index_format="%4C %Z %[%b%d] %-15.15F %s"
+set folder_format="%2C %t %8s %d %N %f"
+
+set sort=threads                        #sort by message threads in index
+set arrow_cursor=yes
+#set status_on_top                       #put status line at top
+set pager_context=3
+set menu_scroll
+set pgp_verify_sig=no                   #dont show pgp in pager
+set record="$HOME/Mail/sent"        	#sent mail is saved here
+set delete=yes                          #delete without prompting
+set include=yes                         #quote msg in reply
+#set fast_reply=yes                      #no prompting on reply
+set beep=no                             #no noise
+set markers=no                          #no + on wrapped lines
+set confirmappend=no                    #no prompt for save to =keep
+set to_chars=" +TCF"                    #no L for mail_list
+
+#--- macros
+macro pager \cu |urlview\n
+
+#--- Colors
+color normal		white		blue
+color indicator		blue            green
+color tree		yellow          blue
+color status		black		cyan
+color error		red		black
+
+mono    status          bold
+
+#--- Mailing list
+lists tech-talk mplayer svlug
+subscribe tech-talk mplayer svlug
+#----------------------------------------------------------------------
+# Pager
+#----------------------------------------------------------------------
+set pager_index_lines=6                 #show a mini-index in pager
+set pager_format="%-10.10i %[!%a %b %d %R]"
+
+
+#----------------------------------------------------------------------
+# Email display
+#----------------------------------------------------------------------
+message-hook ~A 'set pager=builtin'
+message-hook '~f freshmeat-news' 'set pager="less \"+/^  subject: .*\""'
+
+
+#--- Header
+# Too many email headers make reading a message difficult
+ignore *
+unignore From: To: Cc: Subject: Date: #Only these are shown in the header
+color hdrdefault	brightcyan	blue
+color header		brightwhite	blue		"^from:"
+color header		brightwhite	blue		"^subject:"
+
+#--- Body
+#color body		brightwhite	blue		"[-a-z_0-9.]+@[-a-z_0-9.]+"
+color body		brightyellow	black		"^Good signature"
+color body		brightwhite	red		"^Bad signature from.*"
+
+#color quoted		brightgreen	blue
+#color quoted		green		default
+color quoted1		magenta		blue
+#color quoted2		yellow		default
+#color quoted3		red		default
+
+#--- Signature
+color signature 	brightwhite     blue
+#color signature 	cyan 		cyan
+
+
+color   tilde           brightmagenta   blue
+color   message         green           black
+
+#--- Attachement
+color   attachment      brightgreen     blue
+
+
+#mono    error           bold
+#mono    body            bold				"[-a-z_0-9.]+@[-a-z_0-9.]+"
+#mono    body            bold				"^Good signature"
+#mono    body            bold				"^Bad signature from.*"
+
+#----------------------------------------------------------------------
+# Procmail / Mail folders
+#----------------------------------------------------------------------
+#Where procmail put stuff and mutt check for new stuff
+set folder = $HOME/Mail
+
+#For change mailbox
+#Beware the order important!
+mailboxes =lists/epics
+mailboxes =lists/pyqt
+mailboxes =lists/qt
+mailboxes =lists/ts7000
+#mailboxes =lists/svlug
+#mailboxes =lists/comedi
+#mailboxes =lists/mplayer
+
+set mbox="~/Mail/inbox"
+#set spoolfile=+inbox
+set mbox_type=mbox
+#set mail_check=5		#Check mail/spool file every 5 sec
+set move=ask-no			#Move message from spool to mbox @ exit
+set move=no			#Move message from spool to mbox @ exit
+#----------------------------------------------------------------------
+# Interface to Fetchmail
+#----------------------------------------------------------------------
+# Check ~/.fetchmailrc for fetchmail configuration
+macro index G "!fetchmail\r" 'Run fetchmail'
+macro pager G "!fetchmail\r" 'Run fetchmail'
+
+#----------------------------------------------------------------------
+# Built-in POP3 support
+#----------------------------------------------------------------------
+#set pop_host=in-pop-master
+#set pop_user="emmanuel_mayssat@lynceantech.com"
+#set pop_pass="XXXXX"
+#set pop_delete=ask-yes
+#set pop_checkinterval=60
+#set pop_auth_try_all yes
+#set pop_reconnect=ask-yes
+
+#----------------------------------------------------------------------
+# Sending mail
+#----------------------------------------------------------------------
+#after a yum mstmp!
+#Check .msmtprc file for config
+set sendmail="/usr/bin/msmtp"
+#To ensure that mutt does not put
+#'username@localhost.localdomain in From
+set from="emmanuel_mayssat@lynceantech.com"
+set use_from=yes
+set envelope_from="yes"
+set edit_headers = yes
+
+set alias_file=~/.mutt_aliases
+source ~/.mutt_aliases
+#----------------------------------------------------------------------
+#----------------------------------------------------------------------
+#----------------------------------------------------------------------

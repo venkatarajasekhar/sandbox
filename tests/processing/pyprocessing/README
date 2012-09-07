@@ -1,0 +1,14 @@
+To run this code, you need to install pyprocessing 
+# easy_install pyprocessing
+
+Prior to above command, you may also need to install pyglet manually
+http://www.pyglet.org/download.html
+# wget http://pyglet.googlecode.com/files/pyglet-1.1.4.tar.gz
+# tar xvzf pyglet-1.1.4.tar.gz
+# cd pyglet-1.1.4
+# python setup install
+
+For all the code to run smotthly, you may also need to install OpenGL forpython
+# easy_install pyopengl
+
+

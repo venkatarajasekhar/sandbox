@@ -1,0 +1,20 @@
+Member initializer 
+------------------
+* are executed before the body of the constructor
+* multiple initializers are separated by commas.
+* An object can be created and passed to the constructor as a reference and init in the initializer
+    - use copy constructor? It seems ...
+* Are initializer only used in constructor? Well, .... 
+
+
+!!! Not providing a 
+
+base-class initializer
+----------------------
+BasePlusCommissionEmployee::BasePlusCommissionEmployee(
+    const string &first, const string &last, const string & ssn,
+    double sales, double rate, double salary)
+    : CommissionEmployee(first, last, ssn, sales, rate)             // explicit class base-class constructor
+{
+    ...
+}

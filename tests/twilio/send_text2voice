@@ -1,0 +1,7 @@
+#!/bin/sh -x
+
+curl -X POST https://api.twilio.com/2010-04-01/Accounts/ACdaa8389a97ef660fee9551bbc1c0b8c6/Calls.json \
+    -u ACdaa8389a97ef660fee9551bbc1c0b8c6:5a2acea6e48720371dea9d42d23f0c79 \
+    -d "From=+16502823427" \
+    -d "To=+16507930626" \
+    -d "Url=http%3A%2F%2Ftwimlets.com%2Fecho%3FTwiml%3D%253CResponse%253E%253CSay%253EHello%2BEmmanuel%252C%2Bwelcome%2Bto%2BTwilio%2521%253C%252FSay%253E%253C%252FResponse%253E"

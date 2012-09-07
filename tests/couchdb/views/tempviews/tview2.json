@@ -1,0 +1,7 @@
+{
+    "map": 
+        "function(doc) { 
+            if (doc.email && doc.phone) 
+                emit(doc._id, doc); 
+        }"
+}

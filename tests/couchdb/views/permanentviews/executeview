@@ -1,0 +1,10 @@
+#!/bin/sh -x
+
+printf "\nPERMANENT VIEW\n"
+curl -X GET http://127.0.0.1:5984/contacts/_design/custom_views/_view/view1
+
+printf "\nPERMANENT VIEW (with ...?key=\"johnsmith\")                                   <-- doesn't work for id or _id or other?\n"
+curl -X GET http://127.0.0.1:5984/contacts/_design/custom__views/_view/view1?key=\"johnsmith\" 
+
+printf "\nPERMANENT VIEW (with netcat 'nc -l 3333')\n"
+curl -X GET http://127.0.0.1:3333/contacts/_design/custom_views/_view/view1

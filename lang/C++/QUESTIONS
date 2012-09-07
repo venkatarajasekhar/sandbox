@@ -1,0 +1,290 @@
+Q: Can a constructor or destructor be a const function? 
+A: no
+
+Q: Can a constructor initilize a const object?
+A: yes!
+The 'constness' of a const object is enforced from the time the contructor COMPLETES
+initialization of the object until that object's destructor is called.
+const object (or vars) are instantiated with initializers 
+
+Q: what are const member function?
+A: A const member function is defined for example as 
+double CommissionEmployee::getCommissionRate() const 
+{
+    return commissionRate;
+}
+const member function cannot call non-const function
+can be used on 
+const object
+
+Q: Are contructor inherited?
+A: no! Each class needs to provide a constructor!
+
+Q: What is a copy constructor?
+A: A friend function? that takes an object as a parameter and returns a reference to a new object
+of the same class as its object argument. The private data member of the new object 
+have the same value as those of the object passed as arg.
+
+Q: Do every class have a copy constructor?
+A: Yes. If none are explicily declared, the compiler will provide a default one.
+Beware of object construction which requires allocation of memory (malloc, calloc type)
+Beware of pointers.
+
+Q: What is a static object?
+A non-automatic object!
+Initialized only once, when the definiteion is first read
+Destructed once, at the end of the main
+
+Q: Can object be globals?
+Yes. In which case, they are instantiated BEFORE the main is executed!
+The are Destructed at the very end of the program (after the main exit)
+
+Q: When are destructors of static object run?
+A: When the main exits.
+!!! a call to exit runs only the static and global destructor (not the automatic variable)
+
+Q: What are initializers?
+MyClass::MyClass(int c, int i)
+    : count (c), increment (i)
+{
+}
+
+!!! A const (private) data member is REQUIRED to have an initializer
+
+Q: When do initializers execute?
+A: before the body of the constructor execute!
+
+Q: What is a composition?
+A: A class can contain instance of other classes.
+This instances can also use initializer in the for of copy constructor!
+
+Q: What is a friend function?
+A: A C-style function declared at the same time as the class it 'befriended'
+A friend function can have access to private (and protected) data member of that class.
+A friend function is NOT a member of that class.
+A object is passed as a parameter of that fucntion.
+
+Q: Are friend function inherited?
+A: No, they are not class members!
+
+Q: What is 'this'?
+A: Every object has access to its own address through a pointer called this!
+'this' is a pointer, but is not part of the object itself!
+'this' is a const pointer on a non-constant object (itself!)
+
+Q: Who provides the value for 'this'?
+A: The compiler does. The compiles pass the pointer this as a parameter to every member function, but STATIC ones.
+
+Q: In which case is 'this' a 'const Object * const' ?
+A: In a constant member function (where the object cannot be modified)
+
+Q: How do you implement cascaded function calls?
+A: Each function call should return a reference to this (return *this)
+
+Q: what is a static data member or static function member?
+A: static data member is a data member that is share by all the instance 
+ex: numberOfInstance
+A static function member is usually an accessor to that static data member
+The keywords static only appears in the interface (include h), not in the class declaration (cpp)
+
+Q: what is particularity of a static data member or static function member?
+A: They can be accessed without an instance
+eg: MyClass::MyStaticFunction()
+!!! static function DO NOT HAVE 'this' pointer !
+
+Q: what is a proxy class?
+A: A class used as an interface to hide the private data of another class.
+That private data would normally appear in the include file (even so it is not in use)
+
+Q: What is operator overloading?
+A: C++ does NOT allow new operators to be created, 
+but it does allow most existing operators to be overloaded so that,
+when they are used with objects, they have a meaning appropriate to those objecs.
+==> use a non-static member function
+
+Q: What is function overloading?
+A: For example, doTask() and doTask(object O) are overloaded methods. 
+To call the latter, an object must be passed as a parameter, whereas the former does not require a parameter, and is called with an empty parameter field. 
+A common error would be to assign a default value to the object in the second method, which would result in an ambiguous call error, as the compiler wouldn't know which of the two methods to use.
+==> name mangling
+
+Q: What is name mangling?
+A: The preprocessor change the function name based on its arguments to allow for overloading
+
+Q: What is function overridding?
+A: Redefining a function (same prototype) in the derived class
+
+Q: WHat is the difference between overloading and overwriting?
+overwriting relates to the inheritance of member functions
+overloading means repurposing
+
+Q: What are the difference between a static variable, a static object, a static data member, a static member function?
+A: static is opposed to automatic (or default behavior)
+A static variable come from C. Are defined and initialize only once. The memory allocation is free'd at the end of the main
+A static object is similar to a static variable, except they use constructor and destructor
+A static data member is a variable shared by every instance (ex: number of instance created). 
+Accessible (if public) even if no instance is created.  MyClass::MyVariable
+A static member function is accessible through the class MyClass::MyFucntion() and is independent from the intance
+That means doesn't have a this pointer passed as by the compiler.
+
+Q: What are base class, derived class, inheritance?
+A: base class = super class
+derived class = subclass
+inheritance is a way to use code reuse
+the code only appears in the base class and is automatically inserted in subclass as we go.
+==> easier to maintain, debug, modify, etc... because the source code exists only in 2 files (h and cpp of base class)
+
+Q: In a class interface, what is public vs private?
+An object expose all its public data members and function member to the world!
+The private data/function members are only accessible by the object itself
+(in the code of its member functions)
+
+Q: In a class interface, what does protected means?
+Protected is an intermediary access right between public and private.
+It comes into play with inheritance.
+Indeed, a derived class cannot access private members of its base class!    <-- WHAOO !!!
+To allow a derived class to access non-public members, that member needs to be declared as protected!
+An alternative is to use getters and setters (mutator and accessor) for every private data. (but beware of overhead due to function calls)
+
+Q: when is protected data member an issue? What is the purpose of mutators and accessor (getter and setter)?
+VALIDATION !
++ access of private data?
+If you change the name of the var, you need to go through the code of all the derived classes.
+
+Q: When to use private over protected?
+when validation is required!
+When the name of the data member can change (but the mutator and accessor won't!)
+==> If base class is also heavily developed!
+
+Q: In a class interface, can a function be protected?
+Private functions are utility/helper function.
+If you want that fucntion to be accessible from the derived class, then ...
+??? IS THAT TRUE ???
+==> no getter or setter possible for private function!
+
+Q: What is an overridden function?
+A function declared in a subclass (interface+definition) that overwrites a function with the same name + same argument + same return value as in the base class
+??? if you do not use the same arguments type, the member function is not overridden, it is a different one! ??? check name mangling
+
+Q: what is the size of an empty object?
+A: 1 byte !
+Quoting Bjarne Stroustrup's C++ Style and Technique FAQ, the reason the size is non-zero is "To ensure that the addresses of two different objects will be different." 
+And the size can be 1 because alignment doesn't matter here, as there is nothing to actually look at.
+
+Q: What is a size of an object with NO data member (and only member functions)?
+A: 1 byte!
+The size of the object is proportional to its data members!
+
+Q: What is a vtable?
+A: A object contains its data. Additionally, there is a pointer on a vtable.
+A vtable is a structure of pointers on functions. Those functions are the functions to be run when a member function is called.
+ex: The salariedEmployee object contains a pointer to the SalariedEmployee vtable; the object also contains the values John Smith, 111-11-1111 an $800.00.
+
+Q: Can a derived-class pointer points to a base class object?
+A: No, compilation error
+
+Q: Can a base-class pointer points to a derived class?
+A: Yes, but only base-class functions can be called by default.
+??? What about overridden functions ??? They cannot be accessed unless the function is declared as virtual!
+If you want to call derived-class member functions, you need to use DOWNCASTING
+
+Q: what is downcasting?
+A: Read answer to above question.
+But beware, downcasting is dangerous!
+The preferred method is to use virtual functions
+
+Q: Why would a function be declared as virtual in a base-class?
+A: To avoid downcasting ! In otherwords, a base-class pointer that points to a derived-class object
+CAN call derived-class functions.
+==> The program determine at runtime which class member function to call  ( = LATE BINDING, DYNAMIC BINDING!)
+==> The called functions are not from the class of the pointer, but from the class of the object
+
+Q: What is the scope of the virtual keyword?
+A: Once a function is declared virtual, it remains virtual all the way down the inheritance hierarchy 
+from that point, even if that dunction is not explicitly declared virtual when a derived class overrides it.
+==> specify virtual at every level for program clarity!
+
+Q: What is DYNAMIC/LATE binding and STATIC binding?
+static dbinding = the function invocation is resolved at compile time
+dynamic binding (with virtual function)= occurs only off pointer (and reference) handles
+
+Q: What is polymorphic behavior?
+basePtr->print()
+The same message -- print, in this case -- sent (off a base class pointer/or reference) to a variatey of 
+objects related by inheritance to that case class, takes on many forms.
+This is polmorphic behavior.
+
+Q: What are abstract classes?
+A: classes which will never instantiate any object
+Abstract base classes are too generic to define real objects.
+we need to be more specific before we can think of instantiating objects
+(Are used as base-class in inheritance hierarchy)
+They are the opposite of concrete classes!
+ex: 2-d shape class
+if draw is called, which shape should you draw? round? quare? triangle? You can't!
+
+Abstract classes, although optional, are found  at the top of the class hierarchy.
+A class is abstract if one of this member function is pure virtual (see below)
+ABSTRACT CLASSES ARE USED TO DEFINE AN INTERFACE (ex: read/write of a driver!)
+
+Q: Can abstract class pointer be created?
+A: YES! This is use with polymorphism!
+
+Q: What are pure virtual function?
+A: A class is made abstract by declaring one or more of its virtual functions to be "pure"
+A pure virtual function is specified by placing "=0" in its declaration, as in
+virtual void draw() const =0;       // pure virtual fucntion
+
+Q: What is a pure specifier?
+A: The "=0" is a pure specifier!
+
+Q: What is the difference between a virtual and pure virtual function?
+pure virtual: the base class doesn't provide an implementation, the CONCRETE derived class MUST override all the virtual function of the abstract class
+ex: class 2dShape: virtual void draw() const =0
+virtual: the base class provide an implementation
+ex: class 2dshape: virtual void getName() const
+Here virtual because base class implmentation is default
+
+Q: How is polymorphism implemented?
+A: Three levels of Pointers to implement polymorphism.
+1/ pointer on the object (could also be reference)
+2/ object has a pointer on a vtable
+3/ vtable has a pointer on the function
+
+Q: What is a virtual destructor?
+A: A desctructor that can be used when polymorphism is used.
+!!! Note that the base-class destructor and derived-class destructor do not have the same name !!!
+Detruction is done explicitly with the 'delete' command
+
+Q: If destructor can be virtual, can constructor be virtual?
+A: No!
+
+
+Q: Can a function template be overloaded by providing a nontemplate functions?
+Yes! the pre-compiler looks for an explicit function, then try to build it with the available templates
+
+Q: What are template class?
+ex: vector<int> myvector(4)         <-- vector of 4 * int
+A class whose member function are class templates!
+
+Q: What are exception?
+Exception handling is designed to process synchromous errors, which occur when a statment executes
+eg dividion by zero
+Exception handling is not designed to process errors associated with asynchronous events 
+eg disk IO completions, network message arrival, mouse click, leystrokes
+
+Q: When to use exception?
+
+Q: What is the Standard template library (STL)?
+A: template library part of the C++ standard which are use for commonly used object (eg vector, list, queue, set, map, etc)
+
+Q: What is const-ness?
+
+Q: What method do you know that can change the const-ness?
+A: 
+1/ const_cast, 
+2/ mutable 
+
+Q: What is multiple ineritance?
+Q: what is a virtual base?
+A: Diamond double inheritance without confusion

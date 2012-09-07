@@ -1,0 +1,34 @@
+
+PRINCIPLE OF LEAST PRIVILEGE
+----------------------------
+
+MEMBER FUCNTION WITH CONST PARAMETER
+------------------------------------
+==> The parameter is not changed in body of the member function
+
+CONST MEMBER FUNCTION
+---------------------
+ex: void Time::getMinute() const {}
+* A const member function can NOT call non-const member function
+* A const member function can NOT modify a data member of the object 
+
+!!! A const function is declared as such only when const keyword appears.
+!!! A non-const function that doesn't change data is still not a const function
+
+CONST OBJECT
+------------
+ex: const Time noon(12,0,0);
+* Invoking a non-const member function on a const object is a compilation error
+* A const object can NOT use mutator (set functions)
+
+!!!! 483: Remember a program can invoke only the const member functions of a const object.
+
+CONST DATA MEMBER
+-----------------
+ex .... private const usec;
+A const data member needed to be initialized with an initializer
+the const-ness of the parameter is valid thereafter!
+int MyClass::MyMemberFunction(int c, const Array &arrayToCopy)
+    : myConstVar(c), myConstVar2(45), size(attayToCopy.size)            <-- assign c to myConstVar
+{
+}

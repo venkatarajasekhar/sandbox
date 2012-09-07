@@ -1,0 +1,61 @@
+
+
+#----------------------------------------------------------------------
+# HALF DUPLEX
+#----------------------------------------------------------------------
+
+Running the Client and the Server
+
+When you run the server, it will block on the read call and will wait until the client writes something to the named pipe. After that it will print what it read from the pipe, convert the string to upper case, and then terminate. In a typical implementation this server will be either an iterative or a concurrent server. But for simplicity and to demonstrate the communication through the named pipe, we have kept the server code very simple. When you run the client, you will need to give a string as an argument.
+
+Make sure you run the server first, so that the named pipe gets created.
+
+Expected output:
+
+    Run the server:
+
+    % hd_server &
+
+    The server program will block here, and the shell will return control to the command line.
+
+    Run the client:
+
+    % hd_client hello
+
+    The server prints the string read and terminates:
+
+    Half Duplex Server : Read From the pipe : hello
+    Half Duplex Server : Converted String : HELLO
+
+#----------------------------------------------------------------------
+# FULL DUPLEX
+#----------------------------------------------------------------------
+
+Running the Client and the Server
+
+When you run the server, it will create the two named pipes and will block on the read call. It will wait until the client writes something to the named pipe. After that it will convert the string to upper case and then write it to the other pipe, which will be read by the client and displayed on STDOUT. When you run the client you will need to give a string as an argument.
+
+Make sure you run the server first, so that the named pipe gets created.
+
+Expected output:
+
+    Run the server:
+
+    % fd_server &
+
+    The server program will block here, and the shell will return control to the command line.
+
+    Run the client:
+
+    % fd_client hello
+
+    The client program will send the string to server and block on the read to await the server's response.
+
+    The server prints the following:
+
+    Full Duplex Server : Read From the pipe : hello
+
+    The client prints the following:
+
+    Full Duplex Client : Read From the pipe : HELLO
+

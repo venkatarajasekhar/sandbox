@@ -1,0 +1,2 @@
+static in class definition means that all the instance of that class share the same variable !
+If no instance created, static variables can still be accessed.

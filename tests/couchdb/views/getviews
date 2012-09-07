@@ -1,0 +1,6 @@
+#!/bin/sh
+
+printf "\nALL DOCS\n"
+curl -X GET http://127.0.0.1:5984/contacts/_all_docs
+printf "\nCUSTOM VIEW\n"
+curl -X GET http://127.0.0.1:5984/contacts/_design/custom_views

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script>
+      window.onload = function() {
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+        // draw stuff here
+        context.lineWidth = 10;
+        context.strokeStyle = "blue";
+
+        context.moveTo(50, canvas.height - 50);  // start at left bottom
+        context.lineTo(canvas.width - 50, 50);   // close to right top 
+
+        context.stroke(); // plot
+      };
+    </script>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="578" height="200" style="border:1px solid black;">
+    </canvas>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+# {"_id":"joelennon","_rev":"1-32273fce7b3c666c9a28ee3d5731d963","firstName":"Joe","lastName":"Lennon","email":"joe@joelennon.ie"}
+curl -X PUT http://127.0.0.1:5984/contacts/joelennon -d '{"_rev":"1-32273fce7b3c666c9a28ee3d5731d963", "email":["joelennon@lennon.com","joelennon@joelennon.com"],"phone":"(555) 555-5555"}'
+# {"_id":"joelennon","_rev":"2-2b8760dd4e83c1fe08874b08f27dedfe","email":["joelennon@lennon.com","joelennon@joelennon.com"],"phone":"(555) 555-5555"}
+
+# NOTE THE ENTIRE RECORD NEEDS TO BE SPCIFIED AGAIN !
+
+

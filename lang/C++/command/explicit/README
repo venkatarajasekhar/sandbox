@@ -1,0 +1,4 @@
+explicit 
+keyword  that prevents the compiler to do implicit type/cast conversion as in this program.
+
+Any single-argument constructor can be thought of as a conversion constructor.

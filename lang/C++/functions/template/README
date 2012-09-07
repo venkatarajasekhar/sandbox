@@ -1,0 +1,11 @@
+The template function is turned into C++ function at compilation time!
+
+In our exampl, we avoid having to write 
+void printArray(const int * const, int)
+void printArray(const double * const, double)
+void printArray(const char * const, char)
+
+BEWARE:
+If the function already exist, the compilater would use it!
+If the fucntion is called but not found, the compiler look at the templates.
+If no template ==> error

@@ -1,0 +1,23 @@
+The function exit forces a program to terminate immediately and does NOT execute the desctructors of AUTOMATIC OBJECTS.
+Q: What are automatic object?
+Non-static object !
+
+
+The function abort forces a program to terminate immediately without allowing the destructors of ANY obbjects to be called
+(This includes the static objects)
+
+
+LOCAL AUTOMATIC OBJECT
+----------------------
+==> The corresponding destructor is called when execution leaves the object's scope
+
+STATIC OBJECT
+-------------
+The constructor for a STATIC object is called only once, when the execution first reaches the point where the object is defined
+The corresponding destructor is called when the MAIN program terminates or the program calls function exit.
+Global and static objects are destroyed in the reverse order of their creation.
+
+END OF MAIN
+------------
+Destruct first automatic, then static, then global in reverse order of creation (for each category
+

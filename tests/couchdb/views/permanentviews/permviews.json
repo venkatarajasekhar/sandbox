@@ -1,0 +1,7 @@
+{
+    "language": "javascript",
+    "views": {
+        "view1": {"map": "function(doc) {\n  emit(doc._id, doc);\n}"}
+    }
+}
+    

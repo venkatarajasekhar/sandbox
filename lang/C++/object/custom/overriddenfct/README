@@ -1,0 +1,3 @@
+The prototype of the overridden function needs to be declared in the derived class headers.
+The member function needs to have the same prototype (same name, same parameters, same return type) as the base-class function
+==> same name mangling + polymorphism ok 

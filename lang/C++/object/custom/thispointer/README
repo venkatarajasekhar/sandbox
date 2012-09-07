@@ -1,0 +1,10 @@
+Every object has access to its own pointer classed : this.
+'this' i
+* is a C++ keyword
+* is a CONST pointer!
+    ex: Employee * const        <-- a constant pointer on a non constant object (itself!)
+
+
+!!! 'this' is not passed (by the compiler) as an argument to STATIC function
+because static function can be called without an instance
+i.e: MyClass::MyStaticFunction()                            <-- not sure?

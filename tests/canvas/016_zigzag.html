@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script>
+      window.onload = function() {
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+        // draw stuff here
+            var startX = 85;
+    var startY = 70;
+    var zigzagSpacing = 60;
+context.lineWidth = 10;
+   context.strokeStyle = "#0096FF"; // blue-ish color
+   context.beginPath();
+   context.moveTo(startX, startY);
+// draw seven lines
+   for (var n = 0; n < 7; n++) {
+       var x = startX + ((n + 1) * zigzagSpacing);
+       var y;
+       if (n % 2 == 0) { // if n is even...
+           y = startY + 100;
+       }
+       else { // if n is odd...
+           y = startY;
+       }
+       context.lineTo(x, y);
+   }
+    context.stroke();
+      };
+    </script>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="578" height="200" style="border:1px solid black";>
+    </canvas>
+  </body>
+</html>

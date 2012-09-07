@@ -1,0 +1,16 @@
+Install the google_app_engine for python 2.7 
+Once installed the 
+    dev_appserver.py, the development web server
+    appcfg.py, for uploading your app to App Engine
+
+To test a google app, do the following:
+* Create the app
+	- Content (python, html, etc)
+	- Yaml file
+* Start the development app server (a local web server!)
+	- ../../../google_appengine/dev_appserver.py 002_helloWorld/
+* Point your browser to the localhost
+	- chromium-browser http://localhost:8080
+
+You application should be accessible
+

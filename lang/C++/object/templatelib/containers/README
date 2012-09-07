@@ -1,0 +1,8 @@
+sequence:
+    vectore, list, deque
+
+associative (with a key):
+    map, multimap, ...
+
+adapter:
+    are not first-class containers, because they do not provide the actual data-structure ommplementation in which elements can be storead ad becaise adadpters do not support iterators

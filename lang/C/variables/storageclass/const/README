@@ -1,0 +1,7 @@
+PRINCIPLE OF LEAST PRIVILEGE
+----------------------------
+const is used to implement the PRINCIPLE OF LEAST PRIVILEGE.
+Some objects need to be modifiable and some do not.
+you may use keyword const to specify that an object IS NOT modifiable and that any attempt to modify 
+the object should result in a compilation error.
+

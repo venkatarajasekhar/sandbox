@@ -1,0 +1,11 @@
+{"map": 
+    "function(doc) { 
+        if (doc.department) 
+            emit(doc.department, doc.salary); 
+    }",
+"reduce": 
+    "function(key, values, rereduce) {
+        var total = sum(values);
+        return Math.round((total/values.length) * 100) /100;
+    }"
+}

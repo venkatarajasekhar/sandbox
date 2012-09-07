@@ -1,0 +1,23 @@
+A friend of a class is a function which can access its private members.
+An instance is passed as an argument of that function 
+ex: setX(counter, 8) instead of counter.setX(8)
+
+!!! A friend function is NOT a member of the class (although it is declared with the class declaration )
+!!! A friend is a C-style, stnad alone function 
+
+Q: Are copy construstructor friend function?
+
+
+!!! Friend function can be overloaded!
+
+FRIENDSHIP
+---------
+Is not symmetric 
+    * If A is friend with B, B may not be friend with A
+
+Is not transitic
+    * If A is friend with B, B is friend with C ==> A is not necessarily friend with C
+
+INHERITANCE
+-----------
+friend function are not inherited because they are not class function member!

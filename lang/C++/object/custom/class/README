@@ -1,0 +1,3 @@
+concrete class: class where object are instantiated
+abstract class: class that provides an interface and using for polymorphosm, but no object is instantiated (pure virtual function)
+base class: class in inheritance

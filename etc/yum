@@ -1,0 +1,6 @@
+yum -y install freemind
+yum -y install xmms
+yum -y install vlc
+
+
+yum -y install youtube-dl

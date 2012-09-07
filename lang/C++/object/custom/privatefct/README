@@ -1,0 +1,2 @@
+Private functions are also called helpers or utility functions!
+Beware const function members can only call const class functions

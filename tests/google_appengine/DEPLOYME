@@ -1,0 +1,123 @@
+Register the application at 
+
+https://appengine.google.com/start
+
+emayssat-cs253-hw1.appspot.com
+emayssat.gae@gmail.com
+
+Application Registered Successfully
+The application will use emayssat-cs253-hw1 as an identifier. This identifier belongs in your application's configuration as well. Note that this identifier cannot be changed. Learn more
+https://developers.google.com/appengine/docs/appcfg
+
+The application uses the High Replication storage scheme. Learn more
+
+If you use Google authentication for your application, 'My blog' will be displayed on Sign In pages when users access your application.
+
+Choose an option below:
+
+    View the dashboard for 'My blog' .
+    https://appengine.google.com/dashboard/nonedeployed?app_id=s~emayssat-cs253-hw1
+
+    Use appcfg to upload and deploy your application code.
+
+    
+    Add administrators to collaborate on this application.
+    https://appengine.google.com/permissions?&app_id=s~emayssat-cs253-hw1
+
+#----------------------------------------------------------------------
+
+#--- Check app location
+
+When you go to the web page: emayssat-cs253-hw1.appspot.com, you should get
+Error: Not Found 
+The requested URL / was not found on this server. 
+
+To the content of the site, i.e. the application:
+edit app.yaml file for the application directory to be submitted
+
+#--- Configuration change
+
+application: emayssat-cs253-hw1			<-- important!
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /.*
+  script: helloworld.app
+
+#--- First deployment
+
+$ python appcfg.py update 002_helloWorld/
+Application: emayssat-cs253-hw1; version: 1
+Host: appengine.google.com
+****************************************************************
+There is a new release of the SDK available.
+-----------
+Latest SDK:
+api_versions: ['1']
+release: 1.7.0
+timestamp: 1337717865
+
+-----------
+Your SDK:
+api_versions: ['1']
+release: 1.6.5
+timestamp: 1332880663
+
+-----------
+Please visit http://code.google.com/appengine for the latest SDK
+****************************************************************
+
+Starting update of app: emayssat-cs253-hw1, version: 1
+Getting current resource limits.
+Email: emayssat.gae@gmail.com
+Password for emayssat.gae@gmail.com: 
+Scanning files on local disk.
+Cloning 2 application files.
+Uploading 1 files and blobs.
+Uploaded 1 files and blobs
+Compilation starting.
+Compilation completed.
+Starting deployment.
+Checking if deployment succeeded.
+Will check again in 1 seconds.
+Checking if deployment succeeded.
+Will check again in 2 seconds.
+Checking if deployment succeeded.
+Will check again in 4 seconds.
+Checking if deployment succeeded.
+Will check again in 8 seconds.
+Checking if deployment succeeded.
+Will check again in 16 seconds.
+Checking if deployment succeeded.
+Will check again in 32 seconds.				<-- be patient !
+Checking if deployment succeeded.
+Deployment successful.
+Checking if updated app version is serving.
+Will check again in 1 seconds.
+Checking if updated app version is serving.
+Will check again in 1 seconds.				<-- be patient ! ;-)
+Checking if updated app version is serving.
+Completed update of app: emayssat-cs253-hw1, version: 1
+
+#--- Verify deployment
+
+http://emayssat-cs253-hw1.appspot.com/
+
+#----------------------------------------------------------------------
+
+The above procedure workds only if the python code is correct otherwise you get the error message:
+Error: Server Error
+The server encountered an error and could not complete your request.
+If the problem persists, please report your problem and mention this error message and the query that caused it.
+
+#----------------------------------------------------------------------
+
+The files were created in the top of my homedir
+
+~/.appcfg_cookies 
+~/.appcfg_nag
+
+

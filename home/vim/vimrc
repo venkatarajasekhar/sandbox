@@ -1,0 +1,231 @@
+"""""
+" VIMRC and VIM Help file
+"
+" .                 : redo last sequence (except undo)
+" u                 : undo 
+" Ctrl-W n          : horizontal split with new file
+" Ctrl-W Ctrl-W     : jump to next window
+" Ctrl-r            : undo undo !
+"
+" :e filename       : In current window open filename (read/write)
+" :r filename       : In current window open filename (read only)
+" :set all          : view all configruation parameters
+" :help
+"
+"input mapping (shortcuts) BEWARE: wait for completion
+"im #-       #----------------------------------------------------------------------
+
+
+"""""""""""""""""""""
+" Keyboard shortcuts
+"""""""""""""""""""""
+"Note that everything on the map line is executed
+"including spaces and comments if not careful
+
+"in insert mode F2 will exit insert, save, enters insert again
+"map <F2> <ESC>:w<CR>i
+
+"In all modes
+"Comments cannot be on the same line
+"map <F1> <C-W>:r  ~/.vimrc
+"map <F3> ^Wn
+":r  ~/.vimrc
+"map <F3> <C-W>
+"F2 will save the file
+"map <F2> :w<CR>
+
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+""let mapleader = ","
+""let g:mapleader = ","
+
+" Fast saving with ,w
+""nmap <leader>w :w!<cr>
+
+"Tab configuration
+""map <leader>tn :tabnew<cr>
+""map <leader>te :tabedit
+""map <leader>tc :tabclose<cr>
+""map <leader>tm :tabmove
+
+
+"Windows
+""map <C-j> <C-W>j
+""map <C-k> <C-W>k
+""map <C-h> <C-W>h
+""map <C-l> <C-W>l
+
+"In normal mode
+"nmap
+"In visual/select mode
+"vmap
+"In operator pending mode
+"omap
+
+
+"""""""""""""""
+" PYTHON FILES
+"""""""""""""""
+
+" @ OPEN
+"automatically increase indentation after those keywords
+autocmd BufRead *.py set autoindent          "Use indentation of previous line
+autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+" @ SAVE
+"remove final spaces
+autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
+
+" insert mode abraviations
+autocmd FileType python inoremap <buffer> $r return
+autocmd FileType python inoremap <buffer> $i import
+autocmd FileType python inoremap <buffer> $p print
+autocmd FileType python inoremap <buffer> $f #--- PH ----------------------------------------------<esc>FP2xi
+
+" normal mode
+autocmd FileType python map <buffer> <leader>1 /class
+autocmd FileType python map <buffer> <leader>2 /def
+autocmd FileType python map <buffer> <leader>C ?class
+autocmd FileType python map <buffer> <leader>D ?def
+
+
+"""""""""""""""
+" C FILES
+"""""""""""""""
+
+" @ OPEN
+"automatically increase indentation after those keywords
+""autocmd BufRead *.c set autoindent          "Use indentation of previous line
+""autocmd BufRead *.c set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+"""""""""""""""
+" C++ FILES
+"""""""""""""""
+
+" @ OPEN
+"automatically increase indentation after those keywords
+""autocmd BufRead *.cpp set autoindent          "Use indentation of previous line
+""autocmd BufRead *.cpp set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+"""""""""""""""
+" abbreviations
+" corrections
+"""""""""""""""
+ab sefl     self
+ab w/       with
+ab #-       #----------------------------------------------------------------------
+
+"""""""""""""""""
+" Tab/Space/Shift
+"""""""""""""""""
+
+set expandtab           "turn tabs into spaces
+set tabstop=4           "tab are 4 spaces
+set softtabstop=4       "delete pseudo tab (4 spaces at once)
+set shiftwidth=4        " Typing >> indent 4 spaces (<< does opposite)
+
+"""""""""""""""""
+" spell checking
+"""""""""""""""""
+
+"set automated spell checking in English
+:setlocal spell spelllang=en
+set spell
+
+"Pressing ,ss will toggle and un-toggle spell checking
+"<leader> has been configured above as the , char
+""map <leader>ss :setlocal spell!<cr>
+""map <leader>sn ]s
+""map <leader>sp [s
+" make suggestion
+""map <leader>s? z=
+" add in dictionary spellfile
+""map <leader>sa zg
+""set spellfile=~/.vim/spellfile.add
+
+" Meta up down for jump to next correction
+""map <M-Down> ]s
+""map <M-Up> [s
+
+""""""""""""""""
+" Appearances
+""""""""""""""""
+
+syntax on               "use color
+""colorscheme evening     "ls -1 /usr/share/vim/vim72/colors/ for list!
+"overwrite color scheme
+highlight LineNr        ctermfg=blue
+"highlight LineNr       ctermfg=white ctermbg=blue cterm=reverse
+"highlight link Define          LineNr
+"set bg=light           "char backgroun is white: adjust colors
+"set bg=dark            "term background is dark: adjust colors 
+
+""set cursorline          "display an annoying line under cursor
+
+set scrolloff=3         "3 lines offset when scrolling up/down
+
+set number              "line numbering on 
+"set nonumber           "line numbering off
+
+set wrap!               "turn off word wrapping
+"set wrap               "turn on word wrapping
+""set wrapmargin=2        "wrap is less that 2 char away from margin
+
+""set mouse=a             "allow mouse in term (may not work!)
+
+set showmatch           "show closing bracket when on oen bracket, etc
+set vb t_vb=            "visual bell
+
+""set lines=80            "reset terminal size
+""set columns=100         "reset terminal size
+
+set ruler               "show current position
+
+" Format the statusline
+"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
+""set laststatus=2
+
+"function! CurDir()
+"    let curdir = substitute(getcwd(), '/Users/emayssat/', "~/", "g")
+"    return curdir
+"endfunction
+
+"function! HasPaste()
+"    if &paste
+"        return 'PASTE MODE  '
+"    else
+"        return ''
+"    endif
+"endfunction
+
+
+""""""""""""""
+" SEARCHES
+""""""""""""""
+
+set hlsearch            "highlight search
+set incsearch           "real-time/incremental search
+set noignorecase        "Case for search
+set wrapscan            "If at bottom, start from the top
+
+"space for forward search
+map <space> /<CR>
+"control space for forward search
+""map <C-space> ?<CR>   " (Doesn't seem to work!)
+
+""""""""""""""""""
+" Temporary Files
+""""""""""""""""""
+set backup              "keep a backup file
+"vim backup files and temporaries
+set backupdir=~/.vim/vim-tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
+"location of swap files
+set directory=~/.vim/vim-tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
+
+"""""""""""""""
+" Legacy
+"""""""""""""""
+
+"remove emulation of old bugs
+set nocompatible
+

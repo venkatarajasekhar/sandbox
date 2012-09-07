@@ -1,0 +1,13 @@
+A puclib inheritance
+the derived class imember functions access rights are the same as in the base class 
+
+protected:
+derived class cannot access private data member of base class !!!
+--> protected is a way to keep the data private from the outside world, but to make it accessible to derived class.
+
+!!! protected variables are accessible directly (i.e without using a mutator or accessor)
+==> THERE IS NO VALIDATION OF THE INPUT!
+
+private:
+When to keep member data private? When VALIDATION is required!
+When name of the members is not set in stone (i.e. firstName is renamed first --> you need to go through code of all derived classes)

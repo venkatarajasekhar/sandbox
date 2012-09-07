@@ -1,0 +1,10 @@
+{"map": 
+    "function(doc) { 
+        if (doc.department) 
+            emit(doc.department, 1); 
+    }",
+"reduce": 
+    "function(key, values, rereduce) {
+        return sum(values);
+    }"
+}

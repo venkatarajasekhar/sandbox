@@ -1,0 +1,29 @@
+Array484 (implicit conversion)
+------------------------------
+ANY SINGLE ARGUMENT CONSTRUCTOR CAN BE THOUGHT OF AS A CONVERSION CONTRUCTOR !
+
+The constructor is used sometimes as 'cast' operator,
+If the constructor exist, it can turn an integer into an object.
+UNLESS THE KEYWORD explicit is is specified
+
+explicit Array(int = 10)
+
+Check explicit in .../C++/command/explicit
+
+Default constructor
+-------------------
+A default constructor is a constructor that can be run without any parameters (no parameters or all paramters have default values)
+
+If a class DOES explicitly include a constructor, a default constructor is NOT provided.
+If an explicit constructor exist and all of its parameters have default values, then it becomes the default constructor.
+
+!!! In case of inheritance, if there is no default constructor (because a constructor exist but doesn't provide default values)
+then you need to EXPLICTLY call the constructor with default parameters.
+==> That call is done in the member initializer section !!
+
+Inheritance and constructors
+----------------------------
+each classes needs to provide a constructor.
+Constructors are not inherited
+To us a base-class constructor in a derived class constructor, use the base-class constructor INITIALIZER !
+

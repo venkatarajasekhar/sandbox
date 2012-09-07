@@ -1,0 +1,6 @@
+{"map": 
+    "function(doc) { 
+        if (doc.type != \"contact\") return;
+        emit([doc.country, doc.name], {name: doc.firstName, email:doc.email});
+    }",
+}

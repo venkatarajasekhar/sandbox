@@ -1,0 +1,10 @@
+STATIC DATAMEMBER
+static data member is a shared variable by all instantiated objects.
+That static data member is usually private
+An accessor/mutator function are declared as static
+
+STATIC FUNCTION
+A static function can only access static data member
+!!! Not sure whether static functions can be const or not
+!!! Static function do not have 'this' pointer. They can be called without an instance
+i.e: MyClass:MyStaticFunction()

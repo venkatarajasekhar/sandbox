@@ -1,0 +1,5 @@
+namedpipe	- 	using a fifo file
+pipe		-	using a pipe (array of 2 file descriptors)
+semaphore	-	lock for threads
+signals		-	sending and catching signals
+sockets		-	TCP/UDP network communication

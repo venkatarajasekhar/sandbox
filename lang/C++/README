@@ -1,0 +1,16 @@
+C++                             C
+#include <string>		        #include <string.h>                 <-- different
+#include "class.h"              #include "class.h"                  <-- same
+string1 = string2               strcpy(string2, string1)
+int main() { }                  void main() { }
+C array, or vector object       C array only
+const                           #DEFINE                             <-- not really true, but well...
+
+
+TERMINOLOGY
+-----------
+Member function =   method
+Member data     =   instance variable 
+Copy constructor ~ memberwise assignment
+static          <>  automatic variable/object
+

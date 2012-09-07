@@ -1,0 +1,16 @@
+#!/bin/sh -x
+
+printf "\nMAP REDUCE (SQL SELECT)\n"
+curl -X POST http://127.0.0.1:5984/contacts/_temp_view -H "Content-Type: application/json" -d @mapreduce_sqlselect.json
+curl -X POST http://127.0.0.1:5984/contacts/_temp_view\?group=true -H "Content-Type: application/json" -d @mapreduce_sqlselect.json
+curl -X POST http://127.0.0.1:5984/contacts/_temp_view\?startkey=[\"USA\"] -H "Content-Type: application/json" -d @mapreduce_sqlselect.json
+curl -X POST http://127.0.0.1:5984/contacts/_temp_view\?startkey=[\"USA\",{}]\&endkey=[\"USA\",{}] -H "Content-Type: application/json" -d @mapreduce_sqlselect.json
+curl -X POST http://127.0.0.1:5984/contacts/_temp_view\?startkey=[\"USA\",null]\&endkey=[\"USA\",null] -H "Content-Type: application/json" -d @mapreduce_sqlselect.json
+curl -X POST http://127.0.0.1:5984/contacts/_temp_view?startkey=[%22USA%22] -H "Content-Type: application/json" -d @mapreduce_sqlselect.json
+#curl -X POST http://127.0.0.1:5984/contacts/_temp_view?startkey=[\"USA\"]\&endkey=[\"USA\",{}] -H "Content-Type: application/json" -d @mapreduce_sqlselect.json
+
+printf "\nMAP REDUCE (SQL COUNT(*))\n"
+curl -X POST http://127.0.0.1:5984/contacts/_temp_view?group=true -H "Content-Type: application/json" -d @mapreduce_sqlcount.json
+
+printf "\nMAP REDUCE (SQL JOIN)\n"
+curl -X POST http://127.0.0.1:5984/employees/_temp_view -H "Content-Type: application/json" -d @mapreduce_sqljoin.json

@@ -1,0 +1,26 @@
+For python import (Executed in C) you need to have the PYTHONPATH set correctly 
+$ export PYTHONPATH=.:${PYTHONPATH}
+
+What about the __init__ ? Not required apparently!
+
+
+
+bash-4.2$ ./pureembedding mycode  takeAll 01 22 3 4 5 5 6  7 8 
+another arg: 1
+another arg: 22
+another arg: 3
+another arg: 4
+another arg: 5
+another arg: 5
+another arg: 6
+another arg: 7
+another arg: 8
+Result of call: -1
+
+
+More at :
+http://docs.python.org/extending/embedding.html
+http://www.ragestorm.net/tutorial?id=21
+http://www.linuxjournal.com/article/8497?page=0,3
+
+

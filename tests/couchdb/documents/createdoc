@@ -1,0 +1,18 @@
+printf "\nCREATE EMPTY DOCUMENT\n"
+curl -X PUT http://127.0.0.1:5984/contacts/johndoe -d '{}'
+#{"error":"conflict","reason":"Document update conflict."}
+
+printf "\nCREATE AND POPULATE ENTRY\n"
+curl -X PUT http://127.0.0.1:5984/contacts/joelennon -d '{"firstName": "Joe", "lastName":"Lennon","email":"joe@joelennon.ie"}'
+#{"ok":true,"id":"joelennon","rev":"1-5493fc5e79b235b15fc150176a779cf8"}
+
+printf "\nCREATE AND POPULATE ENTRY (with netcat 'nc -l 3333')\n"
+curl -X PUT http://127.0.0.1:3333/contacts/joelennon -d '{"firstName": "Joe", "lastName":"Lennon","email":"joe@joelennon.ie"}'
+# PUT /contacts/joelennon HTTP/1.1
+# User-Agent: curl/7.21.7 (x86_64-redhat-linux-gnu) libcurl/7.21.7 NSS/3.13.3.0 zlib/1.2.5 libidn/1.22 libssh2/1.2.7
+# Host: 127.0.0.1:3333
+# Accept: */*
+# Content-Length: 68
+# Content-Type: application/x-www-form-urlencoded                                                                                                                                                                                              
+#                                                                                                                                                                                                                                             # 
+# {"firstName": "Joe", "lastName":"Lennon","email":"joe@joelennon.ie"}

@@ -1,0 +1,196 @@
+
+Q: what is RESTful web service?
+Use verbs (HTTP protocol or GET, POST, PUT, DELETE, COPY... ) + URL to identify resource to do operation
+A RESTful web service (also called a RESTful web API) is a web service implemented using HTTP and the principles of REST. It is a collection of resources, with four defined aspects:
+the base URI for the web service, such as http://example.com/resources/
+the Internet media type of the data supported by the web service. This is often XML but can be any other valid Internet media type providing that it is a valid hypertext standard.
+the set of operations supported by the web service using HTTP methods (e.g., GET, PUT, POST, or DELETE).
+The API must be hypertext driven.[11][12]
+
+Q: what is CRUD?
+Create, Read, Update, Delete operation
+
+Q: What is JSON?
+A simplified version of XML!
+No XPATH, etc
+
+Q: What is FUTON?
+FUTON is the adminstrator interface to couchdb
+http://127.0.0.1:5984/_utils/database.html?contacts/_temp_view
+
+Q: What is the GET method used for?
+to read information
+
+Q: What is the COPY method used for?
+To copy entries
+
+Q: What is the POST method used for?
+To send information.
+The information is in the body of the send
+Used for views, and record creation
+
+Q: what is the PUT method used for?
+To send information, but
+the information is passed in the URL
+
+DOCUMENTS
+---------
+
+Q: what is a document?
+A document is the equivalent of a row in a RDBMS database.
+A document is a formatted with JSON
+Two columns can have the same key (_id), but they have different revision number
+One overwrites the other
+
+Q: What is the key/id/_id?
+It is the part of the last part of the URL that was used to create the document
+{"id":"a1","key":"a1","value":{"rev":"1-9cd964ec2a49417216f3a913692aa7fa"},"doc":{"_id":"a1","_rev":"1-9cd964ec2a49417216f3a913692aa7fa","name":"Jack Sawyer","salary":30000,"department":"Sales"}},
+was created with
+curl -X PUT http://127.0.0.1:5984/employees/a1 -d '{"name": "Jack Sawyer", "salary":30000,"department":"Sales"}'
+
+Q: what is the maximum length of an entry in a document?
+An entry can be as long as you want.
+For the word count example, the document field content is the content of a speech!
+
+Q: What is the format of the document entries?
+Text only? Or so it seems!
+
+Q: What is the purpose of the _id field?
+In a REST application, this is the part of the URL to get the entry
+
+Q: What are revisions?
+Entries are not deleted/overwritten, but appended like in a log file.
+Beware only the last revision is kept when compacting the db.
+
+Q: What does compacting the db means?
+Reducing the db in size by compressing it?, by removing old revisions of newer entries.
+
+VIEWS
+-----
+
+Q: What is a view?
+Map and reduce
+With FUTON, select the Database and create a temporary view
+A view in couchDb is also a document
+
+Q: How to create a permanent view?
+once a temporary view has been create in FUTTON, use the [Save As] button
+Permanent views are saved in (_design/contacts)
+
+Q: How to access permanent views?
+In the view combo, select the "Design documents"
+Views are also stored in JSON documents!
+{
+   "_id": "_design/custom_views",
+   "_rev": "2-b5ecaec3894e5056bcbf90d3e48db051",
+   "language": "javascript",
+   "views": {
+       "view1": {
+           "map": "function(doc) {\n  emit(doc._id, doc);\n}"
+       },
+       "view2": {
+           "map": "function(doc) {\n  emit(doc._id, doc);\n}"
+       }
+   }
+}
+
+
+MAP REDUCE
+-----------
+
+Q: What does the map function do?
+map function produces a row for each document is processes
+
+function(doc) {
+    emit(doc.name, 1)
+}
+
+doc is the document in JSON format
+doc.name is the value of the name entry in the JSON doc
+!!! emitted key can be arrays 
+!!! emitted values can be JSON
+ex:
+    emit([doc.employee_no, 0], doc)
+
+Q: what does the reduce function do?
+The reduce function produces a single result for all the documents.
+Reduce functions are used to aggregate data
+ex:
+function(keys, values, rereduce) {              
+    return sum(values);
+}
+
+Q: What is the purpose of the rereduce flag?
+If rereduce is false:
+Once the input has entirely been processed by the map function, the reduce function is run for every single key
+keys = list of keys and IDS for each row emitted by the map function?
+values =  an array of the values emitted by the map function (for the specific key?)
+rereduce = false
+
+If rereduce is true:
+The input data is to big. It is split into smaller batches. Several reduce function will run in parallel.
+A cascaded reduce function will take the results from all the previous reduce fct and will summarise the data.
+* the keys argument will be null
+* the values argument will be an array of the RETURNED results produced by the previous invocation of the reduce function.
+
+!!! The type of data in the values argument is always the same, regardless of whether rereduce is true or false
+
+!!! rereduce is set to false with ...?group=true
+!!! FUTON set rereduce to false by default
+
+
+
+Q: How to create the equivalent of a table in NOSQL?
+If table SQL = contacts, then create a type field for each document set as contact
+To query this table then use a map function that starts with:
+function(doc) {
+    if(doc.type!= "contact") return;
+    emit([doc.country, doc.name], {name:doc.name, email: doc.email});
+}
+
+SQL TO MAPREDUCE
+-----------------
+
+Q: Transform SQL SELECT statement in map reduce?
+
+SELECT id, name, email FROM contacts WHERE country = 'USA' ORDER BY name
+method: POST    <-- always for views!
+map function:
+function(doc) {
+    if(doc.type!= "contact") return;
+    emit([doc.country, doc.name], {name:doc.name, email: doc.email});
+}
+reduce:
+-
+view's URI:
+...?startkey=["USA",{}]&endkey=["USA",{}]
+
+SELECT COUNT(*), country FROM contacts GROUP BY country
+method: POST
+map:
+function(doc) {
+    emit(doc.country, 1);
+}
+reduce:
+function(key, values, rereduce) {
+    return sum(values);
+}
+view's URI:
+...?group=true
+
+Q: How to have several tables?
+Use a field called type that will be the name of the table.
+Then in map reduce you can filter on this field.
+
+Q: How to do a join between 2 tables?
+Use a view collaboration !
+Assuming that you have several document types (~sql table)
+
+map:
+function(doc) {
+    if(doc.type == "employee")
+        emit([doc.employee_no, 0], doc);
+    if (doc.type == "payslip")
+        emit([doc.employee_no,1],doc);
+}
+

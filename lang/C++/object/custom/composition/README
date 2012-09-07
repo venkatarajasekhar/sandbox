@@ -1,0 +1,13 @@
+Composition 
+* An object include other objects
+* those included object can be initialized with initilizers!
+    * if no initializer is provide, the object is initialized by the DEFAULT CONSTRUCTOR
+    * if there is no default constructor ==> Compilation error
+
+
+BEST PRACTICE
+-------------
+If a class member is an object of another class (as hireDate for employee)
+that object should still be private, ike all other data members.
+(Otherwise id does violate the encapsulation and hiding of the containing class's implementation)
+(i.e. user wil lbe tempted to interact directly with that object)

@@ -1,0 +1,30 @@
+bash-4.2$ ./getopt -a 
+0
+welcome
+bash-4.2$ ./getopt -b
+0
+welcome
+bash-4.2$ ./getopt -ab
+1
+usage: . . . 
+bash-4.2$ ./getopt -ab -o 
+Option -o requires an operand
+2
+usage: . . . 
+bash-4.2$ ./getopt -ab -o toto
+1
+usage: . . . 
+bash-4.2$ ./getopt -a -o toto
+0
+welcome
+
+
+
+
+
+
+bash-4.2$ ./getopt_long -c toto
+option -c with value `toto'
+bash-4.2$ ./getopt_long --create toto
+option -c with value `toto'
+

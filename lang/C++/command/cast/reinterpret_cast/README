@@ -1,0 +1,5 @@
+WHat is a random access file?
+A file where you can access records, and just and edit without changing its size
+
+With a reinterpret_cast, you just change the type of the pointer ! 
+==> ??? impact on POLYMORPHISM ???

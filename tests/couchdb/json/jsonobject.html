@@ -1,0 +1,46 @@
+<html><body>
+<h1>My cars</h1>
+
+<script type="text/javascript">
+    // var could be from couchdb database !!!
+    var cars = [ 
+    {
+        make: "Ford",
+        model: "mustang",
+        year: 2009,
+        engine: { gas_type: "Petrol", cubic_capacity:4600 },
+        current_owner: { name: "Joe", mileage: 500 },
+        previous_owners: [
+            { name: "toto", mileage: 1000},
+            { name: "tata", mileage: 1400}
+        ]
+    },
+    {
+        make: "Renault",
+        model: "309",
+        year: 2009,
+        engine: { gas_type: "Petrol", cubic_capacity:4600 },
+        current_owner: { name: "Joe", mileage: 500 },
+        previous_owners: [
+            { name: "toto", mileage: 1000},
+            { name: "tata", mileage: 1400}
+        ]
+    }
+    ]
+
+    for (i in cars) {                                           // index and not object !
+        var mileage_total = cars[i].current_owner.mileage;
+        document.write('<hr/>');
+        document.write('<h2>' + cars[i].make + ' ' + cars[i].model + '</h2>');
+        for (j in cars[i].previous_owners) {
+            mileage_total += cars[i].previous_owners[j].mileage;
+        }
+        document.write('<strong>Total mileage: </strong> ' + mileage_total);
+    }
+
+</script>
+
+
+
+
+</body></html>

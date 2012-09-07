@@ -1,0 +1,25 @@
+char	-	A single byte (8bits). Signed unless specified as unsigned
+int	-	An integer which is typically the size of native integer values on the host system. 
+		Commonly found in either 16 or 32 bit sizes. Signed unless spcified as unsigned
+float	-	A single-precision floating-point value, typically expressed in 32bits (4 bytes). Always signed
+double	-	A double-precision floating-point value, typically expressed in 64bits (8 bytes). Always signed.
+
+unsigned char	-	1 byte 	-	0 to 255
+signed char	-	1	-	-128 to 127
+char		-	1	-	-128 to 127
+short(int)	-	2	-	-32768 to 32767
+unsigned short(int)	2	-	0 to 65535
+unsigned int	-	4	-	0 to 4 294 967 295
+signed int		4
+int			4
+unsigned long		4
+long (int)		4
+float		-	4	-	approximately +-3.4Er+_-38
+double		-	8	-	approximately +-1.789 E+-308
+long double	-	12	-	(Note 12 bytes, not 16)
+
+/usr/include/sys/types.h
+------------------------
+typdefef signed short int16_t;
+typedef unsigned short uint16_t;
+

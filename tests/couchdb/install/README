@@ -1,0 +1,19 @@
+Install: 
+yum install couchdb
+
+TO START
+--------
+terminal1 $ couchdb
+terminal2 $ curl http://127.0.0.1:5984
+
+RUN TEST SUITE
+---------------
+terminal3 $ firfox http://127.0.0.1:5984/_utils             <-- admin web interface, aka FUTON
+Go in the Test suite tab
+Click on [Run All]                                          <-- will run the test once by one!
+
+PYTHON INSTERFACE
+-----------------
+easy_install couchdb
+easy_install simplejson
+easy_install couchapp

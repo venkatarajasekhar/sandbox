@@ -1,0 +1,36 @@
+In C++ most operators can be overloaded.
+Except . .* :: ?:
+
+!!! The precedence of an operator cannot be changed by overloading
+!!! The associativity of an operator cannot ve changed by overloading
+!!! You cannot change the number of operands an operator takes
+!!! You cannot create new operators. Only existing operators can be overloaded
+!!! Related operators, like + and += must be overloaded separately
+
+When the LHS class cannot be modified, then modify RHS class a follow
+cin >> phone >> ...         is equivalent to                   istream &operator>>(cin, phone)          friend function (non member)
+cout << phone << ...                                           ostream &operator<<(cout, phone)         friend
+
+When the LHS class can be modified
+y < z                       is equivalent to                            y.operator<(z)                  member function
+phone << cout;              is equivalent to                            phone.operator<<(cout)          member function 
+phone >> cin;                                                           phone.operator>>(cin)           member function 
+
+
+!!! overload operator can return an object FOR CASCADING (ex: << )
+
+
+
+!!! The overloaded function returned value is what the operation can be replaced by
+
+
+COMMUTATITIVITY
+----------------
+If operation is commuitative, you must implement the memeber function and a friend function (which calls the member function)
+
+
+CAST OPERATION
+--------------
+static_cast<char *>(s)      is equivalent to                            s.operator char* ()
+int(7.3)                    is equivalent to                            double(7.3).operator int()
+OtherClass(object)          is                                          object.operator OtherClass()

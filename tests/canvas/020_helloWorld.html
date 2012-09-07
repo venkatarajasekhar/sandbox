@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script>
+      window.onload = function() {
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+        // draw stuff here
+        context.font ="40pt CAlibri";
+        context.fillStyle = "black";
+        context.textAlign = "center";
+        context.textBaseline = "middle";
+        //context.filleText("Hello World!", canvas.width / 2, 120);
+        context.strokeText("Hello World!", canvas.width / 2, 120);
+      };
+    </script>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="578" height="200" style="border:1px solid black";>
+    </canvas>
+  </body>
+</html>

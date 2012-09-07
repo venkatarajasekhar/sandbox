@@ -1,0 +1,19 @@
+REFERENCE PURPOSE
+-----------------
+Used to pass object to member functions (methods)
+ex: copy constructor!
+
+
+==> The return value as a reference means that the object.method() can be changed as if the object was there in place
+
+
+
+
+POOR PROGRAMMING PRACTICE
+--------------------------
+
+A public function return a reference to private data.
+The private data can be changed by using the reference as a lvalue ( lvalue = rvalue)
+
+!!! private data should not be accessible to outside of class/instance
+

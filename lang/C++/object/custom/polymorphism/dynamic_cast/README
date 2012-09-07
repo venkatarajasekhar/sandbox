@@ -1,0 +1,3 @@
+dynamic_cast is used to find the class of the object that the poymorphism is using 
+
+This is also known as downcasting 

@@ -1,0 +1,6 @@
+http://www.thegeekstuff.com/2011/12/c-socket-programming/
+
+Start server on port 5000
+$ tcp_server &
+$ tcp_client 172.0.0.1
+the client will print the date send by the server

@@ -1,0 +1,119 @@
+#PATH for binary used herein
+PATH=/bin:/usr/bin
+
+#TOP DIR for all other dir
+MAILDIR=$HOME/Mail
+LOGFILE=$HOME/.procmail.log
+VERBOSE=yes
+
+
+# Executed sequentially until original mail is stored
+# (Check man procmailex for examples)
+#
+# :0 [flags] [ : [locallockfile] ]
+# <zero or more conditions (one per line)>
+# <exactly one action line>
+
+
+# action:
+# ! Forwards to all the specified mail addresses
+# | 
+# { Start of nesting block
+
+# Make a backup of everything...
+# Copy the new mails in the backup dir
+:0 c
+backup_2011
+
+:0:
+* ^from.*firewall@lynceantech.com
+firewall
+
+:0:
+* ^Subject:.*beagleboard
+lists/beagleboard
+
+:0:
+* ^Subject:.*comedi
+lists/comedi
+
+:0:
+* ^Subject:.*Qt-interest
+lists/qt
+
+:0:
+* ^Subject:.*PyQt
+lists/pyqt
+
+:0:
+* ^Subject:.*svlug
+lists/svlug
+
+:0:
+* ^TOsupd-members
+lists/stanford
+
+:0:
+* ^TOtech-talk@aps.anl.gov
+lists/epics
+
+:0:
+* ^Subject:.*Lcms-users
+lists/lcms
+#:0:
+#* ^(From|Cc:|To:) lcms-user@lists.sourceforge.net
+#lists/lcms
+
+:0:
+* ^Subject:.*ts-7000
+lists/ts7000
+
+:0:
+* ^TOmplayer-users@mplayerhq.hu
+lists/mplayer
+
+
+
+#:0:
+#* ^Subject:.*test
+#test
+
+##:0
+##* ^From.*peter
+##* ^Subject:.*compilers
+##{
+  ##:0 c
+  ##! william@somewhere.edu
+##
+  ##:0
+  ##petcompil
+##}
+
+:0 c
+* ^FROM_MAILER
+postmaster
+
+
+#Store  all  the messages about meetings in a folder that is in a direc-
+#tory that changes every month.  E.g.  if  it  were  January  1994,  the
+#folder  would have the name ‘94-01/meeting’ and the locallockfile would
+#be ‘94-01/meeting.lock’.
+#The same as above, but, if the ‘94-01’ directory wouldn’t have existed,
+#it is created automatically:
+
+##MONTHFOLDER=‘date +%y-%m‘
+
+# Create dir and don't stop here!
+# Suppress program failure message also
+##:0 Wic
+##* ? test ! -d $MONTHFOLDER
+##| mkdir $MONTHFOLDER
+
+##:0:
+##* meeting
+##${MONTHFOLDER}/meeting
+
+# Delete all but toe last 32 messages
+# i: ignore any write error on the recipe
+#:0 ic
+#| cd backup && rm -f dummy ‘ls -t msg.* | sed -e 1,32d‘

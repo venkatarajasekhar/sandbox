@@ -1,0 +1,4 @@
+#!/bin/sh -x
+
+printf "\nMAP REDUCE 1 (error: wrong method!)\n"
+curl -X POST http://127.0.0.1:5984/employees/_temp_view?key=32000 -H "Content-Type: application/json" -d @mapreduce_01.json

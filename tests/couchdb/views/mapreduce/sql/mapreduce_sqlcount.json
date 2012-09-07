@@ -1,0 +1,11 @@
+{
+"map": 
+    "function(doc) { 
+        emit(doc.country, 1);
+    }",
+"reduce":
+    "function(key, values, rereduce) {
+        return sum(values);
+    }"
+        
+}

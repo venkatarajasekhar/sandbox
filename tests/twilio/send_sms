@@ -1,0 +1,8 @@
+#!/bin/sh -x
+
+curl -X POST https://api.twilio.com/2010-04-01/Accounts/ACdaa8389a97ef660fee9551bbc1c0b8c6/SMS/Messages.json    \
+    -u ACdaa8389a97ef660fee9551bbc1c0b8c6:5a2acea6e48720371dea9d42d23f0c79                                      \
+    -d "From=+16502823427"                                                                                      \
+    -d "To=+16507930626"                                                                                        \
+    -d "Body=Hello Emmanuel"
+

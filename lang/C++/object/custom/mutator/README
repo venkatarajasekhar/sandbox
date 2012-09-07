@@ -1,0 +1,6 @@
+mutator are set-function
+* they usually include input validation
+* they throw an invalid_argument exception 
+
+accessor are get-function
+* are usually declared const 

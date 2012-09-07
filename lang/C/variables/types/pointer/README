@@ -1,0 +1,9 @@
+*p_pointer  is called deferencing a pointer
+&value      is called 
+value       is called a 
+pointer     is called 
+
+referencing a value through a pointer is called INDIRECTION
+
+&           is called address operator
+*           is called the indirection operator or deferencing operator

@@ -1,0 +1,16 @@
+bash-4.2$ ./ccat file.in 
+======= TOKEN BY TOKEN ======
+>user_1_foo<
+>70<
+>user_2_bar<
+>98<
+======== LINE BY LINE =======
+>user_1_foo 70
+<
+>user_2_bar 98
+<
+
+======== SYSTEM CALLS =======
+user_1_foo 70
+user_2_bar 98
+
