@@ -1,3 +1,8 @@
 #/bin/sh
 
-ping -c 3 23.22.188.214
+#ping -c 3 23.22.188.214
+#
+# is able to ping self
+# is not able to be pinged from remote host (check firewall policy)
+ping -c 3 50.17.252.189
+
