@@ -1,0 +1,27 @@
+pip install -U boto
+
+or 
+
+tar xzf http://boto.googlecode.com/files/boto-1.9b.tar.gz
+cd boto-1.9b
+python setup.py install
+
+BOTO DOCUMENTATION
+------------------
+
+http://code.google.com/p/boto/
+https://github.com/boto/boto
+
+CONFIGURE SECUFIRY CRED
+-----------------------
+On account page, select security credentials
+Find the access key ID
+
+In /etc/boto.cfg and ~/.boto 
+
+[Credentials]
+aws_access_key_id = {ACCESS KEY ID}
+aws_secret_access_key = {SECRET ACCESS KEY}
+
+
+
