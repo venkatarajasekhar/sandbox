@@ -1,0 +1,6 @@
+#!/bin/sh
+
+
+ssh -N -L 9000:loclahost:5984 ubuntu@50.17.252.189
+
+# 
