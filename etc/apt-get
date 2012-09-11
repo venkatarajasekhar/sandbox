@@ -2,3 +2,8 @@
 
 sudo apt-get install git
 sudo apt-get install easy_install
+
+#Couchdb
+sudo apt-get install couchdb
+sudo apt-get install simplejson
+sudo apt-get install couchapp
