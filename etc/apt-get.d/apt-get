@@ -1,0 +1,12 @@
+#!/bin/bash
+
+sudo apt-get install git
+sudo apt-get install easy_install
+sudo apt-get install make
+
+sudo apt-get install xpdf
+
+#Couchdb
+sudo apt-get install couchdb
+sudo apt-get install simplejson
+sudo apt-get install couchapp
