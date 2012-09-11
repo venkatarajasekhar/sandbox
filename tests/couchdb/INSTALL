@@ -1,9 +1,19 @@
-Install: 
+Install 
+---------
+
 yum install couchdb
+
+PYTHON INSTERFACE
+-----------------
+easy_install couchdb
+easy_install simplejson
+easy_install couchapp
 
 TO START
 --------
-terminal1 $ couchdb
+terminal1 $ su -c 'couchdb'
+Password:
+
 terminal2 $ curl http://127.0.0.1:5984
 
 RUN TEST SUITE
@@ -12,8 +22,7 @@ terminal3 $ firfox http://127.0.0.1:5984/_utils             <-- admin web interf
 Go in the Test suite tab
 Click on [Run All]                                          <-- will run the test once by one!
 
-PYTHON INSTERFACE
------------------
-easy_install couchdb
-easy_install simplejson
-easy_install couchapp
+LOG FILE
+--------
+/var/log/couchdb/couch.log
+

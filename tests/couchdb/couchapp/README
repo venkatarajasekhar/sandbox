@@ -1,1 +1,5 @@
 Join other CouchApp devs http://groups.google.com/group/couchapp
+
+easy_install couchdb
+easy_install simplejson
+easy_install couchapp
