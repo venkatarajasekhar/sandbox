@@ -1,0 +1,14 @@
+Server SSHD configuration file is 
+* /etc/ssh/sshd_config   
+
+Client SSH configuration file is
+* /etc/ssh/ssh_config
+
+
+COMMAND LINE
+------------
+Options from the client side.
+
+ssh -o TCPKeepAlive=no -o ServerAliveInterval=15 ....
+
+
