@@ -1,8 +1,12 @@
 #!/bin/bash
 
+sudo apt-get install apt-file
+apt-file update                         # Update database of files
+
 sudo apt-get install git
 sudo apt-get install easy_install
 sudo apt-get install make
+
 
 sudo apt-get install xpdf
 
