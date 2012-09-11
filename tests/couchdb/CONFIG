@@ -1,0 +1,11 @@
+ouchDB listens on the 5984 port by default                                                                                                                                                                                                  
+CouchDB only binds to localhost. It's not pre-configured for outside access by default.                                                                                                                                                      
+                                                                                                                                                                                                                                             
+Configuration file at                                                                                                                                                                                                                        
+/etc/couchdb                                                                                                                                                                                                                                 
+/etc/couchdb/default.ini                                                                                                                                                                                                                     
+/etc/couchdb/local.ini                                                                                                                                                                                                                       
+                                                                                                                                                                                                                                             
+LOG FILE                                                                                                                                                                                                                                     
+/var/log/couchdb/couch.log
+
