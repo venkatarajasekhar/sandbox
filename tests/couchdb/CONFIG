@@ -1,0 +1,2 @@
+CouchDB listens on the 5984 port by default
+CouchDB only binds to localhost. It's not pre-configured for outside access by default.

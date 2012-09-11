@@ -1,9 +1,13 @@
-Install: 
+Install 
+---------
+
 yum install couchdb
 
 TO START
 --------
-terminal1 $ couchdb
+terminal1 $ su -c 'couchdb'
+Password:
+
 terminal2 $ curl http://127.0.0.1:5984
 
 RUN TEST SUITE
