@@ -1,0 +1,2 @@
+To start a replication process, use futon and select the origin database (local or remote) 
+and select the destination database (local only).

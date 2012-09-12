@@ -8,7 +8,8 @@ the set of operations supported by the web service using HTTP methods (e.g., GET
 The API must be hypertext driven.[11][12]
 
 Q: what is CRUD?
-Create, Read, Update, Delete operation
+Create, Read, Update, Delete which are database operations.
+Those operations are mapped with the HTTP protocol.
 
 Q: What is JSON?
 A simplified version of XML!
