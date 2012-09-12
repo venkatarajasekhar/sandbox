@@ -1,6 +1,13 @@
-yum -y install freemind
-yum -y install xmms
-yum -y install vlc
+#!/usr/bin/sudo /bin/sh
 
+opt="-y"
 
-yum -y install youtube-dl
+yum $opt install freemind
+yum $opt install xmms
+yum $opt install xmms-mp3
+yum $opt install vlc
+yum $opt install youtube-dl
+yum $opt install choqok
+
+yum $opt python-numpy
+
