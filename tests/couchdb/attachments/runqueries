@@ -1,0 +1,9 @@
+#!/bin/sh -x
+
+#printf "\nSHOW (error: POST = wrong method!)\n"
+#curl -X POST http://127.0.0.1:5984/contacts/_temp_view -H "Content-Type: application/json" -d @shows_01.json
+# {"error":"method_not_allowed","reason":"Only POST allowed"}
+
+printf "\nATTACH IMAGE  (artwork.jpg)\n"
+curl -vX PUT http://127.0.0.1:5984/albms/6e1295ed6c29495e54cc05947f18c8af/ artwork.jpg?rev=2-2739352689 \
+    --data-binary @artwork.jpg -H "Content-Type: image/jpg" 
