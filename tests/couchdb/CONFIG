@@ -16,5 +16,8 @@ To fix this, open futon and at the bottom right click 'Fix this'.
 This operation will prompt you on for a username and password that will be given administration rights.
 Note that this operation make the REST interface require authentication.
 
+You can create several administrators.
+Note that the list of administrators is available by clicking on the Configuration tab.
+
 
 
