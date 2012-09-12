@@ -16,6 +16,6 @@
 # You will be prompted for the password of the ubuntu@50.17.252.189
 # to make sure you can log in
 
-ssh -i ~/ssh/awskey.pem -N -L 5984:localhost:5984 ubuntu@50.17.252.189
+ssh -i ~/ssh/awskey.pem -N -L 5984:localhost:5984 ubuntu@50.17.252.189 -o TCPKeepAlive=no -o ServerAliveInterval=15
 
 # Seemless couchdb. Appears as local when indeed is remote!
