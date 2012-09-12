@@ -1,0 +1,9 @@
+#!/bin/sh
+
+sudo add-apt-repository  ppa:couchapp/couchapp
+
+sudo apt-get update
+
+
+# Note to remove a repository, use
+# add-apt-repository --remove ppa:couchapp/couchapp
