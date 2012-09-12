@@ -1,11 +1,18 @@
 
 Q: what is RESTful web service?
-Use verbs (HTTP protocol or GET, POST, PUT, DELETE, COPY... ) + URL to identify resource to do operation
+Use verbs (HTTP protocol or GET, POST, PUT, DELETE, COPY, HEAD... ) + URL to identify resource to do operation
 A RESTful web service (also called a RESTful web API) is a web service implemented using HTTP and the principles of REST. It is a collection of resources, with four defined aspects:
 the base URI for the web service, such as http://example.com/resources/
 the Internet media type of the data supported by the web service. This is often XML but can be any other valid Internet media type providing that it is a valid hypertext standard.
 the set of operations supported by the web service using HTTP methods (e.g., GET, PUT, POST, or DELETE).
 The API must be hypertext driven.[11][12]
+
+GET: request the specified database, document, design doc, or other object or functionality.
+HEAD : get header only
+POST: Upload or send data
+PUT: Used to put a specified resource with a specified ID or other identifier
+DELETE: Deletes the specified resource, including documents, views, and design documents.
+COPY: A specified method that can be used to copy documents and objects.
 
 Q: what is CRUD?
 Create, Read, Update, Delete which are database operations.
@@ -65,6 +72,14 @@ Beware only the last revision is kept when compacting the db.
 
 Q: What does compacting the db means?
 Reducing the db in size by compressing it?, by removing old revisions of newer entries.
+
+Q: What do we submit the rev in the DELETE operation URL?
+A: Because the beginning URL 
+http://localhost:5984/recipes/lasagne 
+refers to several documents + fail safe
+curl -H 'Content-type: application/json'
+    -X DELETE http://localhost:5984/recipes/lassagne?rev=2-234j234234u23iu43423
+{"ok":true, "id":"lasagne","rev":"3-efsd fsdfsdfsdf"}
 
 VIEWS
 -----
@@ -142,10 +157,10 @@ A cascaded reduce function will take the results from all the previous reduce fc
 
 
 Q: How to create the equivalent of a table in NOSQL?
-If table SQL = contacts, then create a type field for each document set as contact
+If table SQL = contacts, then create a schema field for each document set as contact
 To query this table then use a map function that starts with:
 function(doc) {
-    if(doc.type!= "contact") return;
+    if(doc.schema!= "contact") return;
     emit([doc.country, doc.name], {name:doc.name, email: doc.email});
 }
 
@@ -158,7 +173,7 @@ SELECT id, name, email FROM contacts WHERE country = 'USA' ORDER BY name
 method: POST    <-- always for views!
 map function:
 function(doc) {
-    if(doc.type!= "contact") return;
+    if(doc.schema!= "contact") return;
     emit([doc.country, doc.name], {name:doc.name, email: doc.email});
 }
 reduce:
@@ -180,12 +195,12 @@ view's URI:
 ...?group=true
 
 Q: How to have several tables?
-Use a field called type that will be the name of the table.
+Use a field called schema or type that will be the name of the table.
 Then in map reduce you can filter on this field.
 
 Q: How to do a join between 2 tables?
 Use a view collaboration !
-Assuming that you have several document types (~sql table)
+Assuming that you have several document schema-types (~sql table)
 
 map:
 function(doc) {
@@ -194,4 +209,17 @@ function(doc) {
     if (doc.type == "payslip")
         emit([doc.employee_no,1],doc);
 }
+
+
+JSON
+----
+
+Q: Which types does JSON support?
+JSON supports the same basic types as supported by Javascript
+
+Number
+String:     { "from": "Joe Blog" }
+Boolean:    { "value": true}
+Array:      { "tags": ["one", "two", "three"] }
+Object:     { "servings" : 4, "cooktime":60, "title": "Chicken Coriander" }
 
