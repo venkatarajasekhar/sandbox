@@ -1,0 +1,8 @@
+#!/bin/sh -x
+
+printf "\nSHOW (error: POST = wrong method!)\n"
+curl -X POST http://127.0.0.1:5984/contacts/_temp_view -H "Content-Type: application/json" -d @shows_01.json
+# {"error":"method_not_allowed","reason":"Only POST allowed"}
+
+printf "\nSHOW (test)\n"
+curl -X GET http://127.0.0.1:5984/contacts/_temp_view -H "Content-Type: application/json" -d @shows_01.json
