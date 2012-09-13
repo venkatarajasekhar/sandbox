@@ -43,8 +43,8 @@ the information is passed in the URL
 
 Q: Difference between PUT and POST?
 curl -X PUT     http://127.0.0.1:5984/contacts
-PUT is like creating a file for the first time
-POST is for overwritting that file once created.
+PUT is like creating a file for the FIRST time. If the file exist, then it fails
+POST is for overwritting that file once created. If the file doesn't exist --> fail
 
 ADMIN
 -----
@@ -79,6 +79,10 @@ It is the part of the last part of the URL that was used to create the document
 was created with
 curl -X PUT http://127.0.0.1:5984/employees/a1 -d '{"name": "Jack Sawyer", "salary":30000,"department":"Sales"}'
 
+Q: What is the minimum numbers of fields in a document?
+Two = the id and the revision number.
+curl -X POST http://127.0.0.1:5984/bsic -d '{}'
+
 Q: what is the maximum length of an entry in a document?
 An entry can be as long as you want.
 For the word count example, the document field content is the content of a speech!
@@ -104,6 +108,20 @@ curl -H 'Content-type: application/json'
     -X DELETE http://localhost:5984/recipes/lassagne?rev=2-234j234234u23iu43423
 {"ok":true, "id":"lasagne","rev":"3-efsd fsdfsdfsdf"}
 
+SHOW & LIST
+-----------
+
+Q: How to create applications?
+In couchdb, application are document.
+For instance, the blog application, SOfa, is stored in a design document with the ID _design/sofa
+
+The static HTML pages of our application are served as attachments to the design document.
+Views and validation however are directly included in the design document's JSON body.
+
+Q: What are show and list functions?
+Show & list functions transform any document into any format
+Those are a little like action in the traditional web frameworks-- they run some code based on a request and render response.
+
 VIEWS
 -----
 
@@ -113,7 +131,7 @@ With FUTON, select the Database and create a temporary view
 A view in couchDb is also a document
 
 Q: How to create a permanent view?
-once a temporary view has been create in FUTTON, use the [Save As] button
+Once a temporary view has been create in FUTTON, use the [Save As] button
 Permanent views are saved in (_design/contacts)
 
 Q: How to access permanent views?
@@ -133,15 +151,30 @@ Views are also stored in JSON documents!
    }
 }
 
+Q: How to query the view?
+curl http://127.0.0.1:5984/basic/_design/custom_views/view1
+??? curl http://127.0.0.1:5984/basic/_design/designdocname/_view/view1 ???
 
-MAP REDUCE
------------
+Q: What happens when a view is queried?
+If it is the first time, the B-tree is built and all documents are parsed.
+If it is the second time, the B-tree is updated with the documents that have changed since last run.
+
+
+VIEWS AND MAP REDUCE
+--------------------
+
+Q: What are views used for?
+* Filter the documents in your database to find those relevant to a particular process
+* Extract data from documents and presenting it in a specific order
+* Build efficient indexes to find documents by any value or structure that resides in them
+* Use these indexes to represent relatinoships among documents
+* Make calculations on the data in the documents
 
 Q: What does the map function do?
 map function produces a row for each document is processes
 
 function(doc) {
-    emit(doc.name, 1)
+    emit(doc.name, 1)                                           <-- emit(key, value)
 }
 
 doc is the document in JSON format
@@ -177,7 +210,18 @@ A cascaded reduce function will take the results from all the previous reduce fc
 !!! rereduce is set to false with ...?group=true
 !!! FUTON set rereduce to false by default
 
+Q: What are the result of a view?
+CouchDb takes what you pass into the emit() function and puts it into a list.
+Each row in that list include the key and value
+More importantly the list is SORTED by key
 
+Q: How does the view work?
+The view is run on every document... the first time.
+If a document is changed, the map function is only run once, to recompute the keys and values for that single document.
+
+
+SQL TO MAPREDUCE
+-----------------
 
 Q: How to create the equivalent of a table in NOSQL?
 If table SQL = contacts, then create a schema field for each document set as contact
@@ -187,11 +231,7 @@ function(doc) {
     emit([doc.country, doc.name], {name:doc.name, email: doc.email});
 }
 
-SQL TO MAPREDUCE
------------------
-
 Q: Transform SQL SELECT statement in map reduce?
-
 SELECT id, name, email FROM contacts WHERE country = 'USA' ORDER BY name
 method: POST    <-- always for views!
 map function:
@@ -246,3 +286,25 @@ Boolean:    { "value": true}
 Array:      { "tags": ["one", "two", "three"] }
 Object:     { "servings" : 4, "cooktime":60, "title": "Chicken Coriander" }
 
+
+ATTACHEMENTS
+------------
+
+
+Q: How to send an attachment?
+This can be done 2 ways: inline or offline.
+Inline means at the creation of the document
+Offline means after the document has been created.
+Beware that the offline method copies the original document and create a new one (as if inline'd!)
+
+Q: How to get an attachment?
+HTTP protocol 
+GET /database/attachment_doc is document
+GET /database/attachment_doc/attachment.jpg is attached image file
+
+UPDATE AND FILTER
+-----------------
+
+Q: What are _update JSON entries?
+With and _update handler, you can POST XML directly in couchdb and it will parse the XML into JSON document and save it.
+The same goes for CSV, multi-part form, or any other format.
