@@ -9,20 +9,26 @@
 # profile.jpg is the fiel to be attached
 # profile.jpg is a JPEG file
 
-printf "\nOFFLINE ATTACHiMENT OF AN IMAGE  (profile.jpg)\n"
-#curl -vX PUT ${COUCH_URI}/employees/johnlennon/profile.jpg?rev=1-263755682bbbebb54ca288f011e1f381                      \
+printf "\nPUT OFFLINE ATTACHMENT (profile.jpg)\n"
 
-curl -vX PUT ${COUCH_URI}/employees/johnlennon/                             \
-    profile.jpg?rev=1-263755682bbbebb54ca288f011e1f381                      \
+curl -X PUT ${COUCH_URI}/employees/joeattach -H "Content-Type: application/json" -d @attach_01.json 
+curl -X GET ${COUCH_URI}/employees/joeattach 
+
+curl -vX PUT ${COUCH_URI}/employees/joeattach/profile.jpg?rev=1-5b8d8a614233a30625888c97c32b1778                      \
     --data-binary @profile.jpg                                              \
     -H "Content-Type: image/jpg" 
 
+curl -X GET ${COUCH_URI}/employees/joeattach 
+
+# Adding an attachment offline create a new document (new revision)
+# {"_id":"joeattach","_rev":"2-5de164e05efaedf3bf437f41febb4b34","_attachments":{"profile.jpg":{"content_type":"image/jpg","revpos":2,"length":12356,"stub":true}}}
+
 
 #Attached with the document
-printf "\nPUT A TEXT INLINE ATTACHMENT (foo.txt)\n"
+printf "\nPUT INLINE ATTACHMENT (foo.txt)\n"
 
-curl -X PUT ${COUCH_URI}/employees/johnattach -H "Content-Type: application/json" -d @attach_01.json
-curl -X PUT ${COUCH_URI}/employees/sallyattach -H "Content-Type: application/json" -d @attach_02.json
+curl -X PUT ${COUCH_URI}/employees/johnattach -H "Content-Type: application/json" -d @attach_02.json
+curl -X PUT ${COUCH_URI}/employees/sallyattach -H "Content-Type: application/json" -d @attach_03.json
 
 printf "\nGET INLINE ATTACHMENT (foo.txt)\n"
 curl -X GET http://username:password@127.0.0.1:5984/employees/johnattach/foo.txt
