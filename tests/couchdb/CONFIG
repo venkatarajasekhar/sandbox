@@ -1,11 +1,18 @@
 ouchDB listens on the 5984 port by default                                                                                                                                                                                                  
-CouchDB only binds to localhost. It's not pre-configured for outside access by default.                                                                                                                                                      
+CouchDB only binds to localhost. 
+It's not pre-configured for outside access by default.                                                                                                                                                      
                                                                                                                                                                                                                                              
 Configuration file at                                                                                                                                                                                                                        
 /etc/couchdb                                                                                                                                                                                                                                 
-/etc/couchdb/default.ini                                                                                                                                                                                                                     
-/etc/couchdb/local.ini                                                                                                                                                                                                                       
-                                                                                                                                                                                                                                             
+/etc/couchdb/default.ini            
+        * distribution configuration file
+        * overwritten with package upgrade
+/etc/couchdb/local.ini              
+        * custom configuration file
+        * overwrite default.ini
+        * not overwritten by upgrade
+        * include admin password
+
 LOG FILE                                                                                                                                                                                                                                     
 /var/log/couchdb/couch.log
 
@@ -19,10 +26,25 @@ Note that this operation make the REST interface require authentication.
 You can create several administrators.
 Note that the list of administrators is available by clicking on the Configuration tab.
 
-URL become http://username:pass@remotehost:5984/demo
+URL become http://username:password@remotehost:5984/demo
 
 The _users database is also updated with a new entry for each administrator.
 It seems also that test_suite_db and test_suite_db/with_slashes databases are created.
+
+CREATE SEVERAL ADMIN
+--------------------
+
+To have several admin, you need to log into futon as an admin and click on 
+[setup more admins]
+at the bottom right of the page.
+
+CREATE USERS
+------------
+
+Users can be created using Futon with the
+[Signup]
+page also available at the bottom right
+when logged out.
 
 
 

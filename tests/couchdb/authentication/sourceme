@@ -1,3 +1,6 @@
-export COUCH_LOGIN=emayssat@<password>@
+export COUCH_URI=http://username:password@127.0.0.1:5984
+
+curl -X PUT     ${COUCH_URI}/dbase__
+curl -X DELETE  ${COUCH_URI}/dbase__
 
 

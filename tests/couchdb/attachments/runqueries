@@ -1,9 +1,16 @@
 #!/bin/sh -x
 
-#printf "\nSHOW (error: POST = wrong method!)\n"
-#curl -X POST http://127.0.0.1:5984/contacts/_temp_view -H "Content-Type: application/json" -d @shows_01.json
-# {"error":"method_not_allowed","reason":"Only POST allowed"}
 
-printf "\nATTACH IMAGE  (artwork.jpg)\n"
-curl -vX PUT http://127.0.0.1:5984/albms/6e1295ed6c29495e54cc05947f18c8af/ profile.jpg?rev=2-2739352689 \
-    --data-binary @profile.jpg -H "Content-Type: image/jpg" 
+
+
+# You need to specify the type, so the browser can render it when downloaded
+# 6e1295ed6c29495e54cc05947f18c8af is the document you want to attach the file to
+# 2-2739352689 is the revision of that document
+# profile.jpg is the fiel to be attached
+# profile.jpg is a JPEG file
+
+printf "\nATTACH IMAGE  (profile.jpg)\n"
+curl -vX PUT http://127.0.0.1:5984/albms/6e1295ed6c29495e54cc05947f18c8af/  \
+    profile.jpg?rev=2-2739352689                                            \
+    --data-binary @profile.jpg                                              \
+    -H "Content-Type: image/jpg" 

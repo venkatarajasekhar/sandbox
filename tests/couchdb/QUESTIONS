@@ -41,6 +41,29 @@ Q: what is the PUT method used for?
 To send information, but
 the information is passed in the URL
 
+Q: Difference between PUT and POST?
+curl -X PUT     http://127.0.0.1:5984/contacts
+PUT is like creating a file for the first time
+POST is for overwritting that file once created.
+
+ADMIN
+-----
+
+Q: How do you create a administrator?
+Create an entry in the /etc/couchdb/local.ini file, and restart the couchdb demon.
+This last operation hash the clear password in the configuration file.
+The password could also have been hashed before entry.
+
+DATABASE
+--------
+
+Q: What is the format of database names?
+Only lowercase characters (a-z), digits (0-9), and any of the characters _, $, (, ), +, -, and / are allowed. 
+Must begin with a letter.
+curl -X PUT     http://127.0.0.1:5984/contacts
+curl -X DELETE  http://127.0.0.1:5984/contacts
+
+
 DOCUMENTS
 ---------
 
