@@ -1,0 +1,36 @@
++ printf \nATTACH IMAGE  (profile.jpg)\n
+
+ATTACH IMAGE  (profile.jpg)
++ curl -vX PUT http://username:password@127.0.0.1:5984/employees/johnlennon/ profile.jpg?rev=1-263755682bbbebb54ca288f011e1f381 --data-binary @profile.jpg -H Content-Type: image/jpg
+* About to connect() to 127.0.0.1 port 5984 (#0)
+*   Trying 127.0.0.1...   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0connected
+* Server auth using Basic with user 'username'
+> PUT /employees/johnlennon/ HTTP/1.1
+> Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+> User-Agent: curl/7.22.0 (x86_64-pc-linux-gnu) libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+> Host: 127.0.0.1:5984
+> Accept: */*
+> Content-Type: image/jpg
+> Content-Length: 12356
+> Expect: 100-continue
+> 
+< HTTP/1.1 100 Continue
+} [data not shown]
+< HTTP/1.1 400 Bad Request
+< Server: CouchDB/1.0.1 (Erlang OTP/R14B)
+< Date: Thu, 13 Sep 2012 19:47:03 GMT
+< Content-Type: text/plain;charset=utf-8
+< Content-Length: 54
+< Cache-Control: must-revalidate
+* HTTP error before end of send, stop sending
+< 
+{ [data not shown]
+100 12410  100    54  100 12356  14925  3335k --:--:-- --:--:-- --:--:-- 4022k
+* Closing connection #0
+* getaddrinfo(3) failed for profile.jpg:80
+* Couldn't resolve host 'profile.jpg'
+* Closing connection #0
+curl: (6) Couldn't resolve host 'profile.jpg'
+{"error":"bad_request","reason":"invalid UTF-8 JSON"}

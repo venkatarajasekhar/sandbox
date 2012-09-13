@@ -10,7 +10,9 @@
 # profile.jpg is a JPEG file
 
 printf "\nATTACH IMAGE  (profile.jpg)\n"
-curl -vX PUT http://127.0.0.1:5984/albms/6e1295ed6c29495e54cc05947f18c8af/  \
-    profile.jpg?rev=2-2739352689                                            \
+#curl -vX PUT ${COUCH_URI}/employees/johnlennon/profile.jpg?rev=1-263755682bbbebb54ca288f011e1f381                      \
+
+curl -vX PUT ${COUCH_URI}/employees/johnlennon/                             \
+    profile.jpg?rev=1-263755682bbbebb54ca288f011e1f381                      \
     --data-binary @profile.jpg                                              \
     -H "Content-Type: image/jpg" 
