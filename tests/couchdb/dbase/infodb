@@ -1,3 +1,5 @@
-curl -X GET http://127.0.0.1:5984/_users
-curl -X GET http://127.0.0.1:5984/contacts
-curl -X GET http://127.0.0.1:5984/books
+#!/bin/sh -x
+
+curl -X GET ${COUCH_URI}/_users
+curl -X GET ${COUCH_URI}/contacts
+curl -X GET ${COUCH_URI}/books
