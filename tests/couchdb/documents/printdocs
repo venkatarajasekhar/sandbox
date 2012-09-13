@@ -3,39 +3,39 @@
 printf "\nCONTACT DATABASE\n"
 
 printf "\nGET EMPTY ENTRY\n"
-curl -X GET http://127.0.0.1:5984/contacts/johndoe
+curl -X GET ${COUCH_URI}/contacts/johndoe
 # {"_id":"johndoe","_rev":"3-5570e8bbb34412db757c2df4bfa1099b"}
 
 printf "\nGET NON RXISTING\n"
-curl -X GET http://127.0.0.1:5984/contacts/toto
+curl -X GET ${COUCH_URI}/contacts/toto
 # {"error":"not_found","reason":"missing"}
 
 printf "\nGET NORMAL ENTRY\n"
-curl -X GET http://127.0.0.1:5984/contacts/joelennon
+curl -X GET ${COUCH_URI}/contacts/joelennon
 # {"_id":"joelennon","_rev":"1-32273fce7b3c666c9a28ee3d5731d963","firstName":"Joe","lastName":"Lennon","email":"joe@joelennon.ie"}
 
 
 # from copy
 printf "\nGET AFTER COPY\n"
-curl -X GET http://127.0.0.1:5984/contacts/johnsmith
+curl -X GET ${COUCH_URI}/contacts/johnsmith
 # {"_id":"joelennon","_rev":"1-32273fce7b3c666c9a28ee3d5731d963","firstName":"Joe","lastName":"Lennon","email":"joe@joelennon.ie"}
 
 # get all docs
 printf "\nGET ALL DOCS (ascending)\n"
-curl -X GET http://127.0.0.1:5984/contacts/_all_docs
+curl -X GET ${COUCH_URI}/contacts/_all_docs
 
 printf "\nGET ALL DOCS (descending + limit=2 + content)\n"
-curl -X GET http://127.0.0.1:5984/contacts/_all_docs?descending=true\&limit=2\&include_docs=true
+curl -X GET ${COUCH_URI}/contacts/_all_docs?descending=true\&limit=2\&include_docs=true
 
 printf "\nGET ALL DOCS (including deleted)\n"
-curl -X GET http://127.0.0.1:5984/contacts/_all_docs_by_seq
-curl -X GET http://127.0.0.1:5984/contacts/_changes
+curl -X GET ${COUCH_URI}/contacts/_all_docs_by_seq
+curl -X GET ${COUCH_URI}/contacts/_changes
 
 printf "\nGET ALL DOCS (ascending + content)\n"
-curl -X GET http://127.0.0.1:5984/contacts/_all_docs?include_docs=true
+curl -X GET ${COUCH_URI}/contacts/_all_docs?include_docs=true
 
 printf "\nSPEECHES DATABASE\n"
-curl -X GET http://127.0.0.1:5984/speeches/_all_docs?include_docs=true
+curl -X GET ${COUCH_URI}/speeches/_all_docs?include_docs=true
 
 printf "\nEMPLOYEES DATABASE\n"
-curl -X GET http://127.0.0.1:5984/employees/_all_docs?include_docs=true
+curl -X GET ${COUCH_URI}/employees/_all_docs?include_docs=true

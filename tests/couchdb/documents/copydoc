@@ -1,3 +1,6 @@
-curl -X COPY http://127.0.0.1:5984/contacts/joelennon -H "DEstination: johnsmith"
+#!/bin/sh -x
+
+
+curl -X COPY ${COUCH_URI}/contacts/joelennon -H "Destination: johnsmith"
 # {"id":"johnsmith","rev":"1-5493fc5e79b235b15fc150176a779cf8"}
 

@@ -1,9 +1,12 @@
+#!/bin/sh -x
+
+
 printf "\nCREATE EMPTY DOCUMENT\n"
-curl -X PUT http://127.0.0.1:5984/contacts/johndoe -d '{}'
+curl -X PUT ${COUCH_URI}/contacts/johndoe -d '{}'
 #{"error":"conflict","reason":"Document update conflict."}
 
 printf "\nCREATE AND POPULATE ENTRY\n"
-curl -X PUT http://127.0.0.1:5984/contacts/joelennon -d '{"firstName": "Joe", "lastName":"Lennon","email":"joe@joelennon.ie"}'
+curl -X PUT ${COUCH_URI}/contacts/joelennon -d '{"firstName": "Joe", "lastName":"Lennon","email":"joe@joelennon.ie"}'
 #{"ok":true,"id":"joelennon","rev":"1-5493fc5e79b235b15fc150176a779cf8"}
 
 printf "\nCREATE AND POPULATE ENTRY (with netcat 'nc -l 3333')\n"
