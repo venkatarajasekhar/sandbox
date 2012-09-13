@@ -1,0 +1,12 @@
+{
+  "_id":"attachment_doc",
+  "_attachments":
+  {
+    "foo.txt":
+    {
+      "content_type":"text\/plain",
+      "data": "SWwgZXRhaXQgdW5lIGZvaXMsIA0KdW5lIG1hcmNoYW5kZSBkZSBmb2llDQpxdWkgc2UgZGl0IG1h
+IGZvaQ0KLi4uLg=="
+    }
+  }
+}
