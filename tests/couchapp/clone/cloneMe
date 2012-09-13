@@ -1,5 +1,6 @@
-#!/bin/sh -x
+#!/bin/sh 
 
-couchapp clone http://jchrisa.net/drl/_design/sofa
+printf "GITHUB has most up to date version\n"
+#couchapp clone http://jchrisa.net/drl/_design/sofa
 #2012-09-13 23:45:12 [INFO] http://jchrisa.net/drl/_design/sofa cloned in sofa
 
