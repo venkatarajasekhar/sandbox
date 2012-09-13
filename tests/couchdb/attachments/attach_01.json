@@ -1,0 +1,11 @@
+{
+  "_id":"attachment_doc",
+  "_attachments":
+  {
+    "foo.txt":
+    {
+      "content_type":"text\/plain",
+      "data": "VGhpcyBpcyBhIGJhc2U2NCBlbmNvZGVkIHRleHQ="
+    }
+  }
+}
