@@ -1,0 +1,8 @@
+#!/bin/sh
+
+couchapp --help
+
+couchapp version
+
+printf "Checking couchapp is installed..."
+
