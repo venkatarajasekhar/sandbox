@@ -1,5 +1,0 @@
-#!/bin/sh -x
-
-
-firefox http://127.0.0.1:5984/thirdapp/_design/example/index.html
-
