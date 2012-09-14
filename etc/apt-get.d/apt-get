@@ -5,6 +5,7 @@ apt-file update                         # Update database of files
 
 sudo apt-get -y install git
 sudo apt-get -y install make
+sudo apt-get -y install tree
 
 #Utilities
 sudo apt-get -y install xpdf
