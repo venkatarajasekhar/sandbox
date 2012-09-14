@@ -1,3 +1,9 @@
+RESTful 
+-------
+
+Q: what is CRUD?
+Create, Read, Update, Delete which are database operations.
+Those operations are mapped with the HTTP protocol.
 
 Q: what is RESTful web service?
 Use verbs (HTTP protocol or GET, POST, PUT, DELETE, COPY, HEAD... ) + URL to identify resource to do operation
@@ -8,46 +14,43 @@ the set of operations supported by the web service using HTTP methods (e.g., GET
 The API must be hypertext driven.[11][12]
 
 GET: request the specified database, document, design doc, or other object or functionality.
+GET: used to read information
 HEAD : get header only
 POST: Upload or send data
+POST: To send infomration. The info is in the body of the send (<>PUT). Used for views and record creation.
 PUT: Used to put a specified resource with a specified ID or other identifier
+PUT: Used to send information, but the information is passed in the URL
 DELETE: Deletes the specified resource, including documents, views, and design documents.
 COPY: A specified method that can be used to copy documents and objects.
-
-Q: what is CRUD?
-Create, Read, Update, Delete which are database operations.
-Those operations are mapped with the HTTP protocol.
-
-Q: What is JSON?
-A simplified version of XML!
-No XPATH, etc
-
-Q: What is FUTON?
-FUTON is the adminstrator interface to couchdb
-http://127.0.0.1:5984/_utils/database.html?contacts/_temp_view
-
-Q: What is the GET method used for?
-to read information
-
-Q: What is the COPY method used for?
-To copy entries
-
-Q: What is the POST method used for?
-To send information.
-The information is in the body of the send
-Used for views, and record creation
-
-Q: what is the PUT method used for?
-To send information, but
-the information is passed in the URL
 
 Q: Difference between PUT and POST?
 curl -X PUT     http://127.0.0.1:5984/contacts
 PUT is like creating a file for the FIRST time. If the file exist, then it fails
 POST is for overwritting that file once created. If the file doesn't exist --> fail
 
+JSON
+----
+
+Q: What is JSON?
+A simplified version of XML!
+No XPATH, etc
+
+Q: Which types does JSON support?
+JSON supports the same basic types as supported by Javascript
+
+Number
+String:     { "from": "Joe Blog" }
+Boolean:    { "value": true}
+Array:      { "tags": ["one", "two", "three"] }
+Object:     { "servings" : 4, "cooktime":60, "title": "Chicken Coriander" }
+
+
 ADMIN
 -----
+
+Q: What is FUTON?
+FUTON is the adminstrator interface to couchdb
+http://127.0.0.1:5984/_utils/database.html?contacts/_temp_view
 
 Q: How do you create a administrator?
 Create an entry in the /etc/couchdb/local.ini file, and restart the couchdb demon.
@@ -67,11 +70,26 @@ curl -X DELETE  http://127.0.0.1:5984/contacts
 DOCUMENTS
 ---------
 
-Q: what is a document?
+Q: What is a document?
 A document is the equivalent of a row in a RDBMS database.
 A document is a formatted with JSON
 Two columns can have the same key (_id), but they have different revision number
 One overwrites the other
+
+Q: WHat is the smallest document I can create?
+curl -X PUT http://127.0.0.1:5984/employees/johntaylor -d '{}'
+2 fields are created _id and _rev
+
+Q: What is the purpose of the _id field?
+In a REST application, this is the part of the URL to get the entry
+_id: If I store something in CouchDB, it creates the _id and returns it to me
+_id: I can use the _id to build the URL where I can get my something back.
+
+Q: What are _rev revisions?
+_rev describes a version of a document
+Each change creates a new document version (that again is self-contained) and updates the _rev
+Entries are not deleted/overwritten, but appended like in a log file.
+Beware only the last revision is kept when compacting the db.
 
 Q: What is the key/id/_id?
 It is the part of the last part of the URL that was used to create the document
@@ -90,13 +108,6 @@ For the word count example, the document field content is the content of a speec
 Q: What is the format of the document entries?
 Text only? Or so it seems!
 
-Q: What is the purpose of the _id field?
-In a REST application, this is the part of the URL to get the entry
-
-Q: What are revisions?
-Entries are not deleted/overwritten, but appended like in a log file.
-Beware only the last revision is kept when compacting the db.
-
 Q: What does compacting the db means?
 Reducing the db in size by compressing it?, by removing old revisions of newer entries.
 
@@ -106,7 +117,12 @@ http://localhost:5984/recipes/lasagne
 refers to several documents + fail safe
 curl -H 'Content-type: application/json'
     -X DELETE http://localhost:5984/recipes/lassagne?rev=2-234j234234u23iu43423
-{"ok":true, "id":"lasagne","rev":"3-efsd fsdfsdfsdf"}
+{"ok":true, "id":"lasagne","rev":"3-efsd fsdfsdfsdf"}A
+
+Q: Why when updating I need to provide a _rev ?
+Because couchdb will then know what version you have been working against.
+If the update that is submitted is not on the lastest rev, then your change is not accepted!
+This is in case of concurrent updates from several clients.
 
 SHOW & LIST
 -----------
@@ -273,18 +289,6 @@ function(doc) {
         emit([doc.employee_no,1],doc);
 }
 
-
-JSON
-----
-
-Q: Which types does JSON support?
-JSON supports the same basic types as supported by Javascript
-
-Number
-String:     { "from": "Joe Blog" }
-Boolean:    { "value": true}
-Array:      { "tags": ["one", "two", "three"] }
-Object:     { "servings" : 4, "cooktime":60, "title": "Chicken Coriander" }
 
 
 ATTACHEMENTS

@@ -1,5 +1,5 @@
 #!/bin/sh -x
 
-curl -X PUT http://127.0.0.1:5984/contacts/_design/permviews -d @permviews.json
+curl -X PUT ${COUCH_URI}/contacts/_design/permviews -d @permviews.json
 # {"ok":true,"id":"_design/permviews","rev":"1-80816aafcc14fd5ec6e624917bab4632"}
 
