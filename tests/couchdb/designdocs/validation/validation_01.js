@@ -1,4 +1,4 @@
-function(newDoc, oldDoc, userCtx) {
+function (newDoc, oldDoc, userCtx) {
     function require(field, message) {
         message = message || "Document mist have a " + field;
         if (!newDoc[field]) throw({forbidden: message});

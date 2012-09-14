@@ -1,0 +1,6 @@
+To test javscript, install js for a shell.
+$ js
+js> [] == []
+false                       <-- 2 different objects!
+js> "t" == "t"
+true

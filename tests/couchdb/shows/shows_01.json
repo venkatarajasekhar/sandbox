@@ -1,5 +1,0 @@
-{
-    "shows": {
-        "recipe": "function(doc, req) { retur '<h1>' + doc.title + '</h1>'}"
-    }
-}
