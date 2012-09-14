@@ -16,9 +16,9 @@ To Configure your locla git repositoryi, there are 2 configuration files:
 
 To Setup user name and email (required), password caching (optional), and command aliases (optional)
 
-    git config --global user.name "FirstName.LastName"
-    git config --global user.email "me@domain.com"
-    git config --global credential.helper cache
+    git config --global user.name "Emmanuel.Mayssat"
+    git config --global user.email "emayssat@gmail.com"
+    git config --global credential.helper cache             # cache passwords?
     git config --global alias.st status                     # git st = git status
     git config --global alias.co checkout                   # git co = git checkout
     git config --global alias.rename mv                     # git rename = git mv
