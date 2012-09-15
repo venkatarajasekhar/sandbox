@@ -38,12 +38,53 @@ No XPATH, etc
 Q: Which types does JSON support?
 JSON supports the same basic types as supported by Javascript
 
-Number
+Nulls:      { "Toto": null }
+Number:     { "Density": 5.6e+24 }
 String:     { "from": "Joe Blog" }
 Boolean:    { "value": true}
 Array:      { "tags": ["one", "two", "three"] }
-Object:     { "servings" : 4, "cooktime":60, "title": "Chicken Coriander" }
+List:       { "servings" : 4, "cooktime":60, "title": "Chicken Coriander" }
+Object:     aka List!
 
+There is a subtle but important difference between floating-point numbers and decimals. 
+When you use a number like 15.7, this will be interpreted as 15.699999999999999 by most clients, 
+which may be problematic for your application. i
+For this reason, currency values are usually better represented as strings in JSON. 
+A string like "15.7" will be interpreted as "15.7" by every JSON client.
+
+B-TREE
+-------
+
+Q: What is the internal storage methode of CouchDb
+The nodes of a B-tree have a fixed capacity to contain up to 2k (k is a natural number) index elements 
+and 2k+1 pointers to child nodes.
+A B-tree of order k=2 (min:  2 elements/node, max: 4 elements/node, 5 pointers/node )
+             [    7          16     .  . ]
+               /      |           \
+     [ 1 2 4 5 ]    [ 9 12 . . ]   [ 18 21 . . ]
+
+A B-tree is kept balanced by requiring that all leaf nodes be at the same depth
+A typical B-tree has a single-digit height, even with millions of entries
+
+If 4 elements: only 1 level
+If 5 elements: 1 + 2*2 (split)
+If insert 10 above ==> [9 10 12 . ]      <-- leaf insert
+If insert 6 ==> [1 2 4 5 6] is split in [1 2] and [5 6], 4 is pushed up, or [ 4 7 16 . ]
+Insertion always in leaf and split may be required. A split push up the 'middle' value.
+The node above may need to be split again. If that's the case, the middle value is always pushed upward.
+A root split is the only event which increases the height of a B-tree, and obviously is extremely rare.
+
+Deletion of the just inserted key would result in the original tree.
+Deletion of an index element may cause a node P to contain only k-1 elements. 
+If a sibling node Q (left or right) of P contains only k elements, P and Q are merged. 
+Otherwise P and Q are merged only briefly (now containing more than 2k elements) in main memory 
+and are immediately split again in the middle
+
+Q: Advantage of B-trees over other storage methodes?
+Accessing any part of the tree for reading or writing requires visiting only a few nodes, 
+which translates to a few head seeks (which are what make a hard drive slow), 
+and because the operating system is likely to cache the upper tree nodes anyway, 
+only the seek to the final leaf node is needed.
 
 ADMIN
 -----
@@ -124,8 +165,8 @@ Because couchdb will then know what version you have been working against.
 If the update that is submitted is not on the lastest rev, then your change is not accepted!
 This is in case of concurrent updates from several clients.
 
-SHOW & LIST
------------
+DESIGN DOCUMENTS: SHOW & LIST
+-----------------------------
 
 Q: How to create applications?
 In couchdb, application are document.
@@ -137,9 +178,36 @@ Views and validation however are directly included in the design document's JSON
 Q: What are show and list functions?
 Show & list functions transform any document into any format
 Those are a little like action in the traditional web frameworks-- they run some code based on a request and render response.
+Show: render in html/xml/csv/etc only 1 document
+List: render in html/xml/csv/etc several documents
 
-VIEWS
------
+Q: What is a show function?
+HTTP request + document ---(show function)--> HTTP response !
+
+Q: How to call a show function?
+GET /mydb/_design/mydesign/_show/myshow/72d43a93eb74b5f2
+Note that the document ID (DocID) 72... must exist, otherwise HTTP 500 Internal Server Error response.
+If no doc exist with this ID, the doc in the show function is null!
+==> use wrapper: if (doc !== null) { ... } 
+
+Q: Give me an example of show function
+function(doc, req) {
+    return "<p>toto" + req.urlparam + "!</p>";      <-- can use template here
+}                                                   <-- return a response object (default text/html)
+req is the request URL
+req.urlparam is a parameter from the request URL (and not a document!)
+GET /mydb/_design/mydesign/_show/myshow?urlparam=toto
+doc is the document on which the show function is executed.
+The DocID should also be in the URL.
+
+Q: What does caching (squid) have to do with show/list?
+Show replies can be searched and cached.
+Use the req.urlparam technique sparingly as a document needs to be cached for each param.
+The cache server and couchdb use ETAG to inform each other on whether the cache is up to date 
+or whether the document has changed.
+
+DESIGN DOCUMENTS: VIEWS
+-----------------------
 
 Q: What is a view?
 Map and reduce
@@ -176,8 +244,8 @@ If it is the first time, the B-tree is built and all documents are parsed.
 If it is the second time, the B-tree is updated with the documents that have changed since last run.
 
 
-VIEWS AND MAP REDUCE
---------------------
+DESIGN DOCUMENTS: VIEWS AND MAP REDUCE
+--------------------------------------
 
 Q: What are views used for?
 * Filter the documents in your database to find those relevant to a particular process
@@ -236,8 +304,8 @@ The view is run on every document... the first time.
 If a document is changed, the map function is only run once, to recompute the keys and values for that single document.
 
 
-SQL TO MAPREDUCE
------------------
+DESIGN DOCUMENTS: SQL TO VIEW/MAPREDUCE
+---------------------------------------
 
 Q: How to create the equivalent of a table in NOSQL?
 If table SQL = contacts, then create a schema field for each document set as contact
@@ -289,11 +357,47 @@ function(doc) {
         emit([doc.employee_no,1],doc);
 }
 
+TEMPLATES, FUNCTIONS, AND MACROS
+---------------------------------
+
+Q: What are the possible macros?
+Macro are javascript comments followed by a ! (bang) and macro name.
+Currently only 2 macros?
+// !json template.edit              
+    * followed by path to a file in the couchapp directory (dot notation)
+    * equivalent to: var template.edit = "content of edit.*"
+    * matches files with any extension !!!
+// !json template
+    * var template.edit = "content of edit*"
+    * var template.post = "content of post*"
+
+// !code vendor/couchapp/path.js
+    * followed by js file
+    * equivalent to an C-include
+
+Q: What are templates?
+Templates are used un show and list functions.
+In show function,
+return template(templates.edit, {
+    doc: doc,
+    docid : toJSON((doc && doc._id) || null),
+    blog: blog,
+    assets: assetPath(),
+    ...
+    });
+
+
 
 
 ATTACHEMENTS
 ------------
 
+Q: What is base64?
+All attachments, including binary ones, are transformed into string with the base64 algorithm.
+Base64 encoding schemes are commonly used when there is a need to encode binary data that need to be 
+stored and transferred over media that are designed to deal with textual data. 
+This is to ensure that the data remain intact without modification during transport. 
+Base64 is commonly used in a number of applications including email via MIME, and storing complex data in XML.
 
 Q: How to send an attachment?
 This can be done 2 ways: inline or offline.
@@ -305,6 +409,11 @@ Q: How to get an attachment?
 HTTP protocol 
 GET /database/attachment_doc is document
 GET /database/attachment_doc/attachment.jpg is attached image file
+
+Q: How can I see attachement with FUTON?
+Open the document. Look at the _attachments key.
+Select the attachment you want to open.
+The web browser should be able to open it itself.
 
 UPDATE AND FILTER
 -----------------
