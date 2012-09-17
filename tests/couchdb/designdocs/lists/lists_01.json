@@ -1,0 +1,9 @@
+{
+    "shows": {
+        "recipe": "function(doc, req) { return '<h1>' + doc.title + '</h1>';}"
+    }
+    "lists": {
+        "bar" : "function(head, req) { var row; while(row = getRow()) { ... }}",
+        "zoom" : "function() { return 'zoom!' }",
+    }
+}

@@ -179,7 +179,7 @@ Q: What are show and list functions?
 Show & list functions transform any document into any format
 Those are a little like action in the traditional web frameworks-- they run some code based on a request and render response.
 Show: render in html/xml/csv/etc only 1 document
-List: render in html/xml/csv/etc several documents
+List: render in html/xml/csv/etc the output of a view (several documents)
 
 Q: What is a show function?
 HTTP request + document ---(show function)--> HTTP response !
@@ -205,6 +205,50 @@ Show replies can be searched and cached.
 Use the req.urlparam technique sparingly as a document needs to be cached for each param.
 The cache server and couchdb use ETAG to inform each other on whether the cache is up to date 
 or whether the document has changed.
+
+Q: What is the format of a lists function?
+function(head, req) { 
+    var row; 
+    send("<html>");                                 <-- send chunk of HTML
+    while (row = getRow()) { 
+        var userConf = renderUserConf(row);
+        send(userConf);                                 <-- send another chunk of HTML
+        ... 
+    }
+}
+with 
+head ~= { total_rows: 10 , offset: 0 }
+req = {
+        "info": {
+            "db_name": "test_suite_db", 
+            "doc_count":11,
+            "doc_del_count": 0,
+            ...
+            "disk_format_version":4
+        },
+        ...
+        "method": GET,
+        "path": [...],
+        "query": {"foo", "bar" },                       <-- ?foo=bar in query string
+        "headers": { ... }
+        "body": "undefined",
+        "form": {},
+        "userCtx": { "db": "test_suite_db", "name": null, "roles": [_admin"]}
+    }
+
+GET /db/_design/foo/_list/list-name/view-name
+
+Q: Can a list be used with several views?
+A list function that renders blog comments in the Atom XML format
+the same list can be rerun against a global view of recent comments.
+run against an individual comment feeds for each post
+run against an entire site
+
+GET /db/_design/sofa/_view/recent-posts?descending=true&limit=10                <-- the view
+GET /db/_design/sofa/_list/index/recent-posts?descending=true&limit=10          <-- the list (JSON to HTML)
+GET /db/_design/sofa/_list/index/recent-posts?descending=true&limit=10&format=atom      <-- the list (JSON to atom XML)
+         
+
 
 DESIGN DOCUMENTS: VIEWS
 -----------------------
@@ -238,6 +282,8 @@ Views are also stored in JSON documents!
 Q: How to query the view?
 curl http://127.0.0.1:5984/basic/_design/custom_views/view1
 ??? curl http://127.0.0.1:5984/basic/_design/designdocname/_view/view1 ???
+GET /db/_design/sofa/_view/recent-posts?descending=true&limit=10
+GET /db/_design/sofa/_list/index/recent-posts?descending=true&limit=10
 
 Q: What happens when a view is queried?
 If it is the first time, the B-tree is built and all documents are parsed.
@@ -363,17 +409,19 @@ TEMPLATES, FUNCTIONS, AND MACROS
 Q: What are the possible macros?
 Macro are javascript comments followed by a ! (bang) and macro name.
 Currently only 2 macros?
-// !json template.edit              
+// !json templates.edit                                                     <-- templates/edit.xxx is a file 
     * followed by path to a file in the couchapp directory (dot notation)
-    * equivalent to: var template.edit = "content of edit.*"
+    * equivalent to: var templates.edit = "content of edit.*"
     * matches files with any extension !!!
-// !json template
+// !json templates                                                          <-- templates is a directory
     * var template.edit = "content of edit*"
     * var template.post = "content of post*"
 
 // !code vendor/couchapp/path.js
+// !code vendor/couchapp/template.js
     * followed by js file
     * equivalent to an C-include
+    * include javascript function in code
 
 Q: What are templates?
 Templates are used un show and list functions.
@@ -386,6 +434,8 @@ return template(templates.edit, {
     ...
     });
 
+Q: How to call a document entry in the template file?
+<h1><%= title %></h1> is the title field in the document
 
 
 
