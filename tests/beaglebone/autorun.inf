@@ -1,0 +1,8 @@
+[Autorun]
+shellexecute=README.htm
+icon=Docs\beagle.ico
+label=BeagleBone Getting Started
+
+[DeviceInstall]
+DriverPath=Drivers\Windows\FTDI
+DriverPath=Drivers\Windows\RNDIS
