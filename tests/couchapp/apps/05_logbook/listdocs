@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# get all docs
+printf "\nGET ALL DOCS (ascending)\n"
+curl -X GET ${COUCH_URI}/logbook/_all_docs
+
+printf "\nGET ALL DOCS (descending + limit=2 + content)\n"
+curl -X GET ${COUCH_URI}/logbook/_all_docs?descending=true\&limit=2\&include_docs=true
+
+printf "\nGET ALL DOCS (including deleted)\n"
+curl -X GET ${COUCH_URI}/logbook/_all_docs_by_seq
+curl -X GET ${COUCH_URI}/logbook/_changes
+
+printf "\nGET ALL DOCS (ascending + content)\n"
+curl -X GET ${COUCH_URI}/logbook/_all_docs?include_docs=true

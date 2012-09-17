@@ -22,4 +22,5 @@ sudo apt-get -y install simplejson
 sudo easy_install  couchapp
 
 # 
-sudo apt-get -y install nodejs                  # Include js , a Javscript shell/debugger
+sudo apt-get -y install node                  # Include js , a Javscript shell/debugger
+#sudo apt-get -y install nodejs                  # Include js , a Javscript shell/debugger

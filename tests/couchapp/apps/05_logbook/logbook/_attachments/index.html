@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Example CouchApp</title>
+    <title>Logbook</title>
     <link rel="stylesheet" href="style/main.css" type="text/css">
   </head>
   <body>
     <div id="account"></div>
 
-    <h1>Example CouchApp</h1>
+    <h1>Logbook</h1>
 
     <div id="profile">
     </div>
     <div id="content"></div>
 
     <div id="sidebar">
+        <!--
       <p>Edit welcome message.</p>
       <p>Ideas: You could easily turn this into a photo sharing app, 
           or a grocery list, or a chat room. <a href="https://github.com/couchapp/example">Code for this app is on Github.</a></p>
+        -->
     </div>
   </body>
   <script src="/_utils/script/sha1.js"></script>
@@ -37,13 +39,16 @@
         </div>
       </div>
       <form id="create-message">
-        <label>New message from {{nickname}}: <input type="text" name="message" size=60 value=""></label>
+        <label>New message from {{nickname}}: <input name="message" size=60 value=""></label>
+        <!-- 
+            <label>New message from {{nickname}}: <textarea name="message" cols=60 rows="3"></textarea></label>
+        -->
       </form>
       <div style="clear:left;"></div>
   </script>
 
   <script id="recent-messages" type="text/x-mustache" charset="utf-8">
-        <h3>Recent Messages</h3>
+        <h3>Recent Log Entries</h3>
         <ul id="items">
           {{#items}}
             <li>
