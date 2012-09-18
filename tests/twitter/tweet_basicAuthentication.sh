@@ -4,7 +4,7 @@ _DEBUG=false
 USERNAME=”ouchmaster”
 PASSWORD=”---mypass---”
 
-URL=http://twitter.com/statuses/update.xml
+TWITTER_API_URL=http://twitter.com/statuses/update.xml
 
 while getopts ":dp:u:" opt; do
     case $opt in
@@ -24,8 +24,8 @@ $_DEBUG && {
 }
 
 
-#result=`curl -u $USERNAME:$PASSWORD -d status=”$1″ $URL`
-result=`curl -u $USERNAME:$PASSWORD -d status=”$@″ $URL`
+#result=`curl -u $USERNAME:$PASSWORD -d status=”$1″ $TWITTER_API_URL`
+result=`curl --basic --user $USERNAME:$PASSWORD -data status=”$@″ $TWITTER_API_URL`
 
 exit 0
 
