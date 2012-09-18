@@ -1,0 +1,4 @@
+#!/bin/sh -x
+
+
+curl ${COUCH_URI}/logbook
