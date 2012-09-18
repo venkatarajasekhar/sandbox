@@ -1,0 +1,4 @@
+Q: What is the file organization in an couchApp?
+The files are organized based on the JSON structure of the design document.
+For example
+_design/logbook/_attachment ~ _design/logbook { "_attachment": { } ... }
