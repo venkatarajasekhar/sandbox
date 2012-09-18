@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh -x
 
 _DEBUG=false
 USERNAME=”ouchmaster”
@@ -24,7 +24,8 @@ $_DEBUG && {
 }
 
 
-result=`curl -u $USERNAME:$PASSWORD -d status=”$1″ $URL`
+#result=`curl -u $USERNAME:$PASSWORD -d status=”$1″ $URL`
+result=`curl -u $USERNAME:$PASSWORD -d status=”$@″ $URL`
 
 exit 0
 
