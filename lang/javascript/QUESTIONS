@@ -1,3 +1,10 @@
+Q: How to debug Javscript code?
+From a terminal with js
+
+Q: What are javascript object?
+var currentTime = new Date()
+var month = currentTime.getMonth()
+
 Q: When is the Javascript code run?
 The HTML page is loaded first and received from top to bottom./
 The <script></script> protion is run as it is received.
