@@ -17,24 +17,24 @@ $(function() {
         return o;
     };
 
-    var path = unescape(document.location.pathname).split('/'),
+    var path = unescape(document.location.pathname).split('/'),                     // declare 3 vars = 3 parts of URL
         design = path[3],
         db = $.couch.db(path[1]);
-    function drawItems() {
-        db.view(design + "/recent-items", {
+    function drawItems() {                                                          // drawItem function definition
+        db.view(design + "/recent-items", {                                         // query database with view
             descending : "true",
-            limit : 50,
+            limit : 50,                                                             // view paramters
             update_seq : true,
-            success : function(data) {
+            success : function(data) {                                              // callback function to run with query results
                 setupChanges(data.update_seq);
-                var them = $.mustache($("#recent-messages").html(), {
+                var them = $.mustache($("#recent-messages").html(), {               // build html using mustache
                     items : data.rows.map(function(r) {return r.value;})
                 });
-                $("#content").html(them);
+                $("#content").html(them);                                           // insert the html in the page
             }
         });
     };
-    drawItems();
+    drawItems();                                                                    // call drawItem function defined above
     var changesRunning = false;
     function setupChanges(since) {
         if (!changesRunning) {
@@ -50,17 +50,17 @@ $(function() {
                 profileReady : function(profile) {
                     $("#create-message").submit(function(e){
                         e.preventDefault();
-                        var form = this, doc = $(form).serializeObject();
-                        doc.created_at = new Date();
-                        doc.profile = profile;
-                        db.saveDoc(doc, {success : function() {form.reset();}});
+                        var form = this, doc = $(form).serializeObject();           // serialize form (name: value)
+                        doc.created_at = new Date();                                // add creation date to doc
+                        doc.profile = profile;                                      // save creator's profile in doc
+                        db.saveDoc(doc, {success : function() {form.reset();}});    // write new doc (in JSON format) in database
                         return false;
-                    }).find("input").focus();
+                    }).find("input").focus();                                       // put focus on input/linedit
                 }
             });
         },
         loggedOut : function() {
-            $("#profile").html('<p>Please log in to see your profile.</p>');
+            $("#profile").html('<p>Please log in to see your profile.</p>');        // if not logged in, then display this message
         }
     });
  });
