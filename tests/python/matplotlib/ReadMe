@@ -1,0 +1,43 @@
+
+#----------------------------------------------------------------------
+# HOW TO CREATE AND CALL THE PLOT LOCATED AT X,Y
+#----------------------------------------------------------------------
+
+
+From the matplotlib documentation:
+
+    If the figure already has a subplot with key (args, kwargs) then it will simply make that subplot current and return it.
+
+Here's an example:
+
+import matplotlib.pyplot as plt
+
+fig = plt.figure()  
+for vplot in [1,2,3]:
+    ax = fig.add_subplot(3,1,vplot)
+    ax.plot(range(10),range(10))
+
+ax_again = fig.add_subplot(3,1,2)
+ax_again.annotate("The middle one",xy=(7,5),xytext=(7,5))
+
+plt.show()
+
+The middle plot is called again so that it can be annotated.
+
+What if I set the background with my original call, do I need to set it again when I get the subplot the second time?
+
+Yes. The arguments and keywords for the original call are used to make a unique identifier. So for the figure to generate this unique identifier again, you need to pass the same arguments (grid definition, position) and keywords again. For example:
+
+import matplotlib.pyplot as plt
+
+fig = plt.figure()  
+ax = fig.add_subplot(2,1,1,axisbg='red')
+ax.plot(range(10),range(10))
+ax = fig.add_subplot(2,1,2)
+ax.plot(range(10),range(10))
+
+ax_again = fig.add_subplot(2,1,1,axisbg='red')
+ax_again.annotate("The top one",xy=(7,5),xytext=(7,5))
+
+plt.show()
+
