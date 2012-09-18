@@ -1,0 +1,7 @@
+Q: What is the purpose of jquery?
+Simplify Javascript when it comes to interaction 
+
+Q: What is the $ sign?
+$ is just a name.
+Names in Javascript can contain dollar signs, and can consist of just a dollar sign.
+There's nothing special about the dollar sign, except that jQuery defines a function called $
