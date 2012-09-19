@@ -7,7 +7,7 @@
     <body>
         <div id="account"></div>
 
-        <h1>Example CouchApp</h1>
+        <h1>Logbook</h1>
 
         <div id="profile">
         </div>
@@ -44,16 +44,22 @@
     </script>
 
     <script id="recent-messages" type="text/x-mustache" charset="utf-8">
-        <h3>Recent Messages</h3>
+        <h3>Recent Log Entries</h3>
         <ul id="items">
-            {{#items}}
+            {{#items}}                                          <!-- for each item uses this template -->
             <li>
-                <div class="avatar">
-                {{#gravatar_url}}<img src="{{gravatar_url}}" alt="{{name}}"/>{{/gravatar_url}}
-                    <div class="name">
-                        {{nickname}}
+                <!--<div class="logentry-meta"> -->
+                    <div class="avatar">
+                    {{#gravatar_url}}<img src="{{gravatar_url}}" alt="{{name}}"/>{{/gravatar_url}}
+                        <div class="name">
+                            {{nickname}}
+                        </div>
                     </div>
-                </div>
+                 <!--   <div class="timestamp">
+                        {{date}}
+                        {{time}}
+                    </div>
+                </div> -->
                 <p>{{message}}</p>
                 <div style="clear:left;"></div>
             </li>

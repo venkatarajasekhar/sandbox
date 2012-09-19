@@ -17,6 +17,7 @@ h1 {
     background:#fee;
     padding:8px;
     margin-bottom:8px;
+    display: none;
 }
 
 #content {
@@ -74,6 +75,13 @@ div.avatar img {
     width : 40px;
     height : 40px;
 }
+
+
+div.timestamp {
+    padding-top:2px;
+}
+
+
 
 ul {
     list-style: none;

@@ -1,9 +1,9 @@
 // Apache 2.0 J Chris Anderson 2011
 $(function() {   
     // friendly helper http://tinyurl.com/6aow6yn
-    $.fn.serializeObject = function() {
+    $.fn.serializeObject = function() {                                             // define a function to serialize an object
         var o = {};
-        var a = this.serializeArray();
+        var a = this.serializeArray();                                              // this is the object on which serializeObject is attached to
         $.each(a, function() {
             if (o[this.name]) {
                 if (!o[this.name].push) {
@@ -30,7 +30,7 @@ $(function() {
                 var them = $.mustache($("#recent-messages").html(), {               // build html using mustache
                     items : data.rows.map(function(r) {return r.value;})
                 });
-                $("#content").html(them);                                           // insert the html in the page
+                $("#content").html(them);                                           // insert the html in the page between content tags
             }
         });
     };
@@ -44,6 +44,7 @@ $(function() {
         }
     }
     $.couchProfile.templates.profileReady = $("#new-message").html();
+
     $("#account").couchLogin({
         loggedIn : function(r) {
             $("#profile").couchProfile(r, {
@@ -58,9 +59,11 @@ $(function() {
                     }).find("input").focus();                                       // put focus on input/linedit
                 }
             });
+            $("#profile:hidden").show()
         },
         loggedOut : function() {
             $("#profile").html('<p>Please log in to see your profile.</p>');        // if not logged in, then display this message
+            $("#profile").slideUp();
         }
     });
  });
