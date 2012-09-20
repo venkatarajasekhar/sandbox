@@ -49,4 +49,8 @@ SELECTORS + FUNCTION
 $('td:contains(Henry)').next()                  select only the sibling after the matched element
 $('td:contains(Henry)').nextAll()               select only all the siblings after the matched element
 $('td:contains(Henry)').nextAll().andSelf()     select matched element and all its siblings
+$('td:contains(Henry)').parent().children()     select matched element and all its siblings
+$('td:contains(Henry)').parent().children()[3]  select 3rd siblings
+
+$('td:contains(Henry)').parent().find('td:eq(1)').addClass(...)end().find('tr:eq(2)').addClass(...)
 
