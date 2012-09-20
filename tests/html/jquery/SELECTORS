@@ -1,26 +1,13 @@
-Q: What is the purpose of jquery?
-Simplify Javascript when it comes to interaction 
+Q: What is a selector?
+A selector find a matched set
 
-Q: What is the $ sign?
-$ is just a name.
-Names in Javascript can contain dollar signs, and can consist of just a dollar sign.
-There's nothing special about the dollar sign, except that jQuery defines a function called $
-
-Q: How to make Jquery play well with othe JS lib?
-In JQuery, the dollar sign is simply an alias for jquery.
-As a $() function is very common in JS lib, conflicts could arise if more than one of these libs were being used in a given page.
-Avoid conflicts by replacing every instance of $ with jquery in custom jquery code.
-
-Q: How to setup JQuery in my HTML
-<head>
-    <script src="jquery.js"></script>
-</head>
-
-Q: iHow does jquery selection work?
+BASIC SELECTORS
 $('p')                      select all paragephs in the doc
 $('#some-id')               select a single elemnt with this ID
 $('.some-class')            select all elements that have this class
 $('img[alt]')               select images with alt attributes
+
+MORE ADVANCED SELECTORS
 $('#selected-plays > li')   select first level below element with ID  Note: > is child combinator
 $('a[href^="mailto:"]')     select all anchor elements with the href attribute that begin with mailto:
 $('a[href$=".pdf"]')        select all anchor elements with the href attribute that end with .pdf
@@ -36,6 +23,30 @@ $('div.first-child')                        select FIRST child of
 $('div.nth-child(1)')                       select FIRST child of
 $('div.nth-child(odd)')                     select FIRST child of
 
-Form selectors
+FORM SELECTORS
+:input  
+:button
+:enabled
+:disabled
+:checked
+:selected
+$('input[type="radio"]:checked')           select all checked radio buttons
 
+COMPOUND SELECT
+$('input[type="password"],input[type="text"]:disabled')     select password input and disabled lineedit
+
+
+FILTER-BASED SELECTORS
+CUSTOM SELECTORS
+
+$('tr').filter('even')                                              is equivalent to $('tr:even')
+$('a').filter (function() {                                         is for custom selector
+    return this.hostname && this.hostname != location.hostname;     <-- location.hostname = hostname of current page
+}).addClass('external');
+
+SELECTORS + FUNCTION
+
+$('td:contains(Henry)').next()                  select only the sibling after the matched element
+$('td:contains(Henry)').nextAll()               select only all the siblings after the matched element
+$('td:contains(Henry)').nextAll().andSelf()     select matched element and all its siblings
 

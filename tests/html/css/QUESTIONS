@@ -1,0 +1,7 @@
+Q: What is CSS?
+Cascading stylesheet.
+Is responsible for the styling of the document (DOM)
+
+Q: Is the CSS static?
+Yes, but you can use jquery to identify elements and .addClass
+$('.post').addClass('highlight')

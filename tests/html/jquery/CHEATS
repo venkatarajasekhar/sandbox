@@ -1,0 +1,37 @@
+$(document).ready(function() {
+    $('div.poem-stanza').addClass('highlight');
+});
+
+ACCESS ELEMENTS
+
+$('div.content').find('p')
+
+MODIFY APPEARANCE
+
+$('ul > li:first').addClass('active');
+
+RESPONSE TO USER INTERACTIONS
+
+$('button.show-details').click(function() {
+    $('div.details').show();
+});
+
+ALTER CONTENT
+
+$('#containe').append('<a heref="more.html">more</a>)
+
+EFFECT + ANIMATION
+
+$('div.details').slideDown();
+
+AJAX FETCH
+
+$('div.details').load('mode.html #content');
+
+ENHANCEMENT TO JAVSCRIPT CONSTRUCT
+
+$.each(obj, function(key, value) {
+    total += value;
+});
+
+
