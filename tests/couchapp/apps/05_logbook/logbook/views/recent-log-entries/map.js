@@ -19,7 +19,7 @@ function(doc) {
         var $date = year + "/" + month + "/" + day;
 
         emit(doc.created_at, {
-            message:doc.message,
+            text: doc.text,
             gravatar_url : p.gravatar_url,
             nickname : p.nickname,
             date : d.toLocaleDateString(),

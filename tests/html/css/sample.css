@@ -23,3 +23,10 @@ h1, h2, h3 {                                                /* match html tags *
 #hidden {                                                   /* match id="hidden" element. Only 1 element is matched! */
     display: none;
 }
+
+
+.horizontal {
+    float: left;                                            /* List items BLOCKS are put left of each others */
+    list-style: none;                                       /* No * of 1 for list items */
+    margin: 10px;                                           /* margin 10 pixel */
+}

@@ -1,5 +1,11 @@
 Q: How to debug Javscript code?
 From a terminal with js
+from browser with 
+    * firebug (for firefox) http://getfirebug.com
+        Check console for on the fly javascript code
+    * Chrome dev tools http://code.google.com/chrome/devtools/  
+        Select the Wrench menu  at the top-right of your browser window, then select Tools -> Developer tools.
+        Right-click on any page element and select Inspect element.
 
 Q: What are javascript object?
 var currentTime = new Date()
@@ -10,14 +16,23 @@ The HTML page is loaded first and received from top to bottom./
 The <script></script> protion is run as it is received.
 That is with the html document have loaded if the <script> appears in the middle of the document.
 
+Q: What are lambda function?
+A lambda fucntion is an anonymous function or a  function without a name
+$(document).ready(function() {
+    ...
+});
+
 Q: How to execute code when the DOM is loaded?
 On some pages that use traditional JavaScript, you'll see an "onload" attribute in the <body> tag. 
 The problem with this is that it's limited to only one function.
+
+window.onload = function() {
+    ....
+}
 
 With $(document).ready(), you can get your events to load or fire or whatever you want them to do before the window loads. 
 Everything that you stick inside its brackets is ready to go at the earliest possible moment 
 — as soon as the DOM is registered by the browser, which allows for some nice hiding and showing effects i
 and other stuff immediately when the user first sees the page elements. 
-
 
 
