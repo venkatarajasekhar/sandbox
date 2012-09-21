@@ -8,6 +8,7 @@ $('.some-class')            select all elements that have this class
 $('img[alt]')               select images with alt attributes
 
 MORE ADVANCED SELECTORS
+$('#switcher button')       select all the button in the 'switcher' div
 $('#selected-plays > li')   select first level below element with ID  Note: > is child combinator
 $('a[href^="mailto:"]')     select all anchor elements with the href attribute that begin with mailto:
 $('a[href$=".pdf"]')        select all anchor elements with the href attribute that end with .pdf

@@ -1,41 +1,71 @@
 Q: What is the purpose of jquery?
 Simplify Javascript when it comes to interaction 
 
+Q: What is 'this' ?
+The keyword 'this' refers to the DOM element to which the behavior was attached.
+By writting $('this') within the event handler, we create a jQuery object corresponding to the element,
+and can act on it just as if we had located it with a CSS selector.
+
 Q: What is the $ sign?
 $ is just a name.
 Names in Javascript can contain dollar signs, and can consist of just a dollar sign.
 There's nothing special about the dollar sign, except that jQuery defines a function called $
 
-Q: How to make Jquery play well with othe JS lib?
+Q: How to make Jquery play well with other JS lib?
 In JQuery, the dollar sign is simply an alias for jquery.
 As a $() function is very common in JS lib, conflicts could arise if more than one of these libs were being used in a given page.
-Avoid conflicts by replacing every instance of $ with jquery in custom jquery code.
+Avoid conflicts by replacing every instance of $ with jQuery in custom jquery code.
+<script> src="prototype.js"></script>
+<script> src="jquery.js"></script>
+<script>
+jQuery.noConflict();                <-- return control of the $ identifer back to other libraries
+</script>
 
 Q: How to setup JQuery in my HTML
 <head>
     <script src="jquery.js"></script>
 </head>
 
-Q: iHow does jquery selection work?
-$('p')                      select all paragephs in the doc
-$('#some-id')               select a single elemnt with this ID
-$('.some-class')            select all elements that have this class
-$('img[alt]')               select images with alt attributes
-$('#selected-plays > li')   select first level below element with ID  Note: > is child combinator
-$('a[href^="mailto:"]')     select all anchor elements with the href attribute that begin with mailto:
-$('a[href$=".pdf"]')        select all anchor elements with the href attribute that end with .pdf
-$('a[href*="henry"]')       select all anchor elements whose href include the weod henry
-$('tr:even')                select alternative rows
-$('tr:odd')                 select alternative rows
-$('tr:contains(Henry)')     select rows that contain Henry <-- Note: contains is case sensitive!
+Q: What is $(function ...) ?
+$(document).ready() construct is actually calling the .ready() method on a JQuery object we have consotructed from the document DOM element.
+The $() function provides a shortcut for us as this is a common task.
+When we pass in a function as the argument, jQuery performs an implicit call to .ready()
 
-$('#selected-plays li:not(.horizontal)')    select first level below element and all list element not part of horizontal class
-$('a[href*="henry"][href^=http:"]')         select all anchor elements with those 2 href attribute conditions
-$('div.horizontal:eq(1)')                   select SECOND child of div with horizontal class (JS array are 0 based)
-$('div.first-child')                        select FIRST child of
-$('div.nth-child(1)')                       select FIRST child of
-$('div.nth-child(odd)')                     select FIRST child of
+$(function() {...});                ==          $(document).ready(function() {...});
 
-Form selectors
+Q: How to bind a button event to a function?
+$(document).ready(function() {
+    $('#switcher-large').bind('click', function() {
+        $('body').addClass('large');
+        $('body').removeClass('narrow');
+        $('switcher button').removeClass('selected');
+        $('this').addClass('selected');
+    });
+    $('#switcher-default').bind('click', function() {
+        ...
+    });
+});
 
+Q: How to read consolidated method statements?
+
+$('body').removeClass().addClass('large')
+is read from left to right or is equivalent to 
+$('body').removeClass()                                         <-- remove all the classes
+$('body').addClass('large')
+
+Q: How do multi-event handlers work?
+$(document).ready(function() {
+    $('#switcher button').bind('click', function () { ... });   <-- If some elements are matched several times, the event handlers
+    $('#switcher-narrow').bind('click', function () { ... });   <-- are run in the order they were entered
+});
+
+Q: What are shorthand events?
+$('button').bind('click', function() {...}) can be rewritten $('button').click(function() {...})
+This is valid for the following events:
+blur, change, click, dblclick, error, focus, keydown, keyup, load, mousedown, mousemove, 
+mouseout, mouseover, mouseup, resize, scroll, select, submit, unload
+
+Q: difference between .toggle and .click ?
+$('#switcher h3').toggle(function() { ... }, function() {...}, function() {...});
+==> For each click on h3 (not a button!!!), execute function 1, then function2, then ...
 

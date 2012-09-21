@@ -8,7 +8,9 @@ $('div.content').find('p')
 
 MODIFY APPEARANCE
 
-$('ul > li:first').addClass('active');
+$('ul > li:first').addClass('active');                  add a class
+$('ul li').removeClass('active');                       remove class
+$('#switcher button').toggleClass('hidden');            add or remove the class
 
 RESPONSE TO USER INTERACTIONS
 
@@ -18,7 +20,7 @@ $('button.show-details').click(function() {
 
 ALTER CONTENT
 
-$('#containe').append('<a heref="more.html">more</a>)
+$('#container').append('<a heref="more.html">more</a>)
 
 EFFECT + ANIMATION
 
