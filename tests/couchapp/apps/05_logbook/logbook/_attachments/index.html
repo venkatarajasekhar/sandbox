@@ -40,6 +40,17 @@
         <form id="create-logentry-line">
             <label>New message from {{nickname}}: <input type="text" name="text" size=60 value=""></label>
         </form>
+        <form id="create-logentry-textarea">
+            <label>New message from {{nickname}}: <textarea rows=2 cols=20 name="text" size=60>hello toto sdfsdfsdf asdfasdfadf asdf</textarea></label>
+            <input type="submit" id="send-logentry-button-textarea" value="Send"/>
+            <input type="reset"  id="reset-logentry-button-textarea" value="Reset"/>
+        </form>
+        <form id="create-logentry-attachment">
+            <label>Enter path to file: <input type="text" name="path" size=60 value=""></label>
+            <label>Enter description: <input type="text" name="description" size=60 value=""></label>
+            <input type="submit" id="send-logentry-button-attachment" value="Send"/>
+            <input type="reset"  id="reset-logentry-button-attachment" value="Reset"/>
+        </form>
         <div style="clear:left;"></div>
     </script>
 

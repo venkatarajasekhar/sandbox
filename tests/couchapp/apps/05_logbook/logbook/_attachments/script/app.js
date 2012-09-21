@@ -49,7 +49,7 @@ $(function() {
         loggedIn : function(r) {                                                    // Once Logged in execute the following
             $("#profile").couchProfile(r, {
                 profileReady : function(profile) {                                  // profile is passed to code
-                    $("#create-logentry-line").submit(function(e){
+                    $("#create-logentry-lineedit").submit(function(e){
                         e.preventDefault();                                         // prevent default browser behavior, instead do what follows!
                         var form = this;                                            // this is form with id #create-logentry-line
                         var doc = $(form).serializeObject();                        // serialize form (name: value)
@@ -58,8 +58,7 @@ $(function() {
                         doc.profile = profile;                                      // save creator's profile in doc
                         db.saveDoc(doc, {success : function() {form.reset();}});    // write new doc (in JSON format) in database
                         return false;
-                    })
-                    $("#create-logentry-line").find("input").focus();               // put focus on input/linedit
+                    }).find("input").focus();                                       // put focus on input/linedit
                 }
             });
             $("#profile:hidden").show()
