@@ -37,13 +37,13 @@
                 {{name}}
             </div>
         </div>
-        <form id="create-message">
-            <label>New message from {{nickname}}: <input type="text" name="message" size=60 value=""></label>
+        <form id="create-logentry-line">
+            <label>New message from {{nickname}}: <input type="text" name="text" size=60 value=""></label>
         </form>
         <div style="clear:left;"></div>
     </script>
 
-    <script id="recent-messages" type="text/x-mustache" charset="utf-8">
+    <script id="recent-log-entries" type="text/x-mustache" charset="utf-8">
         <h3>Recent Log Entries</h3>
         <ul id="items">
             {{#items}}                                          <!-- for each item uses this template -->
@@ -54,13 +54,13 @@
                         <div class="name">
                             {{nickname}}
                         </div>
-                    </div>
-                 <!--   <div class="timestamp">
+                    <div class="timestamp">
                         {{date}}
                         {{time}}
                     </div>
-                </div> -->
-                <p>{{message}}</p>
+                    </div>
+                </div> 
+                <p>{{text}}</p>
                 <div style="clear:left;"></div>
             </li>
             {{/items}}

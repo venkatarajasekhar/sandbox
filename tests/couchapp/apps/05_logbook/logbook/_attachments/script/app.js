@@ -21,13 +21,13 @@ $(function() {
         design = path[3],
         db = $.couch.db(path[1]);
     function drawItems() {                                                          // drawItem function definition
-        db.view(design + "/recent-items", {                                         // query database with view
+        db.view(design + "/recent-log-entries", {                                   // query database with view
             descending : "true",
             limit : 50,                                                             // view paramters
             update_seq : true,
             success : function(data) {                                              // callback function to run with query results
                 setupChanges(data.update_seq);
-                var them = $.mustache($("#recent-messages").html(), {               // build html using mustache
+                var them = $.mustache($("#recent-log-entries").html(), {            // build html using mustache
                     items : data.rows.map(function(r) {return r.value;})
                 });
                 $("#content").html(them);                                           // insert the html in the page between content tags
@@ -45,18 +45,21 @@ $(function() {
     }
     $.couchProfile.templates.profileReady = $("#new-message").html();
 
-    $("#account").couchLogin({
-        loggedIn : function(r) {
+    $("#account").couchLogin({                                                      // Insert "login | signup | logout"  snippet
+        loggedIn : function(r) {                                                    // Once Logged in execute the following
             $("#profile").couchProfile(r, {
-                profileReady : function(profile) {
-                    $("#create-message").submit(function(e){
-                        e.preventDefault();
-                        var form = this, doc = $(form).serializeObject();           // serialize form (name: value)
+                profileReady : function(profile) {                                  // profile is passed to code
+                    $("#create-logentry-line").submit(function(e){
+                        e.preventDefault();                                         // prevent default browser behavior, instead do what follows!
+                        var form = this;                                            // this is form with id #create-logentry-line
+                        var doc = $(form).serializeObject();                        // serialize form (name: value)
                         doc.created_at = new Date();                                // add creation date to doc
+                        doc.type = "line";                                          // define a type
                         doc.profile = profile;                                      // save creator's profile in doc
                         db.saveDoc(doc, {success : function() {form.reset();}});    // write new doc (in JSON format) in database
                         return false;
-                    }).find("input").focus();                                       // put focus on input/linedit
+                    })
+                    $("#create-logentry-line").find("input").focus();               // put focus on input/linedit
                 }
             });
             $("#profile:hidden").show()

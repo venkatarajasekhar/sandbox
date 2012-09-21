@@ -1,0 +1,57 @@
+Q: What is a selector?
+A selector find a matched set
+
+BASIC SELECTORS
+$('p')                      select all paragephs in the doc
+$('#some-id')               select a single elemnt with this ID
+$('.some-class')            select all elements that have this class
+$('img[alt]')               select images with alt attributes
+
+MORE ADVANCED SELECTORS
+$('#switcher button')       select all the button in the 'switcher' div
+$('#selected-plays > li')   select first level below element with ID  Note: > is child combinator
+$('a[href^="mailto:"]')     select all anchor elements with the href attribute that begin with mailto:
+$('a[href$=".pdf"]')        select all anchor elements with the href attribute that end with .pdf
+$('a[href*="henry"]')       select all anchor elements whose href include the weod henry
+$('tr:even')                select alternative rows
+$('tr:odd')                 select alternative rows
+$('tr:contains(Henry)')     select rows that contain Henry <-- Note: contains is case sensitive!
+
+$('#selected-plays li:not(.horizontal)')    select first level below element and all list element not part of horizontal class
+$('a[href*="henry"][href^=http:"]')         select all anchor elements with those 2 href attribute conditions
+$('div.horizontal:eq(1)')                   select SECOND child of div with horizontal class (JS array are 0 based)
+$('div.first-child')                        select FIRST child of
+$('div.nth-child(1)')                       select FIRST child of
+$('div.nth-child(odd)')                     select FIRST child of
+
+FORM SELECTORS
+:input  
+:button
+:enabled
+:disabled
+:checked
+:selected
+$('input[type="radio"]:checked')           select all checked radio buttons
+
+COMPOUND SELECT
+$('input[type="password"],input[type="text"]:disabled')     select password input and disabled lineedit
+
+
+FILTER-BASED SELECTORS
+CUSTOM SELECTORS
+
+$('tr').filter('even')                                              is equivalent to $('tr:even')
+$('a').filter (function() {                                         is for custom selector
+    return this.hostname && this.hostname != location.hostname;     <-- location.hostname = hostname of current page
+}).addClass('external');
+
+SELECTORS + FUNCTION
+
+$('td:contains(Henry)').next()                  select only the sibling after the matched element
+$('td:contains(Henry)').nextAll()               select only all the siblings after the matched element
+$('td:contains(Henry)').nextAll().andSelf()     select matched element and all its siblings
+$('td:contains(Henry)').parent().children()     select matched element and all its siblings
+$('td:contains(Henry)').parent().children()[3]  select 3rd siblings
+
+$('td:contains(Henry)').parent().find('td:eq(1)').addClass(...)end().find('tr:eq(2)').addClass(...)
+

@@ -1,0 +1,32 @@
+/* 
+    Sample css file 
+*/
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: Helvetica, Arial, sans-serif;
+}
+h1, h2, h3 {                                                /* match html tags */
+    margin-bottom: .2em;
+}
+.poem {
+    margin: 0 2em;
+}
+.highlight {                                                /* match elements with class="highlight" */
+    background-color: #ccc;
+    border: 1px solid #888;
+    font-style: italic;
+    margin: 0.5em 0;
+    padding: 0 5em;
+    display: block;
+}
+#hidden {                                                   /* match id="hidden" element. Only 1 element is matched! */
+    display: none;
+}
+
+
+.horizontal {
+    float: left;                                            /* List items BLOCKS are put left of each others */
+    list-style: none;                                       /* No * of 1 for list items */
+    margin: 10px;                                           /* margin 10 pixel */
+}
