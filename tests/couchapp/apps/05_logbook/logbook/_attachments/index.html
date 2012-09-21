@@ -30,22 +30,27 @@
     <script src="vendor/couchapp/jquery.mustache.js"></script>
 
     <!-- templates used by app.js -->
-    <script id="new-message" type="text/x-mustache" charset="utf-8">
+    <script id="new-logentry" type="text/x-mustache" charset="utf-8">
         <div class="avatar">
             {{#gravatar_url}}<img src="{{gravatar_url}}"/>{{/gravatar_url}}
             <div class="name">
                 {{name}}
             </div>
         </div>
-        <form id="create-logentry-line">
+        <div class="select-logentry-mode">
+            <a href="#" id="microblog-mode"  >Microblog</a> | 
+            <a href="#" id="blog-mode"  >Blog</a> | 
+            <a href="#" id="attachment-mode">Attachment</a>
+        </div>
+        <form id="microblog-logentry-form">
             <label>New message from {{nickname}}: <input type="text" name="text" size=60 value=""></label>
         </form>
-        <form id="create-logentry-textarea">
+        <form id="blog-logentry-form">
             <label>New message from {{nickname}}: <textarea rows=2 cols=20 name="text" size=60>hello toto sdfsdfsdf asdfasdfadf asdf</textarea></label>
             <input type="submit" id="send-logentry-button-textarea" value="Send"/>
             <input type="reset"  id="reset-logentry-button-textarea" value="Reset"/>
         </form>
-        <form id="create-logentry-attachment">
+        <form id="attachment-logentry-form">
             <label>Enter path to file: <input type="text" name="path" size=60 value=""></label>
             <label>Enter description: <input type="text" name="description" size=60 value=""></label>
             <input type="submit" id="send-logentry-button-attachment" value="Send"/>

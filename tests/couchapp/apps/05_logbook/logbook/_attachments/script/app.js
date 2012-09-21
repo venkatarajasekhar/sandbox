@@ -43,13 +43,13 @@ $(function() {
             changeHandler.onChange(drawItems);
         }
     }
-    $.couchProfile.templates.profileReady = $("#new-message").html();
+    $.couchProfile.templates.profileReady = $("#new-logentry").html();              // template to be used for profile ready
 
     $("#account").couchLogin({                                                      // Insert "login | signup | logout"  snippet
         loggedIn : function(r) {                                                    // Once Logged in execute the following
             $("#profile").couchProfile(r, {
-                profileReady : function(profile) {                                  // profile is passed to code
-                    $("#create-logentry-lineedit").submit(function(e){
+                profileReady : function(profile) {                                  // Use profileReady template + active profile
+                    $("#logentry-mode-lineedit").submit(function(e){
                         e.preventDefault();                                         // prevent default browser behavior, instead do what follows!
                         var form = this;                                            // this is form with id #create-logentry-line
                         var doc = $(form).serializeObject();                        // serialize form (name: value)
