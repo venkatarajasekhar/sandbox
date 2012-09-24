@@ -1,3 +1,7 @@
+NON VISIBLE
+<!-- ... -->                - comment
+
+
 INLINE TAGS
 
 <b></b>                     - bold
@@ -7,18 +11,42 @@ INLINE TAGS
 <pre></pre>                 - preformatted text
 <q></q>                     - if you're just quoting a short phrase in the middle of your sentence
 
+<a></a>                     - link to anchor or external page
 <abbr></abbr>               - abbreviations
+<caption></caption>         - table caption
 <cite></cite>               - citations, used to include a reference
+<code></code>               - format for computer code text
 <del></del>                 - indicate deleted text, opposite of <ins> tag
 <dfn></dfn>                 - definition
+<em></em>                   - emphasis text
+<h1> to <h6>                - text header
+<hr/>                        - horitzontal line
 <ins></ins>                 - inserted text, opposite of <del> tag
+<img/>                      - image container
+<li></li>                   - list item indicator
 
 
 BLOCK TAGS
 
-<blockquote></blcokquote>   - if you're quoting a paragraph or more of text
+<div></div>                 - block group a set of widgets (Useful to give all of them the same propriety)
+<blockquote></blockquote>   - if you're quoting a paragraph or more of text
 <code></code>               - used to insert programming code
 <p></p>                     - create a paragraph
 <ul></ul>                   - unordered list
 <ol></ol>                   - ordered list
+<pre></pre>                 - preformatted text
+<table>                     - table 
+
+HTML5 TAGS
+
+<audio>                     - sound content container
+<button>                    - a clickable button
+<canvas>                    - graphic development container
+<datalist>                  - List generator when used with the input element and its new list attribute
+<embed>                     - external interactive plug-in content
+<figure>                    - contains a group of media content and their caption
+<footer>                    - Container of a footer for a section of the page
+<nav>                       - Representation of a section of a document intended for navigation
+<video>                     - element for linking to a video file
+<wbr>                       - word break or hyphenation is ok
 
