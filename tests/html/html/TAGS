@@ -1,0 +1,24 @@
+INLINE TAGS
+
+<b></b>                     - bold
+<i></i>                     - italize
+<sub></sub>                 - subscript
+<sup></sup>                 - supscript
+<pre></pre>                 - preformatted text
+<q></q>                     - if you're just quoting a short phrase in the middle of your sentence
+
+<abbr></abbr>               - abbreviations
+<cite></cite>               - citations, used to include a reference
+<del></del>                 - indicate deleted text, opposite of <ins> tag
+<dfn></dfn>                 - definition
+<ins></ins>                 - inserted text, opposite of <del> tag
+
+
+BLOCK TAGS
+
+<blockquote></blcokquote>   - if you're quoting a paragraph or more of text
+<code></code>               - used to insert programming code
+<p></p>                     - create a paragraph
+<ul></ul>                   - unordered list
+<ol></ol>                   - ordered list
+
