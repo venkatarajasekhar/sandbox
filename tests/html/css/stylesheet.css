@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/* CSS Document */
+/*3C371E,8C5F26,BCA55F,F2CC6E,F26205 */
+body
+	{
+		background-color:#F2CC6E;
+		font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+		color:#8C5F26;
+		font-size:11px;
+		max-width:480px;
+	}
+h1
+	{
+		color:#BCA55F;
+		background-color:#3C371E;
+		font-family:"Arial Black", Gadget, sans-serif;
+		text-align:center;
+	}
+h2
+	{
+		color:#F26205;
+		font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif
+	}
+h3
+	{
+		color:#3C371E;
+		font-family:Tahoma, Geneva, sans-serif;
+	}
