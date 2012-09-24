@@ -1,6 +1,10 @@
+
 &lt;                - <
 &gt;                - >
 &amp;               - &
-&nbsp;
+&nbsp;              - non-breaking space
 &copy;              - copyright sign
 &trade;             - Trademark (TM) sign
+
+
+Note: The semi-comma is part of the symbol. It must therefore be included

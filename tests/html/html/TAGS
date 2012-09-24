@@ -13,6 +13,7 @@ INLINE TAGS
 
 <a></a>                     - link to anchor or external page
 <abbr></abbr>               - abbreviations
+<br>                        - force a linebreak
 <caption></caption>         - table caption
 <cite></cite>               - citations, used to include a reference
 <code></code>               - format for computer code text
@@ -48,5 +49,5 @@ HTML5 TAGS
 <footer>                    - Container of a footer for a section of the page
 <nav>                       - Representation of a section of a document intended for navigation
 <video>                     - element for linking to a video file
-<wbr>                       - word break or hyphenation is ok
+<wbr>                       - linebreak opportunity or word break or hyphenation is ok (doesn't force the break)
 

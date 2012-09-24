@@ -1,2 +1,16 @@
 Q: What is the  <!DOCTYPE HTML> tag for?
 It specify that the content of the file is HTML5
+This tag should appear at the very top of the html file (before the <html> tag !)
+
+Q: What about the following head-tag: 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> ?
+Specify the character encoding.
+This is used to tell the web browser which character set of letters to use, 
+such as the A to Z alphabet, Hebrew characters, Japanes, Crullic , or some other set.
+
+Q: Is the following tag valid?
+<a href="#">Toy</a>
+The  pound sign acts as a placeholder.
+It works just like a read URL except that it doesn't go anywhere
+or cause an error message.
+
