@@ -43,13 +43,13 @@ $(function() {
             changeHandler.onChange(drawItems);
         }
     }
-    $.couchProfile.templates.profileReady = $("#new-message").html();
+    $.couchProfile.templates.profileReady = $("#new-logentry").html();              // template to be used for profile ready
 
     $("#account").couchLogin({                                                      // Insert "login | signup | logout"  snippet
         loggedIn : function(r) {                                                    // Once Logged in execute the following
             $("#profile").couchProfile(r, {
-                profileReady : function(profile) {                                  // profile is passed to code
-                    $("#create-logentry-line").submit(function(e){
+                profileReady : function(profile) {                                  // Use profileReady template + active profile
+                    $("#logentry-mode-lineedit").submit(function(e){
                         e.preventDefault();                                         // prevent default browser behavior, instead do what follows!
                         var form = this;                                            // this is form with id #create-logentry-line
                         var doc = $(form).serializeObject();                        // serialize form (name: value)
@@ -58,8 +58,7 @@ $(function() {
                         doc.profile = profile;                                      // save creator's profile in doc
                         db.saveDoc(doc, {success : function() {form.reset();}});    // write new doc (in JSON format) in database
                         return false;
-                    })
-                    $("#create-logentry-line").find("input").focus();               // put focus on input/linedit
+                    }).find("input").focus();                                       // put focus on input/linedit
                 }
             });
             $("#profile:hidden").show()

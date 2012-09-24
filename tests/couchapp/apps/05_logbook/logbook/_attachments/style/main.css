@@ -75,6 +75,9 @@ div.avatar img {
     width : 40px;
     height : 40px;
 }
+div.logentry-mode-selectors {
+    float: right;
+}
 
 
 div.timestamp {
