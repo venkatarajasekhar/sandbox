@@ -1,0 +1,18 @@
+*                       - Match any element
+body                    - applies to whole document
+h1, h2, h3              - applies to selected matched html tags 
+.poem                   - All html elements with class=.poem
+#hidden                 - One element whose id=hidden
+a                       - all kind of links
+a:link                  - links which have not yet been clicked on or visited 
+a:visited               - When link has been visited 
+a:active                - When a link as just be clicked and page is loading ... 
+a:hover                 - When mouse is over link 
+a[target]               - When link has target attribute (iframe) ... 
+a[target="iframe2"]     - When link has target attribute  = iframe2 ... 
+a[foo~="warning"]       - When link has foo list-attribute which include 'warning' as an element 
+a#ID                    - The one link with (non-attribute) id=ID 
+a > img                 - All images (not link!) which are children of a link
+a img                   - All images (not links) which are direct or indirect children of a link
+
+more at http://www.w3.org/TR/CSS2/selector.html

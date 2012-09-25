@@ -35,23 +35,6 @@ h1, h2, h3 {                                                /* match html tags *
     margin: 10px;                                           /* margin 10 pixel */
 }
 
-/* LINKS */
-
-a {
-    font-family:Verdana, Geneva, sans-serif;
-    font-size:11px;
-}
-a:link {
-    color:#cc0000;
-    text-decoration:none;
-}
-a:visited {                                                 /* When link has been visited ... */
-    color:#00cc00;
-    text-decoration:none;
-}
-a:active {
-    background-color:#ffff00;
-}
 a:hover {                                                   /* When mouse is over link ... */
     color: #D9B448;                                         /* ... change color of link */
     text-decoration: none;                                  /* ... do not underlined link (as default) */
