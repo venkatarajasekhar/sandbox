@@ -1,18 +1,24 @@
-*                       - Match any element
-body                    - applies to whole document
+SELECTOR                - MATCH
+
+*                       - any element
+body                    - applies to the whole document
 h1, h2, h3              - applies to selected matched html tags 
-.poem                   - All html elements with class=.poem
-#hidden                 - One element whose id=hidden
-a                       - all kind of links
+.poem                   - html elements with class=.poem
+div.warning             - div whose list-attribute class includes warning ex <div class="toto" class="warning"></div>
+#hidden                 - single element whose id=hidden
+a                       - links of any kinds
 a:link                  - links which have not yet been clicked on or visited 
-a:visited               - When link has been visited 
-a:active                - When a link as just be clicked and page is loading ... 
-a:hover                 - When mouse is over link 
-a[target]               - When link has target attribute (iframe) ... 
-a[target="iframe2"]     - When link has target attribute  = iframe2 ... 
-a[foo~="warning"]       - When link has foo list-attribute which include 'warning' as an element 
-a#ID                    - The one link with (non-attribute) id=ID 
-a > img                 - All images (not link!) which are children of a link
-a img                   - All images (not links) which are direct or indirect children of a link
+a:visited               - links whose targets have already been visited 
+a:active                - links which have just be clicked and page is loading ... 
+a:hover                 - links under the mouse
+input:focus             - input element which has focus
+a[target]               - links with attribute 'target'  (iframe) ... 
+a[target="iframe2"]     - links whose attribute  target is = iframe2 ... 
+a[class~="warning"]     - links whose list-attribute class includes 'warning' as an element. Same as a.warning!
+a#ID                    - single link whose (non-attribute) id=ID 
+a > img                 - images (not link!) which are direct children of links
+a img                   - images (not links) which are direct or indirect children of a link
+div > p:first-child     - any P element that is the first child of a DIV element
+p:first-child em        - any em element that is some descendant of a P element that is a first child
 
 more at http://www.w3.org/TR/CSS2/selector.html
