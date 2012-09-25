@@ -4,7 +4,10 @@
 body {
     background-color: #fff;
     color: #000;
+    background-color:#D9B448;
     font-family: Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-align: center;
 }
 h1, h2, h3 {                                                /* match html tags */
     margin-bottom: .2em;
@@ -18,7 +21,8 @@ h1, h2, h3 {                                                /* match html tags *
     font-style: italic;
     margin: 0.5em 0;
     padding: 0 5em;
-    display: block;
+    display: block;                                         /* display is visible */
+    dispaly: none;
 }
 #hidden {                                                   /* match id="hidden" element. Only 1 element is matched! */
     display: none;
@@ -30,3 +34,50 @@ h1, h2, h3 {                                                /* match html tags *
     list-style: none;                                       /* No * of 1 for list items */
     margin: 10px;                                           /* margin 10 pixel */
 }
+
+/* LINKS */
+
+a {
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:11px;
+}
+a:link {
+    color:#cc0000;
+    text-decoration:none;
+}
+a:visited {                                                 /* When link has been visited ... */
+    color:#00cc00;
+    text-decoration:none;
+}
+a:active {
+    background-color:#ffff00;
+}
+a:hover {                                                   /* When mouse is over link ... */
+    color: #D9B448;                                         /* ... change color of link */
+    text-decoration: none;                                  /* ... do not underlined link (as default) */
+}
+
+/* TABLE */
+table {
+        width:400px;
+        border-style:groove;
+        border-width:thick;
+        border-color:#FF5C19;
+        color:#C00;
+        font-family:Verdana, Geneva, sans-serif;
+        font-size:10px;
+}
+caption {
+        font-family:Tahoma, Geneva, sans-serif;
+        font-size:24px;
+        color:hsl(17, 60%, 40%);
+        padding:12px;
+}
+td, th {
+        height:50px;
+        border-style:solid;
+        border-width:thin;
+        border-color:#000;
+        padding:20px;
+}
+

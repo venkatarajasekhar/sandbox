@@ -21,7 +21,8 @@ INLINE TAGS
 <dfn></dfn>                 - definition
 <em></em>                   - emphasis text
 <h1> to <h6>                - text header
-<hr/>                        - horitzontal line
+<hr/>                       - horitzontal line
+<iframe>                    - inline frame 
 <ins></ins>                 - inserted text, opposite of <del> tag
 <img/>                      - image container
 <li></li>                   - list item indicator
@@ -40,6 +41,7 @@ BLOCK TAGS
 
 HTML5 TAGS
 
+<aside>                     - used to create content that is somehow related to the main document but, can be considered separate. It works as an independent content. (ex: advertising, navigation?)
 <audio>                     - sound content container
 <button>                    - a clickable button
 <canvas>                    - graphic development container

@@ -14,3 +14,14 @@ The  pound sign acts as a placeholder.
 It works just like a read URL except that it doesn't go anywhere
 or cause an error message.
 
+Q: Why is pixel density important?
+In CSS you can set the 
+max-width:480px
+for an iphone with 480-pixel horizontal resolution
+The resolution depends on the number of pixels relative to the size of the dispaly area.
+Pixel density or pixels per inch (PPI) is more important that than the number of pixles.
+iPhone 3GS: 132 PPI for 480x320 screen resolution
+iPhone 4:   326 PPI for 960x640 screen resolution
+DEsktop:     99 PPI on a 20 inch screen
+==> a width setting of 480px will show up as coming only about halfway on the iPhone4 even though it fills the width of the iphone3
+
