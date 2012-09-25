@@ -37,25 +37,25 @@
                 {{name}}
             </div>
         </div>
-        <div class="select-logentry-mode">
+        <div id="logentry-mode">
             <a href="#" id="microblog-mode"  >Microblog</a> | 
             <a href="#" id="blog-mode"  >Blog</a> | 
             <a href="#" id="attachment-mode">Attachment</a>
         </div>
-        <form id="microblog-logentry-form">
-            <label>New message from {{nickname}}: <input type="text" name="text" size=60 value=""></label>
-        </form>
-        <form id="blog-logentry-form">
-            <label>New message from {{nickname}}: <textarea rows=2 cols=20 name="text" size=60>hello toto sdfsdfsdf asdfasdfadf asdf</textarea></label>
-            <input type="submit" id="send-logentry-button-textarea" value="Send"/>
-            <input type="reset"  id="reset-logentry-button-textarea" value="Reset"/>
-        </form>
-        <form id="attachment-logentry-form">
-            <label>Enter path to file: <input type="text" name="path" size=60 value=""></label>
-            <label>Enter description: <input type="text" name="description" size=60 value=""></label>
-            <input type="submit" id="send-logentry-button-attachment" value="Send"/>
-            <input type="reset"  id="reset-logentry-button-attachment" value="Reset"/>
-        </form>
+        <div id="logentry-forms">
+            <form id="microblog-logentry-form">
+                <label>New message from {{nickname}}: <input type="text" name="text" size=60 value=""></label>
+            </form>
+            <form id="blog-logentry-form">
+                <label>New message from {{nickname}}: <textarea rows=2 cols=20 name="text" size=60>hello toto sdfsdfsdf asdfasdfadf asdf</textarea></label>
+                <br/> <input type="submit" id="send-logentry-button-textarea" value="Send"/> <input type="reset"  id="reset-logentry-button-textarea" value="Reset"/>
+            </form>
+            <form id="attachment-logentry-form">
+                <label>Enter path to file: <input type="text" name="path" size=60 value=""></label>
+                <br/> <label>Enter description: <input type="text" name="description" size=60 value=""></label>
+                <br/> <input type="submit" id="send-logentry-button-attachment" value="Send"/> <input type="reset"  id="reset-logentry-button-attachment" value="Reset"/>
+            </form>
+        </div>
         <div style="clear:left;"></div>
     </script>
 

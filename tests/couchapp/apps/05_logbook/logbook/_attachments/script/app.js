@@ -49,7 +49,7 @@ $(function() {
         loggedIn : function(r) {                                                    // Once Logged in execute the following
             $("#profile").couchProfile(r, {
                 profileReady : function(profile) {                                  // Use profileReady template + active profile
-                    $("#logentry-mode-lineedit").submit(function(e){
+                    $("#microblog-logentry-form").submit(function(e){
                         e.preventDefault();                                         // prevent default browser behavior, instead do what follows!
                         var form = this;                                            // this is form with id #create-logentry-line
                         var doc = $(form).serializeObject();                        // serialize form (name: value)
@@ -59,6 +59,19 @@ $(function() {
                         db.saveDoc(doc, {success : function() {form.reset();}});    // write new doc (in JSON format) in database
                         return false;
                     }).find("input").focus();                                       // put focus on input/linedit
+
+                    $("#microblog-mode").click(function(e) {
+                        $("#logentry-forms > form").hide()
+                        $("#microblog-logentry-form").show();
+                    });
+                    $("#blog-mode").click(function(e) {
+                        $("#logentry-forms > form").hide()
+                        $("#blog-logentry-form").show();
+                    });
+                    $("#attachment-mode").click(function(e) {
+                        $("#logentry-forms > form").hide()
+                        $("#attachment-logentry-form").show();
+                    });
                 }
             });
             $("#profile:hidden").show()
