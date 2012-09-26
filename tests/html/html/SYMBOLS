@@ -1,6 +1,30 @@
+
 &lt;                - <
 &gt;                - >
 &amp;               - &
-&nbsp;
+&nbsp;              - non-breaking space
 &copy;              - copyright sign
 &trade;             - Trademark (TM) sign
+
+
+Note: The semi-comma is part of the symbol. It must therefore be included
+
+
+COLOR NAMES
+
+aqua
+black
+blue
+fushia
+gray
+green
+lime
+maroon
+navy
+olive
+purple
+red
+silver
+teal
+white
+yellow

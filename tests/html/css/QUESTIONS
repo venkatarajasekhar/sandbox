@@ -5,3 +5,14 @@ Is responsible for the styling of the document (DOM)
 Q: Is the CSS static?
 Yes, but you can use jquery to identify elements and .addClass
 $('.post').addClass('highlight')
+
+Q: How many ways can U call my stylesheet?
+1. embedded stylesheet (in head section of the html file)
+    <style type="text/css"> ... </style>
+2. inline style (in html element section with style attribute )
+3. with an external stylesheet
+<script ... ... >
+
+Q: With so many colors and numbers, how can I find the right color set?
+http://kuler.adobe.com/#create/fromacolor
+You can start from a color or from an imported image

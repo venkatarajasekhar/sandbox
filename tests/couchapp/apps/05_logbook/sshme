@@ -1,0 +1,4 @@
+#!/bin/sh -x
+
+ssh -i ~/ssh/awskey.pem ubuntu@50.17.252.189 -o TCPKeepAlive=no -o ServerAliveInterval=15
+
