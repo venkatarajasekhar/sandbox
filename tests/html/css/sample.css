@@ -63,4 +63,9 @@ td, th {
         border-color:#000;
         padding:20px;
 }
-
+html:lang(de) { 
+    quotes: '»' '«' '\2039' '\203A' 
+}
+:lang(fr) > Q { 
+    quotes: '« ' ' »' 
+}
