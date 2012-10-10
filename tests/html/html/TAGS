@@ -26,9 +26,10 @@ INLINE TAGS
 <ins></ins>                 - inserted text, opposite of <del> tag
 <img/>                      - image container
 <li></li>                   - list item indicator
+<span></span>               - inline container. Used to attach class to this part of the document
 
 
-BLOCK TAGS
+BLOCK TAGS                  <-- A block creates an invisible box/container, which has a height and width
 
 <div></div>                 - block group a set of widgets (Useful to give all of them the same propriety)
 <blockquote></blockquote>   - if you're quoting a paragraph or more of text
