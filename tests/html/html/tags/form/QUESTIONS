@@ -100,3 +100,6 @@ But the server should never trust the client !
 Q: What is the parameter type in GET requests?
 The parameter type from the perspective of the server is string.
 So if 1 is passed, you need to day.isdigit() and int(day)
+
+Q: Default value in line edit?
+<input type="text" name="q" value="default text">
