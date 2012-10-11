@@ -1,0 +1,24 @@
+Q: Simplest form?
+
+<form>
+    <input name="q">
+</form>
+
+When you press enter, the URL changes with the input text
+?q=text 
+is appended to the URL (by default the form submit to itself)
+
+Q: Submit form?
+<form>
+    <input name='q'>
+    <input type='submit'>
+</form>
+Clicking submit is NOT any different that pressing enter in the first form
+
+Q: How to change where the form submits to?
+<form action="http://www.google.com/search">
+    <input name='q'>
+    <input type='submit'>
+</form>
+When submit is pressed, the browser goes to google search results
+URL: http://www.google.com/search?q=better+flight+search%21                    <-- URL encoding/escaping turned spaces into +, ? into %21
