@@ -4,7 +4,7 @@ Once installed the
     appcfg.py, for uploading your app to App Engine
 
 To test a google app, do the following:
-* Create the app
+* Create the app content manually (or cut and past from google_app website)
 	- Content (python, html, etc)
 	- Yaml file
 * Start the development app server (a local web server!)
