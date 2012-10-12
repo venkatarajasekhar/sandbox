@@ -17,7 +17,7 @@ PASSWORD_RE = re.compile(r"^.{3,20}$")
 EMAIL_RE = re.compile(r"^[\S]+@[\S]+\.[\S]+$")
 
 def valid_username(username):
-    return USER_RE.match(username)
+    return USER_RE.match(username)                                          # <-- returns username or None!
     
 
 def valid_password(password):
@@ -32,12 +32,12 @@ def valid_email(email):
 
 class SignupHandler(webapp2.RequestHandler):
 
-    def get(self):
+    def get(self):                                                      # <-- Show form when the page is called the first time (eg click on link or direct call)
         template_values = {}
         template = jinja_env.get_template('signup-form.html')
         self.response.out.write(template.render(template_values))
 
-    def post(self):
+    def post(self):                                                     # <-- Used when the form is submitted
         user_username = self.request.get('username')
         user_password = self.request.get('password')
         user_verify = self.request.get('verify')
@@ -66,8 +66,8 @@ class SignupHandler(webapp2.RequestHandler):
         if reask :
             template_values['username'] = user_username
             template_values['email'] = user_email
-            template = jinja_env.get_template('signup-form.html')
-            self.response.out.write(template.render(template_values))
+            template_file = jinja_env.get_template('signup-form.html')
+            self.response.out.write(template_file.render(template_values))
         else:
             self.redirect("/unit2/welcome?username=%s" % user_username)
 
