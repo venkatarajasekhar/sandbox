@@ -1,2 +1,10 @@
-Basic authentication is not supported anymore.
-Only OAuth authentication 
+
+API Documentation
+https://dev.twitter.com/docs
+
+Issuing Twitter updates from the command line was once a simple affair: 
+you could just use curl or its equivalent. 
+Things changed when basic authentication was removed from the Twitter API in August 2010, 
+and now all Twitter clients are required to use secure authentication based on OAuth.a
+
+http://talkfast.org/2010/05/31/twitter-from-the-command-line-in-python-using-oauth
