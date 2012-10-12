@@ -12,19 +12,18 @@ import jinja2
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape = True)
 
-USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
-PASSWORD_RE = re.compile(r"^.{3,20}$")
-EMAIL_RE = re.compile(r"^[\S]+@[\S]+\.[\S]+$")
 
+USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
 def valid_username(username):
     return USER_RE.match(username)                                          # <-- returns username or None!
     
-
+PASSWORD_RE = re.compile(r"^.{3,20}$")
 def valid_password(password):
     return PASSWORD_RE.match(password)
 
+EMAIL_RE = re.compile(r"^[\S]+@[\S]+\.[\S]+$")
 def valid_email(email):
-    return EMAIL_RE.match(email)
+    return not email or EMAIL_RE.match(email)                               # <-- email field is optional
 
 #----------------------------------------------------------------------
 # VIDEO URL Handlers
@@ -34,8 +33,8 @@ class SignupHandler(webapp2.RequestHandler):
 
     def get(self):                                                      # <-- Show form when the page is called the first time (eg click on link or direct call)
         template_values = {}
-        template = jinja_env.get_template('signup-form.html')
-        self.response.out.write(template.render(template_values))
+        template_file = jinja_env.get_template('signup-form.html')
+        self.response.out.write(template_file.render(template_values))
 
     def post(self):                                                     # <-- Used when the form is submitted
         user_username = self.request.get('username')
@@ -76,8 +75,8 @@ class WelcomeHandler(webapp2.RequestHandler):
         user_username = self.request.get('username')
 
         template_values = {'username': user_username}
-        template = jinja_env.get_template('signup-welcome.html')
-        self.response.out.write(template.render(template_values))
+        template_file = jinja_env.get_template('signup-welcome.html')
+        self.response.out.write(template_file.render(template_values))
 
 
 #----------------------------------------------------------------------
