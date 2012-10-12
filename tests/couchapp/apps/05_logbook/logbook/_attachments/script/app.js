@@ -55,7 +55,8 @@ $(function() {
                         var doc = $(form).serializeObject();                        // serialize form (name: value)
                         doc.created_at = new Date();                                // add creation date to doc
                         doc.type = "line";                                          // define a type
-                        doc.profile = profile;                                      // save creator's profile in doc
+                        //doc.profile = profile;                                      // save creator's profile in doc
+                        doc.author = profile.name                                   // Save the name of the author
                         db.saveDoc(doc, {success : function() {form.reset();}});    // write new doc (in JSON format) in database
                         return false;
                     }).find("input").focus();                                       // put focus on input/linedit

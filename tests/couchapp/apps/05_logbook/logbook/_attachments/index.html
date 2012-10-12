@@ -44,10 +44,10 @@
         </div>
         <div id="logentry-forms">
             <form id="microblog-logentry-form">
-                <label>New message from {{nickname}}: <input type="text" name="text" size=60 value=""></label>
+                <label>New message from {{nickname}}: <input type="text" name="content" size=60 value=""></label>
             </form>
             <form id="blog-logentry-form">
-                <label>New message from {{nickname}}: <textarea rows=2 cols=20 name="text" size=60>hello toto sdfsdfsdf asdfasdfadf asdf</textarea></label>
+                <label>New message from {{nickname}}: <textarea rows=2 cols=20 name="content" size=60>hello toto sdfsdfsdf asdfasdfadf asdf</textarea></label>
                 <br/> <input type="submit" id="send-logentry-button-textarea" value="Send"/> <input type="reset"  id="reset-logentry-button-textarea" value="Reset"/>
             </form>
             <form id="attachment-logentry-form">
@@ -66,17 +66,23 @@
             <li>
                 <!--<div class="logentry-meta"> -->
                     <div class="avatar">
-                    {{#gravatar_url}}<img src="{{gravatar_url}}" alt="{{name}}"/>{{/gravatar_url}}
+                    <!--
+                        {{#gravatar_url}}<img src="{{gravatar_url}}" alt="{{name}}"/>{{/gravatar_url}}
                         <div class="name">
                             {{nickname}}
                         </div>
-                    <div class="timestamp">
-                        {{date}}
-                        {{time}}
-                    </div>
+                    -->
+                        <div class="timestamp">
+                            {{time}}
+                            {{date}}
+                        </div>
+                        <div class="author">
+                            {{author}}
+                        </div>
                     </div>
                 </div> 
-                <p>{{text}}</p>
+                {{#title}}<h2>{{title}}</h2>{{/title}}
+                <p>{{content}}</p>
                 <div style="clear:left;"></div>
             </li>
             {{/items}}

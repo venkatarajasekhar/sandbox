@@ -79,6 +79,17 @@ div.avatar img {
     float: right;
 }
 
+div.logentry-meta {
+    padding:2px;
+    padding-bottom:0;
+    margin-right:4px;
+    float:left;
+    font-size:0.78em;
+    width : 60px;
+    height : 60px;
+    text-align: center;
+}
+
 
 div.timestamp {
     padding-top:2px;
