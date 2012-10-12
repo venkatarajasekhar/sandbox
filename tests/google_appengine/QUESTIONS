@@ -1,0 +1,15 @@
+Q: What is the purpose of escaping?
+Python process input string without knowing that it is HTML.
+If not escaped, the user can manipulate the HTML
+ex: > shouldn't be part of the input (well unless it is escaped)
+"   --> &quot;
+&   --> &amp;
+etc
+
+Q: What is the problem with a POST returning content?
+If page is reloaded, the browser resumit the form (POST is resent).
+If you save the URL of the success page, this URL points to the form.
+As a matter of fact, the form html page will be returned instead of the success page
+==> Always use a redirect (bounce the user) in a *successfull* POST request
+    For non-successfull request, reprint the form with its content
+

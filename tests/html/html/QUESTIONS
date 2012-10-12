@@ -25,3 +25,106 @@ iPhone 4:   326 PPI for 960x640 screen resolution
 DEsktop:     99 PPI on a 20 inch screen
 ==> a width setting of 480px will show up as coming only about halfway on the iPhone4 even though it fills the width of the iphone3
 
+Q: What is a URL?
+URL = Uniform Resource Locator 
+http://www.udacity.com/
+or protocol + host_identifier + path
+
+Q: What is a HTML document?
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <p>Hello</p>
+    </body>
+</html>
+
+Q: What are GET query parameters?
+http://example.com/foo?p=1&g=neat       --> p=1 and q='neat'
+http://example.com/foo?p=1&z=p          --> z='p', not z=p=1
+
+Q: What is a POST request?
+A POST request are used to send/update data to the server
+The POST parameters are passed right AFTER the HTTP request headers (and are also escaped)
+A GET request is used to fetch data/document from the server
+THe GET parameters are passed in the URL
+
+Q: Difference between GET and POST?
+GET
+* parameters in URL
+* used for fetching documents
+* maximum URL length
+* Ok to cache
+* shouldn't change the server (same request = same result/state)
+
+POST
+* parameters in body
+* used for updating data stored on server
+* No max length
+* Not ok to cache
+* Ok to change the server
+
+Q: What are links?
+GET request !
+Robot / Google accelerator go through the links (you don't have control over this)
+So make sure that you GET request do not delete data on ther server!
+
+Q: What is a fragment?
+A fragment is used only by the browser and is *NOT* sent to the server
+http://www.example.com/foo#fragment
+http://example.com/foo?p=1&z=p#fragment
+Note that no fragment appears in the request line
+Note that there is only one segment per URL
+
+Q: What is a port?
+http://localhost:8000/                  <-- port often used for development
+http://localhost/                       <-- default port is 80
+
+Q: What is a request line?
+A request line is a request to the server (the reply is discussed below)
+A request line = method + path + protocol version
+http://www.example.com/foo                      ==> GET /foo HTTP/1.1                   on port 80 of www.example.com
+http://www.example.com/foo/logo.png?p=1#tricky  ==> GET /foo/logo.png?p=1 HTTP/1.1      on port 80 of www.example.com
+Note that no fragment appears in the request line
+
+Q: What are HTTP Headers?
+A request line is followed by a numbe rof headers
+GET /foo?p=1 HTTP/1.1
+Host: www.example.com                   <-- Use to identify web server virtual host
+User-Agent: chrome                      <-- Which program (other website) is making the request
+Key: Value                              <-- :<space> is separator of key value pair. Beware KEY cannot contain spaces
+...
+Note that headers can be made up as long as they use the Key: Value format described above
+
+Q: What are HTTP responses?
+request: GET /foo HTTP/1.1
+response: HTTP/1.1 200 OK               <-- protocol + status code + reason phrase
+Common HTTP responses
+200 Ok                                  <-- Document was found
+302 Found                               <-- Document located somewhere else (at Location: http://....) = a redirect
+4XX                                     <-- Error on the browser side
+404 Not found                           <-- Document does not exist
+405 Method not allowed                  <-- Submitted a form with the POST method when the GET method was expected (and vice-versa?)
+5XX                                     <-- Server side error
+500 Server Error                        <-- Server is broken
+
+Q: Tell me more about HTTP response...
+HTTP/1.1 200 Ok
+Date: Tue Mar 2012 04:33:33 GMT         <-- Date of the request 
+Server:  Apache/2.2.3                   <-- Beware of hacking!
+Referer: http://www.google.com/search   <-- Where is the request coming from
+Content-Type: text/html
+Content-Length: 1539
+
+[html content]
+
+Q: What is the difference from HTTP/1.0 to HTTP/1.1 ?
+From a troubleshooting perspective (telnet), a GET request on HTTP/1.1 is never closed for optimization.
+Wo when using telnet, use HTTP/1.0
+
+Q: What are web application?
+Live on a web server
+reply to http request
+provide static (image file) or dynamic (google search results) file in return

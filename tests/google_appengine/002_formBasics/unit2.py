@@ -74,7 +74,7 @@ def escape_html_1(s):
     return s
 
 def escape_html_2(s):
-    """ Using complete and bug free standard library function """
+    """ Using complete and bug free python STANDARD library function """
     return cgi.escape(s, quote = True)
 
 
@@ -87,7 +87,7 @@ class MainPage(webapp2.RequestHandler):
     def write_form4(self, error="", month="", day="", year=""):
         """ Notice that escaped text renders as non-escaped in html """
         self.response.out.write(form_4 % {"error": error, 
-                                          "month": escape_html_2(month), 
+                                          "month": escape_html_2(month),            # <-- escape user input
                                           "day": escape_html_2(day), 
                                           "year": escape_html_2(year),
                                          })
@@ -117,7 +117,9 @@ class MainPage(webapp2.RequestHandler):
             self.write_form4("That doesn't look valid to me!", user_month, user_day, user_year)
         else:
             #self.response.out.write("Thanks! That's a totally valid day!")
-            self.redirect("/thanks")							# <-- redirect browser to new URL
+            self.redirect("/thanks")							                        # <-- redirect browser to new URL   (Handler needs to be written, etc)
+                                                                                        # <-- required for bookmarking, sending link, and not have to resubmit the post req
+                                                                                        # <-- If redirect to another domain, need the full URL (i.e. http://..... )
 
 class TestHandler_1(webapp2.RequestHandler):
     """ To print the content of q """
@@ -135,10 +137,10 @@ class TestHandler_1(webapp2.RequestHandler):
 class TestHandler_2(webapp2.RequestHandler):
     """ To print the complete HTTP request """
     def get(self):
-        self.response.headers['Content-Type'] = 'text/plain'				#<-- required
+        self.response.headers['Content-Type'] = 'text/plain'				            #<-- required otherwise text/html
         self.response.out.write(self.request)
     def post(self):
-        self.response.headers['Content-Type'] = 'text/plain'				#<-- required
+        self.response.headers['Content-Type'] = 'text/plain'				            #<-- required otherwise text/html
         self.response.out.write(self.request)
 
 class ThanksHandler(webapp2.RequestHandler):

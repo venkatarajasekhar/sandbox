@@ -1,0 +1,1713 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Udacity - 21st Century University</title>
+<meta name="google-site-verification" content="8BozdrktZ5uY63LYrPxB5iOkouVTdHipGsNzUW9V2pU" />
+<link rel="stylesheet" type="text/css" href="/media/css/udacity2.css?130" />
+<link rel="stylesheet" type="text/css" href="/media/css/dialogs.css?130"/>
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    button, .button, a.button, ol.nugget-list {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+<!--
+<script
+    src="//www.google.com/jsapi?key=ABQIAAAAOx-pTXyuaUsotjKevTem5RRY-J96ZG6vUeHysYWcYheHIRtZ7hQ7CQ5yRTKcwjX2z4sBOrajFOZMkA"></script>
+-->
+<script type="text/javascript">
+    if (!window.console) {
+       window.console = {
+          log : function(){},
+          debug : function(){},
+          info : function(){},
+          warn : function(){}
+       }
+    }
+    window.udacityJSVersion = 130;
+</script>
+<!-- 
+<script type="text/javascript">
+    google.load("jquery", "1.7.1", {uncompressed:true});
+    google.load("jqueryui", "1.8.16");
+</script>
+ -->
+<script src="/media/js/libs/jquery/jquery-1-7-2-min.js?130"></script>
+<script src="/media/js/libs/jquery/jquery-ui-1-8-16-min.js?130"></script>
+<script src="/media/js/jquery.form.js?130"></script>
+<script src="/media/js/jquery.history.js?130"></script>
+<script src="/media/js/json2.js?130"></script>
+<script src="/media/js/udacity.js?130"></script>
+<script src="/media/js/pages.js?130"></script>
+<script src="/media/js/social_apis.js?130"></script>
+
+
+<!-- Ember includes -->
+<script type="text/javascript">
+if ($.browser.msie && 1*$.browser.version < 9.0) {
+	document.write('<script src="/media/js/ember-0.9.6.min.js?130"><'+'/script>' );
+	console.log($.browser);
+	$.each($.browser,function(i,val){
+		console.log(i);
+		console.log(val);
+	});
+}
+else{
+    document.write('<script src="/media/js/ember-0.9.6.min.js?130"><'+'/script>');
+}
+</script>
+<script src="/media/js/models.js?130" type="text/javascript"></script>
+<script src="/media/js/ember/apps/notifications.js?130"></script>
+<script src="/media/js/bangvars.js?130" type="text/javascript"></script>
+
+<script type="text/javascript">
+  csrf_token = "VVECsm2HbVqPYP9n9EyckGdwzKhGmyXMkHZYPrcaezATkL8z2nYdTQnM6NMk"
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28524234-1']);
+  _gaq.push(['_setCustomVar',1,'isUdacityRegistered','No', 1]);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+$(document).ready(function() {
+    // use js to position botbar at either end of document or bottom of window, whichever is lower
+    var windowHeight = $(window).height();   // returns height of browser viewport
+    var contentHeight = $("body").height(); // returns height of HTML document
+    var footerHeight = $("div#bottom_bin").height();
+    var footerTop = windowHeight - footerHeight - 50;
+    if (windowHeight > contentHeight) {
+        //$("div#bottom_bin").css("top",footerTop);
+    }
+
+
+    if(window.location.hash && window.location.hash.length > 0) {
+      UY.ajaxGET('account.is_enrolled_in_path',{path: window.location.hash.slice(1)},function(data){
+        _gaq.push(['_setCustomVar',2,'isEnrolledInCourse', (data.result) ? 'Yes' : 'No',3]);
+        _gaq.push(['_trackPageview',UY.getHashConvertedUrl(true)]);
+        isEnrolledInCourse = data.result;
+      });
+    } else {
+      _gaq.push(['_trackPageview',UY.getHashConvertedUrl(true)]);      
+    }
+});
+
+
+//Notifications
+$(document).ready(function(){
+    //Note.NotificationManager.getNotes(UY.BangVars.getHash(true));
+});
+
+</script>
+<script type="text/x-handlebars" data-template-name="notification-view">
+<div class="notification width960">
+    <div {{bindAttr class="importance"}}>
+        <div class="notification-icon">&nbsp;</div>
+        <div class="notification-content">{{{notification.content}}}</div>
+        <div class="dismissbox" {{action "dismissNotification" on="click" }}>x</div> 
+        <div class="clear"></div>
+    </div>
+</div>
+</script>
+
+</head>
+<body>
+    <div id="not-footer">
+        
+
+
+
+
+
+<div id="top_bin">
+	<div id="top_content" class="width960">
+		<!-- logo -->
+		<div class="udacity float-left">
+			<a href="/"><img id="top-logo" src="/media/img/logo-header-284x19.png" alt="Udacity" /></a><span id="top-course-title">&nbsp;</span>
+		</div>
+		<!-- buttons -->
+		<div class="user-block">
+			<!-- SIGN IN BUTTON & NO OVERLAY -->
+			<div id="signin-topbar-button" class="topbar-modal-button float-right">
+				<span>Sign In</span>
+			</div>
+			<div class="top-bar-separator float-right"></div>
+			<!-- SIGN UP BUTTON & NO OVERLAY -->
+			<div id="signup-topbar-button" class="topbar-modal-button float-right">
+				<span>Sign Up</span>
+			</div>
+			<!-- SEPARATOR -->
+			<div class="top-bar-separator float-right"></div>
+			<!-- CLASS LIST BUTTON & OVERLAY -->
+		   <div id="courses-topbar-button" class="topbar-modal-button float-right">
+			   <span class="downward-link">Classes</span>
+			</div>
+			<div id="courses-topbar-button-overlay" class="overlay">
+				<div class="topbar-menu  topbar-course-menu">
+					Loading courses...
+					<img src="/media/img/ajax-loader.gif" width=16 height=16 style="margin: 4px; vertical-align: middle;">
+				</div>
+				<div class="topbar-bottom-button">
+				   <a href="/courses" class="button forward-button">See All Upcoming Classes</a>
+				</div>
+			</div>
+			
+			
+				
+
+
+		</div><!-- end user-block -->
+		<div class="header-title">
+			<h2></h2>
+		</div>
+		<div class="header-text clear">
+		
+		</div>
+
+		<!-- header nav function starts here -->
+		
+<div id="header-nav" style="display: none;">
+	<script type="text/x-handlebars">
+
+<ul class="topnav">
+	{{#if UY.HeaderNavApp.enabled}}
+  	    {{#unless UY.HeaderNavApp.headerLinks.enabled}}
+	        {{#each UY.HeaderNavApp.headerLinks.content}}
+		        <li class="topnav inactive">
+				    <span class="inactive">{{label}}</span>
+        	    </li>
+    	    {{/each}}
+	    {{else}}
+	        {{#each UY.HeaderNavApp.headerLinks.content}}
+			    {{#if current}}
+				    <li class="topnav selected">
+				    <a>{{label}}</a>
+			    {{else}}
+		            {{#if active}}
+   			             <li class="topnav">
+		                <a {{bindAttr href="link"}}>{{label}}</a>
+		            {{else}}                    
+		                <li class="topnav inactive">
+		                <span class="inactive">{{label}}</span>
+		            {{/if}}
+			    {{/if}}
+        	    </li>
+    	    {{/each}}
+	    {{/unless}}
+	{{/if}}
+</ul>
+<div class="clear"></div>
+</script>
+</div>
+
+		<!-- header nav function ends here -->
+
+	</div><!-- end top_content -->
+	<div class="clear"></div>
+
+<div id="javascript_warning">
+	<img src="/media/img/icons/alert.gif" style="vertical-align: middle;" />
+	<span>This website requires JavaScript to be enabled. Please make sure JavaScript is enabled in your web browser preferences and any JavaScript blockers are disabled for this site.</span>
+</div>
+<script type="text/javascript">
+	var el = document.getElementById('javascript_warning');
+	el.style.display = "none";
+</script>
+</div><!-- end top_bin -->
+
+        <div class="" id="notification-ember-anchor">
+	        <script type="text/x-handlebars">
+                {{#each Note.NotificationManager.content}}
+                    <div>
+                      {{view Note.NotificationView notificationBinding="this"}}
+                    </div>
+               {{/each}}
+           </script>
+           
+        </div>
+        <div id="content-background">
+            <div id="content" class="width960">            
+               
+<link rel="stylesheet" type="text/css" href="/media/wiki/style.css?130"/>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+ "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
+ tex2jax: { inlineMath: [ ["$%","$%"] ],
+            displayMath: [ ["$$","$$"] ],
+            processEscapes: true,
+            ignoreClass: "tex2jax_ignore|dno"
+ },
+ TeX: { noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+ messageStyle: "none"
+});
+</script>
+<script>
+(function() {
+	var mj = document.createElement('script'); mj.type = 'text/javascript'; mj.async = true;
+	mj.id = 'mathjax-script-tag';
+	mj.src = '/media/mathjax/MathJax.js?config=TeX-AMS_HTML';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mj, s);
+})();
+</script>
+<script>window.Handlebars || document.write('<script src="/media/js/ember-0.9.4.min.js"><\/script>')</script>
+<script>
+(function() {
+	var course = new RegExp('course=([^&]*)').exec(window.location.search);
+	course = course && unescape(course[1]) || ''; 
+	if (!course.match(/^\w+$/i)) {
+		UY.BangVars.getHash = function() { return ''; }
+		UY.ajaxGET = function() { }
+	} 
+	else {
+		$("#top-course-title").text(course);
+		// TODO Clean this up plz
+		var rev = '1';
+		if(course === 'cs101' || course === 'cs212' || course === 'cs253' || course === 'cs262' || course === 'cs373' || course === 'cs387') {
+			rev = 'apr2012';
+		}
+		UY.BangVars.getHash = function() { return 'Course/' + course + '/CourseRev/' + rev + '/Unit/1/Nugget/1'; }
+		$(function() {
+			$("#header-nav").show();
+			$('#wiki-content-container a').each(function(i, e) {
+				if (e.pathname.indexOf('/wiki') < 0 || e.search.indexOf('course=') >= 0) { return; }
+				if (e.search == '') { e.search = 'course=' + course; }
+				else { e.search += '&course=' + course; }
+			});
+		});	
+	}
+})();
+</script>
+<script src="/media/js/header_nav.js?130"></script>
+
+
+
+<div id="wiki-content-container">
+
+
+
+<link href="/media/wiki/google-code-prettify/prettify.css?130" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/media/wiki/google-code-prettify/prettify.js?130"></script>
+<script>
+$(document).ready(function() {
+    prettyPrint();
+})
+</script>
+<script type="text/javascript" src="/media/wiki/jquery.highlight.js?130"></script>
+<script>
+$(document).ready(function() {
+    var rx = /highlight=([^&]+)/;
+    var match = rx.exec(window.location.search);
+    if (match) {
+        $('#pb').highlight(decodeURIComponent(match[1]));
+    }
+})
+</script>
+
+<ul id="tabs" class="locked">
+  <li class="active"><a class="view" href="/wiki/CS253_Unit_2">View</a></li>
+  <li><a href="/wiki/w/history?page=CS253_Unit_2">History</a></li>
+</ul>
+<div class="wtabs extl" id="pb">
+      <p><a rel="nofollow" href="/wiki/CS253">Back to course page</a> | <a rel="nofollow" href="/wiki/CS253%20Unit%201">CS253 Unit 1</a> | <a rel="nofollow" href="/wiki/CS253%20Unit%202">CS253 Unit 2</a> | <a rel="nofollow" href="/wiki/CS253%20Unit%202?action=print">Print this page</a></p>
+
+<h1 id="cs253-unit-2-getting-and-processing-user-input">CS253 - Unit 2: Getting and Processing User Input</h1>
+
+<span class="toc"><p>Contents</p><ul>
+  <li>1 <a href="#cs253-unit-2-getting-and-processing-user-input">CS253 - Unit 2: Getting and Processing User Input</a>
+  <ul>
+    <li>1.1 <a href="#forms">Forms</a>
+    <ul>
+      <li>1.1.1 <a href="#the-form-tag">The Form Tag</a></li>
+      <li>1.1.2 <a href="#quiz-user-input">Quiz: User Input</a></li>
+      <li>1.1.3 <a href="#naming-input">Naming Input</a></li>
+      <li>1.1.4 <a href="#entering-input">Entering Input</a></li>
+      <li>1.1.5 <a href="#submitting-input">Submitting Input</a></li>
+      <li>1.1.6 <a href="#quiz-submitting-input">Quiz: Submitting Input</a></li>
+      <li>1.1.7 <a href="#the-action-attribute">The Action Attribute</a></li>
+      <li>1.1.8 <a href="#action-attribute-quiz">Action Attribute Quiz</a></li>
+      <li>1.1.9 <a href="#url-encoding-quiz">URL Encoding Quiz</a></li>
+      <li>1.1.10 <a href="#url-encoding">URL Encoding</a></li>
+    </ul></li>
+    <li>1.2 <a href="#hello-webapp-world">Hello Webapp World</a>
+    <ul>
+      <li>1.2.1 <a href="#content-type">Content Type</a></li>
+      <li>1.2.2 <a href="#content-type-quiz">Content Type Quiz</a></li>
+      <li>1.2.3 <a href="#more-handlers">More Handlers</a></li>
+      <li>1.2.4 <a href="#handlers-quiz">Handlers Quiz</a></li>
+      <li>1.2.5 <a href="#the-method-attribute">The Method Attribute</a></li>
+      <li>1.2.6 <a href="#method-attribute-quiz">Method Attribute Quiz</a></li>
+      <li>1.2.7 <a href="#methods-and-parameters-quiz">Methods and Parameters Quiz</a></li>
+      <li>1.2.8 <a href="#differences-between-get-and-post">Differences Between Get and Post</a></li>
+      <li>1.2.9 <a href="#problems-with-get">Problems With Get</a></li>
+      <li>1.2.10 <a href="#when-to-use-post-and-get-quiz">When to Use Post and Get Quiz</a></li>
+    </ul></li>
+    <li>1.3 <a href="#passwords">Passwords</a>
+    <ul>
+      <li>1.3.1 <a href="#passwords-quiz">Passwords Quiz</a></li>
+    </ul></li>
+    <li>1.4 <a href="#checkboxes">Checkboxes</a>
+    <ul>
+      <li>1.4.1 <a href="#checkboxes-quiz">Checkboxes Quiz</a></li>
+      <li>1.4.2 <a href="#215-multiple-checkboxes">2.15 Multiple Checkboxes.</a></li>
+      <li>1.4.3 <a href="#multiple-checkboxes-quiz">Multiple Checkboxes Quiz</a></li>
+    </ul></li>
+    <li>1.5 <a href="#radio-buttons">Radio Buttons</a>
+    <ul>
+      <li>1.5.1 <a href="#grouping-radio-buttons-quiz">Grouping Radio Buttons Quiz</a></li>
+      <li>1.5.2 <a href="#radio-button-values">Radio Button Values</a></li>
+      <li>1.5.3 <a href="#radio-button-values-quiz">Radio Button Values Quiz</a></li>
+    </ul></li>
+    <li>1.6 <a href="#label-elements">Label Elements</a></li>
+    <li>1.7 <a href="#dropdowns">Dropdowns</a>
+    <ul>
+      <li>1.7.1 <a href="#dropdowns-quiz">Dropdowns Quiz</a></li>
+      <li>1.7.2 <a href="#dropdowns-and-values">Dropdowns and Values</a></li>
+      <li>1.7.3 <a href="#the-number-one-quiz">The Number One Quiz</a></li>
+    </ul></li>
+    <li>1.8 <a href="#validation">Validation</a>
+    <ul>
+      <li>1.8.1 <a href="#what-is-your-birthday">What is Your Birthday?</a></li>
+      <li>1.8.2 <a href="#what-is-your-birthday-quiz">What is Your Birthday? Quiz</a></li>
+      <li>1.8.3 <a href="#handling-posts">Handling Posts</a></li>
+      <li>1.8.4 <a href="#handling-bad-data-quiz">Handling Bad Data Quiz</a></li>
+      <li>1.8.5 <a href="#valid-month-quiz">Valid Month Quiz</a></li>
+      <li>1.8.6 <a href="#valid-day-quiz">Valid Day Quiz</a></li>
+      <li>1.8.7 <a href="#valid-year-quiz">Valid Year Quiz</a></li>
+      <li>1.8.8 <a href="#checking-validation">Checking Validation</a></li>
+      <li>1.8.9 <a href="#responding-based-on-validation">Responding Based on Validation</a></li>
+    </ul></li>
+    <li>1.9 <a href="#string-substitution">String Substitution</a>
+    <ul>
+      <li>1.9.1 <a href="#string-substitution-quiz">String Substitution Quiz</a></li>
+      <li>1.9.2 <a href="#substituting-multiple-strings-quiz">Substituting Multiple Strings Quiz</a></li>
+      <li>1.9.3 <a href="#advanced-string-substitution">Advanced String Substitution</a></li>
+      <li>1.9.4 <a href="#advanced-string-substitution-quiz">Advanced String Substitution Quiz</a></li>
+      <li>1.9.5 <a href="#substituting-into-our-form">Substituting Into Our Form</a></li>
+      <li>1.9.6 <a href="#preserving-user-input">Preserving User Input</a></li>
+      <li>1.9.7 <a href="#preserving-user-input-quiz">Preserving User Input Quiz</a></li>
+      <li>1.9.8 <a href="#problems-with-html-input">Problems With HTML Input</a></li>
+      <li>1.9.9 <a href="#problems-with-html-input-quiz">Problems With HTML Input Quiz</a></li>
+      <li>1.9.10 <a href="#handling-html-input">Handling HTML Input</a></li>
+      <li>1.9.11 <a href="#html-escaping">HTML Escaping</a></li>
+      <li>1.9.12 <a href="#using-html-escaping">Using HTML Escaping</a></li>
+      <li>1.9.13 <a href="#using-html-escaping-quiz">Using HTML Escaping Quiz</a></li>
+      <li>1.9.14 <a href="#implementing-html-escaping-quiz">Implementing HTML Escaping Quiz</a></li>
+      <li>1.9.15 <a href="#problems-reinventing-the-wheel">Problems Reinventing the Wheel</a></li>
+      <li>1.9.16 <a href="#current-limitations">Current Limitations</a></li>
+      <li>1.9.17 <a href="#redirection">Redirection</a></li>
+      <li>1.9.18 <a href="#redirection-advantages-quiz">Redirection Advantages Quiz</a></li>
+      <li>1.9.19 <a href="#implementing-redirection">Implementing Redirection</a></li>
+    </ul></li>
+  </ul></li>
+</ul>
+</span>
+
+<h2 id="forms">Forms</h2>
+
+<p>In this unit we are going to talk about <strong>Forms</strong>, and how you get data from the browser to your web server.</p>
+
+<p>To get us started, open the text editor of your choice and enter some text, for example:</p>
+
+<pre><code class="prettyprint">Hello, world!
+</code></pre>
+
+<p>[Note, Steve is using [Sublime Text 2](http://www.sublimetext.com/2) as his text editor in this lesson]</p>
+
+<p>Save the file as play.html and then open the file in your web browser of choice.</p>
+
+<p>What you will see is the text that you entered in the file displayed in your browser. If you go back to the file and change the text, then save it and refresh your web browser, you will see the changed text displayed in the browser.</p>
+
+<p>This is a handy way of experimenting with HTML in a real browser.</p>
+
+<h3 id="the-form-tag">The Form Tag</h3>
+
+<p>We will now introduce a new HTML tag, the FORM tag:</p>
+
+<pre><code class="prettyprint">&lt;form&gt;
+
+&lt;/form&gt;
+</code></pre>
+
+<p>If we were to enter this into out text editor, save it and then open the file in our browser we wouldn't see anything. That is because there is no content in our form.</p>
+
+<p>So, what about the content that can go into an HTML form? Well, there are a few things that can go into the form. One of these is the <input> element:</p>
+
+<pre><code class="prettyprint">&lt;form&gt;
+    &lt;input&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>If you enter this in your text editor and then open the document in the browser you should see an input box into which you can type text.</p>
+
+<p>The <input> tag can take a number of attributes, one of which is called <strong>name</strong>. The element would have the form:</p>
+
+<pre><code class="prettyprint">&lt;input name="name"&gt;
+</code></pre>
+
+<h3 id="quiz-user-input">Quiz: User Input</h3>
+
+<p>Enter the html for an input tag whose name parameter is q.</p>
+
+<h3 id="naming-input">Naming Input</h3>
+
+<p>We can now add the name attribute to the file that we have been editing:</p>
+
+<pre><code class="prettyprint">&lt;form&gt;
+    &lt;input name="q"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>If we save this and refresh the file in our browser, we see that the appearance of the text box doesn't change.</p>
+
+<h3 id="entering-input">Entering Input</h3>
+
+<p>Match the letter to the description:</p>
+
+<p>Put some text in the input box in your browser and press enter. What happens?</p>
+
+<ul>
+<li>Nothing.</li>
+<li>The URL changes with my text.</li>
+<li>An error message Appears.</li>
+<li>The text disappears.</li>
+</ul>
+
+<h3 id="submitting-input">Submitting Input</h3>
+
+<p>Instead of requiring users to press the enter key every time, let's provide them with a button to submit our form. We can do this by using the input element, but with a new attribute, called <strong>type</strong>. The element will appear something like this:</p>
+
+<pre><code class="prettyprint">&lt;input type="submit"&gt;
+</code></pre>
+
+<p>This will cause the browser to show a button which a can be used to submit the form. We can add this to our form and view the result in a browser:</p>
+
+<pre><code class="prettyprint">&lt;form&gt;
+    &lt;input name="q"&gt; &lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<h3 id="quiz-submitting-input">Quiz: Submitting Input</h3>
+
+<p>Is clicking Submit any different than pressing enter?</p>
+
+<h3 id="the-action-attribute">The Action Attribute</h3>
+
+<p>By default, an HTML form submits to itself. While this may be handy for testing elements in a browser, isn't so handy if we want it to submit the data to our server. Let's look at how we can make the form submit to somewhere else.</p>
+
+<p>We are going to add a new attribute to our form. The attribute is called <strong>action</strong>, and it controls where a form submits to. The attribute looks something like this:</p>
+
+<pre><code class="prettyprint">&lt;form action="/foo"&gt;
+    &lt;input ...&gt; &lt;input ...&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>The value of the action attribute will be the URL of where you want the form to submit the data.</p>
+
+<h3 id="action-attribute-quiz">Action Attribute Quiz</h3>
+
+<p>Add an <strong>action</strong> attribute to your <form> element whose value is <strong><a rel="nofollow" href="http://www.google.com/search">http://www.google.com/search</a></strong>. Click Submit. What Happens?</p>
+
+<ul>
+<li>Nothing.</li>
+<li>The URL changes with what we entered.</li>
+<li>My browser goes to Google search results.</li>
+<li>I've written an entire search engine.</li>
+</ul>
+
+<h3 id="url-encoding-quiz">URL Encoding Quiz</h3>
+
+<p>Type better flight search into the form and click submit. What is the value of the q parameter from the URL?</p>
+
+<h3 id="url-encoding">URL Encoding</h3>
+
+<p>A URL cannot contain spaces. If the user input into a form contains spaces, the browser has to convert that input into something that doesn't contain spaces before appending it as a query parameter. It does this by replacing spaces with the '+' character. Other reserved characters (e.g. the exclamation mark '!') are also replaced with codes in a similar manner. This is called "URL encoding" or "Form Encoding" or similar terms.</p>
+
+<h2 id="hello-webapp-world">Hello Webapp World</h2>
+
+<p>Let's move on to some live web applications. By the end of the last homework you should have had Google App Engine running on your machine, and you should also have had a basic app online. We will start with the simple Hello World example that Google has on their site. This is the main Hello World Python file from the Google App Engine example page:</p>
+
+<pre><code class="prettyprint">import webapp2
+
+class MainPage(webapp2.RequestHandler):
+    def get(self):
+       self.response.headers['Content-Type'] = 'text/plain'
+       self.response.out.write('Hello, webapp World!')
+
+app = webapp2.WSGIApplication([('/', MainPage)],
+                             debug=True)
+</code></pre>
+
+<p>The file has two main sections. Lets start with the section at the bottom, the URL mapping section:</p>
+
+<pre><code class="prettyprint">app = webapp2.WSGIApplication([('/', MainPage)],
+                             debug=True)
+</code></pre>
+
+<p>In this case, we have just the one URL, '/', which maps to a handler named <a rel="nofollow" href="/wiki/MainPage">MainPage</a>.</p>
+
+<p><a rel="nofollow" href="/wiki/MainPage">MainPage</a> is defined in the class in the section above, called <a rel="nofollow" href="/wiki/MainPage">MainPage</a>. It inherits from webapp2.<a rel="nofollow" href="/wiki/RequestHandler">RequestHandler</a> which is the generic request handler from Google.</p>
+
+<p>[If you aren't familiar with classes, they are basically a convenient way of grouping together functions and data that are related to the same thing. You can learn more about them offline, for example here: [http://docs.python.org/tutorial/classes.html](http://docs.python.org/tutorial/classes.html)]</p>
+
+<p>The class <a rel="nofollow" href="/wiki/MainPage">MainPage</a> is a function named <strong>get</strong>, which takes a parameter named <strong>self</strong>. (self is the common first parameter to most Python methods) The function does two things:</p>
+
+<ol>
+<li>First it takes self.response, which is the global response object used by this framework, and it sets the Content-Type header to be 'text/plain'. By default, the Content-Type is 'text/html', but in this case, the class sets the header to 'text/plain'.</li>
+<li>Next it writes the string 'Hello, webapp World!'</li>
+</ol>
+
+<h3 id="content-type">Content Type</h3>
+
+<p>Let's take the form that we created in our text editor and put it in our application.</p>
+
+<p>What we will do is create a new variable at the top of the file called form, and paste in the form from our text editor:</p>
+
+<pre><code class="prettyprint">import webapp2
+
+form = """
+&lt;form action="http://www.google.com/search"&gt;
+    &lt;input name="q"&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+"""
+
+class MainPage(webapp2.RequestHandler):
+    def get(self):
+        #self.response.headers['Content-Type'] = 'text/plain'
+        self.response.out.write(form)
+
+app = webapp2.WSGIApplication([('/', MainPage)],
+                             debug=True)
+</code></pre>
+
+<p>Note the use of the <strong>triple-quotes</strong> which allow us to enter longer strings.</p>
+
+<p>We have also replace the string 'Hello, webapp World!' with <strong>form</strong> so that it will print out the string of the form rather than the string 'Hello, webapp World!'.</p>
+
+<p>By commenting out the line ...['Content-Type'] = 'text/plain', the default behavior is evoked which is to treat Content-Type as html.</p>
+
+<p>Saving this and then displaying the file in our browser actually displays the HTML for our form, rather than the form we wanted!</p>
+
+<h3 id="content-type-quiz">Content Type Quiz</h3>
+
+<p>Why do we see raw HTML instead of our text box?</p>
+
+<ul>
+<li>Google App Engine can only send raw HTML.</li>
+<li>Our browser is mis-configured.</li>
+<li>We're sending the wrong Content-Type header.</li>
+<li>Our HTML is invalid.</li>
+</ul>
+
+<p>The reason we see the raw HTML is because of the line in our code that set the Content-Type header:: .</p>
+
+<pre><code class="prettyprint">        self.response.headers['Content-Type'] = 'text/plain'
+</code></pre>
+
+<p>If we remove this line, either by deleting it or just commenting it out, and save the file, it should display correctly in our browser.</p>
+
+<h3 id="more-handlers">More Handlers</h3>
+
+<p>Let's make some changes to our file. First, we will remove the Google search action from the form and replace it with "/testform". This will cause the form to be submitted to /testform instead of to Google when we click the Submit button.</p>
+
+<p>Now, since our application can only respond to '/', we are going to need to add a handler for '/testform' as well.</p>
+
+<p><code>/testform</code> will be dealt with by a handler called <a rel="nofollow" href="/wiki/TestHandler">TestHandler</a>. This handler doesn't exist yet, so we will need to create it. It will have the form:</p>
+
+<pre><code class="prettyprint">class TestHandler(webapp2.RequestHandler):
+    def get(self):
+        q=self.request.get("q")
+        self.response.out.write(q)
+</code></pre>
+
+<p>What this does is to run a function called <strong>get</strong>, that sets a variable called q to the value self.request.get("q"). "request" is the object that represents the request that came from the browser, and you can call "get" on that object to extract different parameters. The last thing the handler does is to return the value of q to the browser.</p>
+
+<p>Our app now looks like this:</p>
+
+<pre><code class="prettyprint">import webapp2
+
+form = """
+&lt;form action="/testform"&gt;
+    &lt;input name="q"&gt; &lt;input type="submit"&gt;
+&lt;/form&gt;
+"""
+
+class MainPage(webapp2.RequestHandler):
+    def get(self):
+        #self.response.headers['Content-Type'] = 'text/plain'
+        self.response.out.write(form)
+
+class TestHandler(webapp2.RequestHandler):
+    def get(self):
+        q=self.request.get("q")
+        self.response.out.write(q)
+
+app = webapp2.WSGIApplication([('/', MainPage),
+                               ('/testform', TestHandler)],
+                              debug=True)
+</code></pre>
+
+<p>If we save this and refresh our browser, we won't see any difference in our form. However, if we type the text 'Hello, World!' into the box and click Submit, the text is displayed in the browser window with the URL something like:</p>
+
+<p><a rel="nofollow" href="http://localhost:8080/testform?q=Hello,+World">http://localhost:8080/testform?q=Hello%2C+World</a>!</p>
+
+<p>Note that the exclamation mark was been encoded as %2C in this instance.</p>
+
+<p>Now, I will show you something neat!</p>
+
+<p>If we edit the <a rel="nofollow" href="/wiki/TestHandler">TestHandler</a> handler as follows:</p>
+
+<pre><code class="prettyprint">class TestHandler(webapp2.RequestHandler):
+    def get(self):
+        #q=self.request.get("q")
+        #self.response.out.write(q)
+        self.response.headers['Content-Type'] = 'text/plain'
+        self.response.out.write(self.request)
+</code></pre>
+
+<p>So, we have commented out the original actions and then set the Content-Type header to be text/plain, and then added the line:</p>
+
+<pre><code class="prettyprint">        self.response.out.write(self.request)
+</code></pre>
+
+<p>We will save this and then run it in the browser.</p>
+
+<h3 id="handlers-quiz">Handlers Quiz</h3>
+
+<p>What just happened?</p>
+
+<ul>
+<li>We see garbage.</li>
+<li>We see the HTTP request.</li>
+<li>We see a message from the future.</li>
+<li>Nothing changes.</li>
+</ul>
+
+<p>You will recognise much of the request displayed in the browser from the work we did on HTTP requests in Unit 1:</p>
+
+<pre><code class="prettyprint">GET /testform?q=Hello%2C+World%21 HTTP/1.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-us,en;q=0.5
+Connection: keep-alive
+Host: localhost:8080
+Referer: http://localhost:8080/
+User-Agent: Mozilla/5.0 (Macintosh; IntelMac OS X 10_7_3) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.79 Safari/535.11
+</code></pre>
+
+<p>The first line is the actual request, followed by a series of headers, some of which we have met before.</p>
+
+<p>The Referer header is interesting. This refers to the URL that sent the request. Notice that "Referer" is mis-spelt. In the original HTTP specification the word was spelled wrong, but it has lived on for almost 20 years for backward-compatibility reasons.</p>
+
+<h3 id="the-method-attribute">The Method Attribute</h3>
+
+<p>In Unit 1 we mentioned that the most important methods in HTTP requests are <strong>get</strong> and <strong>post</strong>. The default method is get. We can change the method which is used by specifying the method attribute.</p>
+
+<p>We now add the attribute method="post" to our form:</p>
+
+<pre><code class="prettyprint">import webapp2
+
+form = """
+&lt;form method="post" action="/testform"&gt;
+    &lt;input name="q"&gt; &lt;input type="submit"&gt;
+&lt;/form&gt;
+"""
+
+class MainPage(webapp2.RequestHandler):
+    def get(self):
+        #self.response.headers['Content-Type'] = 'text/plain' self.response.out.write(form)
+
+class TestHandler(webapp2.RequestHandler):
+    def get(self):
+        q=self.request.get("q") self.response.out.write(q)
+        #self.response.headers['Content-Type'] = 'text/plain' #self.response.out.write(self.request)
+
+app = webapp2.WSGIApplication([('/', MainPage),
+                              ('/testform', TestHandler)],
+                             debug=True)
+</code></pre>
+
+<h3 id="method-attribute-quiz">Method Attribute Quiz</h3>
+
+<p>What happens when we launch the file in a browser window?</p>
+
+<ul>
+<li>The text we entered was displayed.</li>
+<li>An error was displayed.</li>
+<li>The request headers were displayed.</li>
+<li>Ran a Google search with our request.</li>
+</ul>
+
+<p>The error occurs because we are using the method post for our form, but <a rel="nofollow" href="/wiki/TestHandler">TestHandler</a> is only configured to use get! We can change <a rel="nofollow" href="/wiki/TestHandler">TestHandler</a> to use post as follows:</p>
+
+<pre><code class="prettyprint">class TestHandler(webapp2.RequestHandler):
+    def post(self):
+        q=self.request.get("q")
+        self.response.out.write(q)
+</code></pre>
+
+<p>Now, when we refresh the browser, the text entered in the text box is displayed just like before, except that the q parameter isn't shown in the URL.</p>
+
+<h3 id="methods-and-parameters-quiz">Methods and Parameters Quiz</h3>
+
+<p>Where did our q parameter go?</p>
+
+<p>(Hint: Look at the request)</p>
+
+<ul>
+<li>In the URL.</li>
+<li>After the HTTP response headers.</li>
+<li>In a second request.</li>
+<li>In the HTTP request headers.</li>
+</ul>
+
+<h3 id="differences-between-get-and-post">Differences Between Get and Post</h3>
+
+<p>Let's talk a little bit about the differences between get and post.</p>
+
+<p>We have already seen one difference in that get parameters are included in the URL while post parameters are included the body. Another difference is that get requests are normally used to fetch documents and get parameters describe the document to be fetched, while post is often used for updating data on the server.</p>
+
+<p>Because get parameters form part of the URL, they are subject to the maximum length of URL permitted in the browser whereas posts, by default, have no maximum length.</p>
+
+<p>A further difference is that get parameters are generally OK to cache. Post parameters are almost never cached as they are probably updating data on the server.</p>
+
+<p>Get requests shouldn't change the data on the server. You can make the same get request multiple times and the server shouldn't change. Post requests, on the other hand, are OK to change the server. That is what they are generally used for.</p>
+
+<p>The differences are summarised below:</p>
+
+<table>
+<tbody>
+<tr><td>GET</td><td>POST</td></tr>
+<tr><td>- Parameters in URL</td><td>- Parameters in body</td></tr>
+<tr><td>- Used for fetching documents</td><td>- Used for updating data</td></tr>
+<tr><td>- Maximum URL length</td><td>- No maximum length</td></tr>
+<tr><td>- OK to cache</td><td>- Not OK to cache</td></tr>
+<tr><td>- Shouldn't change the server</td><td>- OK to change the server</td></tr>
+</tbody>
+</table>
+
+<h3 id="problems-with-get">Problems With Get</h3>
+
+<p>We've talked about some of the differences between get and post, now let's look at what happens if you follow the rules for using get and post correctly.</p>
+
+<p>Some years ago there was an online program for organising to-do lists and similar tasks called Basecamp, made by a company called 37Signals. Basecamp displayed the to-do list with a 'Delete' link alongside each item in the list.</p>
+
+<p>Now, as we have seen, a normal link using the anchor tag makes get requests. These had been designed to make post requests to delete the item on the to-do list.</p>
+
+<p>Another program which was out at that time was Google Web Accelerator. This was a browser plug-in that sat in the browser and while you were browsing the Google Web Accelerator would make the requests for any links on the page behind the scenes so that when you clicked the links the pages were ready to go.</p>
+
+<p>The problem in this case was that the Google Web Accelerator was hitting the 'Delete' links in Basecamp, so users would go to their Basecamp page, look at their to-do list, and find that their items were deleting on their own. This was a major problem, and an example of what can go wrong if you use get requests to update data on the server.</p>
+
+<h3 id="when-to-use-post-and-get-quiz">When to Use Post and Get Quiz</h3>
+
+<p>Which of these are appropriate for GET requests?</p>
+
+<ul>
+<li>Fetching a document.</li>
+<li>Updating data.</li>
+<li>Requests that can be cached.</li>
+<li>Sending a lot of data to the server.</li>
+</ul>
+
+<h2 id="passwords">Passwords</h2>
+
+<p>We now want to introduce some more input types. The default type for an input element is "text". We left this out earlier, but we should really be specific with our types, especially as we are now going to introduce some more types.</p>
+
+<p>If we go back to our basic play.html document, adding the type="text" attribute to the first input element gives us:</p>
+
+<pre><code class="prettyprint">&lt;form&gt;
+    &lt;input type="text" name="q"&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>The first new input type that we want to introduce is type="password". When the input field is a password, any text typed in the field appears as a row of dots:</p>
+
+<pre><code class="prettyprint">&lt;form&gt;
+    &lt;input type="password" name="q"&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<h3 id="passwords-quiz">Passwords Quiz</h3>
+
+<p>When we submit this form, what is the value of the q parameter in the URL?</p>
+
+<ul>
+<li>Whatever I typed in the box.</li>
+<li>The parameter won't appear at all.</li>
+<li>hunter2.</li>
+</ul>
+
+<p>It is important to be aware that the password entered in a password field will appear in the URL and it not sent securely to the server.</p>
+
+<h2 id="checkboxes">Checkboxes</h2>
+
+<p>Another input type is type="checkbox". You won't be surprised to learn that this will create a checkbox in your form:</p>
+
+<pre><code class="prettyprint">&lt;form&gt;
+    &lt;input type="checkbox" name="q"&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>If the checkbox is checked, the parameter appended to the URL will be q=on</p>
+
+<h3 id="checkboxes-quiz">Checkboxes Quiz</h3>
+
+<p>What is the value of the q parameter when I submit the form with the checkbox unchecked?</p>
+
+<ul>
+<li>Off.</li>
+<li>The parameter doesn't appear at all.</li>
+<li>The parameter is blank.</li>
+<li>hunter2.</li>
+</ul>
+
+<h3 id="215-multiple-checkboxes">2.15 Multiple Checkboxes.</h3>
+
+<p>Now we have seen how a single checkbox works, but you rarely see a single checkbox. They more commonly appear in groups. In the form below I have added two more checkboxes, named r and s, and also added a line break so we have a little separation from the Submit button:</p>
+
+<pre><code class="prettyprint">&lt;form&gt;
+    &lt;input type="checkbox" name="q"&gt;
+    &lt;input type="checkbox" name="r"&gt;
+    &lt;input type="checkbox" name="s"&gt;
+    &lt;br&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<h3 id="multiple-checkboxes-quiz">Multiple Checkboxes Quiz</h3>
+
+<p>When I select the first two checkboxes and click submit, what does the query section of the URL look like?</p>
+
+<h2 id="radio-buttons">Radio Buttons</h2>
+
+<p>Radio buttons are also often used in forms. In this case the type="radio". The form below will display three radio buttons named q, r and s:</p>
+
+<pre><code class="prettyprint">&lt;form&gt;
+    &lt;input type="radio" name="q"&gt;
+    &lt;input type="radio" name="r"&gt;
+    &lt;input type="radio" name="s"&gt;
+    &lt;br&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>When you load this in the web browser you will see three radio buttons. However, they do not behave as you would expect them to. Normally when we have radio buttons they behave as a group. and you can only select one button. What we have here are essentially checkboxes that cannot be unchecked.</p>
+
+<h3 id="grouping-radio-buttons-quiz">Grouping Radio Buttons Quiz</h3>
+
+<p>Which of these yields the "group" behaviour from the radio buttons?</p>
+
+<ul>
+<li>Give them all the same <strong>id</strong>.</li>
+<li>Give them all the same <strong>name</strong>.</li>
+<li>Give them all the same <strong>group</strong>.</li>
+<li>include the <strong><input></strong>s in a <strong><group></strong> element.</li>
+</ul>
+
+<h3 id="radio-button-values">Radio Button Values</h3>
+
+<p>So, if we give all the radio buttons in a group they will behave as we expect radio buttons to do:</p>
+
+<pre><code class="prettyprint">&lt;form&gt;
+    &lt;input type="radio" name="q"&gt;
+    &lt;input type="radio" name="q"&gt;
+    &lt;input type="radio" name="q"&gt;
+    &lt;br&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>However, a problem with this set up as it stands is that the parameter passed to the server will be q=on, whichever of the 3 buttons is selected. We can solve this problem using the <strong>value</strong> parameter:</p>
+
+<pre><code class="prettyprint">&lt;form&gt;
+    &lt;input type="radio" name="q" value="one"&gt;
+    &lt;input type="radio" name="q" value="two "&gt;
+    &lt;input type="radio" name="q" value="three "&gt;
+    &lt;br&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<h3 id="radio-button-values-quiz">Radio Button Values Quiz</h3>
+
+<p>What is the value of the of the <strong>q</strong> parameter when the form is submitted with the second button selected?</p>
+
+<h2 id="label-elements">Label Elements</h2>
+
+<p>In the previous example, we had our three radio buttons, but how is a user to know what the buttons represent and which button to select? That is what the label element is for.</p>
+
+<p>In order to label each button we need to enclose it in a label element:</p>
+
+<pre><code class="prettyprint">&lt;label&gt;
+    One
+    &lt;input type="radio" name="q" value="one"&gt;
+&lt;/label&gt;
+</code></pre>
+
+<p>This will cause the label (in this case "One") to appear next to the button. Our complete form will now be:</p>
+
+<pre><code class="prettyprint">&lt;form&gt;
+    &lt;label&gt;
+        One
+        &lt;input type="radio" name="q" value="one"&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+        Two
+        &lt;input type="radio" name="q" value="two"&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+        Three
+        &lt;input type="radio" name="q" value="three"&gt;
+    &lt;/label&gt;
+    &lt;br&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>The label doesn't have to match the value of the radio button, but they often do (or at least are often closely related).</p>
+
+<h2 id="dropdowns">Dropdowns</h2>
+
+<p>There is one last form element I would like to expose you to before we move on, and this is the dropdown.</p>
+
+<p>A drop down has a form that looks like this:</p>
+
+<pre><code class="prettyprint">    &lt;select name="q"&gt;
+        &lt;option&gt;One&lt;/option&gt;
+        &lt;option&gt;Two&lt;/option&gt;
+        &lt;option&gt;Three&lt;/option&gt;
+    &lt;/select&gt;
+</code></pre>
+
+<p>The dropdown starts with a <strong>select</strong> element with a name attribute (we have been using <strong>q</strong>, so why break a winning streak), followed by a number of <strong>option</strong> elements, and finally the closing <strong>select</strong> element. Our form will now appear as:</p>
+
+<pre><code class="prettyprint">&lt;form&gt;
+    &lt;select name="q"&gt;
+        &lt;option&gt;One&lt;/option&gt;
+        &lt;option&gt;Two&lt;/option&gt;
+        &lt;option&gt;Three&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;br&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<h3 id="dropdowns-quiz">Dropdowns Quiz</h3>
+
+<p>When we select <strong>Two</strong> from the dropdown, what is the value of the <strong>q</strong> parameter?</p>
+
+<h3 id="dropdowns-and-values">Dropdowns and Values</h3>
+
+<p>I you want to have more descriptive text in the dropdown, but a different parameter to appear in the URL, you can use the <strong>value</strong> parameter.</p>
+
+<pre><code class="prettyprint">&lt;form&gt;
+    &lt;select name="q"&gt;
+        &lt;option value="1"&gt;Number One&lt;/option&gt;
+        &lt;option value="2"&gt;Number Two&lt;/option&gt;
+        &lt;option value="3"&gt;Number Three&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;br&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>Now, the text displayed in the dropdown will be Number One, Number Two..., but if we select Number Two from the list the query parameter attached to the URL will be simply q=2.</p>
+
+<h3 id="the-number-one-quiz">The Number One Quiz</h3>
+
+<p>What will <strong>q</strong>'s value in the URL be when we submit the form with the value Number One selected?</p>
+
+<ul>
+<li>Number One</li>
+<li>1</li>
+<li>Nothing</li>
+<li>hunter2</li>
+</ul>
+
+<h2 id="validation">Validation</h2>
+
+<p>Let's introduce a new concept. The concept of validation. Validation basically means verifying on the server-side that what we received is what we expected to receive.</p>
+
+<p>Imagine the situation where we have set up our form, and the servers are programmed to respond in a particular way when q=on, and in another way when q is absent. But how will they respond if they receive a request where q=broken? The smart thing to do would probably be to treat the request as if q was unchecked in this case.</p>
+
+<p>However, the point remains that just because we have designed a form to limit the responses that can be sent to our servers doesn't mean that a rogue user can't send a request directly to our servers with almost any arbitrary junk in it. It is up to us to make sure our servers can handle it.</p>
+
+<h3 id="what-is-your-birthday">What is Your Birthday?</h3>
+
+<p>Let's go back to our very simple form as shown below:</p>
+
+<pre><code class="prettyprint">import webapp2
+
+form = """
+&lt;form method="post"&gt;
+    &lt;input name="q"&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+"""
+
+class MainPage(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write(form)
+app = webapp2.WSGIApplication([('/', MainPage)],
+                              debug=True)
+</code></pre>
+
+<p>Notice that we removed the action /testform and so no longer need the handler which dealt with /testform.</p>
+
+<p>Instead of a form with just a text-field, we are going to modify the form to ask for the user's birthday, and then validate their inputs. The form now looks like this:</p>
+
+<pre><code class="prettyprint">&lt;form method="post"&gt;
+    What is your birthday?
+    &lt;br&gt;
+    &lt;label&gt;
+        Month
+        &lt;input type="text" name="month"&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+        Day
+        &lt;input type="text" name="day"&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+        Year
+        &lt;input type="text" name="year"&gt;
+    &lt;/label&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<h3 id="what-is-your-birthday-quiz">What is Your Birthday? Quiz</h3>
+
+<p>What happens when I hit Submit?</p>
+
+<ul>
+<li>The form clears.</li>
+<li>We get an <strong>Error 405</strong> because we never added a <strong>post()</strong> handler for <strong>/</strong>.</li>
+<li>We see the form values in the URL.</li>
+<li>The app counts down to my birthday.</li>
+</ul>
+
+<h3 id="handling-posts">Handling Posts</h3>
+
+<p>So let's add a post function to our page.</p>
+
+<pre><code class="prettyprint">import webapp2
+
+form = """
+&lt;form method="post"&gt;
+    What is your birthday?
+    &lt;br&gt;
+    &lt;label&gt;
+        Month
+        &lt;input type="text" name="month"&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+        Day
+        &lt;input type="text" name="day"&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+        Year
+        &lt;input type="text" name="year"&gt;
+    &lt;/label&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+"""
+
+class MainPage(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write(form)
+
+    def post(self):
+        self.response.out.write("Thanks! That's a totally valid day!")
+
+app = webapp2.WSGIApplication([('/', MainPage)], debug=True)
+</code></pre>
+
+<p>This will return the string "Thanks! That's a totally valid day!" to the browser when we post from the form, but what if the date isn't valid?</p>
+
+<h3 id="handling-bad-data-quiz">Handling Bad Data Quiz</h3>
+
+<p>What are some possible solutions to users entering bad data into our form?</p>
+
+<ul>
+<li>Use dropdowns to limit what users can actually enter.</li>
+<li>Assume that users will only enter good data.</li>
+<li>Verify what the users enter and complain if the data is bad.</li>
+<li>Make values up.</li>
+</ul>
+
+<h3 id="valid-month-quiz">Valid Month Quiz</h3>
+
+<p>Write a function that, given input from the user, returns whether or not it is a valid month.</p>
+
+<h3 id="valid-day-quiz">Valid Day Quiz</h3>
+
+<p>Next, I'd like you to write a function that, given what the user types in for the day, returns whether that day is valid or not.</p>
+
+<h3 id="valid-year-quiz">Valid Year Quiz</h3>
+
+<p>OK, one last function to write, this time to determine whether what the user entered for the year is valid.</p>
+
+<h3 id="checking-validation">Checking Validation</h3>
+
+<p>Now that we have the functions to check the users input, let's look at how they fit into the process. We have to do three things:</p>
+
+<ol>
+<li>Verify the user's input.</li>
+<li>On error, render the form again.</li>
+<li>Include an error message</li>
+</ol>
+
+<h3 id="responding-based-on-validation">Responding Based on Validation</h3>
+
+<p>We can now modify our post function to use the validation functions that we have just written and respond to the request appropriately based on the results of the validation. The new post function looks like this:</p>
+
+<pre><code class="prettyprint">    def post(self):
+        user_month = valid_month(self.request.get('month'))
+        user_day = valid_day(self.request.get('day'))
+        user_year = valid_year(self.request.get('year'))
+
+        if not(user_month and user_day and user_year):
+            self.response.out.write(form)
+        else:
+            self.response.out.write("Thanks! That's a totally valid day!")
+</code></pre>
+
+<p>The first line of the function calls the valid_month function that we just wrote, and sends the month parameter from the request as the function parameter. Similarly, the next two lines validate the day and the year of the user input. If these are not all valid, the function resends the form. If they are all valid, the function writes the string "Thanks! That's a totally valid day!".</p>
+
+<h2 id="string-substitution">String Substitution</h2>
+
+<p>Before we go any further, I want to teach you a quick little Python thing about how to do string substitution. This will make generating our HTML a little bit more convenient.</p>
+
+<p>If we have a string in Python something like this:</p>
+
+<pre><code class="prettyprint">"&lt;b&gt; some bold text&lt;/b&gt;"
+</code></pre>
+
+<p>This is exactly the kind of string that we are likely to be returning in our web app - a little bit of HTML with some contents. If we have a lot of bold text, this will get to be rather a pain if we have to generate this entire string every time. Instead, we can do something like this:</p>
+
+<pre><code class="prettyprint">"&lt;b&gt;%s&lt;/b&gt;" % VARIABLE
+</code></pre>
+
+<p>We still have the same basic structure of the string with the &lt;b&gt; tags creating some bold contents, but now that contents is represented by the %s. What this does is to substitute the %s with the variable %VARIABLE following the string. This is really convenient as we can now have a function that substitutes some variable into the string meaning that we don't have to keep building the string over, and over again.</p>
+
+<h3 id="string-substitution-quiz">String Substitution Quiz</h3>
+
+<p>Write a function 'sub1' that, given a string, embeds that string in the string: "I think X is a perfectly normal thing to do in public." where X is replaced by the given string.</p>
+
+<p>If we wanted to substitute multiple strings, the procedure is very similar and will have a format similar to this:</p>
+
+<pre><code class="prettyprint">"text %s text %s" %(VAR1, VAR2)
+</code></pre>
+
+<p>We can have multiple instances of %s, but we also need multiple variables. If you don't include enough variable, Python may get mad at you!</p>
+
+<h3 id="substituting-multiple-strings-quiz">Substituting Multiple Strings Quiz</h3>
+
+<p>Write a function 'sub2' that, given two strings, embeds those strings in the string: "I think X and Y are perfectly normal things to do in public.", where X and Y are replaced by the given strings.</p>
+
+<h3 id="advanced-string-substitution">Advanced String Substitution</h3>
+
+<p>What happens if you want to include the same variable twice in the same string? We can do this by including a name identifier in parentheses:</p>
+
+<pre><code class="prettyprint">"text %(NAME)s text" % {"NAME": value}
+</code></pre>
+
+<p>Now, instead of just having the variables at the end of the string, we can include a dictionary that maps NAME to a value. NAME can appear in the string multiple times, and we can have multiple names.</p>
+
+<h3 id="advanced-string-substitution-quiz">Advanced String Substitution Quiz</h3>
+
+<p>Write a function 'sub_m' that takes a name and a nickname, and returns a string of the following format: "I'm NICKNAME. My real name is NAME, but my friends call me NICKNAME."</p>
+
+<h3 id="substituting-into-our-form">Substituting Into Our Form</h3>
+
+<p>Let's improve our form by making it a little more user friendly if the user enters invalid data.</p>
+
+<p>First, let's modify the form itself to include a placeholder for the error message. We will use a <div> element as shown, and inside the <div> we will use string substitution to print our error message:</p>
+
+<pre><code class="prettyprint">&lt;form method="post"&gt;
+    What is your birthday?
+    &lt;br&gt;
+    &lt;label&gt;
+        Month
+        &lt;input type="text" name="month"&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+        Day
+        &lt;input type="text" name="day"&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+        Year
+        &lt;input type="text" name="year"&gt;
+    &lt;/label&gt;
+    &lt;div style="color: red"&gt;%(error)s&lt;/div&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>Notice that we have used a simple css format attribute to make text within the <div> (the error message) appear in red.</p>
+
+<p>Since we will be writing the form in a couple of places, it makes sense to create a function and then call the function when we need to write the form:</p>
+
+<pre><code class="prettyprint">    def write_form(self, error=""):
+        self.response.out.write(form %{"error": error})
+</code></pre>
+
+<p>The first parameter for all the functions inside a class should be <strong>self</strong>. The default value of the <strong>error</strong> parameter taken by the function is the empty string "". We can now use this function in the get and post functions where we need to write our form:</p>
+
+<pre><code class="prettyprint">import webapp2
+
+form = """
+&lt;form method="post"&gt;
+    What is your birthday?
+    &lt;br&gt;
+    &lt;label&gt;
+        Month
+        &lt;input type="text" name="month"&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+        Day
+        &lt;input type="text" name="day"&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+        Year
+        &lt;input type="text" name="year"&gt;
+    &lt;/label&gt;
+    &lt;div style="color: red"&gt;%(error)s&lt;/div&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+"""
+
+class MainPage(webapp2.RequestHandler):
+    def write_form(self, error=""):
+        self.response.out.write(form %{"error": error})
+
+    def get(self):
+        self.write_form()
+
+    def post(self):
+        self.write_form("That doesn't look valid to me, friend.")
+
+app = webapp2.WSGIApplication([('/', MainPage)], debug=True)
+</code></pre>
+
+<p>We have replaced the default empty string with our desired error message in the post function.</p>
+
+<h3 id="preserving-user-input">Preserving User Input</h3>
+
+<p>It would also be nice if, when we entered invalid data, the form left our original data so that we don't have to re-enter everything again. There is a way to do that, but first we need to learn a little bit more HTML.</p>
+
+<p>We have seen the value attribute applied to some form elements, now we are going to consider how it works with the text input element. A text input element has the form:</p>
+
+<pre><code class="prettyprint">&lt;input type="text" value="cool"&gt;
+</code></pre>
+
+<p>The value of the value attribute ("cool" in this example) is the default value for this element. This is the value that will appear in the text box when it is rendered in the browser. This could be used to render the form with the values that the user just typed in, so that they don't have to keep re-typing them. You can also use this to fill out form fields with default values if you know what the user is likely to enter into the box.</p>
+
+<h3 id="preserving-user-input-quiz">Preserving User Input Quiz</h3>
+
+<p>Which of theses is a correct input for preserving the user's month?</p>
+
+<ul>
+<li><input value="%(month)s"></li>
+<li><input name="month">%(month)s</input></li>
+<li><input name="month"></li>
+<li><input name="month" value="%(month)s"></li>
+</ul>
+
+<h3 id="problems-with-html-input">Problems With HTML Input</h3>
+
+<p>We are now in a position to modify our code the preserve the user inputs:</p>
+
+<pre><code class="prettyprint">import webapp2
+
+form = """
+&lt;form method="post"&gt;
+    What is your birthday?
+    &lt;br&gt;
+    &lt;label&gt;
+        Month
+        &lt;input type="text" name="month" value="%(month)s"&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+        Day
+        &lt;input type="text" name="day" value="%(day)s"&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+        Year
+        &lt;input type="text" name="year" value="%(year)s"&gt;
+    &lt;/label&gt;
+    &lt;div style="color: red"&gt;%(error)s&lt;/div&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+"""
+
+class MainPage(webapp2.RequestHandler):
+    def write_form(self, error="", month="", day="", year=""):
+        self.response.out.write(form %{"error": error, "month": month, "day": day, "year": year })
+
+    def get(self):
+        self.write_form()
+
+    def post(self):
+        user_month = self.request.get('month')
+        user_day = self.request.get('day')
+        user_year = self.request.get('year')
+
+        month = valid_month(user_month)
+        day = valid_day(user_day)
+        year = valid_year(user_year)
+
+        if not(month and day and year):
+            self.write_form("That doesn't look valid to me, friend.", user_month, user_day, user_year)
+        else:
+            self.response.out.write("Thanks! That's a totally valid day!")
+
+app = webapp2.WSGIApplication([('/', MainPage)], debug=True)
+</code></pre>
+
+<p>So, we have added values to our text input fields, and edited the write_form function (and its associated dictionary) to use the new parameters, <strong>month</strong>, <strong>day</strong>, and <strong>year</strong>.</p>
+
+<p>Next, we edited the post function to use the new variable. To do this, we had to restructure the function and split the act of fetching the parameter out of the request from the act of testing the validity of the user data. We also had to change the validity check to use the correct updated variables.</p>
+
+<p>Lastly, we added the variables user_month, user_day and user_year to the write_form call in the post function.</p>
+
+<h3 id="problems-with-html-input-quiz">Problems With HTML Input Quiz</h3>
+
+<p>Suppose I enter the text <strong>bar">what!</strong> into one of the fields.</p>
+
+<p>What happens when I click submit?</p>
+
+<ul>
+<li>We see an error message and our input is in the form.</li>
+<li>We see an error message, but the quote messes up our HTML.</li>
+<li>There's an error on the server side.</li>
+<li>The page renders blank.</li>
+</ul>
+
+<h3 id="handling-html-input">Handling HTML Input</h3>
+
+<p>Consider the code that creates the month field in our form:</p>
+
+<pre><code class="prettyprint">    &lt;label&gt;
+        Month
+        &lt;input type="text" name="month" value="%(month)s"&gt;
+    &lt;/label&gt;
+</code></pre>
+
+<p>If we enter the text <strong>November</strong> into the month field is, the python code renders the value attribute to give the input field:</p>
+
+<pre><code class="prettyprint">        &lt;input type="text" name="month" value="November"&gt;
+</code></pre>
+
+<p>Which is what we would expect.</p>
+
+<p>However, if we entered <strong>foo">derp</strong> into the field, the Python code renders the attribute to give the field:</p>
+
+<pre><code class="prettyprint">        &lt;input type="text" name="month" value="foo"&gt;derp"&gt;
+</code></pre>
+
+<p>The section of the element highlighted in red will be interpreted by the browser as the complete HTML tag!</p>
+
+<p>Clearly, this isn't the behaviour we want. Worse than that, it allows an unscrupulous user who knows how our website works to enter HTML into the field and compromise the operation of the site. This is something we can't allow.</p>
+
+<h3 id="html-escaping">HTML Escaping</h3>
+
+<p>The problem is that we want to prevent the characters <strong>"></strong> being used in our inputs. We can check for this, but the nicest way to fix this is through a method called <strong>escaping</strong>.</p>
+
+<p>HTML allows you to change certain characters, or "escape" them. so that when the user types in the quote mark we can still show it in the text box. What we do is, instead of returning the quote in the HTML, we convert it to <strong><code>&amp;quot;</code></strong></p>
+
+<p>Similarly, we can convert the closing angle-bracket, &gt;, into <strong><code>&amp;gt;</code></strong></p>
+
+<p>Some common escape characters are shown below:</p>
+
+<table>
+<tbody>
+<tr><td>"</td><td>&quot;</td></tr>
+<tr><td>&gt;</td><td>&gt;</td></tr>
+<tr><td>&lt;</td><td>&lt;</td></tr>
+<tr><td>&amp;</td><td>&amp;</td></tr>
+</tbody>
+</table>
+
+<p>Using these escape codes what is displayed is the relevant symbol, but they aren't actually HTML.</p>
+
+<h3 id="using-html-escaping">Using HTML Escaping</h3>
+
+<p>Let's take a look at some of these substitutions in practice.</p>
+
+<p>Type the following text into the text editor of your choice and save it as an html file:</p>
+
+<p>What if I want to talk about HTML in HTML?</p>
+
+<p>When you open the file in your browser you will see the text just as you typed it. Simple text is rendered as text in the browser. No surprises there.</p>
+
+<p>Now, suppose you enclose the first HTML in angle brackets:</p>
+
+<p>What if I want to talk about <HTML> in HTML?</p>
+
+<p>When you load this into your browser, the <HTML> is not displayed. This is because your browser will have interpreted it as an HTML tag. However, if we use the escape codes from the table above:</p>
+
+<p>What if I want to talk about <HTML> in HTML?</p>
+
+<p>The text will now appear as we wanted it to, with the angle brackets in place, in the browser window.</p>
+
+<h3 id="using-html-escaping-quiz">Using HTML Escaping Quiz</h3>
+
+<p>What is the correct way to include the text <code>&amp;=&amp;amp;</code> in rendered HTML?</p>
+
+<h3 id="implementing-html-escaping-quiz">Implementing HTML Escaping Quiz</h3>
+
+<p>Implement the function escape_html(), which replaces :</p>
+
+<blockquote>
+  <p>with <code>&amp;gt;</code> &lt; with <code>&amp;lt;</code> " with <code>&amp;quot;</code> &amp; with <code>&amp;amp;</code></p>
+</blockquote>
+
+<h3 id="problems-reinventing-the-wheel">Problems Reinventing the Wheel</h3>
+
+<p>In fact, Python has a built in function to implement HTML escaping. in the cgi module. We can therefore implement the function much more easily as follows:</p>
+
+<pre><code class="prettyprint">import cgi
+
+def escape_html(s):
+    return cgi.escape(s, quote = True)
+</code></pre>
+
+<p>Generally, it is a good idea to use the built in functions since they are often better and normally bug free. As Steve says: "A word to the wise: use the built-in pre-written escape functions whenever you can."</p>
+
+<h3 id="current-limitations">Current Limitations</h3>
+
+<p>Now that we have the escape_html() function we can use it in the write_form() function of our form application:</p>
+
+<pre><code class="prettyprint">    def write_form(self, error="", month="", day="", year=""):
+        self.response.out.write(form % {"error": error,
+                                        "month": escape_html(month),
+                                        "day": escape_html(day),
+                                        "year": escape_html(year)})
+</code></pre>
+
+<p>As you can see, we have applied the escape_html() function to each of the user inputs.</p>
+
+<p>Now that we have the error handling more or less sorted, what can we do to improve the behaviour of the application when the user enters valid data?</p>
+
+<p>In its current form the result page displayed when the user enters valid data has a number of limitations. Firstly, you can't link to it. Secondly, if you try to reload the page, your browser will display a message warning you that it needs to re-submit the data to refresh the page. This is because you are trying to reload a page that was created using a post.</p>
+
+<h3 id="redirection">Redirection</h3>
+
+<p>The way to work around the problems we were having with the success page is to use a redirect. Instead of rendering the result in a post, we send them to another page that says "Thanks!". If the user's post is successful, the server sends a redirect message that causes the browser to get the "success" page.</p>
+
+<h3 id="redirection-advantages-quiz">Redirection Advantages Quiz</h3>
+
+<p>Why is it nice to redirect after a form submission?</p>
+
+<ul>
+<li>Because POSTs can't return HTML.</li>
+<li>So that reloading the page doesn't resubmit the form.</li>
+<li>To remove the form parameters from the URL.</li>
+<li>So we can have distinct pages for forms and success pages.</li>
+</ul>
+
+<h3 id="implementing-redirection">Implementing Redirection</h3>
+
+<p>Let's make the change to our application.</p>
+
+<p>To make the change, we need to do three things. We need to:</p>
+
+<ol>
+<li>make a "thanks" handler.</li>
+<li>add the /thanks URL.</li>
+<li>redirect to the /thanks URL.</li>
+</ol>
+
+<p>The handler will look like this:</p>
+
+<p>class <a rel="nofollow" href="/wiki/ThanksHandler">ThanksHandler</a>(webapp2.<a rel="nofollow" href="/wiki/RequestHandler">RequestHandler</a>):</p>
+
+<pre><code class="prettyprint">    def get(self)
+        self.response.out.write("Thanks! That's a totally valid day!")
+</code></pre>
+
+<p>Next, we add the /thanks URL to the mapping area:</p>
+
+<pre><code class="prettyprint">app = webapp2.WSGIApplication([('/', MainPage),
+                              ('/thanks', ThanksHandler)],
+                             debug=True)
+</code></pre>
+
+<p>Now we can modify the post() function to redirect to the /thanks URL:</p>
+
+<pre><code class="prettyprint">    def post(self):
+        user_month = self.request.get('month')
+        user_day = self.request.get('day')
+        user_year = self.request.get('year')
+
+        month = valid_month(user_month)
+        day = valid_day(user_day)
+        year = valid_year(user_year)
+
+        if not(month and day and year):
+            self.write_form("That doesn't look valid to me, friend.", user_month, user_day, user_year)
+        else:
+            self.redirect("/thanks")
+</code></pre>
+
+<p>This gives the final version of our application below:</p>
+
+<pre><code class="prettyprint">import webapp2
+import cgi
+
+def escape_html(s):
+    return cgi.escape(s, quote = True)
+
+form = """
+&lt;form method="post"&gt;
+    What is your birthday?
+    &lt;br&gt;
+    &lt;label&gt;
+        Month
+        &lt;input type="text" name="month" value="%(month)s"&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+        Day
+        &lt;input type="text" name="day" value="%(day)s"&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+        Year
+        &lt;input type="text" name="year" value="%(year)s"&gt;
+    &lt;/label&gt;
+    &lt;div style="color: red"&gt;%(error)s&lt;/div&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+"""
+
+months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+                        'September', 'October', 'November', 'December']
+
+def valid_day(day):
+        if(day and day.isdigit()):
+                day = int(day)
+        if(day &lt; 32 and day &gt; 0):
+                return day
+
+def valid_month(month):
+        if(month):
+                month = month.capitalize()
+        if(month in months):
+                return month
+
+def valid_year(year):
+        if(year and year.isdigit()):
+                year = int(year)
+        if(year &lt; 2020 and year &gt; 1980):
+                return year
+
+class MainPage(webapp2.RequestHandler):
+    def write_form(self, error="", month="", day="", year=""):
+        self.response.out.write(form %{"error": error,
+                                       "month": escape_html(month),
+                                       "day": escape_html(day),
+                                       "year": escape_html(year)})
+
+    def get(self):
+        self.write_form()
+
+    def post(self):
+        user_month = self.request.get('month')
+        user_day = self.request.get('day')
+        user_year = self.request.get('year')
+
+        month = valid_month(user_month)
+        day = valid_day(user_day)
+        year = valid_year(user_year)
+
+        if not(month and day and year):
+            self.write_form("That doesn't look valid to me, friend.", user_month, user_day, user_year)
+        else:
+            self.redirect("/thanks")
+
+class ThanksHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write("Thanks! That's a totally valid day!")
+
+app = webapp2.WSGIApplication([('/', MainPage),
+                              ('/thanks', ThanksHandler)],
+                             debug=True)
+</code></pre>
+
+</div>
+
+
+
+<div id="wiki-footer">
+    <p id="pm">This 
+        page was last edited
+    by (none)
+    on 2012/07/20 13:39:26.</p>
+</div>
+
+
+</div>
+
+            </div>
+        </div>
+        <div id="footer-pusher"></div>
+    </div>
+    <div id="footer">
+        
+
+<!-- <div class="clear"></div> -->
+<div id="bottom_bin">
+    <div class="width960">
+        <div class="left">
+            <p>Follow us on 
+                <a href="http://www.facebook.com/pages/Udacity/174179219354091?sk=wall" target="_blank">Facebook</a>, 
+                <a href="http://twitter.com/udacity" target="_blank">Twitter</a>, and 
+                <a href="https://plus.google.com/116286004036789369492/posts" target="_blank">Google Plus</a>
+            </p>
+            <p>&copy 2012 Udacity, Inc.</p>    
+        </div>
+        <div class="right">
+			<p>
+			    <a href="/">Home</a>
+			    <a href="/udacity">About</a>
+			    <a href="/careers/">Jobs</a>
+			    <a href="/contact">Contact</a>
+			    <a href="/wiki/FAQ">FAQ</a>
+			    <a href="/legal/">Legal</a>
+			</p>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div><!-- end bottom_bin -->
+<!-- <div class="clear">&nbsp;</div> -->
+
+
+
+
+    </div>
+    
+
+    
+</body>
+</html>
+
+
+
+
+

@@ -3,4 +3,7 @@ Change the app.yaml file :
 	* to use the jinja python library 
 		- Otherwise: ImportError: No module named jinja2
 
+You could have one app with all the code in it.
+But here we have to submit the apps individually 
+
 

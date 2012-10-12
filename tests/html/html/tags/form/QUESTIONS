@@ -1,0 +1,105 @@
+Q: Simplest form?
+
+<form>
+    <input name="q">
+</form>
+
+When you press enter, the URL changes with the input text
+?q=text 
+is appended to the URL (by default the form submit to itself)
+
+Q: Submit form?
+<form>
+    <input name='q'>
+    <input type='submit'>
+</form>
+Clicking submit is NOT any different that pressing enter in the first form
+
+Q: How to change where the form submits to?
+<form action="http://www.google.com/search">
+    <input name='q'>
+    <input type='submit'>
+</form>
+When submit is pressed, the browser goes to google search results
+URL: http://www.google.com/search?q=better+flight+search%21                     <-- URL encoding/escaping turned spaces into +, ? into %21
+
+Q: Post request?
+Default are GET request (use GET parameters)
+<form method="post" action="/testform">
+    <input name="q">                                                            <-- type="text" is default
+    <input type="submit">
+</form>
+
+Q: Password input type?
+<form method="post" action="/testform">
+    <input name="username">          
+    <input type="password" name="p">                                            <-- password is hidden in line edit and when passed to server (but beware of network capture)
+    <input type="submit">
+</form>
+The type=password is only to prevent someone from looking over your shoulder
+Note that if the GET method is used, the URL will include the password
+
+Q: What is type checkbox?
+<form action="/foo">
+    <input type="checkbox" name="q">
+    <input type="submit">
+</form>
+Create checkbox
+When checked, q is passwed in the URL and value is 'on' (i.e. /foo?q=on )
+When unchecked, q is NOT passed in the URL at all (/foo?)
+
+Q: How to group checkboxes?
+Checkboxes cannot be grouped! You are thinking of a radiobutton !
+<form action="/foo">
+    <input type="checkbox" name="q">
+    <input type="checkbox" name="r">
+    <input type="checkbox" name="s">
+    <input type="submit">
+</form>
+Here when 2 checkboxes are checked, then .../foo?q=on&r=on
+
+Q: How to group the radio button?
+<form action="/foo">
+    <input type="radio" name="q">                                           <-- to be grouped, then need to have the same name
+    <input type="radio" name="q" value="one">
+    <input type="radio" name="q" value="two">
+    <input type="submit">
+</form>
+If first radio is selected q=on, 
+the second q=one
+the third q=two
+
+Q: How to create labels to radio button?
+<form>
+    <label> Un
+        <input type="radio" name="q">
+    </label>
+    <label> Deux
+        <input type="radio" name="q" value="one">
+    </label>A
+    [...]
+</form>
+
+Q: Dropdowns ?
+<form>
+    <select name="q">
+        <option value="1">the number one</option>                       <-- if selected, ?q=1 is appended to the form action URL
+        <option value="2">two</option>
+        <option>three</option>                                          <-- by default value is set to the content of the option element
+    </select>
+    <input type="submit">
+</form>
+
+Q: What about validation?
+There can be server-side and client-side validation
+Server-side validation required because do not trust client ( Required)
+client-side validation to make UI more responsive (nice to have)
+==> combo box, radio button
+But the server should never trust the client !
+
+Q: What is the parameter type in GET requests?
+The parameter type from the perspective of the server is string.
+So if 1 is passed, you need to day.isdigit() and int(day)
+
+Q: Default value in line edit?
+<input type="text" name="q" value="default text">
