@@ -96,6 +96,13 @@ def query():
     for l in links:
         if l.id == 15:
             return l.votes
-   
+  
+def tuple_2_namedtuple(tuple):
+    return Link(*tuple) 
 
 print query() 
+
+t = (0, 60398, 1334014208.0, 109,
+         "C overtakes Java as the No. 1 programming language in the TIOBE index.",
+         "http://pixelstech.net/article/index.php?id=1333969280")
+print tuple_2_namedtuple(t).id
