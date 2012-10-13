@@ -1,0 +1,3 @@
+Q: Join SQL query?
+
+SELECT link.* FROM link,user WHERE link.user_id = user.id AND user.name = 'emayssat'
