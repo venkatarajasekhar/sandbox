@@ -3,5 +3,5 @@
 
 import twitter
 
-client = twitter.Api(username=ouchmaster, password=APon18CA)
+client = twitter.Api(username='username', password='password')
 client.PostUpdate("Hello World!")
