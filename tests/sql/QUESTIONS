@@ -1,3 +1,14 @@
 Q: Join SQL query?
 
 SELECT link.* FROM link,user WHERE link.user_id = user.id AND user.name = 'emayssat'
+
+Q: What are indexes?
+Is just like an index in the book.
+They make lookup faster.
+==> indexes increase the speed of queries
+
+Usually you have to iterate over the entire list and see if a row matches our constraint (i.e. ID = 3).
+That takes a lot of time if the table is big.
+If we want to make the database fast ==> use a b tree, i.e an hash table (in python = a dict ).
+
+

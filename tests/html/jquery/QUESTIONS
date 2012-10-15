@@ -21,6 +21,9 @@ Avoid conflicts by replacing every instance of $ with jQuery in custom jquery co
 jQuery.noConflict();                <-- return control of the $ identifer back to other libraries
 </script>
 
+jQuery(document).ready( function($) {
+})
+
 Q: How to setup JQuery in my HTML
 <head>
     <script src="jquery.js"></script>
