@@ -13,3 +13,52 @@ As a matter of fact, the form html page will be returned instead of the success 
 ==> Always use a redirect (bounce the user) in a *successfull* POST request
     For non-successfull request, reprint the form with its content
 
+Q: Give me a brief intro to the datastore.
+Tables are call entities in GAE
+Columns are not fixed, i.e entries of the same entities do not have to use the same columns
+i==> You can change the columns as you are developing
+Every entities have an ID
+Entities have a notion of parents and ancestors
+ex:
+Reddit --> link
+Give me all the link of reddit
+==> get familiar with the docs
+
+Q: What is GQL?
+GQL is a simplified version of SQL
+
+Q: How does GQL compare to SQL?
+All queries starts with SELECT *
+- no joins possible
+
+Run arbitrary quereis
+All queries must be indexed
+==? indexes are build for us
+
+Q: Is GAE datastore sharded and replicated?
+Yes
+* No need to think about scaling (too much)
+* queries will be quick (because they have to be simle)
+* will have to think about consistency
+
+Q: What are datastore types?
+Interger, Float, String, Date, Time, dateTime, Email, Link, PostlaAddress, Text, etc.
+
+Note that String < 500 chars and is indexes
+while Text > 500 chars and NOT indexes <-- cannot be queried
+
+class Art(db.Model):                                    <-- name of the table
+    title = db.StringProperty(required=True)            <-- Mandatory field enforced in db (otherwise exception)
+    art = db.TextProperty(required=True)
+    created_at = db.DateTime(auto_now_add = True)
+
+Q: How to query the database?
+cursor_arts = db.GqlQuery("SELECT * FROM Art order created_at desc")
+!!! All GQL queries start with select *
+!!! Art is the name of the class/table
+In template:
+{% for art in cursor_arts %} 
+    <h1>{{art.title}}</h1>
+    <pre>{{art.art}}</pre>
+{% endfor %}
+   

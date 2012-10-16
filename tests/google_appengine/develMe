@@ -1,0 +1,3 @@
+#!/bin/sh
+
+python dev_appserver.py 003_blog

@@ -2,6 +2,15 @@ Q: What is a linked list?
 A C-structure with a pointer to the next object.
 
 Q: What is a hash table?
-A hash table is an array of linked list.
+A hash table is an array of linked lists.
+That array has a fixed size, but is large.
 A hash table has a hash function that give for each key an index in the array.
 In case of collision (2 keys have the same index), they are chained in a linked list.
+
+In general, the hash is large enough that the retrieval of data is not function of the number of keys o(1)
+==> constant retrieve time
+
+Q: What is a tree?
+A C-struct with X children pointers.
+Are sorted
+Lookups are slower that with hash table ie log(n) with n = number of element in a tree

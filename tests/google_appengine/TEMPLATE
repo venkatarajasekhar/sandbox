@@ -1,0 +1,15 @@
+Q: For loop on a cursor?
+{% for shout in shouts %}
+    <p>{{shout.message}}</p>
+{% endfor %}
+
+!!! shouts is a template paramater
+!!! the order of the pop is function of the order of the entries in the python code
+
+
+Q: conditional-if statement?
+{% ifequal shout.who None %}
+    Anonymous
+{% else %}
+    {{shout.who}}
+{% endifequal %}
