@@ -1,3 +1,9 @@
+Q: What is an index?
+If you have a uniq ID, you need to go through row by row (a linked list) and compare the ID.
+An index is a hash table (b-tree?) with a pointer to the object
+
+
+
 Q: Join SQL query?
 
 SELECT link.* FROM link,user WHERE link.user_id = user.id AND user.name = 'emayssat'
