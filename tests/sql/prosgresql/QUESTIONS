@@ -1,0 +1,14 @@
+Q: How to onnect to a database?
+$ psql <dbname>
+
+psql> select count(*) from hotels;
+psql> select name from hotesl where id = 51492;
+
+Q: What is explain analyze?
+psql> explain analyze select name from hotesl where id = 51492;
+
+Q: How to create an index?
+psql> create index hotel_id on hotels(id);
+
+Q: Howto drop an index?
+drop index hotel_id;
