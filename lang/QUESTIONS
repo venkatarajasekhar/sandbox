@@ -1,0 +1,7 @@
+Q: What is a linked list?
+A C-structure with a pointer to the next object.
+
+Q: What is a hash table?
+A hash table is an array of linked list.
+A hash table has a hash function that give for each key an index in the array.
+In case of collision (2 keys have the same index), they are chained in a linked list.
