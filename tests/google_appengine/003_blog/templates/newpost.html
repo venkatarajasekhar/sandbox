@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>/ascii/</title>
+        <link href="/css/unit3.css" rel="stylesheet" media="screen, projection" type="text/css">
+    </head>
+    <body>
+        <h1>/ascii/</h1>
+
+        <form method="post">
+            <label>
+                <div>subject</div>
+                <input type="text" name="subject" value={{subject}}>
+            </label>
+            <label>
+                <div>content</div>
+                <textarea name="content">{{content}}</textarea>
+            </label>
+            <div class="error">{{error}}</div>
+            <input type="submit">
+        </form>
+
+        <hr/>
+
+        {% for post in posts %}
+        <div class="art">
+            <div class="art-title">{{post.subject}}</div>
+            <pre class="art-body">{{post.content}}</pre>
+        </div>
+        {% endfor %}
+</body>
+        

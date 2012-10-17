@@ -19,4 +19,4 @@ handlers:
   static_dir: static/img     
 
 - url: /.*
-  script: unit3.app
+  script: blog.app

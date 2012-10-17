@@ -2,31 +2,16 @@
 
 <html>
     <head>
-        <title>/ascii/</title>
-        <link href="/css/unit3.css" rel="stylesheet" media="screen, projection" type="text/css">
+        <title>My blog</title>
+        <link href="/css/blog.css" rel="stylesheet" media="screen, projection" type="text/css">
     </head>
     <body>
-        <h1>/ascii/</h1>
+        <h1>My blog</h1>
 
-        <form method="post">
-            <label>
-                <div>title</div>
-                <input type="text" name="title" value={{title}}>
-            </label>
-            <label>
-                <div>art</div>
-                <textarea name="art">{{art}}</textarea>
-            </label>
-            <div class="error">{{error}}</div>
-            <input type="submit">
-        </form>
-
-        <hr/>
-
-        {% for art in arts %}
+        {% for post in posts %}
         <div class="art">
-            <div class="art-title">{{art.title}}</div>
-            <pre class="art-body">{{art.art}}</pre>
+            <div class="post-subject">{{post.subject}}</div>
+            <pre class="post-content">{{post.content}}</pre>
         </div>
         {% endfor %}
 </body>

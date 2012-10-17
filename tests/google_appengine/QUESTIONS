@@ -45,7 +45,7 @@ Yes
 * will have to think about consistency
 
 Q: What are datastore types?
-Interger, Float, String, Date, Time, dateTime, Email, Link, PostlaAddress, Text, etc.
+Interger, Float, String, Date, Time, DateTime, Email, Link, PostlaAddress, Text, Boolean, etc.
 
 Note that String < 500 chars and is indexes
 while Text > 500 chars and NOT indexes <-- cannot be queried
