@@ -1,3 +1,6 @@
+Q: Where is the admin console?
+http://localhost:8080/_ah/admin/datastore
+
 Q: What is the purpose of escaping?
 Python process input string without knowing that it is HTML.
 If not escaped, the user can manipulate the HTML

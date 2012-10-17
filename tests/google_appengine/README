@@ -14,3 +14,9 @@ To test a google app, do the following:
 
 You application should be accessible
 
+
+
+ADMIN CONSOLE 
+-------------
+http://localhost:8080/_ah/admin/datastore
+
