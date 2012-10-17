@@ -23,13 +23,31 @@ class BaseHandler(webapp2.RequestHandler):
 class Post(db.Model):
     subject = db.StringProperty(required = True)
     content = db.TextProperty(required = True)
-    created_at = db.DateTimeProperty(auto_now_add = True)
+    created_at = db.DateTimeProperty(auto_now_add = True)           # <-- at creation time
+    last_modified = db.DateTimeProperty(auto_now = True)            # <-- each time the object is touched
+
+    def render(self):
+        """ 
+        HTML turns carriage return into single space ==> correction is required 
+        !!! This method is called in the template
+        {% for post in posts %}
+            {{ p.render() | safe }}                                 # <-- safe is required to keep HTML code as is and prevent escaping
+        {% endfor %}
+        """
+        self._render_text = self.content.replace('\n', '<br/>')
+        return render_str("post.html", post=self)
 
 class Permalink(BaseHandler):
 
     def get(self, post_id):
-        p = Post.get_by_id(int(post_id))
-        self.render("post.html", post=p)
+        """ Note that parameters are passed as string. ==> they need to be converted """
+        post = Post.get_by_id(int(post_id))
+
+        if not post:
+            self.error(404)                                         # <-- page error handler with code 404 (not designed here)
+            return
+
+        self.render("post.html", post = post)
 
 class NewPost(BaseHandler):
 
@@ -44,9 +62,10 @@ class NewPost(BaseHandler):
         content = self.request.get("content")
 
         if subject and content:
-            p = Post(subject = subject, content = content)
-            p_key = p.put()                                 # <-- Key(kind='Post', id_or_name=numeric_id , parent=None)
-            self.redirect("/posts/%d" % p_key.id())
+            p = Post(subject = subject, content = content)  # <-- returns a Post/db.Model object
+            #p_key = p.put()                                 # <-- Key(kind='Post', id_or_name=numeric_id , parent=None)
+            #self.redirect("/posts/%d" % p_key.id())
+            self.redirect("/posts/%d" % p.key().id())
         else:
             error = "we need both a subject and some content!"
             self.render_front(title, art, error)
@@ -54,12 +73,16 @@ class NewPost(BaseHandler):
 class MainPage(BaseHandler):
 
     def get(self):
-        posts = db.GqlQuery("SELECT * FROM Post ORDER BY created_at DESC")
+        posts = db.GqlQuery("SELECT * FROM Post ORDER BY created_at DESC limit 10")
+        # posts = Post.all().order('-created_at')           # <-- equivalent to above!
         self.render("posts.html", posts = posts)
 
 
 
 
 #----------------------------------------------------------------------
+# Note that if the URL is not matched below, the webserver returns a 404 error code !
+# The page is different from the one returned with the self.error(404)
+
 url_mapping = [( '/', MainPage), ('/newpost', NewPost), ('/posts/(\d+)', Permalink)] 	
 app = webapp2.WSGIApplication(url_mapping , debug=True)

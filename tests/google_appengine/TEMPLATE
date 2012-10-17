@@ -13,3 +13,52 @@ Q: conditional-if statement?
 {% else %}
     {{shout.who}}
 {% endifequal %}
+
+Q: How to include another template?
+{% extend "base.html" %}
+
+Q: How to insert code in an included template?
+{% extends "base.html" %}
+
+{% block content %}
+    <p>Hello World!</p>
+{% endblock %}
+
+with base.html
+<html>
+<head></head>
+<body>
+<div id="content">
+{% block content %} 
+{% endblock %}
+</div>
+</body>
+</html>
+
+Q: Can I call python methods in template?
+Yes, here is an example
+
+class Post(db.Model):
+    subject = db.StringProperty(required = True)
+    content = db.TextProperty(required = True)
+    created_at = db.DateTimeProperty(auto_now_add = True)           # <-- at creation time
+    last_modified = db.DateTimeProperty(auto_now = True)            # <-- each time the object is touched
+
+    def render(self):
+        """ 
+        HTML turns carriage return into single space ==> correction is required 
+        !!! This method is called in the template
+        {% for post in posts %}
+            {{ p.render() | safe }}
+        {% endfor %}
+        """
+        self._render_text=self.content.replace('\n', '<br/>')
+        return render_str("post.html", post=self)
+
+Q: What does 'safe' mean in  {{ p.render() | safe }} ?
+It means that the code returned by the render method should be trusted.
+No escaping (even if default) is required.
+That is the string <br> will stay as is instead of &lt;br&gt;
+safe = verbatim inclusion of the string
+
+

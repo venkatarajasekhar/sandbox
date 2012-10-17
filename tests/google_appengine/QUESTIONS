@@ -47,7 +47,7 @@ Yes
 Q: What are datastore types?
 Interger, Float, String, Date, Time, DateTime, Email, Link, PostlaAddress, Text, Boolean, etc.
 
-Note that String < 500 chars and is indexes
+Note that String < 500 chars, is indexed, and cannot contain carriage return.
 while Text > 500 chars and NOT indexes <-- cannot be queried
 
 class Art(db.Model):                                    <-- name of the table
@@ -60,8 +60,15 @@ cursor_arts = db.GqlQuery("SELECT * FROM Art order created_at desc")
 !!! All GQL queries start with select *
 !!! Art is the name of the class/table
 In template:
-{% for art in cursor_arts %} 
-    <h1>{{art.title}}</h1>
-    <pre>{{art.art}}</pre>
+{% for post in posts %} 
+    <h1>{{post.subject}}</h1>
+    <p>{{post.content}}</p>
 {% endfor %}
+
+Q: What is a permalink?
+In a blog, you have several posts.
+A permalink is URL that link a particular post.
+http://www.example.com/blog/posts/123       
+Is a URL to the post with ID 123.
+Note that ID can be strings 
    
