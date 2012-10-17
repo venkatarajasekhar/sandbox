@@ -28,8 +28,8 @@ class Post(db.Model):
 class Permalink(BaseHandler):
 
     def get(self, post_id):
-        s = Post.get_by_id(int(post_id))
-        self.render("posts.html", posts=[s])
+        p = Post.get_by_id(int(post_id))
+        self.render("post.html", post=p)
 
 class NewPost(BaseHandler):
 
@@ -44,16 +44,16 @@ class NewPost(BaseHandler):
         content = self.request.get("content")
 
         if subject and content:
-            p = Posts(subject = subject, content = content)
+            p = Post(subject = subject, content = content)
             p_key = p.put()                                 # <-- Key(kind='Post', id_or_name=numeric_id , parent=None)
-            self.redirect("/blog/%d" % p_key.id())
+            self.redirect("/posts/%d" % p_key.id())
         else:
             error = "we need both a subject and some content!"
             self.render_front(title, art, error)
 
 class MainPage(BaseHandler):
 
-    def get(self, post_id):
+    def get(self):
         posts = db.GqlQuery("SELECT * FROM Post ORDER BY created_at DESC")
         self.render("posts.html", posts = posts)
 
@@ -61,5 +61,5 @@ class MainPage(BaseHandler):
 
 
 #----------------------------------------------------------------------
-url_mapping = [( '/blog', MainPage), ('/blog/newpost', NewPost), ('/blog/(\d+)', Permalink)] 	
+url_mapping = [( '/', MainPage), ('/newpost', NewPost), ('/posts/(\d+)', Permalink)] 	
 app = webapp2.WSGIApplication(url_mapping , debug=True)

@@ -2,11 +2,11 @@
 
 <html>
     <head>
-        <title>/ascii/</title>
+        <title>New Post</title>
         <link href="/css/unit3.css" rel="stylesheet" media="screen, projection" type="text/css">
     </head>
     <body>
-        <h1>/ascii/</h1>
+        <h1>New Post</h1>
 
         <form method="post">
             <label>
@@ -22,12 +22,5 @@
         </form>
 
         <hr/>
-
-        {% for post in posts %}
-        <div class="art">
-            <div class="art-title">{{post.subject}}</div>
-            <pre class="art-body">{{post.content}}</pre>
-        </div>
-        {% endfor %}
 </body>
         
