@@ -2,3 +2,43 @@ Q: What is the open graph?
 
 Q: How to check what th eopen graph sees?
 http://developers.facebook.com/tools/debug
+
+Q: How to navigate the open graph?
+
+Q: How to re-scrape the object to update the graph data?
+curl -X POST -F "id=..." -F "scape=true" https://graph.facebook.com
+Return a JSON object
+
+Q: How to get the ID?
+http://developers.facebook.com/tools/debug
+1046272463: Emmanuel Mayssat
+
+http://graph.facebook.com/293519907424172
+
+
+Q: Sample graph navigation (Graph API)?
+http://graph.faaceook.com/emayssat/picture
+NOte: You only see what is public or what is accessible when logged in
+
+Q: Authorized access?
+For http://graph.facebook.com/emayssat/likes
+or http://graph.facebook.com/emayssat/friends
+returns
+{
+   "error": {
+      "message": "An access token is required to request this resource.",
+      "type": "OAuthException",
+      "code": 104
+   }
+}
+
+Q: Graph and wrong path?
+curl http://graph.facebook.com/emayssat/cover
+returns
+{
+   "error": {
+      "message": "Unsupported get request.",
+      "type": "GraphMethodException",
+      "code": 100
+   }
+}
