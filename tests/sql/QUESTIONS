@@ -1,6 +1,11 @@
 Q: What is an index?
 If you have a uniq ID, you need to go through row by row (a linked list) and compare the ID.
-An index is a hash table (b-tree?) with a pointer to the object
+
+Q: How many types of indexes are there?
+There are 2 types of index
+* hash table    - (array of linked list of keys) - not sorted, not ordered in insert order, fast lookup o(1)
+* tree          - sorted, but slower lookup o(log(n))
+===> Most database give you a choice of the type of index you want to build, but a few don't.
 
 Q: What is the purpose of indexes?
 To increase the speed of database reads. (easily reach x100 performance improvement)
@@ -22,5 +27,33 @@ They make lookup faster.
 Usually you have to iterate over the entire list and see if a row matches our constraint (i.e. ID = 3).
 That takes a lot of time if the table is big.
 If we want to make the database fast ==> use a b tree, i.e an hash table (in python = a dict ).
+
+
+Q: Why to scale a DB?
+1/ too much load on one machine ==> replication
+replication = duplicate and separate read/write request on different machines
+In most system, more read than write
+(-) speed of write stay the same
+(-) lack of consistency due to replication lag
+
+2/ Too much on one machine ==> sharding
+Example: hash table for ID for access to X databases
+(-) queries are much more complex (ex:  find 
+(-) join are more difficults or even impossible (tables may not be at the same place)
+==> reoganiza data so you don't have to do join or complex queries
+
+3/ sharing + replication = cloud ;-)
+
+
+Q: What is ACID?
+Atomicity       - all parts of a transaction succeed or fail together (ex: update several rows at the same time)
+Consistency     - the database will always be consistent (ex: user has a karma, link has a score. If score increase, karma increase too)
+Isolation       - No transaction can interleave with anothers (ex: require looking of the same row, etc)
+Durability      - One a transaction is committed, it won't be lost (if data committed, the data cannot be lost in the db)
+==> When you compare database, they are always some trade-off
+
+Q: Replication lag is an example of the loss of which property?
+Consistency
+That is the master has one view of the world, the slave has another DIFFERENT view of the world.
 
 
