@@ -1,3 +1,9 @@
+Q: Where can I find the doc for the stdandard library?
+Q: What are the standard modules?
+http://docs.python.org/modindex.html
+
+
+
 Q: How to find the doc on a module?
 1/ Using pydoc
 $ pydoc  -p 8888                
@@ -5,3 +11,5 @@ Then fire up a browser on http://localhost:8888 for python documentation of ever
 2/ Using python shell
 import datetime
 help(datetime)
+
+
