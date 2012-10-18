@@ -61,4 +61,8 @@ No escaping (even if default) is required.
 That is the string <br> will stay as is instead of &lt;br&gt;
 safe = verbatim inclusion of the string
 
+Q: What about object and standard method?
+Yes, same.
+{{p.created_at.strftime("%b %d, %Y")}}
+
 
