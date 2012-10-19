@@ -1,0 +1,11 @@
+Q: Where are my disks?
+They are listed as /dev/sdf in EBC web interface
+On Ubuntu, you need to create a partition and format it before mounting it!
+The names are also not the same for some readon!
+For /dev/sdf use /dev/xvdf
+
+Q: What is the procedure to make it appear on my machine?
+fdisk /dev/xvdf
+mkfs.ext3 /dev/xvdf1
+mkdir /mnt/filesystem_1
+moount /dev/xvdf1 /mnt/filesystem_1

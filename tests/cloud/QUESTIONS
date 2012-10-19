@@ -30,6 +30,7 @@ Amazon EBS provides highly available, highly reliable, predictable storage volum
 that can be attached to a running Amazon EC2 instance and exposed as a device within the instance. 
 Amazon EBS is particularly suited for applications that require a database, 
 file system, or access to raw block level storage.
+!!! EBS volumes are managed in the EC2 Management interface
 
 Q: What is S3?
 ~ Gobal filesystem
@@ -46,4 +47,20 @@ in writes appearing in the system whereas EBS has no consistency delays.
 Also EBS can only be accessed by one machine at a time whereas snapshots on S3 can be shared.
 More @ http://www.cloudiquity.com/2009/03/differences-between-s3-and-ebs/
 
+Q: What is SNS?
+Amazon SNS provides a simple web services interface and browser-based Management Console 
+that can be used to create topics you want to notify applications (or people) about, 
+subscribe clients to these topics, publish messages, and have these messages delivered 
+over clients’ protocol of choice (i.e. HTTP, email, SMS, etc.). 
+Amazon SNS delivers notifications to clients using a “push” mechanism that eliminates 
+the need to periodically check or “poll” for new information and updates.
+
+Q: What is Amazon CloudFront?
+In Amazon CloudFront, your content is organized into distributions. 
+A distribution specifies the location or locations of the original version of your files. 
+A distribution has a unique CloudFront.net domain name (e.g. abc123.cloudfront.net) 
+that you can use to reference your objects through the global network of edge locations. 
+If you wish, you can also map your own domain name (e.g. www.example.com) to your distribution. 
+You can create distributions to either download your content using the HTTP or HTTPS protocols, 
+or stream your content using the RTMP protocol.
 
