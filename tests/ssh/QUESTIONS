@@ -1,0 +1,43 @@
+Q: Where is the sshd server configuration?
+* /etc/ssh/sshd_config   
+
+Q: Where is the SSH client configuration?
+* /etc/ssh/ssh_config
+
+Q: How to disable automatic disconnection?
+From the client side: ssh -o TCPKeepAlive=no -o ServerAliveInterval=15 ....
+From the server side: ???
+
+Q: How to remote login automatically?
+ex: local backup server (A) to cloud based backup server(B)
+on A:
+# ssh-keygen -t rsa -b 2048 -f ~/keys/rsync-key
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /root/keys/rsync-key.
+Your public key has been saved in /root/keys/rsync-key.pub.
+The key fingerprint is:
+4e:02:dc:f3:7f:f5:e3:e7:cd:c3:f0:5e:15:28:92:6b root@mammoth.lynceantech.com
+# ls ~/keys
+-rw-------  1 root root 1671 2012-10-19 13:16 rsync-key
+-rw-r--r--  1 root root  410 2012-10-19 13:16 rsync-key.pub
+Transfer ipublic key from A --> B: 
+# scp -i ~/backups_awskey.pem ~/keys/rsync-key.pub ubuntu@54.243.138.69:~/
+B:
+ssh -i ~/backups_awskey.pem ubuntu@54.243.138.69
+sudo su -
+cat ~ubuntu/rsync-key.pub >> ~/.ssh/authorized_keys
+A:
+ssh -i ~/keys/rsync-key root@54.243.138.69
+
+It works!
+
+
+
+
+
+
+
+
+
