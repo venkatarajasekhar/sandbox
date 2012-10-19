@@ -1,0 +1,8 @@
+Mailgun gives you fully programmable email: send, receive, forward and store emails from your applications. 
+
+Note that you should use your domain name the API URL and the API Key of the created mailgun account.
+You have up to 200 mail per day for free.
+
+Sending a message is successful if output from program is <Response [200]>
+If reply is <Response [404]> something went wront. Check the URL you are using. 
+

@@ -34,7 +34,7 @@ Q: How does GQL compare to SQL?
 All queries starts with SELECT *
 - no joins possible
 
-Run arbitrary quereis
+Run arbitrary queries
 All queries must be indexed
 ==? indexes are build for us
 
@@ -65,10 +65,40 @@ In template:
     <p>{{post.content}}</p>
 {% endfor %}
 
+#----------------------------------------------------------------------
 Q: What is a permalink?
 In a blog, you have several posts.
 A permalink is URL that link a particular post.
 http://www.example.com/blog/posts/123       
 Is a URL to the post with ID 123.
 Note that ID can be strings 
-   
+#----------------------------------------------------------------------
+
+Q: Which standard libraries are supported in GAE?
+Most of the standard python libraries are supported
+http://docs.python.org/modindex.html
+but a few
+https://developers.google.com/appengine/kb/libraries
+
+    ctypes          - C to python - A foreign function library for Python.
+    sqlite          - Unsupported database = A DB-API 2.0 implementation using SQLite 3.x.
+    ssl/_ssl        - ??? - TLS/SSL wrapper for socket objects
+    fcntl           - Unix specific = The fcntl() and ioctl() system calls
+    spwd            - Unix specific = The shadow password database (getspnam() and friends)
+    pwd             - Unix specific 
+    grp             - unix specific = The group database (getgrnam() and friends)
+    syslog          - Unix specific = An interface to the Unix syslog library routines.
+    select          - ??? - Wait for I/O completion on multiple streams.
+    _socket         - ??? - Low-level networking interface.
+
+Note that to use the supported standard python libraries, you do not need to put them in the yaml file
+
+  
+Q: Which 3rd party libraries are supported in GAE? 
+The App Engine Python 2.7 runtime includes several third-party libraries that your application can use.
+Go in the google_appengine directory are look in the .../lib directory
+Those supported libraries are 3rd party.
+To include those libs in your code, you MUST modify the app.yaml file.
+More@ https://developers.google.com/appengine/docs/python/tools/libraries27
+
+
