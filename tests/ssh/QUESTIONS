@@ -15,8 +15,8 @@ on A:
 Generating public/private rsa key pair.
 Enter passphrase (empty for no passphrase): 
 Enter same passphrase again: 
-Your identification has been saved in /root/keys/rsync-key.
-Your public key has been saved in /root/keys/rsync-key.pub.
+Your identification has been saved in /root/keys/rsync-key.                         <-- private key (to keep secret)
+Your public key has been saved in /root/keys/rsync-key.pub.                         <-- public key (to share and distribute!)
 The key fingerprint is:
 4e:02:dc:f3:7f:f5:e3:e7:cd:c3:f0:5e:15:28:92:6b root@mammoth.lynceantech.com
 # ls ~/keys
@@ -30,8 +30,8 @@ sudo su -
 cat ~ubuntu/rsync-key.pub >> ~/.ssh/authorized_keys
 A:
 ssh -i ~/keys/rsync-key root@54.243.138.69
+rsync -e 'ssh -i /root/keys/rsync-key' -alvz ./backup.1/ root@54.243.138.69:/mnt/backups/foote
 
-It works!
 
 
 
