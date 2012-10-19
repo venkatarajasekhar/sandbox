@@ -1,0 +1,21 @@
+font-family:                Helvetica, Arial, sans-serif;
+font-family:                monospace;
+font-size:                  14px;
+font-weight:                bold;
+width:                      800px;
+margin:                     0 auto;
+margin-top:                 20px;
+margin-bottom:              20px;
+padding:                    10px;
+color:                      #333;
+color:                      red;
+display:                    block;
+dispaly:                    inline;
+display:                    inline-block;
+text-align:                 center;
+text-decoration:            none;                       # <-- links are not underlined
+border-bottom:              3px solid #666;             # <-- add a line at the bottom of the block
+position:                   relative;
+position:                   absolute;                   # <-- look at right and bottom option
+right:                      0px;
+bottom:                     0px;
