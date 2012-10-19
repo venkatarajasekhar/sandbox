@@ -1,0 +1,2 @@
+rsync -e "ssh -i /root/backups_awskey.pem" -alvz /root/.mozilla/ ubuntu@54.243.138.69:/mnt/backups/foote
+
