@@ -1,0 +1,14 @@
+Q: What is Amazon CloudFront?
+In Amazon CloudFront, your content is organized into distributions. 
+A distribution specifies the location or locations of the original version of your files. 
+A distribution has a unique CloudFront.net domain name (e.g. abc123.cloudfront.net) 
+that you can use to reference your objects through the global network of edge locations. 
+If you wish, you can also map your own domain name (e.g. www.example.com) to your distribution. 
+You can create distributions to either download your content using the HTTP or HTTPS protocols, 
+or stream your content using the RTMP protocol.
+
+Q: What is s3?
+An elastic simple 1 filesystem (No right management!)
+
+Q: EC2 to S3?
+Right managment !

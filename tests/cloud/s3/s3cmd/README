@@ -58,6 +58,7 @@ s3cmd --dump-config                                                 <-- dump loc
 s3cmd accesslog s3://BUCKET                                         <-- enable access log 
 s3cmd mb s3://bucketname                                            <-- make a (S3) bucket  
 s3cmd rb s3://bucketname                                            <-- delete a (S3) bucket (Must be empty!)
+s3cmd rb -r s3://bucketname                                         <-- delete any (S3) bucket
 s3cmd ls                                                            <-- list existing buckets
 s3cmd put somefile.txt s3://bucketname/somefile.txt                 <-- upload a file
 s3cmd mv s3://bucketname/somefile.txt s3://bucketname/someother.txt <-- upload a file

@@ -15,5 +15,6 @@ EC2         - Amazon Elastic Cloud Compute
 S3          - Amazon Simple Storage Service
 SNS         - Amazon Simple Notification Service
 ...
+CloudFront  - 1 static repository is mirrored at severael geographical locations (closer to end user)
 
 
