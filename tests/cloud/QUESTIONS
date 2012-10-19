@@ -13,8 +13,37 @@ gmail is SAAS (freemium + business model)
 Q: Amazon offering?
 EC2         - Amazon Elastic Cloud Compute
 S3          - Amazon Simple Storage Service
+EBS         - Amazon Elastic Block Store
 SNS         - Amazon Simple Notification Service
 ...
 CloudFront  - 1 static repository is mirrored at severael geographical locations (closer to end user)
+
+Q: What is EC2?
+EC2 Instances let you pay for compute capacity by the hour with no long term commitments. 
+This transforms what are commonly large fixed costs into much smaller variable costs. 
+
+Q: What is EBS?
+~ virtual hard disk
+Amazon Elastic Block Store (EBS) provides block level storage volumes for use with Amazon EC2 instances. 
+Amazon EBS volumes are network-attached, and persist independently from the life of an instance. 
+Amazon EBS provides highly available, highly reliable, predictable storage volumes 
+that can be attached to a running Amazon EC2 instance and exposed as a device within the instance. 
+Amazon EBS is particularly suited for applications that require a database, 
+file system, or access to raw block level storage.
+
+Q: What is S3?
+~ Gobal filesystem
+Amazon S3 provides a simple web services interface that can be used to store and retrieve 
+any amount of data, at any time, from anywhere on the web. 
+It gives any developer access to the same highly scalable, reliable, fast, inexpensive 
+data storage infrastructure that Amazon uses to run its own global network of web sites.
+
+Q Difference between EBS and S3?
+EBS volumes can only be accessed from an EC2 instance in the same availability zone 
+whereas snapshots on S3 can be accessed from any availability zone.
+S3 is subject to “eventual consistency”  which means that there may be a delay 
+in writes appearing in the system whereas EBS has no consistency delays. 
+Also EBS can only be accessed by one machine at a time whereas snapshots on S3 can be shared.
+More @ http://www.cloudiquity.com/2009/03/differences-between-s3-and-ebs/
 
 
