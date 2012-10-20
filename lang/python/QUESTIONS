@@ -11,5 +11,6 @@ Then fire up a browser on http://localhost:8888 for python documentation of ever
 2/ Using python shell
 import datetime
 help(datetime)
-
+3/ Use ipython shell
+there is word completion
 

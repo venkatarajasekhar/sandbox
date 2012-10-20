@@ -80,7 +80,34 @@ It doesn't have an expire parameter
 Q: How does the login 'remember me' works?
 Well, by clicking the button, you set the expiration parameter
 
+Q: How to set a cookie from a browser?
+In a javascript console (Chrome+), enter: document.cookie
+That function returns all the cookies
+Set a cookie to whatever value you what (from the client side) with
+document.cookie="visits=10000"
 
+Q: How to prevent the above cheat?
+Hashing of the cookies!
 
+Q: What is hashing?
+H(x) --> y
+x: data
+y is fixed length bit string 32-256 bits
+
+Q: Properties of hash function?
+~ applied cryptography!
+- difficult to generate a specific y
+- infeasible to find x for a given y ( 1 way function !)
+- can't modify x without significantly modifying y
+
+Q: can I write my own hash algorithm?
+No! Don't write your own!
+crc32 - checksum, fast (but lots of collision)
+md5 - fast, but not secure!
+sha1 - not as fast, fairly secure
+sha256 - relatively slow, but pretty good <-- to be used if not to o much traffic
+
+Q: What is a collision?
+Two thing hash to the same value hard to find
 
 
