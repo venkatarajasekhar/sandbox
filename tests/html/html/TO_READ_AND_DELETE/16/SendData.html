@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+SendMaster=new Object();
+SendMaster.eLert=function()
+{
+	alert("Oops! Seems to be a little boo-boo in the e-mail format.");
+}
+</script>
+<style type="text/css">
+body {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#336600;
+	font-size:14px;
+	background-color:#FFCC33;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Data Sender</title>
+</head>
+<body>
+<form action="formCatcher.php" method="post">
+  <fieldset>
+    <legend>Send Name and Email to PHP</legend>
+    <input size=20 name="formName" placeholder="Enter Name">
+    <p/>
+    <input type=email size=32 NAME="formEmail" placeholder="Enter Name" onInvalid="SendMaster.eLert()" >
+    <p />
+  </fieldset>
+  <input type="submit" name="sender" value="Send" >
+</form>
+</body>
+</html>

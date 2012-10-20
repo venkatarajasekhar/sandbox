@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+MailMaster=new Object();
+MailMaster.eMess=function()
+{
+	alert("Hmmmm... It seems that the e-mail entry has something out of sort....Please take a look at it and see if you can fix it up.")
+}
+
+</script>
+<style type="text/css">
+/*DDDCC5,958976,611427,1D2326,6A6A61 */
+body {
+	background-color:#DDDCC5;
+	color:#1D2326;
+	font-family:Verdana, Geneva, sans-serif;
+}
+h2 {
+	background-color:#958976;
+	color:#DDDCC5;
+	text-align:center;
+	font-family:"Arial Black", Verdana, Arial;
+}
+h3 {
+	color:#611427;
+}
+fieldset {
+	color:#6A6A61;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Simple E-Mail</title>
+</head>
+<body>
+<article>
+  <header>
+    <h2>Mailer</h2>
+  </header>
+  <section>
+    <header>
+      <h3>Fill in the form and send us your questions, ideas and rants.</h3>
+    </header>
+    <form action="mailer1.php" method="post">
+      <input name=userName>
+      &nbsp;Please enter your name.<br>
+      <input name=mailNow type=email onInvalid="MailMaster.eMess()">
+      &nbsp;Enter e-mail address to send reply.<br>
+      <input name=subject>&nbsp; What subject would you like to address?<br>
+      <fieldset>
+        <legend>Comments</legend>
+        <textarea name=talk cols=70 rows=15 ></textarea>
+      </fieldset>
+      <input type=submit name=sender value="Send email">
+    </form>
+  </section>
+</article>
+</body>
+</html>

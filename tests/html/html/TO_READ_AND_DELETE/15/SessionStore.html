@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+StorageMaster=new Object();
+//Set values
+StorageMaster.setPositions=function()
+{
+	sessionStorage.setItem("firstBase",document.players.firstBase.value );
+	sessionStorage.setItem("secondBase",document.players.secondBase.value );
+	sessionStorage.setItem("thirdBase",document.players.thirdBase.value );
+}
+//Get values
+StorageMaster.getFirst=function()
+{
+	playerName=sessionStorage.getItem("firstBase");
+	alert(playerName + " is on first");
+}
+StorageMaster.getSecond=function()
+{
+	playerName=sessionStorage.getItem("secondBase");
+	alert(playerName +" is playing second");
+}
+StorageMaster.getThird=function()
+{
+	playerName=sessionStorage.getItem("thirdBase");
+	alert(playerName+ " is assigned to third");
+}
+</script>
+<style type="text/css">
+/*323F14,EBD4B2,273A4B,D49756,790007 */
+body {
+	background-color:#EBD4B2;
+	color:#273A4B;
+	font-family:Verdana, Geneva, sans-serif;
+}
+h2 {
+	background-color:#273A4B;
+	color:#D49756;
+	text-align:center;
+}
+h3 {
+	color:#323F14;
+}
+fieldset {
+	color:#790007
+}
+#playerTable {
+	display:table;
+}
+#getPlayer {
+	display:table-cell;
+	width:250px;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Storage</title>
+</head>
+
+<body>
+<article>
+<header>
+  <hgroup>
+    <h2>Baseball Manager</h2>
+    <h3>Assign Players:</h3>
+  </hgroup>
+</header>
+<section>
+<form name=players>
+  <input type=text name=firstBase placeholder="First base">
+  &nbsp;First Base<br>
+  <input type=text name=secondBase placeholder="Second base">
+  &nbsp;Second Base<br>
+  <input type=text name=thirdBase placeholder="Third base">
+  &nbsp;Third Base<br>
+  <input type=button onClick="StorageMaster.setPositions()" value="Assign Positions">
+  </section>
+  <br>
+  <div ID="playerTable">
+  <section ID="getPlayer">
+  <fieldset>
+    <legend>Who's Playing What?</legend>
+    <input type=button onClick="StorageMaster.getFirst()" value="Who's on First?">
+    <br>
+    <input type=button onClick="StorageMaster.getSecond()" value="Who's on Second?">
+    <br>
+    <input type=button onClick="StorageMaster.getThird()" value="Who's on Third?">
+    <br>
+  </fieldset>
+</form>
+</section>
+</div>
+</body>
+</html>

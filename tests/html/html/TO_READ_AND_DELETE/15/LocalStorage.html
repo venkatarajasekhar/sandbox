@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+StorageMaster=new Object();
+//Set values
+StorageMaster.setRegistration=function()
+{
+	this.hobbyNow="";
+	this.topCount=document.interest.elements.length;
+	for(var count=0;count < this.topCount;count++)
+	{
+		if(document.interest.elements[count].checked)
+		{
+			this.hobbyNow=document.interest.hobby[count-1].value;
+		}
+	}
+	localStorage.setItem("uName",document.interest.userName.value);
+	localStorage.setItem("uHobby",this.hobbyNow);
+	localStorage.setItem("uState",document.interest.resState.value);
+}
+//Get values
+StorageMaster.getReg=function()
+{
+	userProfile="User Profile:\n";
+	nameNow=localStorage.getItem("uName")+"\n";
+	hobbyNow=localStorage.getItem("uHobby")+"\n";
+	stateNow=localStorage.getItem("uState")+"\n";
+	fileLength=localStorage.length + " profile items";
+	this.profile=userProfile+nameNow+hobbyNow+stateNow+fileLength;
+	document.getElementById("profile").innerHTML = this.profile;
+}
+StorageMaster.clearReg=function()
+{
+	localStorage.clear();
+	alert("Local storage cleared");
+}
+</script>
+<style type="text/css">
+/*962D3E,343642,979C9C,F2EBC7,348899 */
+body {
+	background-color:#F2EBC7;
+	color:#962D3E;
+	font-family:Verdana, Geneva, sans-serif;
+}
+h2 {
+	color:#979C9C;
+}
+fieldset {
+	color:#348899;
+}
+#hobbyTable {
+	display:table;
+}
+#getHobby {
+	display:table-cell;
+	width:275px;
+}
+#profile {
+	display:table-cell;
+	background-color: #979C9C;
+	padding: 3px;
+	width:150px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:14px;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Storage</title>
+</head>
+<body>
+<article>
+<header>
+  <h2>Hobby Registration</h2>
+</header>
+<section>
+  <form name="interest">
+    <input name=userName placeholder="Name please">
+    &nbsp;Name<br>
+    <div id="hobbyTable">
+      <section id="getHobby">
+        <fieldset>
+          <legend>What's Your Favorite Hobby?</legend>
+          <label>
+            <input type=radio name=hobby value="travel">
+            Travel</label>
+          <br>
+          <label>
+            <input type=radio name=hobby  value="reading">
+            Reading</label>
+          <br>
+          <label>
+            <input type=radio name=hobby value="theater">
+            Theater</label>
+          <br>
+          <label>
+            <input type=radio name=hobby value="ballet">
+            Ballet</label>
+          <br>
+          <label>
+            <input type=radio name=hobby value="monster trucks">
+            Monster Truck Rallies</label>
+          <br>
+        </fieldset>
+      </section>
+    </div>
+    <input type=text name=resState placeholder="Your state of residence">
+    &nbsp;State<br>
+    <input type=button onClick="StorageMaster.setRegistration()" value="Register">
+    <input type=button onClick="StorageMaster.getReg()" value="Find Info">
+    <input type=button onClick="StorageMaster.clearReg()" value="Clear Data">
+  </form>
+</section>
+<br>
+<pre id="profile"></pre>
+</body>
+</html>

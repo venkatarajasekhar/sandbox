@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="javascript">
+//colors: 960, fff, 000
+CanvasMaster=new Object();
+CanvasMaster.showCanvas=function()
+{
+	canvasNow  = document.getElementById("briefCase");
+	contextNow = canvasNow.getContext('2d');
+	contextNow.beginPath();
+	contextNow.moveTo(40,20);
+	contextNow.lineTo(72,20);
+	contextNow.lineTo(72,38);
+	contextNow.lineTo(88,38);
+	contextNow.lineTo(88,78);
+	contextNow.lineTo(28,78);
+	contextNow.lineTo(28,38);
+	contextNow.lineTo(40,38);
+	contextNow.lineTo(40,20);
+	contextNow.closePath();
+	contextNow.fillStyle ="#960";
+	contextNow.fill();
+	contextNow.beginPath();
+	contextNow.moveTo(46,26);
+	contextNow.lineTo(66,26);
+	contextNow.lineTo(66,38);
+	contextNow.lineTo(46,38);
+	contextNow.closePath();
+	contextNow.fillStyle ="#fff";
+	contextNow.fill();
+}
+</script>
+<style type="text/css">
+body {
+	font-family:Verdana;
+	color:#000;
+}
+</style>
+<title>Filled Line Drawing</title>
+</head>
+<body onLoad="CanvasMaster.showCanvas()">
+<article>
+  <figure>
+    <canvas id="briefCase" width="90" height="80" > If you can identify the drawing you win a jillion dollars! Oh, I'm sorry...looks like you don't have an HTML5 browser.</canvas>
+    <figcaption> <br/>
+      Picasso Was Here</figcaption>
+  </figure>
+</article>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+CanvasMaster=new Object();
+CanvasMaster.showCanvas=function()
+{
+	canvasNow  = document.getElementById("beHappy");
+	contextNow = canvasNow.getContext('2d');
+	contextNow.beginPath();
+	contextNow.moveTo(0,0);
+	contextNow.lineTo(300,0);
+	contextNow.lineTo(300,200);
+	contextNow.lineTo(0,200);
+	contextNow.closePath();
+	contextNow.stroke();
+	
+	//(Math.PI/180)=RADCON;
+	RADCON=0.01745329251994;
+	twelve=0;
+	three = RADCON * 90;
+	six = RADCON * 180;
+	nine = RADCON * 270;
+	
+	contextNow.beginPath();
+	contextNow.arc(125,100,50,six,twelve,true);
+	contextNow.closePath();
+	contextNow.fill() 
+	//contextNow.stroke(); 
+}
+</script>
+<style type="text/css">
+body {
+	font-family:Verdana, Geneva, sans-serif;
+	color:#cc0000;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Smile</title>
+</head>
+<body onLoad="CanvasMaster.showCanvas()">
+<figure>
+  <canvas id="beHappy" width="300" height="200" > You don't see a smile because you don't have an HTML5 browser. No smile for you!</canvas>
+  <figcaption>
+    <p>Rectangle represents canvas boundaries</p>
+  </figcaption>
+</figure>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+FormMaster=new Object();
+FormMaster.resolveForm=function()
+{
+	favorite = document.formName.favURL.value;
+	personName=document.formName.person.value;
+	message=personName + "'s favorite Web site is " +favorite;
+	document.formName.output.value=message;
+}
+</script>
+<style type="text/css">
+h3 {
+	font-family:"Arial Black", Gadget, sans-serif;
+	color:#97CCA6;
+}
+body {
+	font-family:Verdana, Geneva, sans-serif;
+	color:#EFF09E;
+	background-color:#AB1F33;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Remote Form Inputs</title>
+</head>
+<body >
+<article>
+  <header>
+    <h3>IDs to Connect</h3>
+  </header>
+  <section> What is your very favorite Web site?<br>
+    <label>Favorite Site:
+      <input type=url form=formID name=favURL>
+    </label>
+  </section>
+  <section>
+    <blockquote> This section represents a break between the first input (requesting a URL) and the rest of the form to which the URL form belongs. This gives designers far more leeway in putting together an interactive site. </blockquote>
+  </section>
+  <section>
+    <form name=formName id=formID>
+      <label>What's your name?
+        <input type=text name=person>
+      </label>
+      <br>
+      Output:<br>
+      <textarea name=output cols=50 rows=5></textarea>
+      <br>
+      <input type=submit name=submit value="Gather in the Chickens" onClick="FormMaster.resolveForm()">
+    </form>
+  </section>
+</article>
+</body>
+</html>

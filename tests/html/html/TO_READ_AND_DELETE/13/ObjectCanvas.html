@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<!--630000,BDB430,212E7F-->
+<script>
+	CanvasMaster=new Object();
+    CanvasMaster.showCanvas=function()
+    {
+        var canvasNow  = document.getElementById("colorScheme")
+        var contextNow = canvasNow.getContext('2d');
+
+        contextNow.fillStyle = '#630000';            // hex value color
+        contextNow.fillRect(5,5,200,90);             // x, y, width, height
+
+        contextNow.fillStyle = '#BDB430';            // hex value color
+        contextNow.fillRect(205,5,200,90);           // second color
+
+		contextNow.fillStyle = '#212E7F';            // hex value color
+        contextNow.fillRect(405,5,200,90);
+        
+        contextNow.fill();
+    }
+</script>
+<body onLoad="CanvasMaster.showCanvas()">
+<canvas id="colorScheme" width="600" height="100" >Get an HTML5 browser. Or else...</canvas>
+</body>
+</html>

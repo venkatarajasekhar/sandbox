@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="javascript">
+//colors: 595241,B8AE9C,FFFFFF,ACCFCC,8A0917
+CanvasMaster=new Object();
+CanvasMaster.showCanvas=function()
+{
+	canvasNow  = document.getElementById("strokeAndChomp");
+	contextNow = canvasNow.getContext('2d');
+
+	contextNow.fillStyle = '#ACCFCC';
+	contextNow.fillRect(5,20,100,100);
+
+	contextNow.fill();
+}
+CanvasMaster.addStroke=function()
+{
+	contextNow.strokeStyle='#595241';
+	contextNow.strokeRect(7,22,91,76);
+}
+CanvasMaster.chomp=function()
+{
+	contextNow.clearRect(5,20,100,100);
+}
+CanvasMaster.punchOut=function()
+{
+	contextNow.clearRect(40,45,30,30);
+}
+</script>
+<style type="text/css">
+body {
+	font-family:Verdana;
+	color:#8A0917;
+	background-color:#B8AE9C;
+}
+a {
+	text-decoration:none;
+	color:#595241;
+	margin-left:16px;
+}
+</style>
+<title>Stroke and Cut</title>
+</head>
+<body onLoad="CanvasMaster.showCanvas()">
+<article>
+  <figure>
+    <canvas id="strokeAndChomp" width="100" height="100" > You ought to see what HTML5 browsers see! Get one now! </canvas>
+    <figcaption> <br/>
+      Square Work </figcaption>
+  </figure>
+  <section>
+    <p><a href="#" onClick="CanvasMaster.addStroke()">Add Stroke</a></p>
+  </section>
+  <section>
+    <p><a href="#" onClick="CanvasMaster.chomp()">Gobble Up Square</a></p>
+  </section>
+  <section>
+    <p><a href="#" onClick="CanvasMaster.punchOut()">Punch Hole</a></p>
+  </section>
+  <section>
+    <p><a href="#" onClick="CanvasMaster.showCanvas()">Replace Square</a></p>
+  </section>
+</article>
+</body>
+</html>

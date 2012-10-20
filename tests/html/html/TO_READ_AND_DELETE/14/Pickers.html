@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+FormMaster=new Object();
+FormMaster.resolveForm=function()
+{
+	alert(document.calendar.dateNow.value);
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Date</title>
+</head>
+<body >
+<form name=calendar>
+  <input name=dateNow type="date" onChange="FormMaster.resolveForm()">
+</form>
+</body>
+</html>

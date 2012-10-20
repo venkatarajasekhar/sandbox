@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="javascript">
+CanvasMaster=new Object();
+CanvasMaster.showCanvas=function()
+{
+	canvasNow  = document.getElementById("redHot");
+	contextNow = canvasNow.getContext('2d');
+
+	contextNow.fillStyle = '#cc0000';  // hex value color
+	contextNow.fillRect(5,20,100,100); // x, y, width, height
+
+	contextNow.fill();
+}
+</script>
+<style type="text/css">
+body {
+	font-family:Verdana;
+	color:#cc0000;
+}
+</style>
+<title>Red Square</title>
+</head>
+<body onLoad="CanvasMaster.showCanvas()">
+<figure>
+  <canvas id="redHot" width="100" height="100" > You're missing the Red Square! Get HTML5, Comrad! </canvas>
+  <figcaption> <br/>
+    Red Square </figcaption>
+</figure>
+</body>
+</html>

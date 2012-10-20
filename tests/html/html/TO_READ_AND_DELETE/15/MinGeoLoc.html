@@ -1,0 +1,50 @@
+<!DOCTYPE html >
+<html>
+    <head>
+<style type="text/css">
+/* BF7F6C,FFDDAE,B59D7B,40372B,E6C79C */
+	body {
+	font-family:Verdana, Geneva, sans-serif;
+	color:#40372B;
+	background-color:#FFDDAE;
+}
+h3 {
+	font-family:Tahoma, Geneva, sans-serif;
+	color:#BF7F6C;
+}
+</style>
+<script>
+	LocationMaster=new Object();
+	LocationMaster.lookUpPosition=function(position)
+	{
+		this.latNow=position.coords.latitude;
+		this.longNow=position.coords.longitude;
+            
+		document.getElementById("mapHolder").src = "http://maps.google.com/maps?hl=en&ie=UTF8&ll=" + this.latNow + "," + this.longNow + "&spn=0.054166,0.110378&z=13&output=embed";
+	}
+
+        if (navigator.geolocation) 
+		{
+            navigator.geolocation.getCurrentPosition(LocationMaster.lookUpPosition);
+        } 
+		else 
+		{
+            alert("Try a different HTML5 browser—this one is not working with geolocation.");
+        }
+    </script>
+<title>Minimun Map</title>
+    </head>
+    <body>
+    <article>
+      <header>
+        <h3>Your Location</h3>
+      </header>
+      <section>
+        <iframe id="mapHolder"> </iframe>
+      </section>
+      <section>
+        <p> This example of using geolocation and Google maps is very simple. It has been tested in the major browsers and mobile browsers. </p>
+      </section>
+    </article>
+</body>
+</html>

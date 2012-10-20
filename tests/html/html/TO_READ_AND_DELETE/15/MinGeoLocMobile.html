@@ -1,0 +1,65 @@
+<!DOCTYPE html >
+<html>
+    <head>
+<style type="text/css">
+/* BF7F6C,FFDDAE,B59D7B,40372B,E6C79C */
+body {
+	font-family:Verdana, Geneva, sans-serif;
+	color:#40372B;
+	background-color:#FFDDAE;
+}
+h1 {
+	text-align:center;
+	background-color:#FFDDAE;
+	color:#B59D7B;
+h3 {
+	font-family:Tahoma, Geneva, sans-serif;
+	color:#BF7F6C;
+}
+</style>
+<script>
+	LocationMaster=new Object();
+	LocationMaster.lookUpPosition=function(position)
+	{
+		this.latNow=position.coords.latitude;
+		this.longNow=position.coords.longitude;
+            
+		document.getElementById("mapHolder").src = "http://maps.google.com/maps?hl=en&ie=UTF8&ll=" + this.latNow + "," + this.longNow + "&spn=0.054166,0.110378&z=13&output=embed";
+	}
+
+        if (navigator.geolocation) 
+		{
+            navigator.geolocation.getCurrentPosition(LocationMaster.lookUpPosition);
+        } 
+		else 
+		{
+            alert("Try a different HTML5 browser—this one is not working with geolocation.");
+        }
+    </script>
+<title>Mobile Map</title>
+    </head>
+    <body>
+    <article>
+      <header>
+        <h3>Here You Are</h3>
+      </header>
+      <section>
+        <iframe id="mapHolder" width="240" height="320"> </iframe>
+      </section>
+      <section>
+        <p> For Mobile Users </p>
+      </section>
+      <section>
+        <p>
+        <h1> Enlarge Here</h1>
+        </p>
+        <p>
+        <h1> And Here </h1>
+        </p>
+        <p>
+        <h1> Pull outward but not down </h1>
+        </p>
+      </section>
+    </article>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="javascript">
+//colors: F4F1BC,736F36,BFB95A
+CanvasMaster=new Object();
+CanvasMaster.showCanvas=function()
+{
+	canvasNow  = document.getElementById("picFrame");
+	contextNow = canvasNow.getContext('2d');
+	
+	pic = new Image();
+	pic.onload = function()
+	{ 
+		contextNow.shadowColor ='#BFB95A';
+		contextNow.shadowOffsetX=10;
+		contextNow.shadowOffsetY=10;
+		contextNow.shadowBlur=4;
+    	contextNow.drawImage(pic,10,10);
+	}  
+    pic.src = 'fisherkid.jpg';  
+} 
+</script>
+<style type="text/css">
+body {
+	font-family:Verdana;
+	color:#736F36;
+	background-color:#F4F1BC;
+}
+</style>
+<title>Frame the Photo</title>
+</head>
+<body onLoad="CanvasMaster.showCanvas()">
+<article>
+  <figure>
+    <canvas id="picFrame" width="340" height="300" > This is one picture you missed because you don't have HTML5. </canvas>
+    <figcaption> <br/>
+      Photo with Drop Shadow</figcaption>
+  </figure>
+</article>
+</body>
+</html>

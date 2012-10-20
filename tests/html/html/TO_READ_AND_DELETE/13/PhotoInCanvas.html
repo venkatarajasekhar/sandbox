@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="javascript">
+//colors: 595241,B8AE9C,FFFFFF,ACCFCC,8A0917
+CanvasMaster=new Object();
+CanvasMaster.showCanvas=function()
+{
+	canvasNow  = document.getElementById("picFrame");
+	contextNow = canvasNow.getContext('2d');
+	
+	pic = new Image();
+	pic.onload = function(){  
+     contextNow.drawImage(pic,10,10);  
+      contextNow.beginPath();  
+      contextNow.moveTo(9,9);  
+      contextNow.lineTo(300,9);  
+      contextNow.lineTo(300,272);  
+      contextNow.lineTo(9,272);  
+      contextNow.stroke(); 
+    }  
+    pic.src = 'fisherkid.jpg';  
+	
+}
+ 
+</script>
+<style type="text/css">
+body {
+	font-family:Verdana;
+	color:#8A0917;
+	background-color:#B8AE9C;
+}
+a {
+	text-decoration:none;
+	color:#595241;
+	margin-left:16px;
+}
+</style>
+<title>Frame the Photo</title>
+</head>
+<body onLoad="CanvasMaster.showCanvas()">
+<article>
+  <figure>
+    <canvas id="picFrame" width="340" height="300" > This is one picture you missed because you don't have HTML5. </canvas>
+    <figcaption> <br/>
+      Picture Frame</figcaption>
+  </figure>
+</article>
+</body>
+</html>

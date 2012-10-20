@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+var envir=navigator.appVersion;
+envir=envir.substring(5,11);
+var imageNow=new Image();
+var showNow;
+function showImage()
+{
+	if(envir=="iPhone" || envir=="(iPhon")
+	{
+		showNow="flexImages/lilWebDeveloper.gif";
+	}
+	else
+	{
+		showNow="flexImages/WebDeveloper.gif";
+	}
+	
+	imageNow.src=showNow;
+	document.pix.src=imageNow.src;	
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>iPhone Detect</title>
+</head>
+
+<body onload="showImage()">
+<img src="flexImages/WebDeveloper.gif" name="pix" align="left">
+</body>
+</html>

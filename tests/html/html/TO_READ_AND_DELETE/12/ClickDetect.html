@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+<style type="text/css">
+h1, h2 {
+	font-family:Tahoma, Geneva, sans-serif;
+}
+a {
+	text-decoration:none;
+	color:#060;
+}
+</style>
+
+<script type="text/javascript">
+function detectLoaded()
+{
+	alert("Page is loaded.");
+}
+function detectClick()
+{
+      alert("You clicked a link.");
+}
+function detectDoubleClick()
+{
+      alert("You double-clicked another link.");
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Event Handler</title>
+    </head>
+    <body onLoad="detectLoaded()">
+    <hgroup>
+      <h1> <a href="#" onClick="detectClick()">Click This</a></h1>
+      <h2> <a href="#" onDblClick="detectDoubleClick()">Double-Click This</a></h2>
+    </hgroup>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="javascript">
+//Color Scheme Values pasted here: 8C6E37,BFA380,593723,736055,261F1E
+CanvasMaster=new Object();
+CanvasMaster.showCanvas=function()
+{
+	canvasNow  = document.getElementById("totillaHues")
+	contextNow = canvasNow.getContext('2d');
+
+	contextNow.fillStyle = '#8C6E37';    // hex value color
+	contextNow.fillRect(5,20,100,100);   // x, y, width, height
+						     			 // first color
+
+	contextNow.fillStyle = '#BFA380';    // hex value color
+	contextNow.fillRect(105,20,100,100); // second color
+
+	contextNow.fillStyle = '#593723';    // hex value color
+	contextNow.fillRect(205,20,100,100); // third color
+
+	contextNow.fillStyle = '#736055';    // hex value color
+	contextNow.fillRect(305,20,100,100); // fourth color
+
+	contextNow.fillStyle = '#261F1E ';   // hex value color
+	contextNow.fillRect(405,20,100,100); // fifth color
+        
+	contextNow.fill();					 // fill all!
+	}
+</script>
+<style type="text/css">
+body {
+	font-family:Verdana;
+	color:#570026;
+}
+</style>
+<title>Feel Like a Tortilla!</title>
+</head>
+<body onLoad="CanvasMaster.showCanvas()">
+<figure>
+  <canvas id="totillaHues" width="500" height="120" > No tortillas for you! Get your HTML5 browser...pronto! </canvas>
+  <figcaption> <br/>
+    Tortilla Flat 
+  </figcaption>
+</figure>
+</body>
+</html>

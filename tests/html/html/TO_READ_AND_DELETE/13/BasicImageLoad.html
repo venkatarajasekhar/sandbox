@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="javascript">
+//colors: F4F1BC,736F36,BFB95A
+CanvasMaster=new Object();
+CanvasMaster.showCanvas=function()
+{
+	canvasNow  = document.getElementById("picFrame");
+	contextNow = canvasNow.getContext('2d');
+	
+	pic = new Image();
+	pic.onload = function()
+	{ 
+    	contextNow.drawImage(pic,10,10);
+	}  
+    pic.src = 'dance.gif';  
+}
+ 
+</script>
+<style type="text/css">
+body {
+	font-family:Verdana;
+	color:#736F36;
+	background-color:#F4F1BC;
+}
+</style>
+<title>Frame the Photo</title>
+</head>
+<body onLoad="CanvasMaster.showCanvas()">
+<article>
+  <figure>
+    <canvas id="picFrame" width="472" height="306" > Not only do you miss the filtered image, but you miss the dance! Get an HTML5 browser! </canvas>
+    <figcaption> <br/>
+      Filtered Image</figcaption>
+  </figure>
+</article>
+</body>
+</html>

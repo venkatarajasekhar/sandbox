@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+FormMaster=new Object();
+FormMaster.resolveForm=function()
+{
+	place=document.traveler.getURL.value;
+	alert(place);
+}
+</script>
+<style type="text/css">
+h3 {
+	font-family:"Arial Black", Gadget, sans-serif;
+	color:#B9121B;
+}
+body {
+	font-family:Verdana, Geneva, sans-serif;
+	color:#4C1B1B;
+	background-color:#FCFAE1;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>List and Datalist</title>
+</head>
+<body >
+<article>
+  <header>
+    <h3>The List and Datalist</h3>
+  </header>
+  <section>
+    <datalist id=favoriteSites>
+      <option value="http://www.smashingmagazine.com/" label="Smashing">
+      <option value="http://www.sandlight.com/" label="Sandlight"> 
+    </datalist>
+  </section>
+  <section>
+    <form name=traveler>
+      <label>Enter one of your favorite sites:</label>
+      <br>
+      <input type=url  list=favoriteSites name=getURL>
+      <br>
+      <input type=submit value="Show your URL" onClick="FormMaster.resolveForm()">
+    </form>
+  </section>
+</article>
+</body>
+</html>

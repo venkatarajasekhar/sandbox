@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+FormMaster=new Object();
+FormMaster.resolveForm=function()
+{
+	const RADCON=Math.PI/180;
+	degreesNow=document.converter.degrees.value;
+	radiansNow=degreesNow * RADCON;
+	document.converter.radians.value=radiansNow;
+}
+</script>
+<style type="text/css">
+/*048ABF,049DBF,F2F2F2,595959,0D0D0D */
+h3 {
+	font-family:"Arial Black", Gadget, sans-serif;
+	color:#595959;
+}
+body {
+	font-family:Verdana, Geneva, sans-serif;
+	color:#049DBF;
+	background-color:#0D0D0D;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Convert Degrees to Radians</title>
+</head>
+<body >
+<article>
+  <header>
+    <h3>Degree to Radian Converter</h3>
+  </header>
+  <section>
+    <form name=converter>
+      Enter degrees:<br>
+      <input type=number name=degrees required >
+      <br>
+      Radians:<br>
+      <input type=number name=radians>
+      <br>
+      <input type=submit name=submit value="Convert to Radians" onClick="FormMaster.resolveForm()">
+    </form>
+  </section>
+</article>
+</body>
+</html>

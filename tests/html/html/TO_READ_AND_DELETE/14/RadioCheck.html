@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+FormMaster=new Object();
+FormMaster.resolveForm=function()
+{
+	this.countVal="";
+	this.topCount=document.checkRadio.length-2;
+	for(var count=0;count < this.topCount;count++)
+	if(document.checkRadio.elements[count].checked)
+	{
+		this.countVal+=document.checkRadio.elements[count].value+"\n";
+	}
+	document.checkRadio.outNow.value=this.countVal;
+}
+</script>
+<style type="text/css">
+/* 735840,733119,BF5D39,352D1B,C0B787 */
+body {
+	background-color:#C0B787;
+	color:#733119;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	margin-left:20px;
+}
+h1 {
+	font-family:"Arial Black", Gadget, sans-serif;
+	color:#733119;
+}
+h2 {
+	color:#BF5D39;
+}
+h3 {
+	color:#BF5D39;
+}
+#dataEntry {
+	display:table;
+}
+#lang {
+	display:table-cell;
+	width:200px;
+}
+#out {
+	display:table-cell;
+	width:300px;
+}
+aside {
+	display:table-cell;
+	width:250px;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Click-2-Choose</title>
+</head>
+<body>
+<article>
+  <header>
+    <h1>E-Z Selections</h1>
+  </header>
+  <div id="dataEntry">
+  <div id="lang">
+  <section>
+  <h2>Web Languages</h2>
+  <form name=checkRadio>
+    <label>
+      <input type=checkbox name=html value="HTML5" checked>
+      HTML5</label><br>
+    <label>
+      <input type=checkbox name=css value="CSS3">
+      CSS3</label><br>
+    <label>
+      <input type=checkbox name=js value="JavaScript">
+      JavaScript</label><br>
+    <label>
+      <input type=checkbox name=php value="PHP">
+      PHP5</label><br>
+    <label>
+      <input type=checkbox name=asp value="ASP.NET">
+      ASP.NET</label><br>
+    <label>
+      <input type=checkbox name=action value="ActionScript 3.0">
+      ActionScript 3.0</label>
+    </section>
+    </div>
+    <section>
+      <aside>
+        <h2>Specialization</h2>
+        <fieldset>
+          <legend> Web Focus </legend>
+          <label>
+            <input type=radio name=work value="Graphic Design">
+            Design </label><br>
+          <label>
+            <input type=radio name=work value="Interface Design">
+            Iterface Design </label><br>
+          <label>
+            <input type=radio name=work value="Front End">
+            Front End Development </label><br>
+          <label>
+            <input type=radio name=work value="Back End">
+            Back End Development </label><br>
+        </fieldset>
+      </aside>
+    </section>
+    </div>
+    <section>
+      <div id="out">
+        <fieldset>
+          <legend>Output Window</legend>
+          <textarea name=outNow rows=10 cols=40 ></textarea>
+        </fieldset>
+      </div>
+    </section>
+    <section>
+      <div>
+        <p>
+          <input type=button name=getEm value="Relay your selections" onClick="FormMaster.resolveForm()">
+        </p>
+      </div>
+    </section>
+  </form>
+  </div>
+</article>
+</body>
+</html>

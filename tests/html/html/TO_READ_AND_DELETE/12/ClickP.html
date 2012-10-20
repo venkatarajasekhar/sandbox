@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css">
+p {
+	font-family:Verdana, Geneva, sans-serif;
+	color:#FF0;
+	background-color:#00F;
+	font-size:24px;
+	text-align:center;
+	font-weight:bold;
+}
+</style>
+<script type="text/javascript">
+function showArticle()
+{
+	alert("You just clicked within an <article> container");
+}
+function showHeader()
+{
+	alert("You just clicked within a <header> container");
+}
+function showP()
+{
+	alert("You just clicked within a <P> container");
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>OnClick in any Element</title>
+</head>
+
+<body>
+<article onClick="showArticle()">
+  <header onClick="showHeader()">
+  <h1>This is an H1 Element in the Header</h1>
+  </header>
+  <section>
+    <p onClick="showP()">Click This Paragraph</p>
+    This is just plain old text in the article container. Click here just to see what happens. </section>
+</article>
+</body>
+</html>

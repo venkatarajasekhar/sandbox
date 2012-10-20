@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+FormMaster=new Object();
+FormMaster.resolveForm=function()
+{
+     alpha = document.motherShip.elements[0].value;
+     beta = document.forms[0].secondInput.value;
+     gamma = document.motherShip.thirdInput.value;
+     delta = document.forms[0].elements[3].value;
+     epsilon = document.motherShip.fifthInput.value;
+     const cr="\n";
+     message=alpha+cr+beta+cr+gamma+cr+delta+cr+epsilon;
+     document.motherShip.output.value=message;
+}
+</script>
+<style type="text/css">
+h3 {
+     font-family:"Arial Black", Gadget, sans-serif;
+     color:#677E52;
+}
+body {
+     font-family:Verdana, Geneva, sans-serif;
+     color:#89725B;
+     background-color:#B0CC99;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DOM and Forms</title>
+</head>
+<body >
+<article>
+  <header>
+    <h3>DOM, the Form, and the Nodes</h3>
+  </header>
+  <form name=motherShip>
+    <input type=number name=firstInput>
+    Number<br>
+    <input type=email name=secondInput>
+    E-mail<br>
+    <input type=text name=thirdInput>
+    Text<br>
+    <input type=text name=fourthInput>
+    Text<br>
+    <input type=url name=fifthInput>
+    URL<br>
+    <textarea cols="15" rows="6" name=output></textarea>
+    <input type=button value="Send to DOM" onClick="FormMaster.resolveForm()">
+  </form>
+  </section>
+</article>
+</body>
+</html>

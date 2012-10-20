@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css">
+/*042B45,FFC54F,FFE6BF,E8A5B5,FF0A03*/
+body {
+	font-family:Verdana, Geneva, sans-serif;
+	background-color:#FFE6BF;
+	color:#042B45;
+}
+input {
+	background-color:#FFE6BF;
+}
+h1 {
+	color:#E8A5B5;
+	background-color:#042B45;
+	text-align:center;
+}
+h3 {
+	color:#FFC54F;
+	background-color:#FF0A03;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Simple Shopping Cart</title>
+</head>
+<body>
+<header>
+  <h1>Shopping Calculator</h1>
+</header>
+<form>
+  <input name=cost type=number>
+  &nbsp;Cost <br>
+  <input name=tax type=number>
+  &nbsp;Tax--Enter as decimal percent (e.g., .06) <br>
+  <h3> &nbsp;Total = $
+    <output onforminput="value = cost.valueAsNumber * tax.valueAsNumber + cost.valueAsNumber"></output>
+  </h3>
+</form>
+</body>
+</html>
