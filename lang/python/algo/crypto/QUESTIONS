@@ -1,0 +1,5 @@
+Q: What is hashing?
+Transformation of a --> H(a) where:
+* it is cwinfeasible (but not impossible) to go from H(a) to a
+* if a is changed even slightly H(a) looks significantly different
+* difficult to generate a specific H(a)     <-- !!! Brut for dictionary attack still possible! 
