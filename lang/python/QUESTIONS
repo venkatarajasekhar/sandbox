@@ -18,3 +18,11 @@ Q: how to examine on object, i.e. find parameters and methods?
 import urllibt2
 p  = urllib2.urlopen("http://www.google.com")       # <-- object!
 dir(p)
+
+Q: What is the default return value of a function?
+def myfunction():
+    pass
+print myfunction                                    # <-- print address of function object
+print myfunction()                                  # <-- print return value of function (None!)
+==> print "None"
+
