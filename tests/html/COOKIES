@@ -110,4 +110,11 @@ sha256 - relatively slow, but pretty good <-- to be used if not to o much traffi
 Q: What is a collision?
 Two thing hash to the same value hard to find
 
+Q: What are rainbow tables?
+Table with a --> H(a)
+to reverse engineer simple hashed value
 
+Q: What is a salt?
+a --> H(a + salt + secret ) 
+salt changes for each a
+but secret stays the same

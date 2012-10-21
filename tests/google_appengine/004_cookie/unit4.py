@@ -10,10 +10,11 @@ jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                                 autoescape=True)
 
 def hash_str(s):
-    return hashlib.md5(s).hexdigest()
+    
+    return hashlib.md5(s).hexdigest()               # <-- Hash-based message Autherntication Code (HMAC) is better than md5
 
 def make_secure_val(s):
-    return "%s|%s" % (s, hash_str(s))
+    return "%s|%s" % (s, hash_str(s))               # <-- need a secret
 
 def check_secure_val(h):
     val = h.split('|')[0]

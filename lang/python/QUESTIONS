@@ -14,3 +14,7 @@ help(datetime)
 3/ Use ipython shell
 there is word completion
 
+Q: how to examine on object, i.e. find parameters and methods?
+import urllibt2
+p  = urllib2.urlopen("http://www.google.com")       # <-- object!
+dir(p)
