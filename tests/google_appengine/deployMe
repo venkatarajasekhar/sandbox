@@ -2,4 +2,5 @@
 
 
 
-python appcfg.py --email=emayssat.gae@gmail.com update 003_blog
+#python appcfg.py --email=emayssat.gae@gmail.com update 003_blog
+python appcfg.py --email=emayssat.gae@gmail.com update 004_cookie

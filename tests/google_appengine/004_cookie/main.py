@@ -1,7 +1,9 @@
 import cgi
-import webapp2
+import hashlib
+import hmac
 import os
 import re
+import webapp2
 from string import letters
 from google.appengine.ext import db
 
@@ -25,7 +27,6 @@ def check_secure_val(h):
     if h == make_secure_val(val):
         return val 
 
-
 USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
 def valid_username(username):
     return USER_RE.match(username)                                          # <-- returns username or None!
@@ -38,11 +39,30 @@ EMAIL_RE = re.compile(r"^[\S]+@[\S]+\.[\S]+$")
 def valid_email(email):
     return not email or EMAIL_RE.match(email)                               # <-- email field is optional
 
+def existing_username(username):
+    user = db.GqlQuery("SELECT * FROM User WHERE username= :1", username).get()
+    return user != None 
+
 #----------------------------------------------------------------------
-# VIDEO URL Handlers
+# Database object
 #----------------------------------------------------------------------
 
-class SignupHandler(webapp2.RequestHandler):
+class User(db.Model):
+    username = db.StringProperty(required = True)
+    password = db.StringProperty(required = True)
+    created_at = db.DateTimeProperty(auto_now_add = True)           # <-- at creation time
+    last_modified = db.DateTimeProperty(auto_now = True)            # <-- each time the object is touched
+
+
+#----------------------------------------------------------------------
+# Page Handler
+#----------------------------------------------------------------------
+
+class BaseHandler(webapp2.RequestHandler):
+    pass
+
+
+class SignupHandler(BaseHandler):
 
     def get(self):                                                      # <-- Show form when the page is called the first time (eg click on link or direct call)
         template_values = {}
@@ -59,6 +79,14 @@ class SignupHandler(webapp2.RequestHandler):
 
 
         reask = False
+        if not valid_username(user_username): 
+            template_values['username_error'] = "That wasn't a valid username."
+            reask = True
+
+        if existing_username(user_username):
+            template_values['username_error'] = "Username already in use."
+            reask = True
+
         if not valid_password(user_password):
             template_values['password_error'] = "That wasn't a valid password."
             reask = True
@@ -67,9 +95,6 @@ class SignupHandler(webapp2.RequestHandler):
             template_values['verify_error'] = "Passwords do not match"
             reask = True
 
-        if not valid_username(user_username): 
-            template_values['username_error'] = "That wasn't a valid username."
-            reask = True
 
         if not valid_email(user_email): 
             template_values['email_error'] = "That wasn't a valid email."
@@ -81,17 +106,34 @@ class SignupHandler(webapp2.RequestHandler):
             template_file = jinja_env.get_template('signup-form.html')
             self.response.out.write(template_file.render(template_values))
         else:
-            self.redirect("/unit2/welcome?username=%s" % user_username)
+            new_user = User(username=user_username, password=user_password)
+            new_user.put()
+            new_user_id_cookie = make_secure_val(str(new_user.key().id()))
+            self.response.headers.add_header('Set-Cookie', 'user_id=%s;Path=/' % new_user_id_cookie)
+            self.redirect("/welcome")
 
-class WelcomeHandler(webapp2.RequestHandler):
+class WelcomeHandler(BaseHandler):
     def get(self):
-        user_username = self.request.get('username')
+        user_id_cookie_str = self.request.cookies.get('user_id')
+        if user_id_cookie_str:
+            user_id = check_secure_val(user_id_cookie_str)
+        else:
+            user_id = None 
 
-        template_values = {'username': user_username}
-        template_file = jinja_env.get_template('signup-welcome.html')
-        self.response.out.write(template_file.render(template_values))
+        if user_id is not None:
+            cur_user = User.get_by_id(int(user_id))
+            username = cur_user.username
+            template_values = {'username': username}
+            template_file = jinja_env.get_template('welcome.html')
+            self.response.out.write(template_file.render(template_values))
+        else:
+            self.redirect('/signup')
+
+class MainHandler(BaseHandler):
+    def get(self):
+        self.redirect("/welcome")
 
 
 #----------------------------------------------------------------------
-url_mapping = [('/', SignupHandler), ('/signup', SignupHandler), ('/welcome', WelcomeHandler)] 	
+url_mapping = [('/', MainHandler), ('/signup', SignupHandler), ('/welcome', WelcomeHandler)] 	
 app = webapp2.WSGIApplication(url_mapping , debug=True)
