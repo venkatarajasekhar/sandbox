@@ -26,11 +26,16 @@ print myfunction                                    # <-- print address of funct
 print myfunction()                                  # <-- print return value of function (None!)
 ==> print "None"
 
-Q: What is the returned value of an expression like '3 and True'?
-The last expression which is evaluated for condition to be met  
+Q: What is the value returned by 'return 3 and True'?
+The last expression which is evaluated for expression to be calculated
 !!! Beware, stop evaluating conditions as soon as value of expression is found
 '3 and True' is True
 'True and 3' is 3
 but 
 '3 or True' is 3
+
+Q: What are decorators?
+
+Q: What is the @classmethod decorator do?
+Can be called not on an instance
 
