@@ -50,6 +50,7 @@ def existing_username(username):
 class User(db.Model):
     username = db.StringProperty(required = True)
     password = db.StringProperty(required = True)
+    email = db.EmailProperty(required = False)
     created_at = db.DateTimeProperty(auto_now_add = True)           # <-- at creation time
     last_modified = db.DateTimeProperty(auto_now = True)            # <-- each time the object is touched
 
@@ -59,7 +60,15 @@ class User(db.Model):
 #----------------------------------------------------------------------
 
 class BaseHandler(webapp2.RequestHandler):
-    pass
+    def write(self, *a, **kw):
+        self.response.out.write(*a, **kw)
+
+    def render_str(self, template, **params):
+        t = jinja_env.get_template(template)
+        return t.render(params)
+
+    def render(self, template, **kw):
+        self.write(self.render_str(template, **kw))
 
 
 class SignupHandler(BaseHandler):
@@ -67,7 +76,7 @@ class SignupHandler(BaseHandler):
     def get(self):                                                      # <-- Show form when the page is called the first time (eg click on link or direct call)
         template_values = {}
         template_file = jinja_env.get_template('signup-form.html')
-        self.response.out.write(template_file.render(template_values))
+        self.render(template_file, **template_values)
 
     def post(self):                                                     # <-- Used when the form is submitted
         user_username = self.request.get('username')
@@ -104,12 +113,12 @@ class SignupHandler(BaseHandler):
             template_values['username'] = user_username
             template_values['email'] = user_email
             template_file = jinja_env.get_template('signup-form.html')
-            self.response.out.write(template_file.render(template_values))
+            self.render(template_file, **template_values)
         else:
             new_user = User(username=user_username, password=user_password)
             new_user.put()
-            new_user_id_cookie = make_secure_val(str(new_user.key().id()))
-            self.response.headers.add_header('Set-Cookie', 'user_id=%s;Path=/' % new_user_id_cookie)
+            user_id_cookie = make_secure_val(str(new_user.key().id()))
+            self.response.headers.add_header('Set-Cookie', 'user_id=%s;Path=/' % user_id_cookie)
             self.redirect("/welcome")
 
 class WelcomeHandler(BaseHandler):
@@ -125,7 +134,7 @@ class WelcomeHandler(BaseHandler):
             username = cur_user.username
             template_values = {'username': username}
             template_file = jinja_env.get_template('welcome.html')
-            self.response.out.write(template_file.render(template_values))
+            self.render(template_file, **template_values)
         else:
             self.redirect('/signup')
 
@@ -133,7 +142,40 @@ class MainHandler(BaseHandler):
     def get(self):
         self.redirect("/welcome")
 
+class LoginHandler(BaseHandler):
+    def render_login(self, username="", error=""):
+        self.render("login-form.html", username=username, error=error)
+
+    def get(self):
+        self.render_login()
+
+    def post(self):
+        username = self.request.get("username")
+        password = self.request.get("password")
+
+        if username and password:
+            user = db.GqlQuery("SELECT * FROM User WHERE username= :1", username).get()
+            if user is not None and user.password == password:
+                user_id_cookie = make_secure_val(str(user.key().id()))
+                self.response.headers.add_header('Set-Cookie', 'user_id=%s;Path=/' % user_id_cookie)
+                self.redirect("/welcome")
+            else:
+                error = "The username or password you entered is incorrect"
+                self.render_login(username, error)
+        else:
+            if username is None:
+                error = "Please enter your username"
+            else:
+                error = "Please enter your password"
+            self.render_login(username, error)
+
+class LogoutHandler(BaseHandler):
+    def get(self):
+        self.response.headers.add_header('Set-Cookie', 'user_id=;Path=/')       # <-- delete cookie!
+        self.redirect('/signup')
+
+
 
 #----------------------------------------------------------------------
-url_mapping = [('/', MainHandler), ('/signup', SignupHandler), ('/welcome', WelcomeHandler)] 	
+url_mapping = [('/', MainHandler), ('/login', LoginHandler), ('/logout', LogoutHandler), ('/signup', SignupHandler), ('/welcome', WelcomeHandler)] 	
 app = webapp2.WSGIApplication(url_mapping , debug=True)

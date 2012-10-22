@@ -19,4 +19,4 @@ handlers:
   static_dir: static/img     
 
 - url: /.*
-  script: main.app
+  script: solution4.app
