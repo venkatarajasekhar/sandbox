@@ -7,3 +7,7 @@ JQuery selectors select elements to add BEHAVIOR to those elements
 Q: Is there a validator for ...
 HTML:
 CSS:
+
+Q: What is XHTML?
+HTML that is valid XML
+<br> --> <br/>
