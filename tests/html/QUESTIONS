@@ -25,3 +25,12 @@ RDF = Resource Description FRamework (Representing anything in XML)
 RSS = RDF Site Summary
 ... more commonly Really Simple Syndication
 
+Q: What is JSON?
+JSO = JAvascript Object Notation
+{ "iteneraries": [ 
+        { "from": "SFO", "to": "IAD"},
+        { "from": "IAD", "to": "SEA"},
+    ]
+}
+==> main datastructure = dictionary
+
