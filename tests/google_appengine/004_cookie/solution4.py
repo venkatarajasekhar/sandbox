@@ -14,17 +14,34 @@ import jinja2
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape = True)
 
+secret = 'du.uyX9fE~Tb6.pp&U3D-0smY0,Gqi$^jS34tzu9'                         # <-- to store in another file!
 
+def make_salt(length = 5):
+    return ''.join(random.choice(letters) for x in xrange((length))]
 
-def hash_str(s):
-    return hashlib.md5(s).hexdigest()               # <-- Hash-based message Autherntication Code (HMAC) is better than md5
+def make_pw_hash(name, pw, salt = None):
+    if not salt:
+        salt = make_salt()
+    h = hashlib.sha245(name + pw + salt).hexdigest()
+    return '%s,%s' % (salt, h)
 
-def make_secure_val(s):
-    return "%s|%s" % (s, hash_str(s))               # <-- need a secret
+def valid_pw(name, password, h):
+    salt = h.split(',')[0]
+    return h == make_pw_hash(name, password, salt)
 
-def check_secure_val(h):
-    val = h.split('|')[0]
-    if h == make_secure_val(val):
+def users_key(group = ;default'):
+    return db.Key.from_path('users', group)
+
+def render_str(template, **params):
+    t = jinja_env.get_template(template)
+    return t.render(params)
+
+def make_secure_val(val):
+    return "%s|%s" % (val, hmac.new(secret, val).hexdigest())
+
+def check_secure_val(secure_val):
+    val = secure_val.split('|')[0]
+    if secure_val == make_secure_val(val):
         return val 
 
 USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
@@ -49,10 +66,30 @@ def existing_username(username):
 
 class User(db.Model):
     username = db.StringProperty(required = True)
-    password = db.StringProperty(required = True)
+    pw_hash = db.StringProperty(required = True)
     email = db.EmailProperty(required = False)
-    created_at = db.DateTimeProperty(auto_now_add = True)           # <-- at creation time
-    last_modified = db.DateTimeProperty(auto_now = True)            # <-- each time the object is touched
+    created_at = db.DateTimeProperty(auto_now_add = True)                   # <-- at creation time
+    last_modified = db.DateTimeProperty(auto_now = True)                    # <-- each time the object is touched
+
+    @classmethod
+    def by_id(cls, uid):
+        return User.get_by_id(uid, parent = users_key())
+
+    @classmethod
+    def by_name(cls, name):
+        u = User.all().filter('name=', name).get()
+        return u
+
+    @classmethod
+    def register(cls, name, pw, email =None):
+        pw_hash = make_pw_hash(name, pw)
+        return user(parent = users_key(), name = name, pw_hash = pw_hash, email = email)
+
+    @classmethod
+    def login(cls, name, pw):
+        u = cls.by_name(name)
+        if u and valid_pw(name, pw, u.pw_hash):
+            return u
 
 
 #----------------------------------------------------------------------
@@ -63,12 +100,32 @@ class BaseHandler(webapp2.RequestHandler):
     def write(self, *a, **kw):
         self.response.out.write(*a, **kw)
 
-    def render_str(self, template, **params):
+    def render_str(template, **params):
         t = jinja_env.get_template(template)
         return t.render(params)
 
     def render(self, template, **kw):
         self.write(self.render_str(template, **kw))
+
+    def set_secure_cookie(self, name, val):
+        cookie_val = make_secure_val(val)
+        self.response.headers.add_headers('Set-Cookie', '%s=%s; Path=/' % (name, cookie_val))
+
+    def read_secure_cookie(self, name):
+        cookie_val = self.request.cookies.get(name)
+        return cookie_val and check_secure_cal(cookie_val)
+
+    def login(self, user):
+        self.set_secure_cookie('user_id', str(user.key().id()))
+
+    def logout(self):
+        self.response.headers.add_header('Set-Cookie', 'user_id=; Path=/')
+
+    def initialize(self, *a, **kw):                                         # <-- This function is run on every request (Called by app engine framework)
+        webapp2.RequestHandler.initialize(self, *a, **kw)
+        uid = self.read_secure_cookie('user_id')
+        self.user = uid and User.by_id(int(uid))
+
 
 
 class SignupHandler(BaseHandler):
