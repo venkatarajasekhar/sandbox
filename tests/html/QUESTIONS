@@ -11,3 +11,17 @@ CSS:
 Q: What is XHTML?
 HTML that is valid XML
 <br> --> <br/>
+
+Q: What is HTML in relation to XML?
+They share a common ancestor SGML
+In XML, you can use any tags you want (sender and receiver need to agree on them)
+In HTML, you have to use the tags from the HTML standard
+
+Q: What is a DOM?
+Document Object MOdel = computer representation of the document
+
+Q: What is RSS?
+RDF = Resource Description FRamework (Representing anything in XML)
+RSS = RDF Site Summary
+... more commonly Really Simple Syndication
+
