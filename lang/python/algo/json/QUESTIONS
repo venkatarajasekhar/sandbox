@@ -1,3 +1,7 @@
+Q: is JSON now included in python standard library ?
+Yes,
+http://docs.python.org/library/json.html
+
 Q: JSON and Twitter api?
 search.twitter.com/search.json?q=udacity
 
