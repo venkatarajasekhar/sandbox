@@ -8,5 +8,6 @@ json.loads(r'{"story":"once u\"on a time "}')               # <-- raw string
 
 Q: String enclosure in JSON vs Python?
 JSON must use double quotes to enclose strings, it cannot use single quotes.
+So you must escape every internal quotes
 PYTHON: {"blah": ["one", 2, 'th"r"ee']} --> JSON : {"blah": ["one", 2, "th\"r\"ee"]}
 

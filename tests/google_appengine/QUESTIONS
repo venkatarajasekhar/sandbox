@@ -1,5 +1,19 @@
 Q: Where is the admin console?
 http://localhost:8080/_ah/admin/datastore
+You can  
+* Datastore Viewer          - view or create entries in the datastore
+* Datastore Indexes
+* Datastore Stats
+* Interactive Console       - run python code interactively
+* Memcache Viewer
+* Task Queues
+* Cron Jobs
+* XMPP
+* Inbound Mail
+* Backends
+* Text Search
+
+Q: 
 
 Q: What is the purpose of escaping?
 Python process input string without knowing that it is HTML.

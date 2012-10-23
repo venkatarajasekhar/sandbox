@@ -1,4 +1,5 @@
 #!/bin/sh
 
 #python dev_appserver.py 003_blog
-python dev_appserver.py 004_cookie
+#python dev_appserver.py 004_cookie
+python dev_appserver.py 005_urllib
