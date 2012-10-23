@@ -1,0 +1,24 @@
+1/ Create a file 
+gettext_example.py
+
+2/ build the pot file
+POT = PO template file ?
+
+3/ cp POT file in ./locale/en_US/LC_MESSAGES/ as PO file
+Note that we don't have control over the directory structure
+
+4/ edit manually PO file and add translation
+
+5/ edit manually the PO file CHARSET
+In PO file chane
+"Content-type: text/plain; charset=CHARSET\n"
+with 
+"Content-type: text/plain; charset=UTF-8\n"
+
+5/ build mo file 
+cd ./locale/en_US/LC_MESSAGES/
+msgfmt -o gettext_example.mo gettext_example.po                         # <-- MO file is not editable manually
+
+6/ execute initial program 
+python gettext_example.py
+!!! The locale directory should be in the directory when the python script is exectuted!
