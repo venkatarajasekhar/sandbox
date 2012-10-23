@@ -13,7 +13,8 @@ You can
 * Backends
 * Text Search
 
-Q: 
+Q: is the admin console available on GAE? 
+???
 
 Q: What is the purpose of escaping?
 Python process input string without knowing that it is HTML.
