@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>/ascii/</title>
-        <link href="/css/unit3.css" rel="stylesheet" media="screen, projection" type="text/css">
+        <link href="/css/unit5.css" rel="stylesheet" media="screen, projection" type="text/css">
     </head>
     <body>
         <h1>/ascii/</h1>
@@ -20,6 +20,13 @@
             <div class="error">{{error}}</div>
             <input type="submit">
         </form>
+    
+
+        {% if img_url %}
+            <div class="map">
+                <img src="{{img_url}}">
+            </div>
+        {% endif %}
 
         <hr/>
 

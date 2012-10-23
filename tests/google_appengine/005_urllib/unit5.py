@@ -22,14 +22,14 @@ class BaseHandler(webapp2.RequestHandler):
     def render(self, template, **kw):
         self.write(self.render_str(template, **kw))
 
-IP_URL = "http://api.hosip.info/?ip="
+IP_URL = "http://api.hostip.info/?ip="
 def get_coords(ip):
     ip = "4.2.2.2"                                                                      # <-- for debugging purpose in local mode (ip = 127.0.0.1 otherwise!)
     url = IP_URL + ip
-    content = none
+    content = None
     try:
-        content = urllib2.urllopen(url).read()
-    except URLError:
+        content = urllib2.urlopen(url).read()
+    except urllib2.URLError:
         return
 
     if content:
@@ -40,6 +40,10 @@ def get_coords(ip):
             lan, lat = coords[0].childNodes[0].nodeValue.split(',')
             return db.GeoPt(lat, lan)                                                   # <-- GAE data type for geolocation
 
+GMAPS_URL = "http://maps.googleapis.com/maps/api/staticmap?size=380x263&sensor=false&"
+def googlemap_img(points):
+    markers = '&'.join('markers=%s,%s' % (p.lat, p.lon) for p in points)
+    return GMAPS_URL + markers
 
 class Art(db.Model):
     title = db.StringProperty(required = True)
@@ -50,8 +54,22 @@ class Art(db.Model):
 class MainPage(BaseHandler):
 
     def render_front(self, title="", art="", error=""):
-        arts = db.GqlQuery("SELECT * FROM Art ORDER BY created DESC")
-        self.render("front.html", title=title, art=art, error=error, arts = arts)
+        arts_cursor = db.GqlQuery("SELECT * FROM Art ORDER BY created DESC")            # Will runs this query wherever arts_cursor is found !
+                                                                                        # Beware result may be different each time it is run!
+
+        arts = list(arts_cursor)                                                        # <-- Runs the query here and only here
+
+        #points = []
+        #for a in arts:
+        #    if arts.coords:
+        #        points.append(a.coords)
+        points = filter(None, (a.coords for a in arts))                                 # Same as just above!
+
+        img_url = None
+        if points:
+            img_url = googlemap_img(points)
+
+        self.render("ascii.html", title=title, art=art, error=error, arts = arts, img_url = img_url)
 
     def get(self):
         self.write(self.request.remote_addr)                                            # <-- for debugging purpose!

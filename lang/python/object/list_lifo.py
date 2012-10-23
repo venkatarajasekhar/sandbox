@@ -11,6 +11,9 @@ print li
 li.append(10)
 print li
 
+print li.pop()
+print li
+
 #----------------------------------------------------------------------
 def cube(x, y=1):
     return x*x*x * y

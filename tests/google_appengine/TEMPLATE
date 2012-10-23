@@ -14,6 +14,11 @@ Q: conditional-if statement?
     {{shout.who}}
 {% endifequal %}
 
+Q: Checking for not None in template?
+{% if img_url %}                                                    # <-- if set to None in python code, then will not execute
+    <img src="{{img_url}}">
+{% endif %}
+
 Q: How to include another template?
 {% extend "base.html" %}
 
