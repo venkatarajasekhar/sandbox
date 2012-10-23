@@ -5,3 +5,6 @@ Q: JSON escaping?
 Escape the quote/special character with a slash
 json.loads('{"story":"once u\\"on a time "}')               # <-- p has been replaced by a quote
 json.loads(r'{"story":"once u\"on a time "}')               # <-- raw string
+
+Q: String enclosure in JSON vs Python?
+ JSON must use double quotes to enclose strings, it cannot use single quotes.
