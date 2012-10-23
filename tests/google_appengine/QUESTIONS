@@ -14,7 +14,8 @@ You can
 * Text Search
 
 Q: is the admin console available on GAE? 
-???
+Yes! This is the dashboard!
+https://appengine.google.com/dashboard
 
 Q: What is the purpose of escaping?
 Python process input string without knowing that it is HTML.
