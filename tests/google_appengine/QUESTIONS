@@ -124,3 +124,8 @@ caching = storing results of operations so that future requests return faster
 - when the output is the same for a partuclar input
 - your provider charges for db access
 
+Q: What is a cache hit?
+If the result of a requested operation is in the cache. then it is a catch-hit
+
+Q: What is a cache miss?
+If the result of a requested  operation is not in the cache, then it is it is called a cache-miss!
