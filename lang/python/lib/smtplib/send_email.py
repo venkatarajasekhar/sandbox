@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import smtplib  
       
 fromaddr = 'reciprocity.mail.noreply@gmail.com'  
@@ -12,6 +14,6 @@ password = 'yasux72d'
 # The actual mail send  
 server = smtplib.SMTP('smtpauth.earthlink.net:587')  
 server.starttls()  
-server.login(username,password)  
+server.login(username, password)  
 server.sendmail(fromaddr, toaddrs, msg)  
 server.quit()  
