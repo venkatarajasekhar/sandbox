@@ -9,14 +9,15 @@ from base64 import b64encode
 
 import time
 
+import account as a
+
 # Equivalent to 
-# $ wget --output-document=- --http-user=api --http-password=key-6qwjwon58zad-a-pvlycilo3at50ggz1 https://api.mailgun.net/v2/reciprocity-ring.mailgun.org/messages --post-data=to=emayssat%40gmail.com&text=Testing+some+Mailgun+awesomness%21&from=Excited+User+%3Cme%40samples.mailgun.org%3E&subject=Hello+Mama
 
-username = "api"
-password = "key-6qwjwon58zad-a-pvlycilo3at50ggz1"
+username = a.username
+password = a.password
 
 
-mailgun_url = 'https://api.mailgun.net/v2/reciprocity-ring.mailgun.org/messages'
+mailgun_url = a.api_https_url + '/reciprocity-ring.mailgun.org/messages'
 
 def send_simple_message():
     data = {"from": "Excited User <me@samples.mailgun.org>",
@@ -75,7 +76,7 @@ def send_simple_message3():
     print r.headers["content-type"]
     return r.read()
 
-#print send_simple_message()
+print send_simple_message()
 #time.sleep(1)
 #print send_simple_message2()
 time.sleep(1)

@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
 import requests
+import account as a
 
 def send_simple_message():
     return requests.post(
-        "http://api.mailgun.net/v2/reciprocity-ring.mailgun.org/messages",
-        auth=("api", "key-6qwjwon58zad-a-pvlycilo3at50ggz1"),
+        a.api_url + "/reciprocity-ring.mailgun.org/messages",
+        auth=(a.username, a.password),
         data={"from": "Excited User <me@samples.mailgun.org>",
               "to": ["emayssat@gmail.com"],
               "subject": "[http] Hello Mama",

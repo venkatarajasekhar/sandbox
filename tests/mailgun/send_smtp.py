@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import smtplib 
+import account as a
 
 sender = 'reciprocity.ring@gmail.com'
 receivers = ['emayssat@gmail.com']
@@ -27,7 +28,7 @@ This is an e-mail message to be sent in HTML format
 def send_message_via_smtp(mime_message_body):
     try:
         smtpObj = smtplib.SMTP("smtp.mailgun.org", 587)
-        smtpObj.login("api", "key-6qwjwon58zad-a-pvlycilo3at50ggz1")                       # login, password
+        smtpObj.login(a.username, a.password)                       # login, password
         smtpObj.sendmail(sender, receivers, mime_message_body)
         smtpObj.quit()
     except smtplib.SMTPException:
