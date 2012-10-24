@@ -52,7 +52,11 @@ def cached_computation(a, b):
         cache[key] = complex_computation(a,b)                   # <-- take .5 sec
         return cache[key]
 
+start_time = time.time()
 print cached_computation(1,2)
+intermediate_time = time.time()
+print("the 1st computation took %f seconds" % (intermediate_time-start_time))
 print cached_computation(1,2)
+print("the 2nd computation took %f seconds" % (time.time()-intermediate_time))
 print cached_computation(4,2)
 
