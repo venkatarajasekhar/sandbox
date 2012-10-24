@@ -3,6 +3,10 @@ Mailgun gives you fully programmable email: send, receive, forward and store ema
 Note that you should use your domain name the API URL and the API Key of the created mailgun account.
 You have up to 200 mail per day for free.
 
+From the command line or through an application you can:
+* send emails (through their servers)
+* manage subscription to a mailing list
+
 Q: HTTPS Authentication?
 username: api
 password: <api-key>
