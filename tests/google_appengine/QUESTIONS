@@ -117,4 +117,10 @@ Those supported libraries are 3rd party.
 To include those libs in your code, you MUST modify the app.yaml file.
 More@ https://developers.google.com/appengine/docs/python/tools/libraries27
 
+Q: When do we cache?
+caching = storing results of operations so that future requests return faster
+- computation is slow
+- computation will run multiple times
+- when the output is the same for a partuclar input
+- your provider charges for db access
 
