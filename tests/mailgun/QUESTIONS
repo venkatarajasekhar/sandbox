@@ -1,0 +1,19 @@
+Q: What is mailgun?
+Mailgun gives you fully programmable email: send, receive, forward and store emails from your applications. 
+Note that you should use your domain name the API URL and the API Key of the created mailgun account.
+You have up to 200 mail per day for free.
+
+Q: HTTPS Authentication?
+username: api
+password: <api-key>
+
+Q: Testing with curl? 
+Sending a message is successful if output from program is <Response [200]>
+If reply is <Response [404]> something went wrong. Check the URL you are using. 
+
+Q: How to format an STMP email?
+Here you have placed a basic e-mail in message, using a triple quote, 
+taking care to format the headers correctly. An e-mails requires a From, 
+To, and Subject header, separated from the body of the e-mail with a blank line.
+More @ http://www.tutorialspoint.com/python/python_sending_email.htm
+
