@@ -6,8 +6,8 @@ import urllib2
 import httplib2
 
 gh_url = 'https://api.github.com/user'
-username = 'emayssat'
-password = 'APon18CA'
+username = 'username'
+password = 'password'
 
 #----------------------------------------------------------------------
 # REQUEST 
@@ -23,18 +23,18 @@ print r.headers['content-type']
 
 #----------------------------------------------------------------------
 # HTTPLIB2
-
-h = httplib2.Http(".cache")
-h.add_credentials(username, password)
-r, content = h.request(gh_url, "GET")
-
-print "HTTPLIB2"
-print r
-print "CONTENT>%s<" % content
-
-print r['status']
-print r['content-type']
-
+#
+#h = httplib2.Http(".cache")
+#h.add_credentials(username, password)
+#r, content = h.request(gh_url, "GET")
+#
+#print "HTTPLIB2"
+#print r
+#print "CONTENT>%s<" % content
+#
+#print r['status']
+#print r['content-type']
+#
 #----------------------------------------------------------------------
 # URLLIB2
 
