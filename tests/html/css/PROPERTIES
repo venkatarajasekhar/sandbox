@@ -1,0 +1,61 @@
+#----------------------------------------------------------------------
+# BLOCK
+
+width:                      800px;
+height:                     500px;
+
+margin:                     0 auto;                     # All around margin (distance from next element)
+margin-top:                 20px;
+margin-bottom:              20px;
+padding:                    10px;                       # All around padding
+
+position:                   relative;                   # <-- relative to block in which it is included
+position:                   absolute;                   # <-- position the element function of the browser window display (look at right and bottom option)
+right:                      0px;                        # <-- set the block's position (mode absolute or relative)
+bottom:                     0px;                        # <-- set the block's position (mode absolute or relative)
+
+border:                     1px solid #666;             # <-- add a border line all around
+border-bottom:              3px solid #666;             # <-- add a line at the bottom of the block
+
+display:                    block;
+dispaly:                    inline;
+display:                    inline-block;
+
+background-color:           #444;                       # Background color of block
+
+#----------------------------------------------------------------------
+# MOUSE 
+
+cursor: pointer;                                        # Turn the mouse to a pointer (hand pointer in chrome)
+
+#----------------------------------------------------------------------
+# TEXT
+
+text-align:                 center;
+text-decoration:            none;                       # <-- links are not underlined
+
+#----------------------------------------------------------------------
+# TABLES
+
+border:                     none;                       # no border
+border-collapse:            separate;                   # borders around each cells
+boarder-spacing:            1em 0.5em;                  # cell border separation
+background-color:           #ddd;                       # background color of table (not cell)
+background:                 transparent;                # transparent background (good fo empty cell, i.e th:empty) 
+
+
+#----------------------------------------------------------------------
+# FONTS
+
+font-family:                Helvetica, Arial, sans-serif;   # Start from right to left
+font-family:                monospace;
+font-size:                  14px; 
+font-size:                  1.235em; 
+font-weight:                bold;
+color:                      #999;
+color:                      red;
+
+#----------------------------------------------------------------------
+# OTHER MISC
+
+content:                    url(../images/check.png)    # include content of the image at position
