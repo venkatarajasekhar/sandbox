@@ -1,0 +1,28 @@
+Q: What is JPEG?
+jpeg = Joint Photographic Experts Group
+- lossy compression: Information discarded in the compression is information that the human eye cannot detect
+- 16 million colors; best suited for photographs and complex graphics
+- compression compromise: file size vs quality
+
+!!! Not good for drawings, lettering or simple graphics because there is not a lot of image that can be thrown out in the lossy process
+--> image loses clarity and sharpness
+
+
+Q: What is GIF?
+iGIF = Graphics Interexchange Format
+- lossless compression
+- 256 colors only
+- better than JPG for images with only a few distinct colors (line drawings, black and white, small text)
+- animated GIF possible
+- support transparency
+- proprietary algorithm that expired in 2001
+
+
+Q: What is PNG?
+PNG = Portable Network Graphics
+- patent-free
+- lossless
+- better compression than GIF (5% to 25%)
+- allow transparency
+- allow control of degree of transparency (i.e opacity)
+- does not support animation
