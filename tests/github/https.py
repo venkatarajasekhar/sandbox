@@ -6,7 +6,7 @@ import urllib2
 import httplib2
 
 gh_url = 'https://api.github.com/user'
-username = 'username'
+username = 'emayssat'
 password = 'password'
 
 #----------------------------------------------------------------------
