@@ -1,0 +1,22 @@
+//variables
+@blue: #195f88;
+@darkbrue: #0d4667;
+@paleblue: #84bbdb;
+
+@font-stack: Arial, Helvetical, Sans-serif;
+
+@var1: "this is a test";
+@var2: "var1";                                  // prepare for var of var
+
+.someselector { 
+    content: @@var2;                            // call a var of var
+}
+
+body {
+    color: @blue;
+    font-family: @font-stack;
+}
+
+page {
+    background: @blue;
+}
