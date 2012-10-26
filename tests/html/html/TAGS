@@ -40,6 +40,15 @@ BLOCK TAGS                  <-- A block creates an invisible box/container, whic
 <pre></pre>                 - preformatted text
 <table>                     - table 
 
+TABLE TAGS
+table
+thead                       - header of the table (column headers)
+tfoot                       - footer of the table regardless of the position in the <table> element
+tbody                       - body of the table
+tr                          - table row. usually first element after <tfoot>, <thead>, or <tbody>
+th                          - column header. Appears in <thead> element or as the first element of a row
+td                          - body cell. Appears anywhere in the table, but <thead> 
+
 HTML5 TAGS
 
 <aside>                     - used to create content that is somehow related to the main document but, can be considered separate. It works as an independent content. (ex: advertising, navigation?)
@@ -49,8 +58,9 @@ HTML5 TAGS
 <datalist>                  - List generator when used with the input element and its new list attribute
 <embed>                     - external interactive plug-in content
 <figure>                    - contains a group of media content and their caption
-<footer>                    - Container of a footer for a section of the page
-<nav>                       - Representation of a section of a document intended for navigation
+<header>                    - Container of a header for a section of the page. Replaces <div class="header">
+<footer>                    - Container of a footer for a section of the page. Replaces <div class="footer">
+<nav>                       - Representation of a section of a document intended for navigation. Replaces <div class="nav">
 <video>                     - element for linking to a video file
 <wbr>                       - linebreak opportunity or word break or hyphenation is ok (doesn't force the break)
 
