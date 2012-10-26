@@ -28,6 +28,28 @@ p:first-child em        - any em element that is some descendant of a P element 
 more at http://www.w3.org/TR/CSS2/selector.html
 
 #----------------------------------------------------------------------
+# FORM SUFFIXES
+
+input:required
+input:optional
+input:valid
+input:invalid
+input:default
+input:in-range
+input:out-of-range
+input:not()
+
+#----------------------------------------------------------------------
+# FORM ATTRIBUTES SELECTORS
+
+[autofocus]
+[autocomplete]
+[list]
+[placeholder]
+[type=range]
+[multiple]
+
+#----------------------------------------------------------------------
 # SELECTORS with positioning
 
 .table1 tbody span.check::before{                   # <-- insert the image before the <span class="check"> element

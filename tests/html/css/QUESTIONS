@@ -8,10 +8,31 @@ $('.post').addClass('highlight')
 
 Q: How many ways can U call my stylesheet?
 1. embedded stylesheet (in head section of the html file)
-    <style type="text/css"> ... </style>
+    <style type="text/css">
+      body {
+        padding-top: 60px;   
+        padding-bottom: 40px;
+      }   
+    </style>
 2. inline style (in html element section with style attribute )
+<body style="background-color: red">
 3. with an external stylesheet
-<script ... ... >
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+4. Scoped style
+<div>
+    <style type="text/css" scoped>
+        h1 {color: #C03}
+        p {color: #0C6}
+    </style>
+    <h1>Welcome to this page</h1>
+    <p>This is all I have to say about this page.</p>
+</div>
+
+Q: With so many class and subclass, how to find properties that apply to my element?
+Chromium
+> developer tools
+> Element
+Look at the CSS
 
 Q: With so many colors and numbers, how can I find the right color set?
 http://kuler.adobe.com/#create/fromacolor
