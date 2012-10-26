@@ -34,3 +34,35 @@ JSO = JAvascript Object Notation
 }
 ==> main datastructure = dictionary
 
+Q: 50% of all web pages are encoded using utf-8. What is it?
+UTF-8 (UCS Transformation Format—8-bit) is a variable-width encoding that can represent 
+every character in the Unicode character set. It was designed for backward compatibility 
+with ASCII and to avoid the complications of endianness and byte order marks in UTF-16 and UTF-32.
+
+Maximum length for a char = 4 * 8-bit = 32 bits
+ASCII code (0-127) =  most used characters -> encoded on 1-byte (8-bit) i.e U+0000 to U+007F
+Unicode char U+007F to U+07FF -> encoded on 2 bytes
+Unicode char U+07FF to U+FFFF --> encoded on 3 bytes
+...
+Maximum is 6 byte
++ 
+encapsulation 
+    - i.e correction for 3 bytes encoding: prepend 1110
+    - continuation bytes start with 10
+
+More @ http://en.wikipedia.org/wiki/UTF-8
+
+Q: What is the Unicode character set?
+In 1968, the American Standard Code for Information Interchange, better known by its acronym ASCII, was standardized. 
+ASCII defined numeric codes for various characters, with the numeric values running from 0 to 127. 
+For example, the lowercase letter ‘a’ is assigned 97 as its code value.
+ASCII was an American-developed standard, so it only defined unaccented characters. 
+There was an ‘e’, but no ‘é’ or ‘Í’. This meant that languages which required accented characters couldn’t be faithfully represented in ASCII.
+Unicode started out using 16-bit characters instead of 8-bit characters. 
+16 bits means you have 2^16 = 65,536 distinct values available, 
+making it possible to represent many different characters from many different alphabets; 
+an initial goal was to have Unicode contain the alphabets for every single human language. 
+It turns out that even 16 bits isn’t enough to meet that goal, and the modern Unicode specification uses a wider range of codes, 0 through 1,114,111 (0x10ffff in base 16).
+
+
+

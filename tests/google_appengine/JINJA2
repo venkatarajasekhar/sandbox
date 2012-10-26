@@ -1,0 +1,257 @@
+Q: Commend in template?
+{# note: disabled template because we no longer use this
+    {% for user in users %}
+        ...
+    {% endfor %}
+#}
+
+Q: Variable substitution?
+{{template_var}}
+ex:
+>>> template = Template('Hello {{ name }}!')
+>>> template.render(name='John Doe')
+u'Hello John Doe!'
+
+!!! The curly braces are not part of the variable but the print statement. 
+!!! If you access variables inside tags don’t put the braces around.
+
+Q: Python block?
+{% .... %}
+
+
+Q: How to assign values to variables in a template block?
+{% set navigation = [('index.html', 'Index'), ('about.html', 'About')] %}
+{% set key, value = call_something() %}
+{% set a, b = 'foo', 'föö' %}
+a = foo, and b = u'f\xf6\xf6'                                       # <-- u means unicode
+
+Q: What is a template context?
+Context is the set of variables, objects and their values
+
+Q: For loop on a cursor?
+{% for shout in shouts %}
+    <p>{{shout.message}}</p>
+{% endfor %}
+
+!!! shouts is a template paramater
+!!! the order of the pop is function of the order of the entries in the python code
+
+
+Q: conditional-if statement?
+{% ifequal shout.who None %}
+    Anonymous
+{% else %}
+    {{shout.who}}
+{% endifequal %}
+
+Q: Checking for not None in template?
+{% if img_url %}                                                    # <-- if set to None in python code, then will not execute
+    <img src="{{img_url}}">
+{% endif %}
+
+Q: How to include another template?
+{% extend "base.html" %}
+
+Q: How to insert code in an included template?
+{% extends "base.html" %}
+
+{% block content %}
+    <p>Hello World!</p>
+{% endblock %}
+
+with base.html
+<html>
+<head></head>
+<body>
+<div id="content">
+{% block content %} 
+{% endblock %}
+</div>
+</body>
+</html>
+
+Q: Can I call python methods in template?
+Yes, here is an example
+
+class Post(db.Model):
+    subject = db.StringProperty(required = True)
+    content = db.TextProperty(required = True)
+    created_at = db.DateTimeProperty(auto_now_add = True)           # <-- at creation time
+    last_modified = db.DateTimeProperty(auto_now = True)            # <-- each time the object is touched
+
+    def render(self):
+        """ 
+        HTML turns carriage return into single space ==> correction is required 
+        !!! This method is called in the template
+        {% for post in posts %}
+            {{ p.render() | safe }}
+        {% endfor %}
+        """
+        self._render_text=self.content.replace('\n', '<br/>')
+        return render_str("post.html", post=self)
+
+Q: What does 'safe' mean in  {{ p.render() | safe }} ?
+It means that the code returned by the render method should be trusted.
+No escaping (even if default) is required.
+That is the string <br> will stay as is instead of &lt;br&gt;
+safe = verbatim inclusion of the string
+
+Q: What about object and standard method?
+Yes, same.
+{{p.created_at.strftime("%b %d, %Y")}}
+
+Q: What is a loader?
+Loaders are responsible for loading templates from a resource such as the file system.
+>>> jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape = True)
+
+
+#----------------------------------------------------------------------
+# TEMPLATE FILTERS
+
+Q: What is a filter?
+Variables can be modified by filters. 
+Filters are separated from the variable by a pipe symbol (|) and may have optional arguments in parentheses. 
+Multiple filters can be chained. The output of one filter is applied to the next.
+ex: {{ name|striptags|title }} 
+Filters that accept arguments have parentheses around the arguments, like a function call. 
+This example will join a list by commas: 
+ex: {{ list|join(', ') }}.
+
+Q: List of builtin filters?
+http://jinja.pocoo.org/docs/templates/#builtin-filters
+{{ my_variable|default('my_variable is not defined') }}             # output the value of my_variable if the variable was defined, otherwise 'my_variable is not defined'.
+{% for item in mydict|dictsort %}                                   # sort the dict by key, case insensitive
+{{ "%s - %s"|format("Hello?", "Foo!") }}                            # Apply python string formatting on an object
+{% for group in persons|groupby('gender') %}                        # Group a sequence of objects by a common attribute.
+{{ seq | random }}                                                  # Return a random item from the sequence.
+{{ 42.55|round(1, 'floor') }}                                       # Round the number to a given precision.
+{% for item in iterable|sort(attribute='date') %}                   # Sort an iterable.
+{{ string | title }}                                                # Return a titlecased version of the value. I.e. words will start with uppercase letters, all remaining characters are lowercase.
+{{ string | truncate(140, False, '...' }}                           # Return a truncated copy of the string.
+{{ mytext|urlize(40, true) }}                                       # Converts URLs in plain text into clickable links.
+
+Q: what are custom filters?
+Used to reformat information from a database
+ex:
+def datetimeformat(value, format='%H:%M / %d-%m-%Y'):               # <-- create the function
+    return value.strftime(format)
+
+environment.filters['datetimeformat'] = datetimeformat              # <-- register the filter 
+
+Inside the template:
+
+written on: {{ article.pub_date|datetimeformat }}                   # <-- inside the function
+publication date: {{ article.pub_date|datetimeformat('%d-%m-%Y') }}
+
+In short, custom filters are just regular Python functions that take the left side of the filter 
+as first argument and the the arguments passed to the filter as extra arguments or keyword arguments.
+
+#----------------------------------------------------------------------
+# TEMPLATE TESTS
+
+Q: What are tests?
+Tests work like filters just that there is no way for a test to get access to the environment 
+or context and that they can’t be chained. The return value of a test should be True or False. 
+
+Q: Builtin tests?
+{% if variable is defined %}                                        # Return true if the variable is defined
+{% if variable is none %}                                           # Return true if the variable is None
+{% if loop.index is divisibleby(3) %}                               # REturn true if divisible by 3
+
+
+Q: What is a template test?
+The purpose of a test is to give the template designers the possibility to perform type and conformability checks.
+
+import math
+
+def is_two(n):
+    if n == 2:
+        return True
+    return False
+
+environment.tests['prime'] = is_two
+
+Inside template:
+{% if 42 is prime %}
+    42 is a prime number
+{% else %}
+    42 is not a prime number
+{% endif %}
+
+#----------------------------------------------------------------------
+# TEMPLATE MACROS
+
+Q: What are template macros?
+Macros are comparable with functions in regular programming languages.
+
+{% macro input(name, value='', type='text', size=20) -%}
+    <input type="{{ type }}" name="{{ name }}" value="{{
+        value|e }}" size="{{ size }}">
+{%- endmacro %}
+
+<p>{{ input('username') }}</p>
+<p>{{ input('password', type='password') }}</p>
+
+
+#----------------------------------------------------------------------
+# TEMPLATE INHERITANCE
+
+Q: What is template inheritance?
+The most powerful part of Jinja is template inheritance. 
+Template inheritance allows you to build a base “skeleton” template 
+that contains all the common elements of your site and defines blocks that child templates can override.
+{% extends layout_template %}
+
+Q: What are named block end-tags?
+{% block sidebar %}
+    {% block inner_sidebar %}
+        ...
+    {% endblock inner_sidebar %}
+{% endblock sidebar %}
+
+Q: Base template?
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% block head %}
+    <link rel="stylesheet" href="style.css" />
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+</head>
+<body>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+        {% block footer %}
+        &copy; Copyright 2008 by <a href="http://domain.invalid/">you</a>.
+        {% endblock %}
+    </div>
+</body>
+
+Q: Child template?
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+    <h1>Index</h1>
+    <p class="important">
+      Welcome on my awesome homepage.
+    </p>
+{% endblock %}
+
+Q: Mulitple bock management?
+<title>{% block title %}{% endblock %}</title>
+<h1>{{ self.title() }}</h1>                                     # <-- equivalent to {%block title %}{% endblock %}
+{% block body %}{% endblock %}
+
+Q: What is the difference between include, extends, import?
+{% extends 'layout_template.html' %}                            # <-- block are going to be replaced with the content that follows
+{% include 'header.html' %}                                     # insert the file in place (no block replacement!)
+{% import 'forms.html' as forms %}                              # import macros mostly. works like a python import
+
+!!! With import the context is not passed!
