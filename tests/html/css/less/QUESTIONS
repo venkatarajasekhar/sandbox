@@ -1,0 +1,12 @@
+Q: What is a CSS preprocessor?
+- variables, functions, and classes
+
+==> compile less file and output is a css file!
+
+Q: When is less run?
+Node can compile less at runtime and on demand
+
+Q: Less interface?
+Crunch
+but only supported on windows and OSX because using Adobe air!
+
