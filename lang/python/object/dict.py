@@ -60,3 +60,36 @@ print cached_computation(1,2)
 print("the 2nd computation took %f seconds" % (time.time()-intermediate_time))
 print cached_computation(4,2)
 
+#----------------------------------------------------------------------
+section("copy")
+
+d = { 'toto':1, 'tata':2 }
+d1 = { 'titi': 4}
+d1 = d.copy()
+
+print "Original dict d=%s" % d
+print "Copy d into d1. d1 = %s" % d1
+
+d['toto'] = 3
+
+print "Changed d to %s" % d 
+print "Other d1 stays the same %s" % d1
+
+#----------------------------------------------------------------------
+section("deepcopy")
+
+print "not imlpemented yet!"
+
+#----------------------------------------------------------------------
+section("function")
+
+d = { 'toto':1, 'tata':2 }
+
+def pprint(*a, **kw):
+    for key, value in kw.items():                               # <-- notice how kw is parsed 
+        print "%s --> %s" % (key, value)
+
+pprint(**d)                                                     # <-- notice how d is passed
+                                                                # equivalent to pprint(toto=1, tata=2)
+
+
