@@ -36,6 +36,14 @@ Q: For loop on a cursor?
 !!! shouts is a template paramater
 !!! the order of the pop is function of the order of the entries in the python code
 
+Q: For loop on empty iterator?
+<ul>
+{% for user in users %}
+    <li>{{ user.username|e }}</li>
+{% else %}
+    <li><em>no users found</em></li>
+{% endfor %}
+</ul>
 
 Q: conditional-if statement?
 {% ifequal shout.who None %}
