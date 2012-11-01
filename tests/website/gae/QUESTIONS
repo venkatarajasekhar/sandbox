@@ -152,3 +152,28 @@ If the result of a requested operation is in the cache. then it is a catch-hit
 
 Q: What is a cache miss?
 If the result of a requested  operation is not in the cache, then it is it is called a cache-miss!
+
+Q: How to build a Query?
+!!! A query is an object and is not executed until you FETCH it !
+q = Player.all()                                # q is a query to get all the Player's entries from the database
+q = db.GqlQuery("SELECT * FROM Player")         # Same as above
+q = db.Query(Player)                            # Same as above! 
+q = db.Query(Player).filter('name=', 'toto')    # q is a query to find a subset of the Player entries
+q = db.Query(Player).order('-age')              # q is a query to find all the Player's entries. Order in descending order from age
+q = db.Query(Player).filter('age >', 20)        # q is a query to find a subset of the Player's entries
+q = db.GqlQuery("SELECT * FROM Player WHERE age > 20 AND age < 30 LIMIT 10 OFFSET 5 ORDER BY age DESC")
+q = db.GqlQuery("SELECT * FROM Player WHERE age > :1 AND age < :2 LIMIT 10 OFFSET 5 ORDER BY age DESC", 20, 30)
+q = db.GqlQuery("SELECT * FROM Player WHERE age > :min AND age < :max LIMIT 10 OFFSET 5 ORDER BY age DESC", min=20, max=30)
+
+Q: How to build key queries?
+Key queries are queries that returns only keys (not objects)
+q = db.Query(Player, key_only=True)
+q = db.GqlQuery('SELECT __key__ FROM Player')
+for key in q:                                   # Queries are iterable
+
+Q: How do you execute an existing query?
+q.fetch()                                       # q is executed
+q.fetch(10, offset=20)                          # q is executed with the limiit=10 and 
+q.count()                                       # q count, but be default the maximum count is 1000!
+q.count(100)                                    # q count, but only up to 100
+for player in q:                                # q is iterable in python

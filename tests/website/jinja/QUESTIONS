@@ -45,12 +45,31 @@ Q: For loop on empty iterator?
 {% endfor %}
 </ul>
 
+Q: Break loop? Filtered sequence?
+Unlike in Python it’s not possible to break or continue in a loop. 
+You can however filter the sequence during iteration which allows you to skip items. 
+The following example skips all the users which are hidden:
+
+{% for user in users if not user.hidden %}
+    <li>{{ user.username|e }}</li>
+{% endfor %}
+
 Q: conditional-if statement?
 {% ifequal shout.who None %}
     Anonymous
 {% else %}
     {{shout.who}}
 {% endifequal %}
+
+or
+
+{% if kenny.sick %}
+    Kenny is sick.
+{% elif kenny.dead %}
+    You killed Kenny!  You bastard!!!
+{% else %}
+    Kenny looks okay --- so far
+{% endif %}
 
 Q: Checking for not None in template?
 {% if img_url %}                                                    # <-- if set to None in python code, then will not execute
@@ -123,7 +142,13 @@ Multiple filters can be chained. The output of one filter is applied to the next
 ex: {{ name|striptags|title }} 
 Filters that accept arguments have parentheses around the arguments, like a function call. 
 This example will join a list by commas: 
-ex: {{ list|join(', ') }}.
+ex: 
+{{ list|join(', ') }}.
+
+ex2:
+{% filter upper %}
+    This text becomes uppercase
+{% endfilter %}
 
 Q: List of builtin filters?
 http://jinja.pocoo.org/docs/templates/#builtin-filters
