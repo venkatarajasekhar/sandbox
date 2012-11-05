@@ -1,0 +1,9 @@
+Q: How to clone the repo?
+SSH> git clone git@54.243.245.108:~/reciprocity-ring.git
+
+Q: How to checkout an empty repo and make a first checkin?
+The first git push always require to specify the branch you want to push.
+git push -u origin master
+Then the next push can be done, from the same branch, as you intended:
+git push
+
