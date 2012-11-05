@@ -1,0 +1,16 @@
+LOCAL HOST
+----------
+ssh-keygen -t rsa
+
+This generate a public and a private key
+public key is ~/.ssh/id_rsa.pub
+
+Transfer that public key to remote host
+
+scp -i ~/ssh/git_awskey.pem id_rsa.pub ubuntu@54.243.245.108:~/id_rsa.pub
+
+REMOTE HOST
+----------
+
+cp ~/id_rsa.pub >> ~/.ssh/authorized_keys
+

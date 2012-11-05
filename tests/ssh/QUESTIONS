@@ -32,6 +32,19 @@ A:
 ssh -i ~/keys/rsync-key root@54.243.138.69
 rsync -e 'ssh -i /root/keys/rsync-key' -alvz ./backup.1/ root@54.243.138.69:/mnt/backups/foote
 
+Q: How to get around the folloring error/warning: Remote host identification has changed ?
+The destination host has changed!
+==> Investigate why!
+If you know, the solution is to remove the keys from the known_host file
+ssh-keygen -R <server_name | ip >
+
+Q: What is the difference between a pem key and a id_rsa ?
+None!
+ssh git@54.243.245.108
+is equivalent to 
+ssh -i ~/.ssh/id_rsa git@54.243.245.108
+
+
 
 
 
