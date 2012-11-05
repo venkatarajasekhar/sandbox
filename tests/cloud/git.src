@@ -1,0 +1,2 @@
+ssh -i ~/ssh/git_awskey.pem ubuntu@54.243.245.108 -o TCPKeepAlive=no -o ServerAliveInterval=15
+
