@@ -13,6 +13,10 @@ You can
 * Backends
 * Text Search
 
+Q: Where is the datastore file when in devel mode?
+/tmp/dev_appserver.datastore
+
+
 Q: is the admin console available on GAE? 
 Yes! This is the dashboard!
 https://appengine.google.com/dashboard
