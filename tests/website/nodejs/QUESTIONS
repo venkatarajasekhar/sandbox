@@ -1,0 +1,3 @@
+Q: How to install?
+sudo yum localinstall --nogpgcheck http://nodejs.tchol.org/repocfg/fedora/nodejs-stable-release.noarch.rpm
+sudo yum install nodejs-compat-symlinks npm
