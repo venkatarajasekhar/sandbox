@@ -26,8 +26,8 @@ margin-top:                 20px;
 margin-bottom:              20px;
 padding:                    10px;                       # All around padding
 
-position:                   relative;                   # <-- relative to block in which it is included
-position:                   absolute;                   # <-- position the element function of the browser window display (look at right and bottom option)
+position:                   relative;                   # All future position are relative to this box
+position:                   absolute;                   # Position the element function of relative position
 position:                   fixed;     
 right:                      0px;                        # <-- set the block's position (mode absolute or relative)
 bottom:                     0px;                        # <-- set the block's position (mode absolute or relative)
@@ -36,10 +36,11 @@ border:                     1px solid #666;             # <-- add a border line 
 border-bottom:              3px solid #666;             # <-- add a line at the bottom of the block
 
 display:                    block;                      # Specifies how a certain HTML element should be displayed
-dispaly:                    inline;
+display:                    inline;
 display:                    inline-block;
 
-float:                                                  # Specifies whether or not a box should float
+float:                      left;                       # Specifies whether or not a box should float
+clear:                      both;                       # The clear property specifies which sides of an element where other floating elements are not allowed.
 
 z-stack:                    -1;                         # Sets the stack order of a positioned element (layering)
 
