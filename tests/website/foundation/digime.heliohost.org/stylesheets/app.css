@@ -1,0 +1,61 @@
+/* Artfully masterminded by ZURB  */
+
+/* -------------------------------------------------- 
+   Table of Contents
+-----------------------------------------------------
+:: Shared Styles
+:: Page Name 1
+:: Page Name 2
+*/
+
+
+/* -----------------------------------------
+   Shared Styles
+----------------------------------------- */
+.row {
+    width: 100%;
+}
+
+.tabs dd a, .tabs li a {
+    padding: 0 7px;
+    text-align: center;
+}
+
+ul.accordion > li .title:after { content: ""; display: block; width: 0; height: 0; border: 0; border-color: transparent #9d9d9d transparent transparent; position: absolute; right: 15px; top: 21px; }
+ul.accordion > li.active .title:after { content: ""; display: block; width: 0; height: 0; border: 0; border-color: #9d9d9d transparent transparent transparent; }
+ul.accordion > li .title:before { content: ""; display: block; width: 0; height: 0; border: solid 6px; border-color: transparent transparent transparent #9d9d9d; position: absolute; left: 5px; top: 21px; margin-right: 10px }
+ul.accordion > li.active .title:before { content: ""; display: block; width: 0; height: 0; border: solid 6px; border-color: #9d9d9d transparent transparent transparent; }
+ul.accordion > li .title h5 { margin: 0 0 0 10px;}
+
+label {font-weight: bold}
+input[type=checkbox] {padding-right: 10px; }
+
+fieldset {border-top: black transparent}
+fieldset .title {margin-top: -20px; background: #ffffff; padding: 0 10px; margin-right: 0; text-align: center}
+
+
+.ui-jcoverflip {
+    position: relative;
+}
+
+.ui-jcoverflip--item {
+    position: absolute;
+    display: block;
+}
+
+#flip-wrapper {
+    position: relative;
+    margin-top: 200px;
+}
+/* -----------------------------------------
+   Page Name 1
+----------------------------------------- */
+
+
+
+
+/* -----------------------------------------
+   Page Name 2
+----------------------------------------- */
+
+
