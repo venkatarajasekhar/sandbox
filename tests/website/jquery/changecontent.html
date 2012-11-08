@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>jQuery test page</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+    $("#changeText").click(function() {
+        $("#textBox").html("My text is changed!");
+    });
+});
+</script>
+</head>
+<body>
+
+<a href="#" id="changeText">Change my text</a>
+<br />
+<div id="textBox">This text will be changed to something else</div>
+
+
+
+
+
+</body>
+</html>
