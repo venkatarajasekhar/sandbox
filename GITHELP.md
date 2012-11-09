@@ -23,6 +23,7 @@ To Setup user name and email (required), password caching (optional), and comman
     git config --global alias.co checkout                   # git co = git checkout
     git config --global alias.rename mv                     # git rename = git mv
     git config --global alias.delete rm                     # git delete = git rm
+    git config --global core.excludesfile ~/.gitignore_global
     git config -l				                            # show ~/.gitconfig and repo/.git/config contents
 
 Iteract with a remote GIT repository
@@ -87,4 +88,20 @@ An existing GIT repository has a .../.git directory
 
     git remote add origin https://github.com/emayssat/sandbox.git
     git push -u origin master
+
+Ignoring files
+--------------
+
+Git ignore
+    cd <repo>
+    cd <dir_where_files_should not be checked>
+    touch .gitignore
+    echo '*.pyc' >> .gitignore 
+Global gitignore
+    git config --global core.excludesfile ~/.gitignore_global
+    cat '*.pyc' >> ~/.gitignore_global
+Repo level exclude (Not checking in the repo)
+    cd <repo>
+    touch .git/info/exclude
+    echo '*.pyc' >> .git/info/exclude
 
