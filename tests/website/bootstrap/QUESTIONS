@@ -1,0 +1,8 @@
+Q: What is the difference between the grid and the fluid-grid?
+The grid reformat in quantum steps, whereas the fluid is ... well fluid.
+That's it!
+Now, the fluid model tries to take as much space as possible on the screen
+The grid is formatted at a specific size, regarless of the screen.
+It the browser display changes, the fluid design always attempts to take the max od real estate
+while the grid is step for different format.
+See @media in css

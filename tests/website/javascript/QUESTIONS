@@ -52,7 +52,7 @@ window.onload = function() {
 In HTML markup
 <body onload="doStuff();">
 
-With $(document).ready(), you can get your events to load or fire or whatever you want them to do before the window loads. 
+With $(document).ready(function(){}), you can get your events to load or fire or whatever you want them to do before the window loads. 
 Everything that you stick inside its brackets is ready to go at the earliest possible moment 
 — as soon as the DOM is registered by the browser, which allows for some nice hiding and showing effects i
 and other stuff immediately when the user first sees the page elements. 
