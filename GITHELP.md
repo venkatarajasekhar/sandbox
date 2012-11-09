@@ -99,9 +99,10 @@ Git ignore
     echo '*.pyc' >> .gitignore 
 Global gitignore
     git config --global core.excludesfile ~/.gitignore_global
-    cat '*.pyc' >> ~/.gitignore_global
+    echo '*.pyc' >> ~/.gitignore_global
 Repo level exclude (Not checking in the repo)
     cd <repo>
     touch .git/info/exclude
     echo '*.pyc' >> .git/info/exclude
 
+!!! Files you don't want to monitor and that have ALREADY been checked in need to be removed with 'git rm <file>'
