@@ -79,6 +79,6 @@ def send_simple_message3():
 print send_simple_message()
 #time.sleep(1)
 #print send_simple_message2()
-time.sleep(1)
+time.sleep(10)
 print send_simple_message3()
 
