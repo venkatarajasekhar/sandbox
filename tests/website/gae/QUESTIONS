@@ -182,3 +182,26 @@ q.fetch(10, offset=20)                          # q is executed with the limiit=
 q.count()                                       # q count, but be default the maximum count is 1000!
 q.count(100)                                    # q count, but only up to 100
 for player in q:                                # q is iterable in python
+
+Q: What are collections?
+class Book(db.Model):
+    title = db.StringProperty()
+    author = db.StringProperty()
+class BookReview(db.MOdel):
+    book = db.ReferenceProperty(Book, collection_name='reviews')
+
+b = Book()
+br= BookReview()
+br.book = b
+br.book = b.key()                               # Same as above
+
+for review in b.reviews:
+    # review is a BookReview instance
+
+A collection is a back-reference property, the API performs a datastore query for all BookREview entities 
+whose reference property equals the key of the Book.
+A COLLECTION IS A QUERY !
+The FOR LOOP EXECUTE THE QUERY!
+
+Q: What can you do with collections?
+You can append filter, orer, limit, etc.... like a normal query!
