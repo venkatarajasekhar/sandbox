@@ -176,12 +176,12 @@ q = db.GqlQuery('SELECT __key__ FROM Player')
 for key in q:                                   # Queries are iterable
 
 Q: How do you execute an existing query?
-q.fetch()                                       # q is executed
-q.get()                                         # q is executed
-q.fetch(10, offset=20)                          # q is executed with the limiit=10 and 
+q.fetch(1000)                                   # q is executed, every entries are loaded in memory (very expensive operation!)
+q.get()                                         # q is executed. Only one entry is loaded in memory.
+q.fetch(10, offset=20)                          # q is executed with the limit=10 and 
 q.count()                                       # q count, but be default the maximum count is 1000!
 q.count(100)                                    # q count, but only up to 100
-for player in q:                                # q is iterable in python
+for player in q.run():                          # q is iterable in python. An iterable load the query one by one in the memory. (Better than fetch for memory management)
 
 Q: What are collections?
 class Book(db.Model):
@@ -205,3 +205,7 @@ The FOR LOOP EXECUTE THE QUERY!
 
 Q: What can you do with collections?
 You can append filter, orer, limit, etc.... like a normal query!
+
+Q: What is the difference between query.fetch(limit=100) and query.run(batch_size=100)?
+Run returns an iterator. That is only one database entry is loaded in memory at a time.
+With fetch, the entire set is loaded in memory. The memory needs to be big enough.
