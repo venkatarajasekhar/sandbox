@@ -30,9 +30,11 @@ Q: How to setup JQuery in my HTML
 </head>
 
 Q: What is $(function ...) ?
-$(document).ready() construct is actually calling the .ready() method on a JQuery object we have consotructed from the document DOM element.
+$(document).ready() construct is actually calling the .ready() method on a JQuery object 
+we have constructed from the document DOM element.
 The $() function provides a shortcut for us as this is a common task.
 When we pass in a function as the argument, jQuery performs an implicit call to .ready()
+In other words, any function passed to the jQuery object will be bound to the document.ready() function.
 
 $(function() {...});                ==          $(document).ready(function() {...});
 
