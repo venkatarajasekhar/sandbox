@@ -270,3 +270,8 @@ http://stackoverflow.com/questions/3714972/google-app-engine-or-query-python ?
 There is probably a problem in the model you are using.
 Ancestry (parent/child) may be a solution
 Ex: friendship --> User / friend
+
+Q: Hierachy?
+Parent is the one that makes the action
+Child = the action
+ex: like, dislike, befriend ~ REST action
