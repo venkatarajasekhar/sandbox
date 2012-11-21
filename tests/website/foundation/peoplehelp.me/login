@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	
+	<!-- Uncomment to make IE8 render like IE7 -->
+	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+	
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<meta name="allow-search" content="yes" />
+<meta http-equiv="revisit-after" content="5 days" />
+<meta http-equiv="rating" content="General" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  
+	
+	<title>Login form</title>
+	
+	
+  <link href="/stylesheets/production_packaged.css?1353501173" media="screen" rel="stylesheet" type="text/css" />
+
+
+
+<script defer="defer" src="/javascripts/base_packaged.js?1353501181" type="text/javascript"></script>
+
+<!-- tiny mce includes -->
+
+  
+  
+</head>
+<body>
+<!-- Top Bar -->
+
+
+<nav class="top-bar">
+
+  <div class="name active left logo" onclick="void(0);">
+    <h3><a href="/">Help Home</a></h3>
+  </div>
+
+  <div class="right slogan">
+    Everyone needs help sometimes<br/>
+    Everyone can help somebody
+  </div>
+
+  <ul class="right">
+    <li class="show-for-small">
+      <a href="/">Home</a>
+    </li>
+    
+      <li>
+        <a href="/login">Sign In</a>
+      </li>
+    
+    <li>
+      <a href="#">Success Stories</a>
+    </li>
+    <li>
+      <a href="#">News</a>
+    </li>
+    <li>
+      <a href="#">Forums</a>
+    </li>
+    <li>
+      <a href="#">Support</a>
+    </li>
+  </ul>
+</nav>
+<!-- End Top Bar -->
+  
+
+<form action="/user_session" class="new_user_session" id="new_user_session" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="zHQsNsPxenqe5Rrrdj9NMrmoC3U2Wo057AH/f+9qQeA=" /></div>
+  <div class="row">
+    <div class="three columns">
+      <fieldset>
+        <legend>Login</legend>
+        <label for="user_session_login">Login<span class="mandatory-sign">*</span></label>
+        <br/>
+        <input id="user_session_login" name="user_session[login]" size="30" type="text" />
+        <br/>
+        <label for="user_session_password">Password<span class="mandatory-sign">*</span></label>
+        <br/>
+        <input id="user_session_password" name="user_session[password]" size="30" type="password" />
+        <br/>
+      </fieldset>
+    </div>
+    <div class="four columns">
+      
+    </div>
+    <div class="five columns">
+    </div>
+  </div>
+  <div class="row">
+    <input class="button one offset-by-one" id="user_session_submit" name="commit" type="submit" value="Login" />
+    </div>
+  <div class="row">
+    <p class="three text-center"><a href="/account/new">Don't have an account? Sign up, it's easy.</a></p>
+  </div>
+</form>
+
+<!-- Footer -->
+
+<footer class="row">
+  <div class="twelve columns">
+    <hr/>
+    <div class="row">
+      <div class="six columns">
+        <p>&copy; Copyright 2012. The Placeholders Team.</p>
+      </div>
+      <div class=" columns">
+        <ul class="link-list right">
+          <li><a href="http://venture-lab.org/venture/teams/16527">Our Team</a></li>
+          <li><a href="http://venture-lab.org/venture/reports/18425">Our Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- End Footer -->
+</body>
+</html>
