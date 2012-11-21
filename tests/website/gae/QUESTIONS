@@ -162,18 +162,22 @@ Q: How to build a Query?
 q = Player.all()                                # q is a query to get all the Player's entries from the database
 q = db.GqlQuery("SELECT * FROM Player")         # Same as above
 q = db.Query(Player)                            # Same as above! 
-q = db.Query(Player).filter('name=', 'toto')    # q is a query to find a subset of the Player entries
+q = db.Query(Player).filter('name =', 'toto')    # q is a query to find a subset of the Player entries
 q = db.Query(Player).order('-age')              # q is a query to find all the Player's entries. Order in descending order from age
 q = db.Query(Player).filter('age >', 20)        # q is a query to find a subset of the Player's entries
 q = db.GqlQuery("SELECT * FROM Player WHERE age > 20 AND age < 30 LIMIT 10 OFFSET 5 ORDER BY age DESC")
 q = db.GqlQuery("SELECT * FROM Player WHERE age > :1 AND age < :2 LIMIT 10 OFFSET 5 ORDER BY age DESC", 20, 30)
 q = db.GqlQuery("SELECT * FROM Player WHERE age > :min AND age < :max LIMIT 10 OFFSET 5 ORDER BY age DESC", min=20, max=30)
+q = Player.gql("WHERE age > :1", 20)
+
+!!! Beware: q.filter('name =', 'toto') is correct, while q.filter('name=', 'toto') may not be. There is a space
 
 Q: How to build key queries?
 Key queries are queries that returns only keys (not objects)
 q = db.Query(Player, key_only=True)
 q = db.GqlQuery('SELECT __key__ FROM Player')
-for key in q:                                   # Queries are iterable
+for key in q.run():                             # Queries is turned into a QueryIterator (an Iterable)
+!!! In the for loop, the '.run()' is assumed and not required
 
 Q: How do you execute an existing query?
 q.fetch(1000)                                   # q is executed, every entries are loaded in memory (very expensive operation!)
@@ -198,7 +202,7 @@ br.book = b.key()                               # Same as above
 for review in b.reviews:
     # review is a BookReview instance
 
-A collection is a back-reference property, the API performs a datastore query for all BookREview entities 
+A collection is a back-reference property, the API performs a datastore query for all BookReview entities 
 whose reference property equals the key of the Book.
 A COLLECTION IS A QUERY !
 The FOR LOOP EXECUTE THE QUERY!
@@ -206,6 +210,63 @@ The FOR LOOP EXECUTE THE QUERY!
 Q: What can you do with collections?
 You can append filter, orer, limit, etc.... like a normal query!
 
+Q: What are reference (i.e ReferenceProperty)?
+class FirstModel(db.Model):
+    prop = db.IntegerProperty()
+class SecondModel(db.Model):
+    reference = db.ReferenceProperty(FirstModel)
+obj1 = FirstModel()
+obj1.put()
+# A reference value is the key of another entity.
+obj2.reference = obj1.key()
+# Assigning a model instance to a property uses the entity's key as the value.
+obj2.reference = obj1
+obj2.put()
+
+Q: How to use references?
+try:
+  obj1 = obj2.reference
+except db.ReferencePropertyResolveError:
+  # Referenced entity was deleted or never existed.
+
 Q: What is the difference between query.fetch(limit=100) and query.run(batch_size=100)?
-Run returns an iterator. That is only one database entry is loaded in memory at a time.
-With fetch, the entire set is loaded in memory. The memory needs to be big enough.
+They are the same if number of entries returned are <=100.
+If the machine entries is > 100, the run command will return them.
+The bacth-size specify the number of item to fetch and load in memory at one.
+Also Run returns a QueryIterator (a python iterator). 
+That is only 'batch_size' database entries are loaded in memory at a time.
+With fetch, the entire set (up to the limit) is loaded in memory. 
+The memory needs to be big enough, ie managed.
+
+Q: How to user keys?
+user = User()
+d.filter("user =", user.key() )                 #
+d.filter("user", user.key()                     #
+d.filter("user", user )                         # Not sure this one works!
+d.filter("user =", db.Key("%s" % user.key()) )  #
+
+Q: What is the IN operator?
+The IN operator compares value of a property to each item in a list. 
+The IN operator is equivalent to many = queries, one for each value, that are ORed together.
+An entity whose value for the given property equals any of the values in the list can be returned for the query.
+SELECT * FROM Person WHERE name IN ('Betty', 'Charlie')     # ok, Documented!
+q.filter('name IN', ('Betty', 'Charlie'))                   # Equivalent?
+q.filter('name IN', ['Betty', 'Charlie'])                   # Equivalent?
+
+!!! Note that the datastore can't actually do this kind of OR query; 
+!!! This syntax results in 2 queries being done and the results merged. 
+!!! Using long lists of values for the IN condition is a Bad Idea.
+
+!!! The problem with this is that it quickly becomes slow and maxes out at 30 values. 
+
+Q: What are ancestor used for?
+You can query on the descendeants (db.query_descendants(parent_entity) )
+
+Q: How to do a OR query in GAE?
+http://tornblue.com/post/11310830291/app-engine-how-to-do-an-efficient-or-query ?
+IN ?
+http://stackoverflow.com/questions/3714972/google-app-engine-or-query-python ?
+
+There is probably a problem in the model you are using.
+Ancestry (parent/child) may be a solution
+Ex: friendship --> User / friend
