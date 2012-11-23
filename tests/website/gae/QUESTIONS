@@ -211,6 +211,7 @@ Q: What can you do with collections?
 You can append filter, orer, limit, etc.... like a normal query!
 
 Q: What are reference (i.e ReferenceProperty)?
+Used in One-to-many relationships
 class FirstModel(db.Model):
     prop = db.IntegerProperty()
 class SecondModel(db.Model):
