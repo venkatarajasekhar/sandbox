@@ -1,0 +1,55 @@
+#----------------------------------------------------------------------
+# ONE TO ONE
+
+Q: One to many relationships?
+class Image(db.Model):
+    image_date = db.BlobProperty()
+    mime_type = db.StringProperty()
+
+class Player(db.Model):
+    name = db.StringProperty()
+    avatar = db.ReferenceProperty(Image)            # Only one
+
+#----------------------------------------------------------------------
+# ONE TO MANY
+
+Same has above with several referenceProperty pointing to the same object (Image) 
+
+
+#----------------------------------------------------------------------
+# MANY TO MANY
+
+Q: What is the Many to many relationshipsi key list method?
+==> recommended when simple many to many relationship (25 to 25 entities) and no metadata required
+
+- backreference with @ property
+- db.ListProperty
+
+class Player(db.Model):
+    name = db.StringProperty()
+    guilds = db.ListProperty(db.Key)
+
+class Guild(db.Model):
+    name = db.StringProperty()
+    @property
+    def members(self):
+        return Player.a;;().filter('guilds', self.key())
+
+     
+
+Q What is the link momdel medhod?
+==> recommended if either side of the relationship may get too large to store on the entity itself ( 25+ objects)
+==> recommended if model requires more complex relationships between multiple classes ( 1 to 3 entities)
+==> recommended if more info needs to be capture? ex: creation date, modification date, etc. metadata
+
+class Player
+class Guild
+class Membership
+    player = db.Reference(Player, collection_name='guild_memberships')
+    guild = db.Reference(Guild, collection_name='player_memberships')
+
+
+   
+!!! The collection is a query on the membership
+for gm in g.player_memberships:                         # <-- You get the membership object here!
+    player_name = gm.player.name 
