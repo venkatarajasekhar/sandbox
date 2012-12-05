@@ -15,11 +15,17 @@ You can
 
 Q: Where is the datastore file when in devel mode?
 /tmp/dev_appserver.datastore
+Note that this can be changed from the command line
 
 
 Q: is the admin console available on GAE? 
 Yes! This is the dashboard!
 https://appengine.google.com/dashboard
+
+Q: When running the development server, which are the key URI?
+http://localhost:8080/_ah/admin         # Localhost dashboard
+http://localhost:8080/_ah/login         # Login page (no password because localhost)
+
 
 Q: What is a YAML file?
 Both JSON and YAML aim to be human readable data interchange formats. However, JSON and YAML have different priorities. JSON’s foremost design goal is simplicity and universality. Thus, JSON is trivial to generate and parse, at the cost of reduced human readability. It also uses a lowest common denominator information model, ensuring any JSON data can be easily processed by every modern programming environment.
