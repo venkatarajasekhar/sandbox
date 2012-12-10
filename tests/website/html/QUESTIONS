@@ -1,3 +1,7 @@
+Q: Awesome online resource for html?
+http://www.w3schools.com/jsref/prop_style_clear.asp
+http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_clear
+
 Q: What is the  <!DOCTYPE HTML> tag for?
 It specify that the content of the file is HTML5
 This tag should appear at the very top of the html file (before the <html> tag !)
