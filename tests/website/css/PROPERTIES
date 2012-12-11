@@ -24,6 +24,7 @@ min-width:                  100px;                      # Sets the minimum width
 margin:                     0 auto;                     # All around margin (distance from next element)
 margin-top:                 20px;
 margin-bottom:              20px;
+margin-left:                -20px;                      # Margin 20px to the left of the normal position
 padding:                    10px;                       # All around padding
 
 position:                   relative;                   # All future position are relative to this box
