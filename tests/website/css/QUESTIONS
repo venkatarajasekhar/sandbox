@@ -27,6 +27,8 @@ Q: How many ways can U call my stylesheet?
     <h1>Welcome to this page</h1>
     <p>This is all I have to say about this page.</p>
 </div>
+5.
+With an import directive in an already included stylesheet
 
 Q: With so many class and subclass, how to find properties that apply to my element?
 Chromium

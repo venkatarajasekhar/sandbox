@@ -25,6 +25,9 @@ margin:                     0 auto;                     # All around margin (dis
 margin-top:                 20px;
 margin-bottom:              20px;
 margin-left:                -20px;                      # Margin 20px to the left of the normal position
+margin-left:                auto;                       # If margin left and right are auto, then the div is centered!
+margin-right:               auto;                      
+
 padding:                    10px;                       # All around padding
 
 position:                   relative;                   # All future position are relative to this box
@@ -41,9 +44,13 @@ display:                    inline;
 display:                    inline-block;
 
 float:                      left;                       # Specifies whether or not a box should float
-clear:                      both;                       # The clear property specifies which sides of an element where other floating elements are not allowed.
+clear:                      both;                       # The clear property specifies which sides of an element where other floating elements are NOT allowed. (will move that element down if required )
+
 
 z-stack:                    -1;                         # Sets the stack order of a positioned element (layering)
+
+zoom:                       1;                          # no magnification
+zoom:                       200%;                       # 2 times magnification 
 
 #----------------------------------------------------------------------
 # MOUSE 

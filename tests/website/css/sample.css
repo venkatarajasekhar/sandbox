@@ -1,3 +1,22 @@
+/*
+    My custom styelsheet
+
+*/
+
+/* First, pull in Bootstrap's stylesheet */
+@import url(assets/cs/bootstrap.css);
+
+/* Complement style bootstrap */
+.row {
+    padding: 20px 0;
+}
+
+/* Overwrite bootstrap settings (using firebug) */
+.media-grid a:hover {
+    border-color: white;
+}
+
+
 /* 
     Sample css file 
 */
