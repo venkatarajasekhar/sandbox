@@ -19,6 +19,7 @@ a[class~="warning"]     - links whose list-attribute class includes 'warning' as
                         !!! Note that an element can have several classes
 a#ID                    - single link whose (non-attribute) id=ID 
 a > img                 - images (not link!) which are direct children of links
+.row > [class*="span"]  - Children element of class .row which have a class name including 'span' in its name! (span1, span2 ,...)
 a img                   - images (not links) which are direct or indirect children of a link
 div > p:first-child     - any P element that is the first child of a DIV element
 p:first-child em        - any em element that is some descendant of a P element that is a first child
