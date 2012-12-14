@@ -1,0 +1,30 @@
+Q: How to access the image height?
+
+1/
+avatar = db.BlobProperty()
+
+If the image is stored in a BlobProperty, 
+then the data is stored in the datastore, and if profile is your entity, then the height can be accessed as:
+
+from google.appengine.api import images
+height = images.Image(image_data=profile.avatar).height
+
+2/
+If the image is in the blobstore, (blobstore.BlobReferenceProperty in the datastore), 
+then you have 2 ways of doing it, the better way is complicated and requires getting a reader for the blob 
+and feeding it to a exif reader to get the size. 
+
+An easier way is:
+
+if avatar = db.BlobReferenceProperty() and profile is your entity, then:
+
+from google.appengine.api import images
+img = images.Image(blob_key=str(profile.avatar.key()))
+
+# we must execute a transform to access the width/height
+img.im_feeling_lucky() # do a transform, otherwise GAE complains.
+
+# set quality to 1 so the result will fit in 1MB if the image is huge
+img.execute_transforms(output_encoding=images.JPEG,quality=1)
+
+#ffix now you can access img.height and img.width
