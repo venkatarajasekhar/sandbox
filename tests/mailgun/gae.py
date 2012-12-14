@@ -4,6 +4,8 @@ import urllib
 import urllib2
 from base64 import b64encode
 
+import account
+
 class User(object):
 
     def __init__(self, name, email):
@@ -13,8 +15,8 @@ class User(object):
     def receive_email(self, subject="SAND No subject", text="No Text"): 
         """ Email through MAILGUN """
         _from = "Reciprocity Web <emayssat@gmail.com>"
-        username = "api" 
-        password = "key-6qwjwon58zad-a-pvlycilo3at50ggz1"
+        username = account.username
+        password = account.password
         api_https_url = "https://api.mailgun.net/v2"
         mailgun_url = api_https_url + '/reciprocity-ring.mailgun.org/messages'
 
