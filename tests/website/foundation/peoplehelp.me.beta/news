@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	
+	<!-- Uncomment to make IE8 render like IE7 -->
+	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+	
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<meta name="allow-search" content="yes" />
+<meta http-equiv="revisit-after" content="5 days" />
+<meta http-equiv="rating" content="General" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+
+<title></title>
+
+
+  <link href="/stylesheets/production_packaged.css?1354359226" media="screen" rel="stylesheet" type="text/css" />
+
+
+<script src="/javascripts/immediate_packaged.js?1354359229" type="text/javascript"></script>
+<script src="/javascripts/base_packaged.js?1354359234" type="text/javascript"></script>
+
+<!-- tiny mce includes -->
+<script src="/javascripts/tiny_mce/tiny_mce.js?1354359219" type="text/javascript"></script><script type="text/javascript">
+//<![CDATA[
+tinyMCE.init({
+content_css : '/stylesheets/mytinymce.css',
+convert_urls : false,
+editor_selector : 'mceEditor',
+language : 'ru',
+mode : 'textareas',
+plugins : "safari,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+relative_urls : false,
+remove_script_host : true,
+spellchecker_rpc_url : '/welcome/spellchecker',
+theme : 'advanced',
+theme_advanced_buttons1 : 'save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect',
+theme_advanced_buttons2 : 'cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor',
+theme_advanced_buttons3 : 'tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen',
+theme_advanced_buttons4 : 'insertlayer,moveforward,movebackward,absolute,|,styleprops,spellchecker,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,blockquote,pagebreak,restoredraft,|,insertfile,insertimage',
+theme_advanced_resizing : true,
+theme_advanced_statusbar_location : 'bottom',
+theme_advanced_toolbar_align : 'left',
+theme_advanced_toolbar_location : 'top'
+
+});
+//]]>
+</script>
+
+
+</head>
+<body>
+<!-- Top Bar -->
+
+
+<nav class="top-bar">
+
+  <div class="name active left logo" onclick="void(0);">
+    <h3><a href="/"><span class="has-tip" title="Go to the main page">Help Home</span></a></h3>
+  </div>
+
+  <div class="right slogan">
+    Everyone needs help sometimes<br/>
+    Everyone can help somebody
+  </div>
+
+  <ul class="right">
+    <li class="show-for-small">
+      <a href="/"><span class="has-tip" title="Go to the main page">Home</span></a>
+    </li>
+    
+      <li>
+        <a href="/login"><span class="has-tip" title="Sign in to access your profile and view/edit help requests">Sign In (Beta)</span></a>
+      </li>
+    
+    <li>
+      <a href="#"><span class="has-tip" title="Help requests that have been successfully fulfilled">Success Stories</span></a>
+    </li>
+    <li>
+      <a href="/news"><span class="has-tip" title="Press releases, blog articles, etc.">News</span></a>
+    </li>
+    <li>
+      <a href="/support"><span class="has-tip" title="Community support: questions, suggestions, technical support">Support</span></a>
+    </li>
+  </ul>
+</nav>
+<!-- End Top Bar -->
+<div id="getsat-widget-2786"></div>
+<script type="text/javascript" src="https://loader.engage.gsfn.us/loader.js"></script>
+<script type="text/javascript">
+  if (typeof GSFN !== "undefined") { GSFN.loadWidget(2786,{"containerId":"getsat-widget-2786"}); }
+</script>
+<div class="row">
+    <fieldset>
+
+      <legend>More about the project</legend>
+      <br/>
+        <div class="three columns"><style type="text/css" media="screen"> .prezi-player-links { text-align: center; }</style><object id="prezi_agndtteekllf" name="prezi_agndtteekllf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="550" height="400"><param name="movie" value="http://prezi.com/bin/preziloader.swf"/><param name="allowfullscreen" value="true"/><param name="allowFullScreenInteractive" value="true"/><param name="allowscriptaccess" value="always"/><param name="wmode" value="direct"/><param name="bgcolor" value="#ffffff"/><param name="flashvars" value="prezi_id=agndtteekllf&amp;lock_to_path=0&amp;color=ffffff&amp;autoplay=no&amp;autohide_ctrls=0"/><embed id="preziEmbed_agndtteekllf" name="preziEmbed_agndtteekllf" src="http://prezi.com/bin/preziloader.swf" type="application/x-shockwave-flash" allowfullscreen="true" allowFullScreenInteractive="true" allowscriptaccess="always" width="550" height="400" bgcolor="#ffffff" flashvars="prezi_id=agndtteekllf&amp;lock_to_path=0&amp;color=ffffff&amp;autoplay=no&amp;autohide_ctrls=0"></embed></object><div class="prezi-player-links"><p><a title="Help!  I need somebody..." href="http://prezi.com/agndtteekllf/help-i-need-somebody/">Help!  I need somebody...</a> on <a href="http://prezi.com">Prezi</a></p></div></div>
+        <div class="four columns offset-by-one">
+          <h5>Help us to do better</h5>
+          <div>Please answer these surveys about the site:</div>
+          <br/>
+          <ul>
+            <li><a target="_blank" href="http://www.surveymonkey.com/s/JC5PSB2">General questions on your way of getting help</a></li>
+            <li><a target="_blank" href="http://www.surveymonkey.com/s/JCHT3XF">Your impressions about this site</a></li>
+            <li><a target="_blank" href="http://www.surveymonkey.com/s/JCFQWFS">More questions about the site if you watched our presentation</a></li>
+          </ul>
+        </div>
+      <div class="four columns">
+        
+        Just checking out? Subscribe to know about the site updates:
+        <form action="/subscribers" class="new_subscriber" id="new_subscriber" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="wODPiVmQhVS/6uRc024iyJVqQEhoW8SCYtWyIDbRUpY=" /></div>
+              <fieldset>
+                <label for="subscriber_email">Email<span class="mandatory-sign">*</span></label>
+                <br/>
+                <input id="subscriber_email" name="subscriber[email]" size="30" type="text" />
+                <br/>
+                
+                
+
+              </fieldset>
+            <input class="button centered" id="subscriber_submit" name="commit" type="submit" value="Subscribe" />
+        </form>
+          
+      </div>
+    </fieldset>
+</div>
+
+<!-- Footer -->
+<footer class="row">
+  <div class="twelve columns">
+    <hr/>
+    <div class="row">
+      <div class="six columns">
+        <p>&copy; Copyright 2012. The Placeholders Team.</p>
+      </div>
+      <div class=" columns">
+        <ul class="link-list right">
+          <li><a href="http://venture-lab.org/venture/teams/16527">Our Team</a></li>
+          <li><a href="http://venture-lab.org/venture/reports/18425">Our Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- End Footer -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36643341-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<div id="getsat-widget-2783"></div>
+<script type="text/javascript" src="https://loader.engage.gsfn.us/loader.js"></script>
+<script type="text/javascript">
+  if (typeof GSFN !== "undefined") { GSFN.loadWidget(2783,{"containerId":"getsat-widget-2783"}); }
+</script>
+</body>
+</html>
