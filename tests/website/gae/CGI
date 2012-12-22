@@ -37,3 +37,6 @@ wsgi.url_scheme=    http
 Q: How to access the CGI environment?
 app = webapp2.WSGIApplication(debug = os.environ['SERVER_SOFTWARE'].startswith('Dev'), config=webapp2_config)
 
+Q: Where to access the CGI environment?
+http://localhost:8080/_ah/stats/details?time=1356135547722
+
