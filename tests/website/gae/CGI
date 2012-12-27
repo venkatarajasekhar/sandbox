@@ -1,0 +1,42 @@
+Q: What is the CGI environment?
+APPENGINE_RUNTIME=  python27
+APPLICATION_ID= dev~reciprocity-ring-003
+AUTH_DOMAIN=    gmail.com
+CURRENT_VERSION_ID= 1.1
+GATEWAY_INTERFACE=  CGI/1.1
+HTTP_ACCEPT=    text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_CHARSET=    ISO-8859-1,utf-8;q=0.7,*;q=0.3
+HTTP_ACCEPT_LANGUAGE=   en-US,en;q=0.8
+HTTP_CACHE_CONTROL= max-age=0
+HTTP_CONNECTION=    keep-alive
+HTTP_COOKIE=    dev_appserver_login="test@example.com:True:185804764220139124118"; hl=fr_FR; dvc=desktop; session="eyJfY3NyZl90b2tlbiI6IkhCbjJuTCIsImxpbmtlZGluIjpudWxsfQ\075\075|1356135489|bfa56152bbb839392adc0170396e53bdcbbdd32e"
+HTTP_HOST=  localhost:8080
+HTTP_REFERER=   http://localhost:8080/contact/
+HTTP_USER_AGENT=    Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.47 Safari/536.11
+PATH_INFO=  /contact/
+PATH_TRANSLATED=    /home/cls1fs/clseng/10/workspace/reciprocity-ring/gae/reciprocity-ring/main.pyc
+QUERY_STRING=   
+REMOTE_ADDR=    127.0.0.1
+REQUEST_ID_HASH=    B6589FC6
+REQUEST_METHOD= GET
+SCRIPT_NAME=    
+SDK_VERSION=    1.6.5
+SERVER_NAME=    localhost
+SERVER_PORT=    8080
+SERVER_PROTOCOL=    HTTP/1.0
+SERVER_SOFTWARE=    Development/1.0
+TZ= UTC
+USER_EMAIL= test@example.com
+USER_ID=    185804764220139124118
+USER_IS_ADMIN=  1
+USER_ORGANIZATION=  
+_AH_ENCODED_SCRIPT_NAME=    /contact/
+_AH_THREADSAFE= 1
+wsgi.url_scheme=    http
+
+Q: How to access the CGI environment?
+app = webapp2.WSGIApplication(debug = os.environ['SERVER_SOFTWARE'].startswith('Dev'), config=webapp2_config)
+
+Q: Where to access the CGI environment?
+http://localhost:8080/_ah/stats/details?time=1356135547722
+
