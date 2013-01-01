@@ -7,3 +7,12 @@ git push -u origin master
 Then the next push can be done, from the same branch, as you intended:
 git push
 
+Q: How to add a new repository?
+server:
+ssh git@<git_ip>
+mkdir helpedite.git
+git init helpedite.git
+
+client:
+git clone git@<git_server>:/helpedite.git
+
