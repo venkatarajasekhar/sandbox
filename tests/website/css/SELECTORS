@@ -25,6 +25,7 @@ div > p:first-child     - any P element that is the first child of a DIV element
 p:first-child em        - any em element that is some descendant of a P element that is a first child
 .post + .post           - matches any element .post element immediately preceded by a sibling element .post
 .post1 + .post2         - matches any element .post2 element immediately preceded by a sibling element .post1
+.page1.current-page     - matches elements with both classes ex: <li class="page-1 current-page">
 
 more at http://www.w3.org/TR/CSS2/selector.html
 
