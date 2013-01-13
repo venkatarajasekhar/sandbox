@@ -16,4 +16,11 @@ UserToken
 
 
 Q: HOw to setup?
+Configuration in .../config
+main configuration file is .../config/__init__.py
 
+
+Q: BaseHandler?
+self.user = {'user_id': 1, 'remember': 0, 'token': u'vq2GLyFGM3yBW6vez0evDv', 'token_ts': 1356996808, 'cache_ts': 1357004086}
+self.user_id = 1
+self.user_key = <ndb Key of user>                   <-- not auth key/content
