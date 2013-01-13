@@ -11,8 +11,17 @@ Q: How to add a new repository?
 server:
 ssh git@<git_ip>
 mkdir helpedite.git
-git init helpedite.git
+cd helpedite.git
+git --bar init 
 
 client:
 git clone git@<git_server>:/helpedite.git
+
+Q: When no branch is provided in 1st commit, what heppens?
+[emayssat@localhost helpedite]$ git push 
+No refs in common and none specified; doing nothing.
+Perhaps you should specify a branch such as 'master'.
+fatal: The remote end hung up unexpectedly
+error: failed to push some refs to 'git@54.243.245.108:~/helpedite'
+
 
