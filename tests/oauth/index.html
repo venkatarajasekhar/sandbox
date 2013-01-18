@@ -1,0 +1,727 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <title>Protocol Workflow &laquo;  hueniverse</title>
+
+  <link rel="stylesheet" href="http://hueniverse.com/wp-content/themes/hueniverse/style.css" type="text/css" media="screen" />
+  <link rel="alternate" type="application/rss+xml" title="hueniverse RSS Feed" href="http://hueniverse.com/feed/" />
+  <link rel="alternate" type="application/atom+xml" title="hueniverse Atom Feed" href="http://hueniverse.com/feed/atom/" />
+  <link rel="pingback" href="http://hueniverse.com/xmlrpc.php" />
+  <script>
+var a=new Date;if(18==a.getDate()&&0==a.getMonth()&&2012==a.getFullYear())window.location="http://sopastrike.com/strike";
+</script>  
+  
+  <script src="http://hueniverse.com/wp-content/themes/hueniverse/js/pngfix.js"></script>
+  <script src="http://hueniverse.com/wp-content/themes/hueniverse/js/jquery-latest.js"></script>
+  <script src="http://hueniverse.com/wp-content/themes/hueniverse/js/effects.core.js"></script>
+  <script src="http://hueniverse.com/wp-content/themes/hueniverse/js/functions.js"></script>
+
+  
+  <link rel="alternate" type="application/rss+xml" title="hueniverse &raquo; Protocol Workflow Comments Feed" href="http://hueniverse.com/oauth/guide/workflow/feed/" />
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">{lang: "en-US"}</script><script type='text/javascript' src='http://hueniverse.com/wp-includes/js/comment-reply.min.js?ver=3.5'></script>
+<script type='text/javascript' src='http://platform.twitter.com/anywhere.js?id=VmV9rzpXWCD1mijDvFn85w&#038;v=1&#038;ver=1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://hueniverse.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://hueniverse.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Terminology' href='http://hueniverse.com/oauth/guide/terminology/' />
+<link rel='next' title='Security Framework' href='http://hueniverse.com/oauth/guide/security/' />
+<meta name="generator" content="WordPress 3.5" />
+<link rel='canonical' href='http://hueniverse.com/oauth/guide/workflow/' />
+<script>
+jQuery(document).ready(function(){
+jQuery("html").attr("xmlns:og","http://opengraphprotocol.org/schema/");
+});
+</script>
+			<meta property="og:type" content="blog" />
+		<meta property="og:site_name" content="hueniverse" />
+		<meta property='og:url' content="http://hueniverse.com" />
+			<meta id="syntaxhighlighteranchor" name="syntaxhighlighter-version" content="3.1.3" />
+</head>
+<body>
+
+  <div id="header">
+    
+    <div class="container clearfix">
+    
+      <span id="logo">
+        <a href="http://hueniverse.com"><img src="http://hueniverse.com/wp-content/themes/hueniverse/images/logo.png" alt="Hueniverse" border="0" /></a>
+      </span>
+      
+      
+<form method="get" id="searchform-header" action="http://hueniverse.com" class="clearfix" >
+	<input type="text" id="s" name="s" value="Search" onblur="if (this.value == '') {this.value = 'Search';}"  onfocus="if (this.value == 'Search') {this.value = '';}" />
+	<input type="image" src="http://hueniverse.com/wp-content/themes/hueniverse/images/search.png" id="go" alt="Search" title="Search" />
+</form>
+    
+    </div>
+    
+  </div>
+  
+  <div id="navigation">
+  
+    <div class="container clearfix">
+      <ul class="pages">
+        <li><a href="http://hueniverse.com" title="hueniverse">Home</a></li>
+        <li class="page_item page-item-1466"><a href="http://hueniverse.com/node-js/">Node.js</a></li>
+<li class="page_item page-item-500 current_page_ancestor"><a href="http://hueniverse.com/oauth/">OAuth</a></li>
+<li class="page_item page-item-594"><a href="http://hueniverse.com/xrd/">XRD</a></li>
+<li class="page_item page-item-592"><a href="http://hueniverse.com/webfinger/">WebFinger</a></li>
+<li class="page_item page-item-585"><a href="http://hueniverse.com/discovery/">Discovery</a></li>
+<li class="page_item page-item-1183"><a href="http://hueniverse.com/questions/">Got Questions?</a></li>
+      </ul>
+      <a href="http://hueniverse.com/feed/" class="rss" title="Subscribe to hueniverse RSS">Subscribe</a>
+      
+    </div>
+    
+  </div>
+
+  <div id="main-content" class="clearfix">  
+
+    <div class="container">
+
+      <div class="col-690 left">
+
+        
+          <div id="post-1042" class="post-1042 page type-page status-publish hentry">
+
+            <div class="post-meta clearfix">
+
+              <span class="post-super-title"><a href="http://hueniverse.com/oauth/guide/">The OAuth 1.0 Guide</a></span><br />
+              <h3 class="post-title left">
+                <a href="http://hueniverse.com/oauth/guide/workflow/" rel="bookmark" title="Permanent Link to Protocol Workflow">Protocol Workflow</a>
+              </h3>
+
+              <p class="post-info right">
+                Updated on July 15th, 2011              </p>
+
+            </div>
+
+            <div class="page-content">
+
+              <p>OAuth is best explained with real-life examples. The <a href="http://tools.ietf.org/html/rfc5849#section-1.2">specification introduction</a> includes a similar example but focuses on the HTTP calls syntax. This walk-through demonstrates a typical OAuth session and includes the perspectives of the resource owner, client, and server. The websites and people mentioned are fictional. The Scottish references are real. And so our story begins&#8230;</p>
+<p><img title="Flow Step 1" src="http://hueniverse.com/wp-content/uploads/2009/09/flow1g.png" alt="Flow Step 1" width="200" height="151" /></p>
+<blockquote dir="ltr"><p><em>Jane is back from her Scotland vacation. She spent 2 weeks on the island of Islay sampling Scotch. When she gets back home, Jane wants to share some of her vacation photos with her friends. Jane uses Faji, a photo sharing site, for sharing journey photos. She signs into her faji.com account, and uploads two photos which she marks private.</em></p></blockquote>
+<p>Using OAuth terminology, Jane is the resource owner and Faji the server. The 2 photos Jane uploaded are the protected resources.</p>
+<p><img title="Flow Screen 1" src="http://hueniverse.com/wp-content/uploads/2009/09/screen1.png" alt="Flow Screen 1" width="484" height="382" /></p>
+<blockquote dir="ltr"><p><em>After sharing her photos with a few of her online friends, Jane wants to also share them with her grandmother. She doesn&#8217;t want to share her rare bottle of Scotch with anyone. But grandma doesn&#8217;t have an internet connection so Jane plans to order prints and have them mailed to grandma. Being a responsible person, Jane uses Beppa, an environmentally friendly photo printing service.</em></p></blockquote>
+<p>Using OAuth terminology, Beppa is the client. Since Jane marked the photos as private, Beppa must use OAuth to gain access to the photos in order to print them.</p>
+<blockquote dir="ltr"><p><em>Jane visits beppa.com and begins to order prints. Beppa supports importing images from many photo sharing sites, including Faji. Jane selects the photos source and clicks Continue.</em></p></blockquote>
+<p><img title="Flow Screen 2" src="http://hueniverse.com/wp-content/uploads/2009/09/screen2.png" alt="Flow Screen 2" width="484" height="382" /></p>
+<p>When Beppa added support for Faji photo import, a Beppa developer known in OAuth as a client developer obtained a set of client credentials (client identifier and secret) from Faji to be used with Faji&#8217;s OAuth-enabled API.</p>
+<p>After Jane clicks Continue, something important happens in the background between Beppa and Faji. Beppa requests from Faji a set of temporary credentials. At this point, the temporary credentials are not resource-owner-specific, and can be used by Beppa to gain resource owner approval from Jane to access her private photos.</p>
+<p><a href="http://hueniverse.com/wp-content/uploads/2009/12/flow2grfc.png"><img class="alignnone size-full wp-image-1471" title="flow2grfc" src="http://hueniverse.com/wp-content/uploads/2009/12/flow2grfc.png" alt="" width="232" height="203" /></a></p>
+<blockquote dir="ltr"><p><em>Jane clicked Continue and is now waiting for her screen to change. She sips from her prized Black Bowmore while waiting for the next page to load.</em></p></blockquote>
+<p>When Beppa receives the temporary credentials, it redirects Jane to the Faji OAuth User Authorization URL with the temporary credentials and asks Faji to redirect Jane back once approval has been granted to http://beppa.com/order.</p>
+<p>Jane has been redirected to Faji and is requested to sign into the site. OAuth requires that servers first authenticate the resource owner, and then ask them to grant access to the client.</p>
+<blockquote dir="ltr"><p><em>Jane notices she is now at a Faji page by looking at the browser URL, and enters her username and password.</em></p></blockquote>
+<p><img title="Flow Screen 3" src="http://hueniverse.com/wp-content/uploads/2009/09/screen3.png" alt="Flow Screen 3" width="484" height="382" /></p>
+<p>OAuth allows Jane to keep her username and password private and not share them with Beppa or any other site. At no time does Jane enters her credentials into beppa.com.</p>
+<p>After successfully logging into Faji, Jane is asked to grant access to Beppa, the client. Faji informs Jane of who is requesting access (in this case Beppa) and the type of access being granted. Jane can approve or deny access.</p>
+<blockquote dir="ltr"><p><em>Jane makes sure Beppa is getting the limited access it needs. She does not want to allow Beppa to change her photos or do anything else to them. She also notes this is a onetime access good for one hour which should be enough time for Beppa to fetch her photos.</em></p></blockquote>
+<p><img title="Flow Screen 4" src="http://hueniverse.com/wp-content/uploads/2009/09/screen4.png" alt="Flow Screen 4" width="484" height="382" /></p>
+<p>Once Jane approves the request, Faji marks the temporary credentials as resource-owner-authorized by Jane. Jane’s browser is redirected back to Beppa, to the URL previously provided http://beppa.com/order together with the temporary credentials identifier. This allows Beppa to know it can now continue to fetch Jane&#8217;s photos.</p>
+<blockquote dir="ltr"><p><em>Jane waits for Beppa to present her with her photos fetched from her Faji account.</em></p></blockquote>
+<p><img title="Flow Screen 5" src="http://hueniverse.com/wp-content/uploads/2009/09/screen5.png" alt="Flow Screen 5" width="484" height="382" /></p>
+<p>While Jane waits, Beppa uses the authorized Request Token and exchanges it for an Access Token. Request Tokens are only good for obtaining User approval, while Access Tokens are used to access Protected Resources, in this case Jane&#8217;s photos. In the first request, Beppa exchanges the Request Token for an Access Token and in the second (can be multiple requests, one for a list of photos, and a few more to get each photo) request gets the photos.</p>
+<p><a href="http://hueniverse.com/wp-content/uploads/2009/12/flow3grfc.png"><img class="alignnone size-full wp-image-1472" title="flow3grfc" src="http://hueniverse.com/wp-content/uploads/2009/12/flow3grfc.png" alt="" width="276" height="233" /></a></p>
+<p>When Beppa is done, Jane&#8217;s browser refreshes to complete the order.</p>
+<p>Beppa successfully fetched Jane&#8217;s photo. They are presented as thumbnails for her to pick and place her order.</p>
+<blockquote dir="ltr"><p><em>Jane is very impressed how Beppa grabbed her photos without asking for her username and password. She likes what she sees and place the print order.</em></p></blockquote>
+<p><em><img title="Flow Screen 6" src="http://hueniverse.com/wp-content/uploads/2009/09/screen6.png" alt="Flow Screen 6" width="484" height="382" /><br />
+</em></p>
+<p>&nbsp;</p>
+<br/><iframe src="http://www.facebook.com/plugins/like.php?locale=en_US&href=http%3A%2F%2Fhueniverse.com%2Foauth%2Fguide%2Fworkflow%2F&amp;layout=standard&amp;show-faces=false&amp;width=450&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:450px; height:130px"></iframe> <div class='wdgpo wdgpo_standard_count'><g:plusone size='standard' count='true' href='http://hueniverse.com/oauth/guide/workflow/' ></g:plusone></div>
+              
+              
+            </div>
+
+            
+                <div class="page-nav">
+
+                  
+                      <div class="alignleft">
+                        <a href="http://hueniverse.com/oauth/guide/structure/">&laquo; Back to <em>Specification Structure</em></a>
+                      </div>
+                                            <div class="alignright">
+                      <a href="http://hueniverse.com/oauth/guide/security/">Continue to <em>Security Framework</em> &raquo;</a>
+                      </div>
+                      
+                  </div>
+                  <br />
+
+                  
+            
+            
+
+
+
+<div id="respond">
+
+  <div class="post-meta clearfix">
+    <h3 class="post-title-small left">Leave a Comment</h3>
+    <p class="post-info right">
+      <small><a rel="nofollow" id="cancel-comment-reply-link" href="/oauth/guide/workflow/#respond" style="display:none;">Click here to cancel reply.</a></small>
+    </p>
+  </div>
+
+  <div class="page-content">
+          <form action="http://hueniverse.com/wp-comments-post.php" method="post" id="commentform">
+                  <p><input type="text" name="author" id="author" value="" size="32" tabindex="1" class="input" aria-required='true' />
+          <label for="author"><small>Name (required)</small></label></p>
+          <p><input type="text" name="email" id="email" value="" size="32" tabindex="2" class="input" aria-required='true' />
+          <label for="email"><small>Mail (will not be published) (required)</small></label></p>
+          <p><input type="text" name="url" id="url" value="" size="32" tabindex="3" class="input" />
+          <label for="url"><small>Website</small></label></p>
+                <p><textarea name="comment" id="comment" cols="" rows="5" tabindex="4" class="input" style="width:95%; display:inline;"></textarea></p>
+        <p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+        <input type='hidden' name='comment_post_ID' value='1042' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+        </p>
+        <p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="43ecf26eba" /></p>      </form>
+      <br />
+      </div>
+  
+</div>
+
+
+<div id="comments" class="comment-content">
+
+      <ol class="commentlist clearfix">
+      		<li class="comment even thread-even depth-1" id="comment-34557">
+				<div id="div-comment-34557" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/c7b2ad1ec256cef8b6a22c9bff4b773a?s=40&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=PG' class='avatar avatar-40 photo' height='40' width='40' />		<cite class="fn">Giordano</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://hueniverse.com/oauth/guide/workflow/#comment-34557">
+			August 10, 2011 at 2:58 am</a>		</div>
+
+		<p>Very nice and clear explanation, thanks!</p>
+
+		<div class="reply">
+		<a class='comment-reply-link' href='/oauth/guide/workflow/?replytocom=34557#respond' onclick='return addComment.moveForm("div-comment-34557", "34557", "respond", "1042")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-35254">
+				<div id="div-comment-35254" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://1.gravatar.com/avatar/d230e7ed5eeca64a7eb459a7c113692b?s=40&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=PG' class='avatar avatar-40 photo' height='40' width='40' />		<cite class="fn">Karl B, Minn, MN</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://hueniverse.com/oauth/guide/workflow/#comment-35254">
+			September 15, 2011 at 12:40 pm</a>		</div>
+
+		<p>Thanks for the explanation &#8211; well illustrated and to the point.</p>
+
+		<div class="reply">
+		<a class='comment-reply-link' href='/oauth/guide/workflow/?replytocom=35254#respond' onclick='return addComment.moveForm("div-comment-35254", "35254", "respond", "1042")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-36367">
+				<div id="div-comment-36367" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/a468d55049f5e147b50b8c334f99ed1b?s=40&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=PG' class='avatar avatar-40 photo' height='40' width='40' />		<cite class="fn">mani</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://hueniverse.com/oauth/guide/workflow/#comment-36367">
+			November 11, 2011 at 2:42 am</a>		</div>
+
+		<p>excellent work flow shown.</p>
+
+		<div class="reply">
+		<a class='comment-reply-link' href='/oauth/guide/workflow/?replytocom=36367#respond' onclick='return addComment.moveForm("div-comment-36367", "36367", "respond", "1042")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-37507">
+				<div id="div-comment-37507" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://1.gravatar.com/avatar/fc89ec506742619faebf6d0ba4d65154?s=40&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=PG' class='avatar avatar-40 photo' height='40' width='40' />		<cite class="fn">Eddie</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://hueniverse.com/oauth/guide/workflow/#comment-37507">
+			January 21, 2012 at 2:09 am</a>		</div>
+
+		<p>Great demostration. But what happens if she revisits Beppa again? Does she have to go through the same process?</p>
+
+		<div class="reply">
+		<a class='comment-reply-link' href='/oauth/guide/workflow/?replytocom=37507#respond' onclick='return addComment.moveForm("div-comment-37507", "37507", "respond", "1042")'>Reply</a>		</div>
+				</div>
+		<ul class='children'>
+		<li class="comment byuser comment-author-eran bypostauthor even depth-2 parent" id="comment-37564">
+				<div id="div-comment-37564" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/28d0cb94cd9afcc9763dd64fea80a187?s=40&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=PG' class='avatar avatar-40 photo' height='40' width='40' />		<cite class="fn"><a href='http://hueniverse.com' rel='external nofollow' class='url'>Eran Hammer</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://hueniverse.com/oauth/guide/workflow/#comment-37564">
+			January 23, 2012 at 11:39 pm</a>		</div>
+
+		<p>That depends on how the client chooses to implement it. They can keep the access token and look it up using a session cookie. Also, the provider can also automatically redirect back without prompting the user to do it again.</p>
+
+		<div class="reply">
+		<a class='comment-reply-link' href='/oauth/guide/workflow/?replytocom=37564#respond' onclick='return addComment.moveForm("div-comment-37564", "37564", "respond", "1042")'>Reply</a>		</div>
+				</div>
+		<ul class='children'>
+		<li class="comment odd alt depth-3 parent" id="comment-38201">
+				<div id="div-comment-38201" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/abda84c3e6635de83adb30d73224f54c?s=40&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=PG' class='avatar avatar-40 photo' height='40' width='40' />		<cite class="fn">Franck</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://hueniverse.com/oauth/guide/workflow/#comment-38201">
+			February 26, 2012 at 9:11 pm</a>		</div>
+
+		<p>Keeping the access token would not help much since it&#8217;s valid for just 1 hour. (correct?)<br />
+When you say the provider (the server, Faji) can also  automatically redirect back&#8230;, do you mean it can use it&#8217;s own cookie (or other ways) to automatically authenticate the resource owner and redirect back to the Beppa site without loging in the Faji web-site? In that case, Jane would not know (I mean not explicitly like the first time) the second time that she gave access to the Beppa site, right?</p>
+
+		<div class="reply">
+		<a class='comment-reply-link' href='/oauth/guide/workflow/?replytocom=38201#respond' onclick='return addComment.moveForm("div-comment-38201", "38201", "respond", "1042")'>Reply</a>		</div>
+				</div>
+		<ul class='children'>
+		<li class="comment byuser comment-author-eran bypostauthor even depth-4 parent" id="comment-38228">
+				<div id="div-comment-38228" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/28d0cb94cd9afcc9763dd64fea80a187?s=40&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=PG' class='avatar avatar-40 photo' height='40' width='40' />		<cite class="fn"><a href='http://hueniverse.com' rel='external nofollow' class='url'>Eran Hammer</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://hueniverse.com/oauth/guide/workflow/#comment-38228">
+			February 28, 2012 at 12:41 am</a>		</div>
+
+		<p>Access tokens can last longer than 1 hour. It all depends on the server&#8217;s security policy. As for the blind redirect, yes, Jane will just see her photos appear without granting access again.</p>
+
+		<div class="reply">
+		<a class='comment-reply-link' href='/oauth/guide/workflow/?replytocom=38228#respond' onclick='return addComment.moveForm("div-comment-38228", "38228", "respond", "1042")'>Reply</a>		</div>
+				</div>
+		<ul class='children'>
+		<li class="comment odd alt depth-5" id="comment-38234">
+				<div id="div-comment-38234" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/abda84c3e6635de83adb30d73224f54c?s=40&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=PG' class='avatar avatar-40 photo' height='40' width='40' />		<cite class="fn">Franck</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://hueniverse.com/oauth/guide/workflow/#comment-38234">
+			February 28, 2012 at 10:03 am</a>		</div>
+
+		<p>which brings me to the following question. Let&#8217;s say I&#8217;ve been using the Faji site for some time and it remembers me each time I connect to it (I don&#8217;t need to provide my login/password before it&#8217;s keeping all needed on my computer). Would that mean, using the Beppa site to print my photos that even the first time, it would not ask me for my credential and I would in that case not be aware that I&#8217;m actually providing access to my resources to a third party? I did some test with different site and I think I saw that behavior. Off course the server could be implemented in a way that the first time it would ask for the credentials, but it doesn&#8217;t sounds like it&#8217;s what happening in the real world.<br />
+insight?</p>
+
+		<div class="reply">
+		<a class='comment-reply-link' href='/oauth/guide/workflow/?replytocom=38234#respond' onclick='return addComment.moveForm("div-comment-38234", "38234", "respond", "1042")'>Reply</a>		</div>
+				</div>
+		</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+		<li class="comment even thread-even depth-1" id="comment-37681">
+				<div id="div-comment-37681" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/82c284abbbaa10389d0bdece7e03268e?s=40&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=PG' class='avatar avatar-40 photo' height='40' width='40' />		<cite class="fn">Oleg Derid</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://hueniverse.com/oauth/guide/workflow/#comment-37681">
+			January 27, 2012 at 12:07 pm</a>		</div>
+
+		<p>Great example.</p>
+<p>From privacy point of view i would not like Beepa to fetch all my photos from Faji. We can see that Beepa fetches all photos, so from client perspective there is a concern that Beepa could fetch and catch on server side photos i wouldn&#8217;t like them to show.</p>
+<p>I think there is an architectural way to solve this problem:<br />
+   a. explicitly restrict some photos on Faji side (make them private, so that external party like Beepa can&#8217;t fetch them).<br />
+   b. when granting authorization on Faji side choose which photos to share.</p>
+
+		<div class="reply">
+		<a class='comment-reply-link' href='/oauth/guide/workflow/?replytocom=37681#respond' onclick='return addComment.moveForm("div-comment-37681", "37681", "respond", "1042")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-41127">
+				<div id="div-comment-41127" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://1.gravatar.com/avatar/fdc5a39ad3776fab3af7e17a3b8e009c?s=40&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=PG' class='avatar avatar-40 photo' height='40' width='40' />		<cite class="fn"><a href='http://mmscotland2012.shutterfly.com/pictures/8' rel='external nofollow' class='url'>Rich</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://hueniverse.com/oauth/guide/workflow/#comment-41127">
+			June 21, 2012 at 7:22 am</a>		</div>
+
+		<p>hah&#8230; what are the chances&#8230;? i just returned from a two-week trip to Scotland sampling high-end single malt scotch whiskies. i return to the US and begin researching federated security systems, including OAuth, and the first site i find is yours. probably the first tech tutorial ever to include references to a Scotland vacation, let alone collector-quality whiskies. i&#8217;m guessing you must have a single malt enthusiast on staff&#8230;?  <img src='http://hueniverse.com/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+<p>by the way, no one &#8220;sips from&#8221; a Black Bowmore&#8230;  <img src='http://hueniverse.com/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+		<a class='comment-reply-link' href='/oauth/guide/workflow/?replytocom=41127#respond' onclick='return addComment.moveForm("div-comment-41127", "41127", "respond", "1042")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-43023">
+				<div id="div-comment-43023" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://1.gravatar.com/avatar/3328c00e8489df4efb2b915f85650190?s=40&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=PG' class='avatar avatar-40 photo' height='40' width='40' />		<cite class="fn">Dominic</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://hueniverse.com/oauth/guide/workflow/#comment-43023">
+			August 1, 2012 at 1:47 am</a>		</div>
+
+		<p>Excellent illustration!</p>
+
+		<div class="reply">
+		<a class='comment-reply-link' href='/oauth/guide/workflow/?replytocom=43023#respond' onclick='return addComment.moveForm("div-comment-43023", "43023", "respond", "1042")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-45004">
+				<div id="div-comment-45004" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://1.gravatar.com/avatar/5fed0fb0530d0aba6c8c30f06f1f1d50?s=40&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=PG' class='avatar avatar-40 photo' height='40' width='40' />		<cite class="fn">Naina</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://hueniverse.com/oauth/guide/workflow/#comment-45004">
+			October 6, 2012 at 5:19 pm</a>		</div>
+
+		<p>Excellent (and entertaining) example! Thanks, you just made my life a little easier.</p>
+
+		<div class="reply">
+		<a class='comment-reply-link' href='/oauth/guide/workflow/?replytocom=45004#respond' onclick='return addComment.moveForm("div-comment-45004", "45004", "respond", "1042")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-45054">
+				<div id="div-comment-45054" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://1.gravatar.com/avatar/f4d2e05af672d61ccd9792322644f774?s=40&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=PG' class='avatar avatar-40 photo' height='40' width='40' />		<cite class="fn">vinay</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://hueniverse.com/oauth/guide/workflow/#comment-45054">
+			October 12, 2012 at 12:22 am</a>		</div>
+
+		<p>You made it very easy to understand..thank you..</p>
+
+		<div class="reply">
+		<a class='comment-reply-link' href='/oauth/guide/workflow/?replytocom=45054#respond' onclick='return addComment.moveForm("div-comment-45054", "45054", "respond", "1042")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-49162">
+				<div id="div-comment-49162" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://1.gravatar.com/avatar/1775c2f136917cec5881dadc28d74812?s=40&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=PG' class='avatar avatar-40 photo' height='40' width='40' />		<cite class="fn">Vishy Ranganath</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://hueniverse.com/oauth/guide/workflow/#comment-49162">
+			November 17, 2012 at 7:40 am</a>		</div>
+
+		<p>Thank you so much for this lucid explanation of the OAuth flow. I created a diagram to help understand the flow. Here is the link. It will be great if people can review it and point out any errors. Here is a link to the diagram:</p>
+<p><a href="https://sites.google.com/site/vishyranganath/home/announcements/firstpost/OAuth%20Process.jpg" rel="nofollow">https://sites.google.com/site/vishyranganath/home/announcements/firstpost/OAuth%20Process.jpg</a></p>
+<p>Thank you,<br />
+Vishy</p>
+
+		<div class="reply">
+		<a class='comment-reply-link' href='/oauth/guide/workflow/?replytocom=49162#respond' onclick='return addComment.moveForm("div-comment-49162", "49162", "respond", "1042")'>Reply</a>		</div>
+				</div>
+		</li>
+    </ol>
+    
+</div>
+
+
+          </div>
+
+        </div>
+
+        <div class="col-340 right">
+
+          <ul id="sidebar">
+            
+  <li id="featured-news">
+    
+    <h5>Resources &amp; Guides</h5>
+
+     <ul>
+
+       
+           <li class="clearfix">
+
+             <div class="sidebar-preview">
+               <a href="http://hueniverse.com/oauth/guide/" rel="bookmark" title="Permanent Link to The OAuth 1.0 Guide">
+                 <img src="http://hueniverse.com/wp-content/uploads/2009/12/OAuth-Book-Featured.png" style="width:109; height:60;" alt="The OAuth 1.0 Guide" />
+               </a>
+             </div>
+
+             <div class="sidebar-content">
+               <a href="http://hueniverse.com/oauth/guide/" rel="bookmark" title="Permanent Link to The OAuth 1.0 Guide">The OAuth 1.0 Guide</a>
+             </div>
+
+           </li>
+
+           
+     </ul>
+
+   </li>
+
+  
+  <li id="featured-news">
+    <h5>Featured Posts</h5>
+
+     <ul>
+
+       
+           <li class="clearfix">
+
+             <div class="sidebar-preview">
+               <a href="http://hueniverse.com/2009/11/how-we-interact-with-the-unknown/" rel="bookmark" title="Permanent Link to How We Interact With the Unknown">
+                 <img src="http://hueniverse.com/wp-content/uploads/2009/11/Teacher.png" style="width:109; height:60;" alt="How We Interact With the Unknown" />
+               </a>
+             </div>
+
+             <div class="sidebar-content">
+               <a href="http://hueniverse.com/2009/11/how-we-interact-with-the-unknown/" rel="bookmark" title="Permanent Link to Protocol Workflow">How We Interact With the Unknown</a>
+               <span>
+                 <a href="http://hueniverse.com/2009/11/how-we-interact-with-the-unknown//#comments" title="Read Comments">8 Comments</a>
+               </span>
+             </div>
+
+           </li>
+
+           
+           <li class="clearfix">
+
+             <div class="sidebar-preview">
+               <a href="http://hueniverse.com/2009/11/the-discovery-protocol-stack-redux/" rel="bookmark" title="Permanent Link to The Discovery Protocol Stack, Redux">
+                 <img src="http://hueniverse.com/wp-content/uploads/2009/11/stackicon.gif" style="width:109; height:60;" alt="The Discovery Protocol Stack, Redux" />
+               </a>
+             </div>
+
+             <div class="sidebar-content">
+               <a href="http://hueniverse.com/2009/11/the-discovery-protocol-stack-redux/" rel="bookmark" title="Permanent Link to Protocol Workflow">The Discovery Protocol Stack, Redux</a>
+               <span>
+                 <a href="http://hueniverse.com/2009/11/the-discovery-protocol-stack-redux//#comments" title="Read Comments">3 Comments</a>
+               </span>
+             </div>
+
+           </li>
+
+           
+           <li class="clearfix">
+
+             <div class="sidebar-preview">
+               <a href="http://hueniverse.com/2009/09/implementing-webfinger/" rel="bookmark" title="Permanent Link to Implementing WebFinger">
+                 <img src="http://hueniverse.com/wp-content/uploads/2009/09/Scaffolding.gif" style="width:109; height:60;" alt="Implementing WebFinger" />
+               </a>
+             </div>
+
+             <div class="sidebar-content">
+               <a href="http://hueniverse.com/2009/09/implementing-webfinger/" rel="bookmark" title="Permanent Link to Protocol Workflow">Implementing WebFinger</a>
+               <span>
+                 <a href="http://hueniverse.com/2009/09/implementing-webfinger//#comments" title="Read Comments">12 Comments</a>
+               </span>
+             </div>
+
+           </li>
+
+           
+           <li class="clearfix">
+
+             <div class="sidebar-preview">
+               <a href="http://hueniverse.com/2009/04/explaining-the-oauth-session-fixation-attack/" rel="bookmark" title="Permanent Link to Explaining the OAuth Session Fixation Attack">
+                 <img src="http://hueniverse.com/wp-content/uploads/2009/09/Broken-Token-Thumb.gif" style="width:109; height:60;" alt="Explaining the OAuth Session Fixation Attack" />
+               </a>
+             </div>
+
+             <div class="sidebar-content">
+               <a href="http://hueniverse.com/2009/04/explaining-the-oauth-session-fixation-attack/" rel="bookmark" title="Permanent Link to Protocol Workflow">Explaining the OAuth Session Fixation Attack</a>
+               <span>
+                 <a href="http://hueniverse.com/2009/04/explaining-the-oauth-session-fixation-attack//#comments" title="Read Comments">21 Comments</a>
+               </span>
+             </div>
+
+           </li>
+
+           
+           <li class="clearfix">
+
+             <div class="sidebar-preview">
+               <a href="http://hueniverse.com/2009/04/introducing-sign-in-with-twitter-oauth-style-connect/" rel="bookmark" title="Permanent Link to Introducing 'Sign-in with Twitter', OAuth-Style "Connect"">
+                 <img src="http://hueniverse.com/wp-content/uploads/2009/09/Twitter-Connect.gif" style="width:109; height:60;" alt="Introducing 'Sign-in with Twitter', OAuth-Style "Connect"" />
+               </a>
+             </div>
+
+             <div class="sidebar-content">
+               <a href="http://hueniverse.com/2009/04/introducing-sign-in-with-twitter-oauth-style-connect/" rel="bookmark" title="Permanent Link to Protocol Workflow">Introducing 'Sign-in with Twitter', OAuth-Style "Connect"</a>
+               <span>
+                 <a href="http://hueniverse.com/2009/04/introducing-sign-in-with-twitter-oauth-style-connect//#comments" title="Read Comments">19 Comments</a>
+               </span>
+             </div>
+
+           </li>
+
+           
+     </ul>
+
+   </li>
+
+          <li id="recent-news"><h5>Recent Posts</h5>
+     <ul>
+                          <li class="clearfix">
+                  <div class="sidebar-content-no-preview">
+           <a href="http://hueniverse.com/2012/12/hapi-a-prologue/" rel="bookmark" title="Permanent Link to hapi, a Prologue">hapi, a Prologue</a><br />
+           <span><a href="http://hueniverse.com/2012/12/hapi-a-prologue//#comments" title="Read Comments">1 Comment</a></span>
+         </div>
+       </li>
+                          <li class="clearfix">
+                  <div class="sidebar-content-no-preview">
+           <a href="http://hueniverse.com/2012/11/fuckoauth-realtimeconf/" rel="bookmark" title="Permanent Link to #fuckoauth @realtimeconf">#fuckoauth @realtimeconf</a><br />
+           <span><a href="http://hueniverse.com/2012/11/fuckoauth-realtimeconf//#comments" title="Read Comments">7 Comments</a></span>
+         </div>
+       </li>
+                          <li class="clearfix">
+                  <div class="sidebar-content-no-preview">
+           <a href="http://hueniverse.com/2012/07/on-leaving-oauth/" rel="bookmark" title="Permanent Link to On Leaving OAuth">On Leaving OAuth</a><br />
+           <span><a href="http://hueniverse.com/2012/07/on-leaving-oauth//#comments" title="Read Comments">23 Comments</a></span>
+         </div>
+       </li>
+                          <li class="clearfix">
+                  <div class="sidebar-content-no-preview">
+           <a href="http://hueniverse.com/2012/07/oauth-2-0-and-the-road-to-hell/" rel="bookmark" title="Permanent Link to OAuth 2.0 and the Road to Hell">OAuth 2.0 and the Road to Hell</a><br />
+           <span><a href="http://hueniverse.com/2012/07/oauth-2-0-and-the-road-to-hell//#comments" title="Read Comments">153 Comments</a></span>
+         </div>
+       </li>
+                          <li class="clearfix">
+                  <div class="sidebar-content-no-preview">
+           <a href="http://hueniverse.com/2012/01/you-me-and-node-walmartlabs/" rel="bookmark" title="Permanent Link to You, Me, and Node @WalmartLabs">You, Me, and Node @WalmartLabs</a><br />
+           <span><a href="http://hueniverse.com/2012/01/you-me-and-node-walmartlabs//#comments" title="Read Comments">0 Comments</a></span>
+         </div>
+       </li>
+                          <li class="clearfix">
+                  <div class="sidebar-content-no-preview">
+           <a href="http://hueniverse.com/2011/12/sled-yahoo-and-moving-on/" rel="bookmark" title="Permanent Link to Sled, Yahoo!, and Moving On">Sled, Yahoo!, and Moving On</a><br />
+           <span><a href="http://hueniverse.com/2011/12/sled-yahoo-and-moving-on//#comments" title="Read Comments">6 Comments</a></span>
+         </div>
+       </li>
+                          <li class="clearfix">
+                  <div class="sidebar-content-no-preview">
+           <a href="http://hueniverse.com/2011/12/is-the-party-winding-down-at-facebook/" rel="bookmark" title="Permanent Link to Is the Party Winding Down at Facebook?">Is the Party Winding Down at Facebook?</a><br />
+           <span><a href="http://hueniverse.com/2011/12/is-the-party-winding-down-at-facebook//#comments" title="Read Comments">3 Comments</a></span>
+         </div>
+       </li>
+                          <li class="clearfix">
+                  <div class="sidebar-content-no-preview">
+           <a href="http://hueniverse.com/2011/09/netflix-forcing-the-issue-too-soon/" rel="bookmark" title="Permanent Link to Netflix Forcing the Issue Too Soon">Netflix Forcing the Issue Too Soon</a><br />
+           <span><a href="http://hueniverse.com/2011/09/netflix-forcing-the-issue-too-soon//#comments" title="Read Comments">3 Comments</a></span>
+         </div>
+       </li>
+                          <li class="clearfix">
+                  <div class="sidebar-content-no-preview">
+           <a href="http://hueniverse.com/2011/09/the-unauthorized-node-knockout-2-awards/" rel="bookmark" title="Permanent Link to The Unauthorized Node Knockout #2 Awards">The Unauthorized Node Knockout #2 Awards</a><br />
+           <span><a href="http://hueniverse.com/2011/09/the-unauthorized-node-knockout-2-awards//#comments" title="Read Comments">2 Comments</a></span>
+         </div>
+       </li>
+                          <li class="clearfix">
+                  <div class="sidebar-content-no-preview">
+           <a href="http://hueniverse.com/2011/08/twitter-accounts/" rel="bookmark" title="Permanent Link to Twitter Accounts">Twitter Accounts</a><br />
+           <span><a href="http://hueniverse.com/2011/08/twitter-accounts//#comments" title="Read Comments">0 Comments</a></span>
+         </div>
+       </li>
+                          </ul>
+     <a href="http://hueniverse.com/feed/" class="sidebar-read-more-rss">RSS Feed &raquo;</a>
+   </li>
+        <li id="categories-3" class="widget widget_categories"><h5 class="widgettitle">Categories</h5>		<ul>
+	<li class="cat-item cat-item-3"><a href="http://hueniverse.com/category/architecture/" title="View all posts filed under Architecture">Architecture</a> (2)
+</li>
+	<li class="cat-item cat-item-4"><a href="http://hueniverse.com/category/cartoons/" title="View all posts filed under Cartoons">Cartoons</a> (7)
+</li>
+	<li class="cat-item cat-item-5"><a href="http://hueniverse.com/category/discovery/" title="View all posts filed under Discovery">Discovery</a> (36)
+</li>
+	<li class="cat-item cat-item-211"><a href="http://hueniverse.com/category/featured/" title="View all posts filed under Featured">Featured</a> (5)
+</li>
+	<li class="cat-item cat-item-20"><a href="http://hueniverse.com/category/guest-writer/" title="View all posts filed under Guest Writer">Guest Writer</a> (9)
+</li>
+	<li class="cat-item cat-item-7"><a href="http://hueniverse.com/category/microblogging/" title="View all posts filed under Microblogging">Microblogging</a> (20)
+</li>
+	<li class="cat-item cat-item-214"><a href="http://hueniverse.com/category/node-js/" title="View all posts filed under Node.js">Node.js</a> (8)
+</li>
+	<li class="cat-item cat-item-8"><a href="http://hueniverse.com/category/oauth/" title="View all posts filed under OAuth">OAuth</a> (67)
+</li>
+	<li class="cat-item cat-item-9"><a href="http://hueniverse.com/category/open-web/" title="View all posts filed under Open Web">Open Web</a> (28)
+</li>
+	<li class="cat-item cat-item-10"><a href="http://hueniverse.com/category/openid/" title="View all posts filed under OpenID">OpenID</a> (22)
+</li>
+	<li class="cat-item cat-item-215"><a href="http://hueniverse.com/category/opinions/" title="View all posts filed under Opinions">Opinions</a> (2)
+</li>
+	<li class="cat-item cat-item-210"><a href="http://hueniverse.com/category/personal/" title="View all posts filed under Personal">Personal</a> (4)
+</li>
+	<li class="cat-item cat-item-11"><a href="http://hueniverse.com/category/recap/" title="View all posts filed under Recap">Recap</a> (7)
+</li>
+	<li class="cat-item cat-item-213"><a href="http://hueniverse.com/category/sled/" title="View all posts filed under Sled">Sled</a> (6)
+</li>
+	<li class="cat-item cat-item-12"><a href="http://hueniverse.com/category/social-web/" title="View all posts filed under Social Web">Social Web</a> (9)
+</li>
+	<li class="cat-item cat-item-13"><a href="http://hueniverse.com/category/startup/" title="View all posts filed under Startup">Startup</a> (18)
+</li>
+	<li class="cat-item cat-item-14"><a href="http://hueniverse.com/category/sunday-reading/" title="View all posts filed under Sunday Reading">Sunday Reading</a> (8)
+</li>
+	<li class="cat-item cat-item-1"><a href="http://hueniverse.com/category/uncategorized/" title="View all posts filed under Uncategorized">Uncategorized</a> (2)
+</li>
+	<li class="cat-item cat-item-15"><a href="http://hueniverse.com/category/webfinger/" title="View all posts filed under WebFinger">WebFinger</a> (8)
+</li>
+	<li class="cat-item cat-item-17"><a href="http://hueniverse.com/category/work/" title="View all posts filed under Work">Work</a> (7)
+</li>
+	<li class="cat-item cat-item-16"><a href="http://hueniverse.com/category/xrd/" title="View all posts filed under XRD">XRD</a> (17)
+</li>
+		</ul>
+</li><li id="advanced_text-6" class="widget advanced_text"><div class='AdvancedText'><h5 class="widgettitle">Copyright License</h5><div style="padding: 0px 25px 0px 25px; text-align: center;">
+© 2006-2010 Hueniverse, LLC.
+<br />
+The site articles are licensed under a Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 United States License.
+<p></p>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" /></a>
+</div>
+<p></p></div></li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    
+  <div id="footer">
+
+    <div class="container clearfix">
+
+      <div class="about">
+        <h4>About hueniverse</h4>
+        <p class="about-text">
+          This is the technology blog of <a href="http://hueniverse.com/author/eran/">Eran Hammer</a>. A frequent contributor to OAuth, Discovery, XRD, and other emerging open specifications and standards. The opinions expressed in this blog are solely of their authors and do not necessarily reflect those of their employers. For more information read the <a href='http://hueniverse.com/disclaimer/'>full disclaimer</a>.
+        </p>
+        <p><br /></p>
+        <p style="text-align: center;">
+          <b>hueniverse</b> powered by WordPress and hosted by
+          <br />
+          <a href="http://mediatemple.net/"><img src="http://hueniverse.com/wp-content/uploads/2010/06/mt-logo.png" alt="(mt)" border="0" /></a>
+        </p>
+      </div>
+    
+    </div>
+  
+  </div>
+  
+  
+  <script id="aptureScript" type="text/javascript" src="http://www.apture.com/js/apture.js?siteToken=sPWqJqz" charset="utf-8"></script>
+
+<!-- Yahoo! Web Analytics - All rights reserved -->
+<script type="text/javascript" src="http://d.yimg.com/mi/ywa.js"></script>
+<script type="text/javascript">
+/*globals YWA*/
+var YWATracker = YWA.getTracker("10001797112662");
+/*
+YWATracker.setDocumentName("");
+YWATracker.setDocumentGroup("");
+*/
+YWATracker.submit();
+</script>
+<noscript>
+<div><img src="http://a.analytics.yahoo.com/p.pl?a=10001797112662&amp;js=no" width="1" height="1" alt="" /></div>
+</noscript>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2349963-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
+
