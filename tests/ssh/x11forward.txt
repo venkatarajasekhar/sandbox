@@ -1,0 +1,29 @@
+A special case of SSH tunneling is the protocol’s capacity to tunnel X connections. 
+In this case, the X server runs on the SSH client computer, 
+and the X clients (that is, the X programs you want to run) reside on the SSH server computer. 
+In this case, the SSH server does double duty as an SSH server and an X proxy server, 
+while the SSH client functions as an SSH client and an X proxy client. 
+To make this configuration work, X programs must know to connect to the SSH server’s X server instance 
+rather than the X server running on the local system. 
+The SSH server therefore connects to an appropriate X port and 
+sets the DISPLAY environment variable to point clients at this port.
+
+To work in this way, you must set appropriate options in the X server and X client configuration files. 
+In particular, check your /etc/ssh/ssh_config file for the following line:
+
+ForwardX11 yes
+
+If this line is set to no, change it to yes. 
+Alternatively, you can pass the -X parameter to ssh when you call it to enable X forwarding. 
+(That’s an uppercase -X; the lowercase -x option disables X forwarding!) 
+On the SSH server, check the /etc/ssh/sshd_config file for the following line:
+
+X11Forwarding yes
+
+As with the equivalent client option, be sure this server option is set to yes. 
+Also, be sure to check the correct files — ssh_config for the client and sshd_config for the server. 
+The one-character difference in filenames can be easy to miss.
+
+Once configured in this way, you should be able to connect to a remote Linux system via SSH 
+and immediately launch X programs from the command line. They’ll run on your local desktop 
+but be tunneled through SSH.
