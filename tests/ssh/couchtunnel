@@ -2,11 +2,15 @@
 
 
 
-#ssh -i ~/ssh/awskey.pem -N -L 9000:localhost:5984 ubuntu@50.17.252.189
+#ssh -i ~/ssh/awskey.pem -p 22 -N -L 9000:localhost:5984 ubuntu@50.17.252.189
+#
+# -N    Do not execute a command on the remote system
+# -p    Port on which the ssh server is running (on 50.17.252.189)
 
 # Create a turnel on the machine this script is run.
 # Every packet sent to 
-# (local machine) 127.0.0.1:9000 
+# (local machine) 127.0.0.1        <-- couchdb and ssh servers are the same machine
+# port 9000
 # are sent to the remote user
 # ubuntu@50.17.252.189
 # Whose in turn on the remote host try to connect itself at localhost:5984
@@ -19,3 +23,11 @@
 ssh -i ~/ssh/awskey.pem -N -L 5984:localhost:5984 ubuntu@50.17.252.189 -o TCPKeepAlive=no -o ServerAliveInterval=15
 
 # Seemless couchdb. Appears as local when indeed is remote!
+# All traffic sent to remote host is using SSL 
+#  -- make unsecure traffic ... secure 
+
+# ssh -L 2222:remote_host:22 your_user@your_firewall_machine
+# Q: 2222?  = local port 
+# Q: 22?    =   remote port
+# Q: Is firewall or proxy or gateway?
+# Q: On which port is the firewall listening to?

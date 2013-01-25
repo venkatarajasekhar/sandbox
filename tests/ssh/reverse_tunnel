@@ -1,0 +1,21 @@
+A reverse tunnel is when you are behind a firewall that has no SSH server, 
+but need to access it at a later date (be it minutes/hours/days later) 
+but don't want or have the ability to VPN in. 
+
+The idea: You establish the ssh tunnel by connecting to your remote ssh server.
+Later, from that remote ssh server, you can log back in.
+
+You would connect to your SSH server from that machine, 
+then reverse the tunnel by connecting to that open connection. 
+What do I use it for? 
+From time to time against a server, or even with friends and family with reverse 
+VNC sessions via SSH tunnels. 
+In this case they execute a putty saved session that logs into my ssh server as a certain user with no rights. 
+Once the tunnel is established, I can vnc to their machine in order to remote to them. i
+No more having them setup their firewall, or figure out log-me-in, or any of those other websites.
+
+So the steps to create a reverse SSH tunnel are as follows:
+
+From client machine: ssh -R remoteport:localhost:22 username@servername
+ex: ssh -R 2048:localhost:22 bob@mylinuxserver.xxx
+From server side (to re-establish the tunnel): ssh -p 2048 localhost
