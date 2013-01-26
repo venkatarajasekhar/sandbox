@@ -1,21 +1,41 @@
-A reverse tunnel is when you are behind a firewall that has no SSH server, 
-but need to access it at a later date (be it minutes/hours/days later) 
-but don't want or have the ability to VPN in. 
+#!/bin/sh
 
-The idea: You establish the ssh tunnel by connecting to your remote ssh server.
-Later, from that remote ssh server, you can log back in.
+# A reverse tunnel is when you are behind a firewall that has no SSH server, 
+# but need to access it at a later date (be it minutes/hours/days later) 
+# but don't want or have the ability to VPN in. 
+# 
+# The idea: 
+# You don't have a ssh server running in this private network
+# You establish the ssh tunnel by connecting to your remote ssh server.
+# Later, from that remote ssh server, you can log back in.
+# 
+# You would connect to your current machine from that ssh server, 
+# 
+# So the steps to create a reverse SSH tunnel are as follows:
+#
+# From client machine: ssh -R remoteport:localhost:22 username@servername
+# ex: ssh -R 2048:localhost:22 bob@mylinuxserver.xxx
+# From server side (to re-establish the tunnel): ssh -p 2048 localhost
 
-You would connect to your SSH server from that machine, 
-then reverse the tunnel by connecting to that open connection. 
-What do I use it for? 
-From time to time against a server, or even with friends and family with reverse 
-VNC sessions via SSH tunnels. 
-In this case they execute a putty saved session that logs into my ssh server as a certain user with no rights. 
-Once the tunnel is established, I can vnc to their machine in order to remote to them. i
-No more having them setup their firewall, or figure out log-me-in, or any of those other websites.
+#------------------------------------------------------------------------------ 
+# Reverse forwarding ports can be very useful if you are behind a firewall 
+# and you want to bypass the port filtering for incoming connections. 
+# A lot of firewalls only let you connect to the www port, 
+# but you just want to get some files from your favorite ftp server, what will you do?
+# Well, with port forwarding you just need one ssh server listening at the www port. 
+# Then you will make a first tunnel for connecting to the ftp_server:
 
-So the steps to create a reverse SSH tunnel are as follows:
+ssh -p 80 cascara@ssh_server -L 127.0.0.1:21:ftp_server:21
+# Standard tunnel:
+# ... cascara is a valid username on ssh_server
+# ... ssh_server was planted at destination site (private network)
+# ... So from remote machine, go through cascara first on port 80 
+# ... and forward ftp traffic  to ftp_server:21
 
-From client machine: ssh -R remoteport:localhost:22 username@servername
-ex: ssh -R 2048:localhost:22 bob@mylinuxserver.xxx
-From server side (to re-establish the tunnel): ssh -p 2048 localhost
+ssh -p 80 cascara@ssh_server -R 20:127.0.0.1:20
+# And you will need a second one for the active ftp connection (port 20):
+# Traffic received on port 20 of ssh_server
+# ... configure ssh_server using port 80 from current machine
+# ... tell ssh_server that every packet received on port 20 should be forwarded to my local server(?)
+# ... and forwarded to my 127.0.0.1 (localhost) port 20 
+

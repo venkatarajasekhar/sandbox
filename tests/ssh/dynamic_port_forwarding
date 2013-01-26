@@ -1,0 +1,10 @@
+#!/bin/sh
+
+Ok, the syntax:
+ssh -D host:port user@server
+host:port host or ip and port where the SOCKS proxy will listen
+user@server username and server to establish the ssh connection
+For example, if you want to get all your ftp (passive mode) traffic through the port 80 (you need one ssh server listening at home) your command line should look like this one:
+ ~$ ssh -p 80 -D 1234 cascara@ssh_server 
+and then launch your favorite ftp client with tsocks:
+ ~$ tsocks ftp

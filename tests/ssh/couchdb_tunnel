@@ -1,9 +1,6 @@
 #!/bin/sh
 
-
-
 #ssh -i ~/ssh/awskey.pem -p 22 -N -L 9000:localhost:5984 ubuntu@50.17.252.189
-#
 # -N    Do not execute a command on the remote system
 # -p    Port on which the ssh server is running (on 50.17.252.189)
 
@@ -25,9 +22,3 @@ ssh -i ~/ssh/awskey.pem -N -L 5984:localhost:5984 ubuntu@50.17.252.189 -o TCPKee
 # Seemless couchdb. Appears as local when indeed is remote!
 # All traffic sent to remote host is using SSL 
 #  -- make unsecure traffic ... secure 
-
-# ssh -L 2222:remote_host:22 your_user@your_firewall_machine
-# Q: 2222?  = local port 
-# Q: 22?    =   remote port
-# Q: Is firewall or proxy or gateway?
-# Q: On which port is the firewall listening to?
