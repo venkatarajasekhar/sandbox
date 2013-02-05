@@ -14,3 +14,45 @@ Q: What is a tree?
 A C-struct with X children pointers.
 Are sorted
 Lookups are slower that with hash table ie log(n) with n = number of element in a tree
+
+#----------------------------------------------------------------------
+# IPC
+
+Q: What is an IPC?
+Interprocess communication, i.e ways for processes to communicate
+
+Q: What are the 10 main IPC methods?
+File
+Signal
+socket
+Message queue
+Pipe                    - POSIX
+Named pipe              - POSIX
+Semaphore (and mutex)   - POSIX
+Shared memory           - POSIX
+Message passing         - aka shared nothing
+Memory-mapped file      - POSIX
+
+Q: File ?
+
+Q: Socket?
+Q: Message queue?
+Q: Pipe ?
+Q: Named pipe ?
+Q: Semaphore (and mutex) ?
+Mutex           = binary semaphore
+Reentrant mutex = Mutex with a count, where owner of lock can relock and increase count (recursive locking!)
+Semaphore       = Restaurant analogy
+
+Q: Shared memory ?
+Q: Message passing ?
+Q: Memory-mapped file ?
+
+#----------------------------------------------------------------------
+# Remote procedure calls (RPC)
+
+Q: What are RPCs?
+There implementation use sockets
+= Call a remote procedure/program
+Input parameters are well defined
+Ouput as well
