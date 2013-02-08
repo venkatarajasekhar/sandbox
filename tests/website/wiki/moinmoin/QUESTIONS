@@ -1,0 +1,185 @@
+#----------------------------------------------------------------------
+# INSTALLATION AND CONFIGURATION
+
+Q: How to install on ubuntu?
+
+apt-get install python-moinmoin
+cd /usr/share/moin
+sudo mkdir mywiki
+sudo cp -R data mywiki
+sudo cp -R underlay mywiki
+sudo cp server/moin.cgi mywiki
+sudo chown -R www-data.www-data mywiki
+sudo chmod -R ug+rwX mywiki
+sudo chmod -R o-rwx mywiki
+
+In /etc/moin/mywiki.py
+* data_dir = '/usr/share/moin/mywiki/data'
+* data_underlay_dir='/usr/share/moin/mywiki/underlay'
+
+apt-get install apache2
+vi /etc/apache2/sites-available/default
+### moin
+  ScriptAlias /mywiki "/usr/share/moin/mywiki/moin.cgi"
+  alias /moin_static184 "/usr/share/moin/htdocs"
+  <Directory /usr/share/moin/htdocs>
+  Order allow,deny
+  allow from all
+  </Directory>
+### end moin
+sudo /etc/init.d/apache2 restart
+
+Verification:
+http://localhost/mywiki
+
+Q: How to ad the help and search engine page ?
+Got to the LanguagePage, select your language and click on the download all_page link.
+The installation is automatic !
+
+Q: what are the important files ?
+/etc/moin/farmconfig.py  - global configuration files (for all wikis running on this machine )
+/etc/moin/mywiki.py     - wiki specific configuration file (delta from farmconfig.py)
+Note that mywiki.py is read because of the wikis list of tuples in farmconfig.py
+
+/usr/share/moin
+    - data      :   directory with wiki content
+    - underlay  :   static files that can be overwritten based on the content of data
+    - server    :   pick the server type (i.e moin.cgi in our case
+
+Q: Configuration parameters?
+http://moinmo.in/HelpOnConfiguration#pages
+
+Q: Change logo?
+sitename = u'Untiled Wiki'  # Name your wiki
+logo_string = u'<img src="/htdocs/common/moinmoin.png" alt="MoinMoin Logo">'
+In /etc/moin/mywiki.py
+
+#----------------------------------------------------------------------
+# ACL
+
+Q: Access control right ?
+In the mywiki.py configuration page, configure a super user as follow:
+acl_rights_before = u"EmmanuelMayssat:read,write,delete,revert,admin"
+This means that the user EmmanuelMayssat (login) has all the priviledge including admin  on the site (on every page of the site)
+That is EmmanuelMayssat cannot be locked out!
+
+!!! What is the superuser configuration entry ?
+
+Now to add acl to a specific page, when editing the page (with admin rights),
+you can add 
+#acl All:read
+and save the page.
+
+Thereafter the page is read only if you are not logged in.
+
+!!! Beware that 'All' start with uppercase A !!!
+
+Q: what are logged in accounts?
+Once logged in, you can 
+    AUTHENTICATION
+    * authenticate against acl.
+    PREFERENCE
+    * receive email notification
+    * change the default theme
+    USER EXPERIENCE
+    * path tracking (Like the back button in the browser, but this time through the application)
+    * quicklinks
+
+#----------------------------------------------------------------------
+# EDIT HELP
+
+Q: How to add an image to a wiki page?
+Add the page as an attachment to the corresponding page
+When editing the page:
+{{attachment:image.png}}        <-- inline
+[[attachment:image.png]]        <-- link to image
+
+
+Q: How to link 2 wiki pages together?
+Check Linking @ http://moinmo.in/HelpOnLinking
+The easiest way is to use a WikiName (CamelCase page name)
+FrontPage                                               - automated link (To avoid internal link: !FrontPage)
+/Subpage                                                - link to subpage
+[[attachment:image.png]]                                - link to attached image from local page
+[[attachment:SomePage/image.png]]                       - link to attached image from another wiki page
+[[http://example.net/|example site|target="_blank"]]    - external link
+[[#anchorname| anchor description]]                     - link to anchor
+
+Q: How to create and link to an anchor?
+<<Anchor(anchorname)>> inserts a link anchor anchorname
+[[#anchorname| anchor description]] 
+
+Q: How to include raw HTML in a page?
+Check MacroMarket at http://moinmo.in/MacroMarket/HTML
+[[HTML(<iframe src="http://petrolera.xarxa.net/inscrits.php?classe=N" _fcksavedurl=""http://petrolera.xarxa.net/inscrits.php?classe=N"" width="100%" height="600"></iframe>)]]
+<<HTML(<b>bold</b>)>>
+
+Q: How to create a download link for an attachment? (not tested!)
+With {{attachment:myfile.png|alias description|&do=get}} you can create a download link to an attachment.
+
+Q: How to create a table of content?
+Table of contents (up to 2nd level headings only):
+<<TableOfContents(2)>>      <-- 2 is depth of TOC
+= heading 1st level =
+== heading 2nd level ==
+=== heading 3rd level ===
+= heading 1st level =
+== heading 2nd level ==
+=== heading 3rd level ===
+
+Q: what are macros ?
+More @ http://moinmo.in/HelpOnMacros
+<<Anchor(anchorname)>> inserts a link anchor anchorname
+<<BR>> inserts a hard line break
+<<FootNote(Note)>> inserts a footnote saying Note
+<<Include(HelpOnMacros/Include)>> inserts the contents of the page HelpOnMacros/Include inline
+<<MailTo(user AT example DOT com)>> obfuscates the email address user@example.com to users not logged in
+
+
+Q: How to add comments to a wiki page?
+{{{#!wiki comment/dotted
+This is a wiki parser section with class "comment dotted" (see HelpOnParsers).
+
+Its visibility gets toggled the same way.
+}}}
+
+Q: How to show comments directly without having to click on 'comments' ?
+
+Q: How to add a comment to a page commit?
+Before clicking on save, enter a comment on the same page.
+Note that comments on that page are checking commments
+
+#----------------------------------------------------------------------
+# USER CUSTOMIZATION
+
+Q: How to setup email notification?
+
+Q: How to change the theme?
+Check  
+
+Q: What is a subpage?
+/SubPage or [[/sub page]]
+It is a page that is created in a subdirectory.
+The only particular thing about subpage is how they are accessible 
+
+!!! Several subpage can have the same name (as long as they don't have the same parent !!!
+
+
+#----------------------------------------------------------------------
+# NAVIGATION
+
+Q: How to find pages that link to a particlar page?
+http://moinmoin/wiki/AnotherPage?action=fullsearch&context=180&value=linkto%3A%22AnotherPage%22
+http://moinmoin/wiki/AnotherPage?action=fullsearch&context=180&value=linkto%3A%22AnotherPage%22&fullsearch=Text     <-- search content of articles (and display matching)
+http://moinmoin/wiki/AnotherPage?action=fullsearch&context=180&value=linkto%3A%22AnotherPage%22&titlesearch=Titles  <-- search (and display) titles only
+
+If there is only one, then when you click on the Title, it goes to it.
+Otherwise, it displays a list of pages and you can select one
+
+Q: What are quicklink?
+Creating a quick link for the page means that a tab is created and will stay in the tab bar until the quick link is disabled.
+To create a quicklink for AnotherPage:
+http://moinmoin/wiki/AnotherPage?action=quicklink
+
+Q: Sarch engine ?
+http://moinmo.in/HelpOnConfiguration#xapian
