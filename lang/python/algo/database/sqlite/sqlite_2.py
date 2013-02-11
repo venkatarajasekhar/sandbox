@@ -2,7 +2,7 @@
 
 from pysqlite2 import dbapi2 as sqlite
 
-connection = sqlite.connect('test.db')
+connection = sqlite.connect('sqlite.db')
 #memoryConnection = sqlite.connect(':memory:')
 
 
