@@ -1,0 +1,83 @@
+#!/usr/bin/env python  
+
+
+import sys, os
+import gobject 
+import pygst
+pygst.require('0.10')
+import gst
+from PyQt4.QtCore import *
+from PyQt4.QtGui import * 
+
+
+class GstreamerWidget(QWidget):
+     def __init__(self,parent=None):
+         super(GstreamerWidget,self).__init__(parent)
+         self.setWindowTitle('Video-Player')
+         self.button = QPushButton(self)
+         self.button.setText('Start')
+         self.connect(self.button, SIGNAL('clicked()'), self.start_stop)
+
+         self.videoWindow = QWidget(self)
+         self.videoWindow.setGeometry(QRect(30, 20, 256, 192))
+         self.videoWindow.setObjectName("videoWindow")
+         self.videoWindow.show()
+
+         self.videoWindowId=self.videoWindow.winId()
+
+         #Object has properties!!!
+         self.player_pipeline = gst.Pipeline('player')
+         self.video_source = gst.element_factory_make('videotestsrc', 'video-src')
+         self.video_sink = gst.element_factory_make('autovideosink', 'video-sink')
+         self.player_pipeline.add(self.video_source, self.video_sink)
+         gst.element_link_many(self.video_source, self.video_sink)
+         
+         self.bus = self.player_pipeline.get_bus()
+         self.bus.add_signal_watch()
+         self.bus.enable_sync_message_emission()
+         self.bus.connect('message', self.on_message)
+         self.bus.connect("sync-message::element", self.on_sync_message)
+
+     def start_stop(self):
+         if self.button.text() == 'Start':
+            self.button.setText('Stop')
+            self.player_pipeline.set_state(gst.STATE_PLAYING)
+         else:
+             self.player_pipeline.set_state(gst.STATE_NULL)
+             self.button.setText('Start')
+
+     def on_message(self, bus, message):
+         t = message.type
+         if t == gst.MESSAGE_EOS:
+             self.player_pipeline.set_state(gst.STATE_NULL)
+             self.button.setText('Start')
+         elif t == gst.MESSAGE_ERROR:
+             self.player_pipeline.set_state(gst.STATE_NULL)
+             err, debug = message.parse_error()
+             print '[ERROR] %s' % err, debug
+             self.button.setText('Start')
+
+     def on_sync_message(self, bus, message):
+         if message.structure is None:
+           return
+         message_name = message.structure.get_name()
+         if message_name == "prepare-xwindow-id":
+           imagesink = message.src
+           imagesink.set_property("force-aspect-ratio", True)
+           imagesink.set_xwindow_id(self.videoWindow.winId())
+
+if __name__ == '__main__':
+
+     gobject.threads_init()
+     qApp = QApplication(sys.argv)
+     scene= QGraphicsScene()
+     proxy=QGraphicsProxyWidget()
+     videoStream=GstreamerWidget()
+     #proxy=scene.addWidget(videoStream)
+     #view=QGraphicsView()
+     #view.setScene(scene)
+     #view.show()
+     videoStream.show()
+     sys.exit(qApp.exec_())
+
+
