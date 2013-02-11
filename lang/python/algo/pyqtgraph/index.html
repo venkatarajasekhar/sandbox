@@ -1,0 +1,140 @@
+<!--#include virtual="/include/doctype.html" -->
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <title>Luke Campagnola - Code</title>
+  </head>
+
+  <body>
+<!--#include virtual="/include/nav_small.html" -->
+<!--#include virtual="/include/ieWarning.html" -->
+
+
+    <div class="main">
+        <div style="font-size: 16pt; margin: 15px; text-align: center">PyQtGraph - Scientific Graphics Library</div>
+        <div style="float: right; padding: 5px; margin-left: 10px; width: 400px; border: 1px solid #446; text-align: center">
+            <a href="images/imageView.png"><img src="images/imageView_sm.png"></a><br>
+            Video analysis using ImageView widget. (taken from examples/ImageView.py)
+
+            <p><a href="images/plotting.png"><img src="images/plotting_sm.png"></a><br>
+            A variety of plotting capabilities. (taken from examples/Plotting.py)
+
+            <p><a href="images/volume.png"><img src="images/volume_sm.png"></a><br>
+            3D volumetric rendering (from examples/GLVolumeItem.py)
+
+
+            <p><a href="images/screenshot3.png"><img src="images/screenshot3_sm.png"></a><br>
+            A variety of ROI types. Each ROI selects data from the underlying image and redisplays it below. (taken from examples/test_ROItypes.py)
+
+            <p><a href="images/flowchart.png"><img src="images/flowchart_sm.png"></a><br>
+            Programmable flowcharts for fast prototyping.
+
+            <br><br>
+            For an example of pyqtgraph in use (and more screenshots), see <a href="/code/acq4/screenshots.html">ACQ4</a>
+        </div>
+        <div style="padding: 5px; margin-bottom: 10px; border: 1px solid #446; text-align: center;">
+            <b>pyqtgraph development version</b><br><br>
+            <a href="downloads/pyqtgraph-dev-r70_pyqt.tar.gz">Download pyqtgraph-dev rev. 70 for PyQt4</a><br>
+            <a href="downloads/pyqtgraph-dev-r70_pyside.tar.gz">Download pyqtgraph-dev rev. 70 for PySide</a><br><br>
+            Or branch the code from launchpad: <pre>bzr branch lp:~luke-campagnola/pyqtgraph/dev</pre>
+            
+            You can read the list of recent changes <a href="https://code.launchpad.net/~luke-campagnola/pyqtgraph/dev">here</a>.<br>
+            Older releases can be downloaded <a href="downloads/">here</a>.
+        </div><br>
+<!--        <div style="padding: 5px; margin-bottom: 10px; border: 1px solid #446;">
+            <center><b>pyqtgraph stable version</b></center>
+            <a href="downloads/pyqtgraph-r17.tar.gz">Download pyqtgraph rev. 17</a><br><br>
+            Or branch the code from launchpad: <pre>bzr branch lp:pyqtgraph</pre>
+        </div><br>-->
+        
+        <b>PyQtGraph</b> is a pure-python graphics library built on PyQt4 and numpy. It is intended for use in mathematics / scientific / engineering applications and was initially developed for the acq4 project. Despite being written entirely in python, the library is very fast due to its heavy leverage of numpy for number crunching and Qt's graphicsView framework for fast display. The library contains many widgets and graphicsItems, but most importantly includes 1) a highly feature-rich plotting system, and 2) an image display system with region-of-interest widgets.   <br>
+        
+        <p><b>Main Features:</b>
+        <ul>
+            <li><b>Basic 2D plotting in interactive view boxes</b></li>
+            <ul>
+                <li>Line and scatter plots
+                <li>Data can be panned/scaled by mouse
+                <li>Fast drawing for realtime data display and interaction
+            </ul>
+            <li><b>Image display with interactive lookup tables and level control</b></li>
+            <ul>
+                <li>Displays most data types (int or float; any bit depth; RGB, RGBA, or luminance)
+                <li>Functions for slicing multidimensional images at arbitrary angles (great for MRI data)
+                <li>Rapid update for video display or realtime interaction
+            </ul>
+            <li><b>3D graphics system</b> (requires Python-OpenGL bindings)</li>
+            <ul>
+                <li>Volumetric data rendering
+                <li>Mesh rendering with isosurface generation
+                <li>Interactive viewports rotate/zoom with mouse
+                <li>Basic 3D scenegraph for easier programming
+            </ul>
+            <li><b>Data selection/marking and region-of-interest controls</b></li>
+            <ul>
+                <li>Interactively mark vertical/horizontal locations and regions in plots
+                <li>Widgets for selecting arbitrary regions from images and automatically slicing data to match
+            </ul>
+            <li><b>Easy to generate new graphics</b></li>
+            <ul>
+                <li>2D graphics use Qt's GraphicsView framework which is highly capable and mature.
+                <li>3D graphics use OpenGL
+                <li>All graphics use a scenegraph for managing items; new graphics items are simple to create.
+            </ul>
+            <li><b>Library of widgets useful for science/engineering applications</b></li>
+            <ul>
+                <li>Flowchart widget for interactive prototyping. Interface similar to LabView (nodes connected by wires). 
+                <li>Parameter tree widget for displaying/editing hierarchies of parameters (similar to those used by most GUI design applications).
+                <li>Dock system allowing the user to rearrange GUI components. Similar to Qt's dock system but a little more flexible and programmable.
+                <li>Gradient editor
+                <li>SpinBox with SI-unit display and logarithmic stepping
+            </ul>
+        </ul>
+
+        <p><b>Installation:</b>
+        <div style="margin-left: 20px">
+            Pyqtgraph currently does not have (or really require) any installation scripts. 
+            All that is needed is for the pyqtgraph folder to be placed someplace importable. 
+            Most people will prefer to simply place this folder within a larger project folder.
+            If you want to make pyqtgraph available system-wide, copy the folder to one 
+            of the directories listed in python's sys.path list.
+        </div>
+
+
+        <p><b>Documentation:</b>
+        <div style="margin-left: 20px">
+            Partial documentation exists for pyside's developmental branch <a href="documentation/">here</a>. <br>
+            If you would like to request a specific section of documentation, please ask on the 
+            <a href="https://groups.google.com/forum/?fromgroups#!forum/pyqtgraph">forum</a>. 
+            There are also many examples to look through; for a menu of examples run:
+            <pre>    python -m pyqtgraph.examples</pre>
+        </div>
+
+        <p><b>Platforms:</b> PyQtGraph is known to run on Linux, Windows, and OSX using python 2.7 and PyQt 4.7 or PySide.<br>
+
+        <p><b>Support:</b> Please post to the <a href="https://groups.google.com/forum/?fromgroups#!forum/pyqtgraph">pyqtgraph forum</a> 
+              for help. (I know it's quiet in there; I just opened the forum. I'm listening, I promise.)
+
+        <p><b>How pyqtgraph compares to</b>:
+        <ul>  
+            <li><b>matplotlib</b>: For plotting, pyqtgraph is not nearly as complete/mature as matplotlib, but runs much faster. 
+                Matplotlib is more aimed toward making publication-quality
+                graphics, whereas pyqtgraph is intended for use in data acquisition and analysis applications. 
+                Matplotlib is more intuitive for matlab programmers; pyqtgraph is more intuitive for python/qt programmers.
+                Matplotlib (to my knowledge) does not include many of pyqtgraph's features such as image interaction,
+                volumetric rendering, parameter trees, flowcharts, etc. 
+            </li>
+            <li><b>pyqwt5</b>: About as fast as pyqwt5, but not quite as complete for plotting functionality. 
+                Image handling in pyqtgraph is much more complete (again, no ROI widgets in qwt). 
+                Also, pyqtgraph is written in pure python, so it is more portable than pyqwt, which often lags behind pyqt in development
+                (I originally used pyqwt, but decided it was too much trouble to rely on it as a dependency in my projects).
+                Like matplotlib, pyqwt (to my knowledge) does not include many of pyqtgraph's features such as image interaction,
+                volumetric rendering, parameter trees, flowcharts, etc.
+            </li>
+        </ul>
+        <div style="margin-left: 20px">[Please note: I have not used either of these libraries for some time; please let me know if this information is outdated.]</div>
+        
+        
+    </div>
+  </body>
+</html>

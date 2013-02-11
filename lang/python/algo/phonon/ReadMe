@@ -1,0 +1,17 @@
+/workspace/phonon
+epics2@cr1dev1 $ py phonon2.py 
+*** glibc detected *** /usr/libexec/gstreamer-0.10/gst-plugin-scanner: malloc(): memory corruption: 0x0000000000e53d20 ***
+*** glibc detected *** /usr/libexec/gstreamer-0.10/gst-plugin-scanner: malloc(): memory corruption: 0x0000000000e53d20 ***
+^Z
+[1]+  Stopped                 /usr/bin/python phonon2.py
+
+~/workspace/phonon
+epics2@cr1dev1 $ kill %1
+
+~/workspace/phonon
+epics2@cr1dev1 $ totem
+*** glibc detected *** /usr/libexec/gstreamer-0.10/gst-plugin-scanner: malloc(): memory corruption: 0x00000000020c9d20 ***
+*** glibc detected *** /usr/libexec/gstreamer-0.10/gst-plugin-scanner: malloc(): memory corruption: 0x00000000020c9d20 ***
+
+But totem works as root !
+
