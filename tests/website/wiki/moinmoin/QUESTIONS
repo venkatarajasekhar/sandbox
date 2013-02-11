@@ -35,6 +35,7 @@ http://localhost/mywiki
 Q: How to ad the help and search engine page ?
 Got to the LanguagePage, select your language and click on the download all_page link.
 The installation is automatic !
+Files are installed in .../mywiki/underlay directory as expected 
 
 Q: what are the important files ?
 /etc/moin/farmconfig.py  - global configuration files (for all wikis running on this machine )
@@ -183,3 +184,15 @@ http://moinmoin/wiki/AnotherPage?action=quicklink
 
 Q: Sarch engine ?
 http://moinmo.in/HelpOnConfiguration#xapian
+
+#----------------------------------------------------------------------
+# CMS
+
+Q: How to revert a page to a previous version?
+Go to page. Click on Info. Select 2 version to diff.
+There is a revert button.
+
+Q: How to delete/rename a page ?
+Check the More action button!
+
+
