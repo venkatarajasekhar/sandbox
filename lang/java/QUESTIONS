@@ -1,0 +1,13 @@
+Q: What are jar files?
+Jar files are gzipped java archive
+
+Q: What are war files?
+War files are jar file with the structure to be used as webapp in JSP (Java Server Page)
+
+Q: What is JSP?
+JSP = implementation by Sun of a Java web framework called Java Server Page
+JSP use the MVC (model, view, controller design)
+
+Q: What is Tomcat?
+Tomcat is the open source implementation of JSP.
+Like JSP, it uses WAR files.
