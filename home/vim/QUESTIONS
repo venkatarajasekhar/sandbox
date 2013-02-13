@@ -1,3 +1,14 @@
+!!! Note that vi and vim are different !!!
+vi is vim with backward compatibility
+
+vim can open war and zip files, while vi cannot !
+vim uses color coding while vi is back and white
+etc...
+
+
+#----------------------------------------------------------------------
+# COMMANDS
+
 Ctrl-u                  - undo
 Ctrl-r                  - to undo an undo
 Ctrl-V                  - visual mode
@@ -18,7 +29,7 @@ Ctrl-W -                - decrease size of current pane
 :only                   - close all but current active pane (no save)
 
 #----------------------------------------------------------------------
-# CONFIG
+# CONFIG (.vimrc)
 
 set tabstop=4           - tab move
 set shiftwidth=4        - >> move
