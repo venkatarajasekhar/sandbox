@@ -29,7 +29,9 @@ Ctrl-W -                - decrease size of current pane
 :only                   - close all but current active pane (no save)
 
 #----------------------------------------------------------------------
-# CONFIG (.vimrc)
+# CONFIG 
+# Local configuration files: ~/.vimrc, ~/.vim (plugin, etc)
+# Global configuration: /usr/share/vim/vim73/
 
 set tabstop=4           - tab move
 set shiftwidth=4        - >> move
