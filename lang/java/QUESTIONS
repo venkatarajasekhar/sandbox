@@ -1,8 +1,14 @@
 Q: What are jar files?
 Jar files are gzipped java archive
+unzip <file.jar>
+!!! Beware, the files are extrated directly in the current corwking directory !!!
+!!! You can edit jar files with vim !!!
 
 Q: What are war files?
 War files are jar file with the structure to be used as webapp in JSP (Java Server Page)
+unzip <file.war>
+!!! Beware, the files are extrated directly in the current corwking directory !!!
+!!! You can edit war files with vim !!!
 
 Q: What is JSP?
 JSP = implementation by Sun of a Java web framework called Java Server Page
@@ -11,3 +17,13 @@ JSP use the MVC (model, view, controller design)
 Q: What is Tomcat?
 Tomcat is the open source implementation of JSP.
 Like JSP, it uses WAR files.
+
+Q: Is JAVA a scripted language?
+No! It is compiled.
+As such if you edit your war, jar files, you will find the compiled version and not the source.
+While the .class files are binary, the  manifest files are xml (i.e disassembled).
+In the class file, you may also be able to edit text strings.
+
+Q: How to edit a .class file?
+
+

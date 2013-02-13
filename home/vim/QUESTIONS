@@ -1,0 +1,32 @@
+Ctrl-u                  - undo
+Ctrl-r                  - to undo an undo
+Ctrl-V                  - visual mode
+
+
+#----------------------------------------------------------------------
+# MULTI WINDOWS
+
+Ctrl-W n                - horizontal split with new file
+:split <filename>       - horizontal split, top is new file
+Ctrl-W Ctrl-W           - switch pane
+Ctrl-W <up>             - switch to pane up
+Ctrl-W <down>           - switch to pane down
+Ctrl-W +                - increase size of current pane
+Ctrl-W -                - decrease size of current pane
+
+:hide                   - close active pane (no save!)
+:only                   - close all but current active pane (no save)
+
+#----------------------------------------------------------------------
+# CONFIG
+
+set tabstop=4           - tab move
+set shiftwidth=4        - >> move
+set expandtab           - convert tab to spaces
+
+#----------------------------------------------------------------------
+# PLUGIN
+
+$ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+
