@@ -27,6 +27,8 @@ set expandtab           - convert tab to spaces
 #----------------------------------------------------------------------
 # PLUGIN
 
+Vundle is a plugin manager to install vim plug in from github automatically!
 $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+check the vimrc file for more details 
 
 
