@@ -17,6 +17,43 @@
 
 
 """""""""""""""""""""
+" Vundle
+"""""""""""""""""""""
+" Vundle = easy installation of vim pluggin from github !
+" To install Vundle: 
+" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+set nocompatible                    " be iMproved (vim ok, but not vi !)
+filetype off                        " required
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+" Project at https://github.com/gmarik/vundle URL
+" (same as) Bundle  'http://github.com/gmarik/vundle.git'
+Bundle 'gmarik/vundle'              
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'tpope/vim-rails.git'
+" vim-scripts repos
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+" non github repos
+" (no access) Bundle 'git://git.wincent.com/command-t.git'
+
+" :BundleInstall unite.vim      - installation by name
+" :BundleInstall!               - install or updates configured scripts
+" :BundleSearch foo             - 
+" :BundleList                   - list all installed bundles
+" let g:vundle_default_git_proto = 'git'    - use git proto instead of https
+
+"""""""""""""""""""""
 " Keyboard shortcuts
 """""""""""""""""""""
 "Note that everything on the map line is executed
