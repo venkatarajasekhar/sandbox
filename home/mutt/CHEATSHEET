@@ -1,0 +1,11 @@
+
+b           : bounce active email
+m           : new mail
+a           : create an alias using the email sender of active email
+
+#---------------------------------------------------------------------- 
+# WHILE READING EMAIL
+
+-           : scroll up
+<space>     : scroll down or go to next email
+
