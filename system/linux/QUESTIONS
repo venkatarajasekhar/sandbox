@@ -1,0 +1,5 @@
+Q: What is shm?
+Shared memory
+mount | grep shm
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
+cd /dev/shm/   <-- it is a filesystem !!!
