@@ -47,11 +47,17 @@ Bundle 'FuzzyFinder'
 " non github repos
 " (no access) Bundle 'git://git.wincent.com/command-t.git'
 
+"
+" Brief help
 " :BundleInstall unite.vim      - installation by name
 " :BundleInstall!               - install or updates configured scripts
 " :BundleSearch foo             - 
 " :BundleList                   - list all installed bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 " let g:vundle_default_git_proto = 'git'    - use git proto instead of https
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
 
 """""""""""""""""""""
 " Keyboard shortcuts
@@ -148,6 +154,7 @@ autocmd FileType python map <buffer> <leader>D ?def
 " abbreviations
 " corrections
 """""""""""""""
+" If you type the lhs + <space>, vim insert the rhs (right hand side)
 ab sefl     self
 ab w/       with
 ab #-       #----------------------------------------------------------------------
@@ -194,8 +201,8 @@ syntax on               "use color
 highlight LineNr        ctermfg=blue
 "highlight LineNr       ctermfg=white ctermbg=blue cterm=reverse
 "highlight link Define          LineNr
-"set bg=light           "char backgroun is white: adjust colors
-"set bg=dark            "term background is dark: adjust colors 
+"set bg=light           "char background is white: adjust FONT colors (darken them)
+set bg=dark            "term background is dark: adjust FONT colors (lighten them)
 
 ""set cursorline          "display an annoying line under cursor
 
@@ -210,7 +217,7 @@ set wrap!               "turn off word wrapping
 
 ""set mouse=a             "allow mouse in term (may not work!)
 
-set showmatch           "show closing bracket when on oen bracket, etc
+set showmatch           "show closing bracket when on a bracket, etc
 set vb t_vb=            "visual bell
 
 ""set lines=80            "reset terminal size

@@ -94,7 +94,7 @@ Ignoring files
 
 Git ignore
     cd <repo>
-    cd <dir_where_files_should not be checked>
+    cd <top_of_subdir_where_files_should not be checked>
     touch .gitignore
     echo '*.pyc' >> .gitignore 
 Global gitignore
@@ -105,4 +105,4 @@ Repo level exclude (Not checking in the repo)
     touch .git/info/exclude
     echo '*.pyc' >> .git/info/exclude
 
-!!! Files you don't want to monitor and that have ALREADY been checked in need to be removed with 'git rm <file>'
+!!! Fit les you don't want to monitor and that have ALREADY been checked in need to be removed with 'git rm <file>'
