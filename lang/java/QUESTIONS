@@ -13,6 +13,14 @@ unzip <file.jar>
 !!! Beware, the files are extrated directly in the current corwking directory !!!
 !!! You can edit jar files with vim !!!
 
+Q: How to run a file?
+To run SyncStaticContentHeadersFooters using /tmp/master_template.html as the master template like so
+
+java -cp ${TOMCAT_HOME}/webapps/mgmt/WEB-INF/classes \
+  org.epics.archiverappliance.mgmt.bpl.SyncStaticContentHeadersFooters \
+  /tmp/master_template.html \
+  ${TOMCAT_HOME}/webapps/mgmt/ui
+
 Q: How to run a jar file?
 
 Q: How to edit a .class file?

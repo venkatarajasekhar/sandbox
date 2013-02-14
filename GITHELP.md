@@ -26,6 +26,11 @@ To Setup user name and email (required), password caching (optional), and comman
     git config --global core.excludesfile ~/.gitignore_global
     git config -l				                            # show ~/.gitconfig and repo/.git/config contents
 
+To set the editor:
+    export GIT_EDITOR=vim
+or
+    export EDITOR=vim
+
 Iteract with a remote GIT repository
 ------------------------------------   
 
