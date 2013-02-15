@@ -5,6 +5,7 @@
 # INDEX MODE
 
 ?           : help
+F1          : manual to get started
 
 b           : bounce active email
 m           : new mail
@@ -17,6 +18,7 @@ q           : quit
 d           : mark active message for deletion
 u           : undelete active message
 w           : set flags of active message manually
+t           : tag current message
 
 NAVIGATION
 0-1         : jump to message number

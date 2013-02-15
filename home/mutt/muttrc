@@ -5,7 +5,9 @@
 set print_command = "a2ps -1 --font-size=12.0 --output=- | lpr -PHP-LaserJet-5100-Dtn-48"
 set print=ask-yes			# p to print
 
-set editor=vim
+# Use vim  as editor
+# but tweak the ~/.vimrc configuration for mutt
+set editor="vim -c 'set nohlsearch noshowmatch modelines=0 tw=75 et noai spell nonumber'"
 
 # Spell checking with F6 in vi
 # Require in .vimrc
