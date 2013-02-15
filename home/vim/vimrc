@@ -14,6 +14,8 @@
 "
 "input mapping (shortcuts) BEWARE: wait for completion
 "im #-       #----------------------------------------------------------------------
+"
+" More @ http://vimdoc.sourceforge.net/htmldoc/options.html
 
 
 """""""""""""""""""""
@@ -105,6 +107,12 @@ Bundle 'FuzzyFinder'
 "In operator pending mode
 "omap
 
+"
+" By File type
+"
+" :set filetype?            - to see the current filetype
+" :set filetype=python      - to manually set the current filetype
+" Note that the filetype is set automatically by vim 
 
 """""""""""""""
 " PYTHON FILES
@@ -119,7 +127,7 @@ autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,
 "remove final spaces
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
 
-" insert mode abraviations
+" insert mode abraviations (in insert mode only)
 autocmd FileType python inoremap <buffer> $r return
 autocmd FileType python inoremap <buffer> $i import
 autocmd FileType python inoremap <buffer> $p print
@@ -174,18 +182,21 @@ set shiftwidth=4        " Typing >> indent 4 spaces (<< does opposite)
 
 "set automated spell checking in English
 :setlocal spell spelllang=en
-set spell
+set spell               " activate spell check by default
+
+" Toggle spell check with <F7>
+nn <F7> :setlocal spell! spell?<CR>
 
 "Pressing ,ss will toggle and un-toggle spell checking
 "<leader> has been configured above as the , char
 ""map <leader>ss :setlocal spell!<cr>
-""map <leader>sn ]s
-""map <leader>sp [s
+""map <leader>sn ]s         " Go to next misspelled word
+""map <leader>sp [s         " Go to previous misspelled word
 " make suggestion
-""map <leader>s? z=
-" add in dictionary spellfile
+""map <leader>s? z=         " Make suggestion for misspelled word
 ""map <leader>sa zg
-""set spellfile=~/.vim/spellfile.add
+" add in dictionary spellfile
+set spellfile=~/.vim/spellfile.add
 
 " Meta up down for jump to next correction
 ""map <M-Down> ]s
@@ -206,7 +217,7 @@ set bg=dark            "term background is dark: adjust FONT colors (lighten the
 
 ""set cursorline          "display an annoying line under cursor
 
-set scrolloff=3         "3 lines offset when scrolling up/down
+set scrolloff=3         "3 lines offset at top and bottom when scrolling up/down
 
 set number              "line numbering on 
 "set nonumber           "line numbering off

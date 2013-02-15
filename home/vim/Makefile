@@ -6,4 +6,4 @@ clean:
 
 install:
 	ln -s `pwd` ~/.vim 
-	cp vimrc ~/.vimrc
+	ln -s ~/.vim/vimrc ~/.vimrc

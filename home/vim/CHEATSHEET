@@ -33,9 +33,13 @@ Ctrl-W -                - decrease size of current pane
 # Local configuration files: ~/.vimrc, ~/.vim (plugin, etc)
 # Global configuration: /usr/share/vim/vim73/
 
+set all                 - see all options (but terminal options)
+set termcap             - see all terminal options
 set tabstop=4           - tab move
+set tabstop?            - show tab stop value (true for every options)
 set shiftwidth=4        - >> move
 set expandtab           - convert tab to spaces
+set number              - put line numbers
 
 #----------------------------------------------------------------------
 # PLUGIN
