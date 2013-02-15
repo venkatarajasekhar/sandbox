@@ -110,5 +110,5 @@ Repo level exclude (Not checking in the repo)
     touch .git/info/exclude
     echo '*.pyc' >> .git/info/exclude
 
-!!! Fit les you don't want to monitor and that have ALREADY been checked in need to be removed with 'git rm <file>'
-!!! To remove a file without deleting it: 'git rm --cached <filename>'
+!!! To stop tracking a file and delete it: 'git rm <filename>'
+!!! To stop tracking a file without deleting it: 'git rm --cached <filename>'

@@ -13,6 +13,14 @@ Ctrl-u                  - undo
 Ctrl-r                  - to undo an undo
 Ctrl-V                  - visual mode
 
+# Spellcheck
+#setlocal spell spelllang=en_au
+z=                      - make suggestion
+zg                      - add word to dictionary
+zw                      - remove word from dictionary
+]s                      - go to next misspelled word
+[s                      - go to previous misspelled word
+
 
 #----------------------------------------------------------------------
 # MULTI WINDOWS
