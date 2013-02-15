@@ -5,7 +5,7 @@
 set print_command = "a2ps -1 --font-size=12.0 --output=- | lpr -PHP-LaserJet-5100-Dtn-48"
 set print=ask-yes			# p to print
 
-set editor=vi
+set editor=vim
 
 # Spell checking with F6 in vi
 # Require in .vimrc
@@ -13,7 +13,7 @@ set editor=vi
 # yum install aspell-en  (Dictionary)
 set ispell="/usr/bin/ispell"
 set postponed="$HOME/Mail/postponed"
-set signature="~/.mutt_signature"
+set signature="~/.mutt/signature"
 
 
 #----------------------------------------------------------------------
@@ -157,8 +157,8 @@ set use_from=yes
 set envelope_from="yes"
 set edit_headers = yes
 
-set alias_file=~/.mutt_aliases
-source ~/.mutt_aliases
+set alias_file=~/.mutt/aliases
+source ~/.mutt/aliases
 #----------------------------------------------------------------------
 #----------------------------------------------------------------------
 #----------------------------------------------------------------------

@@ -1,0 +1,4 @@
+Q: What are mutt modes?
+There are two modes in which mail is read in Mutt. 
+The first is the index of messages in the mailbox, which is called the ``index'' in Mutt. 
+The second mode is the display of the message contents. This is called the ``pager.''

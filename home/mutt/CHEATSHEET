@@ -1,11 +1,51 @@
 
+
+
+#----------------------------------------------------------------------
+# INDEX MODE
+
+?           : help
+
 b           : bounce active email
 m           : new mail
 a           : create an alias using the email sender of active email
+c           : change to a different mailbox 
+s           : save current email in a new folder
+r           : replay to active message
+g           : group reply to active message
+q           : quit
+d           : mark active message for deletion
+u           : undelete active message
+w           : set flags of active message manually
+
+NAVIGATION
+0-1         : jump to message number
+=           : jump to message 1 (Home)
+<tab>       : next new or unread message
+/           : search message for pattern
+<- ->       : prev / next message
+up - down   : prev / next page 
 
 #---------------------------------------------------------------------- 
-# WHILE READING EMAIL
+# PAGER MODE (WHILE READING EMAIL)
 
+^           : jump to beginning of message
 -           : scroll up
 <space>     : scroll down or go to next email
+$           : jump to end of message
+\           : toggle search coloring
+
+#---------------------------------------------------------------------- 
+# FLAGS
+
++           : message is to you and you only (no CC or other TO)
+T           : addressed directly to me
+F           : my email address is in the CC
+C
+r
+U
+D           : message marked for deletion
+d           : message with attachment marked for deletion
+N           : new unread message
+*           : message is tagged
 
