@@ -1,11 +1,75 @@
+#---------------------------------------------------------------------- 
+# DISK BOOT
+
+
+#---------------------------------------------------------------------- 
+# STORAGEi (RAM / DISK )
+
+Q: What is virtual memory?
+virtual memory = hardware RAM + swap space
+Swap 
+
+Q: What is a ramdisk?
+A virtual disk in the ram that is NEVER swapped to disk
+
+Q: What is a tmpfs?
+A ramdisk that can be swapped!
+
+Q: What is swap?
+The swap is a section of the hard disk drive that is used to swap the RAM.
+SWapping occurs when the RAM is more than 80% (?) full.
+Swapping = a section of the RAM is coping to the hard disk andi vice-versa
+cat /proc/swaps
+swapon -s
+free -m
+top
+
+Q: How much disk space should be used for Swap space?
+Rule of thumb:
+Swap space == Equal RAM size (if RAM < 8GB)
+Swap space == 0.50 times the size of RAM (if RAM > 8GB)
+The reality is the amount of swap space a system needs is not really a function 
+of the amount of RAM it has but rather the memory workload that is running on that system.
+
+
 Q: What is shm?
-Shared memory
+/dev/shm is a good place for separate programs to communicate with each other. 
+For example, one can implement a simple resource lock as a file in shared memory. 
+It is fast because there is no disk access (although swap may occasionally happen). 
 mount | grep shm
 tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
 cd /dev/shm/   <-- it is a filesystem !!!
+/dev/shm frees you up from having to implement shared memory blocks yourself. 
+You get (almost) all of the advantages of a shared memory block using stdio functions. 
+It also means that SIMPLE BASH SCRIPTS can use shared memory to communicate with each other.
+Everything done with shm could done with a “normal” file, but would be a slower.
+
+#----------------------------------------------------------------------
+# FILESYSTEM
+
+Q: What is a inode?
+tunefs? fsck?
+Q: What is a soft link / hard link?
+Q: Is a diretory a file?
+
+Q: What is /proc?
+
+Q: What is /sys ?
+Q: Wat is fuse? gvfs?
+
+Q: What is a volume group?
+/dev/mapper/vg_cr1dev1-lv_home on /home type ext4 (rw,relatime,data=ordered)
+
+
+#---------------------------------------------------------------------- 
+# COMMANDS
 
 Q: How to start a service?
 systemctl
 
 Q: How to burn a DVD?
+wodim
+
+Q: What 
+
 
