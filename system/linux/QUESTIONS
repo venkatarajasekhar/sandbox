@@ -3,3 +3,9 @@ Shared memory
 mount | grep shm
 tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
 cd /dev/shm/   <-- it is a filesystem !!!
+
+Q: How to start a service?
+systemctl
+
+Q: How to burn a DVD?
+
