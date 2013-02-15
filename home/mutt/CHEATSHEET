@@ -18,7 +18,14 @@ q           : quit
 d           : mark active message for deletion
 u           : undelete active message
 w           : set flags of active message manually
+G           : pop mails from mail server to spool file
+
+TAGS
 t           : tag current message
+T           : tag message matching
+Ctrl-T      : untag message matching
+;           : next command is applied to all tagged messages 
+ex: ; d will mark for deletion all tagged messages
 
 NAVIGATION
 0-1         : jump to message number
@@ -50,4 +57,46 @@ D           : message marked for deletion
 d           : message with attachment marked for deletion
 N           : new unread message
 *           : message is tagged
+i
+#---------------------------------------------------------------------- 
+# PATTERN SEARCHIMG
+#
+
+Many of Mutt's commands allow you to specify a pattern to match (limit, tag-pattern, delete-pattern, etc.). There are several ways to select messages:
+
+ ~A              all messages
+~b PATTERN      messages which contain PATTERN in the message body
+~B PATTERN      messages which contain PATTERN in the whole message
+~c USER         messages carbon-copied to USER
+~C PATTERN      message is either to: or cc: PATTERN
+~D              deleted messages
+~d [MIN]-[MAX]  messages with ``date-sent'' in a Date range
+~E              expired messages
+~e PATTERN      message which contains PATTERN in the ``Sender'' field
+~F              flagged messages
+~f USER         messages originating from USER
+~h PATTERN      messages which contain PATTERN in the message header
+~i ID           message which match ID in the ``Message-ID'' field
+~L PATTERN      message is either originated or received by PATTERN
+~l              message is addressed to a known mailing list
+~m [MIN]-[MAX]  message in the range MIN to MAX
+~n [MIN]-[MAX]  messages with a score in the range MIN to MAX
+~N              new messages
+~O              old messages
+~p              message is addressed to you (consults $alternates)
+~P              message is from you (consults $alternates)
+~Q              messages which have been replied to
+~R              read messages
+~r [MIN]-[MAX]  messages with ``date-received'' in a Date range
+~S              superseded messages
+~s SUBJECT      messages having SUBJECT in the ``Subject'' field.
+~T              tagged messages
+~t USER         messages addressed to USER
+~U              unread messages
+~x PATTERN      messages which contain PATTERN in the `References' field
+~z [MIN]-[MAX]  messages with a size in the range MIN to MAX
+Where PATTERN, USER, ID, and SUBJECT are regular expressions.
+
+ex: ~d 20/1/95-31/10 !(~t mutt|~c mutt) ~f emayssat
+ex: ~d <1m                                                              # No space between < and 1m
 
