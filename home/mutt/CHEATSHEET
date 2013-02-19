@@ -19,6 +19,7 @@ d           : mark active message for deletion
 u           : undelete active message
 w           : set flags of active message manually
 G           : pop mails from mail server to spool file
+o           : change sort email order in current mailbox
 
 TAGS
 t           : tag current message
