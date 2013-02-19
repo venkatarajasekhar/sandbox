@@ -1,0 +1,2 @@
+/usr/bin/mysqlshow -p mysql user
+

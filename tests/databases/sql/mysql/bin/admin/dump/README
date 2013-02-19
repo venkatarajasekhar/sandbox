@@ -1,0 +1,5 @@
+../../../bin/mysql -p 
+#drop database documents
+#create database documents
+#use documents
+#source documents.sql.daily.dump

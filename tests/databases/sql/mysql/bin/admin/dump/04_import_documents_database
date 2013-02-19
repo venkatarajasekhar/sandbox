@@ -1,0 +1,6 @@
+mysql -p  <<EOT
+drop database documents;
+create database documents;
+use documents;
+source ./documents.sql.daily.dump;
+EOT

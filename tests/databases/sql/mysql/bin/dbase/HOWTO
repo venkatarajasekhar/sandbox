@@ -1,0 +1,7 @@
+How to modify the document web interface?
+Check the ~apache/cgi-bin/document.cgi script.
+It uses the documents database.
+The document database is quite simple.
+Chek its dump file.
+--
+E

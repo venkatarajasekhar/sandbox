@@ -1,0 +1,227 @@
+-- MySQL dump 8.23
+--
+-- Host: localhost    Database: mysql
+---------------------------------------------------------
+-- Server version	3.23.58
+
+--
+-- Table structure for table `columns_priv`
+--
+
+CREATE TABLE columns_priv (
+  Host char(60) binary NOT NULL default '',
+  Db char(64) binary NOT NULL default '',
+  User char(16) binary NOT NULL default '',
+  Table_name char(64) binary NOT NULL default '',
+  Column_name char(64) binary NOT NULL default '',
+  Timestamp timestamp(14) NOT NULL,
+  Column_priv set('Select','Insert','Update','References') NOT NULL default '',
+  PRIMARY KEY  (Host,Db,User,Table_name,Column_name)
+) TYPE=MyISAM COMMENT='Column privileges';
+
+--
+-- Dumping data for table `columns_priv`
+--
+
+
+
+--
+-- Table structure for table `db`
+--
+
+CREATE TABLE db (
+  Host char(60) binary NOT NULL default '',
+  Db char(64) binary NOT NULL default '',
+  User char(16) binary NOT NULL default '',
+  Select_priv enum('N','Y') NOT NULL default 'N',
+  Insert_priv enum('N','Y') NOT NULL default 'N',
+  Update_priv enum('N','Y') NOT NULL default 'N',
+  Delete_priv enum('N','Y') NOT NULL default 'N',
+  Create_priv enum('N','Y') NOT NULL default 'N',
+  Drop_priv enum('N','Y') NOT NULL default 'N',
+  Grant_priv enum('N','Y') NOT NULL default 'N',
+  References_priv enum('N','Y') NOT NULL default 'N',
+  Index_priv enum('N','Y') NOT NULL default 'N',
+  Alter_priv enum('N','Y') NOT NULL default 'N',
+  Create_tmp_table_priv enum('N','Y') NOT NULL default 'N',
+  Lock_tables_priv enum('N','Y') NOT NULL default 'N',
+  PRIMARY KEY  (Host,Db,User),
+  KEY User (User)
+) TYPE=MyISAM COMMENT='Database privileges';
+
+--
+-- Dumping data for table `db`
+--
+
+
+INSERT INTO db VALUES ('localhost','documents','jrifkin','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','documents','rmurphy','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','%','www','Y','N','N','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','parts','oshulepov','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','parts','olipkind','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','parts','mwinfield','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','parts','dhaigh','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','parts','mgifford','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','parts','ablack','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','documents','jrifkin','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','documents','rmurphy','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','%','www','Y','N','N','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','parts','oshulepov','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','parts','olipkind','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','parts','bwoo','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','parts','bwoo','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','parts','mwinfield','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','parts','dhaigh','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','parts','mgifford','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','parts','ablack','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+
+--
+-- Table structure for table `func`
+--
+
+CREATE TABLE func (
+  name char(64) binary NOT NULL default '',
+  ret tinyint(1) NOT NULL default '0',
+  dl char(128) NOT NULL default '',
+  type enum('function','aggregate') NOT NULL default 'function',
+  PRIMARY KEY  (name)
+) TYPE=MyISAM COMMENT='User defined functions';
+
+--
+-- Dumping data for table `func`
+--
+
+
+
+--
+-- Table structure for table `host`
+--
+
+CREATE TABLE host (
+  Host char(60) binary NOT NULL default '',
+  Db char(64) binary NOT NULL default '',
+  Select_priv enum('N','Y') NOT NULL default 'N',
+  Insert_priv enum('N','Y') NOT NULL default 'N',
+  Update_priv enum('N','Y') NOT NULL default 'N',
+  Delete_priv enum('N','Y') NOT NULL default 'N',
+  Create_priv enum('N','Y') NOT NULL default 'N',
+  Drop_priv enum('N','Y') NOT NULL default 'N',
+  Grant_priv enum('N','Y') NOT NULL default 'N',
+  References_priv enum('N','Y') NOT NULL default 'N',
+  Index_priv enum('N','Y') NOT NULL default 'N',
+  Alter_priv enum('N','Y') NOT NULL default 'N',
+  Create_tmp_table_priv enum('N','Y') NOT NULL default 'N',
+  Lock_tables_priv enum('N','Y') NOT NULL default 'N',
+  PRIMARY KEY  (Host,Db)
+) TYPE=MyISAM COMMENT='Host privileges;  Merged with database privileges';
+
+--
+-- Dumping data for table `host`
+--
+
+
+
+--
+-- Table structure for table `tables_priv`
+--
+
+CREATE TABLE tables_priv (
+  Host char(60) binary NOT NULL default '',
+  Db char(64) binary NOT NULL default '',
+  User char(16) binary NOT NULL default '',
+  Table_name char(60) binary NOT NULL default '',
+  Grantor char(77) NOT NULL default '',
+  Timestamp timestamp(14) NOT NULL,
+  Table_priv set('Select','Insert','Update','Delete','Create','Drop','Grant','References','Index','Alter') NOT NULL default '',
+  Column_priv set('Select','Insert','Update','References') NOT NULL default '',
+  PRIMARY KEY  (Host,Db,User,Table_name),
+  KEY Grantor (Grantor)
+) TYPE=MyISAM COMMENT='Table privileges';
+
+--
+-- Dumping data for table `tables_priv`
+--
+
+
+INSERT INTO tables_priv VALUES ('localhost','documents','ablack','mo','root@localhost',20050829172739,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','documents','lensler','mo','root@localhost',20030820151554,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','parts','bwoo','datasheet','root@localhost',20030828165756,'Delete','');
+INSERT INTO tables_priv VALUES ('localhost','parts','olipkind','datasheet','root@localhost',20030828170011,'Delete','');
+INSERT INTO tables_priv VALUES ('localhost','parts','oshulepov','datasheet','root@localhost',20030828170026,'Delete','');
+INSERT INTO tables_priv VALUES ('localhost','documents','oshulepov','mo','root@localhost',20030909135321,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','documents','olipkind','es','root@localhost',20031103140943,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','documents','bwoo','es','root@localhost',20031105135337,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','documents','dhaigh','mo','root@localhost',20031230124819,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','documents','sbaum','mo','root@localhost',20060308142127,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','documents','restrada','mo','root@localhost',20060308142456,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','documents','barnold','mo','root@localhost',20060308142456,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','documents','bmoyle','mo','root@localhost',20060308142456,'Select,Insert,Update','');
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE user (
+  Host varchar(60) binary NOT NULL default '',
+  User varchar(16) binary NOT NULL default '',
+  Password varchar(16) binary NOT NULL default '',
+  Select_priv enum('N','Y') NOT NULL default 'N',
+  Insert_priv enum('N','Y') NOT NULL default 'N',
+  Update_priv enum('N','Y') NOT NULL default 'N',
+  Delete_priv enum('N','Y') NOT NULL default 'N',
+  Create_priv enum('N','Y') NOT NULL default 'N',
+  Drop_priv enum('N','Y') NOT NULL default 'N',
+  Reload_priv enum('N','Y') NOT NULL default 'N',
+  Shutdown_priv enum('N','Y') NOT NULL default 'N',
+  Process_priv enum('N','Y') NOT NULL default 'N',
+  File_priv enum('N','Y') NOT NULL default 'N',
+  Grant_priv enum('N','Y') NOT NULL default 'N',
+  References_priv enum('N','Y') NOT NULL default 'N',
+  Index_priv enum('N','Y') NOT NULL default 'N',
+  Alter_priv enum('N','Y') NOT NULL default 'N',
+  Show_db_priv enum('N','Y') NOT NULL default 'N',
+  Super_priv enum('N','Y') NOT NULL default 'N',
+  Create_tmp_table_priv enum('N','Y') NOT NULL default 'N',
+  Lock_tables_priv enum('N','Y') NOT NULL default 'N',
+  Execute_priv enum('N','Y') NOT NULL default 'N',
+  Repl_slave_priv enum('N','Y') NOT NULL default 'N',
+  Repl_client_priv enum('N','Y') NOT NULL default 'N',
+  ssl_type enum('','ANY','X509','SPECIFIED') NOT NULL default '',
+  ssl_cipher blob NOT NULL,
+  x509_issuer blob NOT NULL,
+  x509_subject blob NOT NULL,
+  max_questions int(11) unsigned NOT NULL default '0',
+  max_updates int(11) unsigned NOT NULL default '0',
+  max_connections int(11) unsigned NOT NULL default '0',
+  PRIMARY KEY  (Host,User)
+) TYPE=MyISAM COMMENT='Users and global privileges';
+
+--
+-- Dumping data for table `user`
+--
+
+
+INSERT INTO user VALUES ('localhost','root','2c20d5bd6ff371fc','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','www','510862d2708b95ba','Y','N','N','N','N','N','N','N','N','Y','N','N','N','N','Y','N','Y','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','jrifkin','65798b99165838a6','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','rmurphy','65798b99165838a6','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','olipkind','3deee44549e79390','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','bwoo','25df3ce4131953dd','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','mwinfield','32967fc76fbc4d28','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','dhaigh','55f101ec5585b44c','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','mgifford','10ab548f01984f67','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','ablack','1e9897ff1717f2f2','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','www','510862d2708b95ba','Y','N','N','N','N','N','N','N','N','Y','N','N','N','N','Y','N','Y','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','jrifkin','65798b99165838a6','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','rmurphy','7b3bd5655e7e6f70','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','olipkind','3deee44549e79390','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','bwoo','25df3ce4131953dd','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','mwinfield','32967fc76fbc4d28','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','dhaigh','55f101ec5585b44c','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','mgifford','10ab548f01984f67','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','ablack','1e9897ff1717f2f2','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','sbaum','171f43c014c5d76f','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','restrada','453a0783005c6e44','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','barnold','453a0783005c6e44','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','bmoyle','52dbe9b657e7e841','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','N','N','N','N','N','N','N','','','','',0,0,0);
+

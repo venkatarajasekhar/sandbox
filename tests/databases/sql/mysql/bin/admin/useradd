@@ -1,0 +1,22 @@
+#!/bin/sh
+
+
+
+#NOTE so far I always had to edit the dump file 
+# This script doesn't seem to work
+# E 2/2/2007
+/usr/bin/mysql -u root -p mysql <<EOT
+connect mysql;
+show tables;
+
+select * from user where User='barnold';
+
+GRANT ALL PRIVILEGES ON *.* TO 'barnold'@'localhost' IDENTIFIED BY 'passwd' WITH GRANT OPTION;
+
+select * from user where User='barnold';
+
+#Allow access to table mo in database documents
+INSERT INTO tables_priv VALUES ('localhost','documents','barnold','mo','root@localhost',20060308142456,'Select,Insert,Update','');
+
+
+EOT

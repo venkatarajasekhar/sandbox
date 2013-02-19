@@ -1,0 +1,3 @@
+/usr/bin/mysqladmin -u root -p ping
+/usr/bin/mysqladmin -u root -p status
+/usr/bin/mysqladmin -u root -p processlist

@@ -1,0 +1,8 @@
+rm /tmp/bugtracker.sql.daily.dump
+mysqldump -p bugtracker > /tmp/bugtracker.sql.daily.dump
+cp /tmp/bugtracker.sql.daily.dump ./
+
+#This database was deleted
+#rm /tmp/bugs.sql.daily.dump
+#mysqldump -p bugs > /tmp/bugs.sql.daily.dump
+#cp /tmp/bugs.sql.daily.dump ./

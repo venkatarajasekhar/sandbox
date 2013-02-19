@@ -1,0 +1,3 @@
+#should login as root (or current user)
+
+mysql -p 

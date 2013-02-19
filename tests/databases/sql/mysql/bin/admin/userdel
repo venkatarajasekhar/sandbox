@@ -1,0 +1,8 @@
+#!/bin/sh
+
+../../bin/mysql -u root -p <<EOT
+connect mysql;
+delete from user where User='emayssat' and Host='localhost';
+flush privileges;
+quit;
+EOT

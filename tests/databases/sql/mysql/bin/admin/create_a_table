@@ -1,0 +1,12 @@
+
+use documents;
+
+CREATE TABLE `qa` (
+    ->   `id` int(11) NOT NULL AUTO_INCREMENT,
+    ->   `descrip` varchar(255) DEFAULT NULL,
+    ->   `ts` datetime DEFAULT NULL,
+    ->   `username` varchar(25) DEFAULT NULL,
+    ->   `status` char(1) DEFAULT NULL,
+    ->   UNIQUE KEY `idx1` (`id`)
+    -> ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+

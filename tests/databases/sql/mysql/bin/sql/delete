@@ -1,0 +1,3 @@
+use document
+delete from ca <- delete all the row in ca
+delete from es where id=7; <- delete specific row 

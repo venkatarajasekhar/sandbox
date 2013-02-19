@@ -1,0 +1,3444 @@
+id|description|username|status
+
+bd|1|test|jrifkin|A|
+bd|2|RF System Interconnects|m.winfield|A|
+bd|3|bpm system block diagram|o.lipkind|A|
+bd|4|data aquisition system|m.winfield|A|
+bd|5|kicker magnet system|m.winfield|A|
+bd|6|WATER COOLING SYSTEM|jrifkin|A|
+bd|7|AC POWER INFRASTRUCTURE|jrifkin|A|
+bd|8|vacuum system interconnects|jrifkin|A|
+bd|9|rf power interconnect diagram|o.lipkind|A|
+bd|10|cls network infrastructure|jrifkin|A|
+bd|11|LTI network infrastructure|jrifkin|A|
+bd|12|Device names - ring|jrifkin|A|
+bd|13|test|rmurphy|A|
+
+ca|1|unipolar controller adc cable|b.woo|A|
+ca|2|unipolar controller dac cable|b.woo|A|
+ca|3|bipolar controller adc cable|b.woo|A|
+ca|4|bipolar controller dac cable|b.woo|A|
+ca|5|bpm dac/adc cable harness #1|b.woo|A|
+ca|6|bpm dac/adc cable harness #2|b.woo|A|
+ca|7|bpm dac/adc cable harness #3|b.woo|A|
+ca|8|bpm dac/adc cable harness #4|b.woo|A|
+ca|9|kicker_dac_master|m.winfield|A|
+ca|10|kicker_dac_slave|m.winfield|A|
+ca|11|kicker_dc_power|m.winfield|A|
+ca|12|kicker_data_cntrl_master_w3|m.winfield|A|
+ca|13|kicker_data_cntrl_slave_w4|m.winfield|A|
+ca|14|kicker_power_master_w1|m.winfield|A|
+ca|15|kicker_power_slave_w2|m.winfield|A|
+ca|16|kicker_slave_trig_input_w6|m.winfield|A|
+ca|17|kicker_slave_trig_input_w7|m.winfield|A|
+ca|18|kicker_trig_input_w5|m.winfield|A|
+ca|19|kicker_magnet_brd_dc_cbl|m.winfield|A|
+ca|20|kicker_magnet_brd_trigger_cbl|m.winfield|A|
+ca|21|kicker_magnet_hv_master|m.winfield|A|
+ca|22|kicker_magnet_brd_hv_slave|m.winfield|A|
+ca|23|w1, ext_trgr_2|m.winfield|A|
+ca|24|W2, EXT_TRGR_|m.winfield|A|
+ca|25|W3, 120_Hz_IN|m.winfield|A|
+ca|26|W4, 64.9_MHz_IN|m.winfield|A|
+ca|27|W5, LD_PUMP|m.winfield|A|
+ca|28|W6, INJ_FRWRD_RF_RST|m.winfield|A|
+ca|29|W7, INJ_RFLCTD_RF_RST|m.winfield|A|
+ca|30|W8, KICKER_TRGR_ENBL|m.winfield|A|
+ca|31|W9, REGEN_EXTRCT_ENBL|m.winfield|A|
+ca|32|W10, REGEN_STRT_ENBL|m.winfield|A|
+ca|33|W11, RF_GATE|m.winfield|A|
+ca|34|W12, REF_RF_SW_CNTRL(+)|m.winfield|A|
+ca|35|W13, REF_RF_SW_CNTRL(-)|m.winfield|A|
+ca|36|W14, REF_SWP_PLS_1|m.winfield|A|
+ca|37|W15, REF_SWP_PLS_2|m.winfield|A|
+ca|38|W16, REF_SWP_PLS_3|m.winfield|A|
+ca|39|W17, REF_SWP_PLS_4|m.winfield|A|
+ca|40|W18, REF_SWP_PLS_5|m.winfield|A|
+ca|41|W19, REF_SWP_PLS_6|m.winfield|A|
+ca|42|W20, MOD_1_TRGR|m.winfield|A|
+ca|43|W21, MOD_2_TRGR|m.winfield|A|
+ca|44|W22, MOD_3_TRGR|m.winfield|A|
+ca|45|W23, RING_BPM_RST|m.winfield|A|
+ca|46|W24, RING_ADC_CLK|m.winfield|A|
+ca|47|W25, RING_WFM_STRT|m.winfield|A|
+ca|48|W26, INJ_BPM_RST|m.winfield|A|
+ca|49|W27, INJ_ADC_CLK|m.winfield|A|
+ca|50|W28, INJ_WFM_STRT|m.winfield|A|
+ca|51|PROFILE_MONITOR_DRIVE|m.winfield|A|
+ca|52|PROFILE_MONITOR_LIMIT_SWITCH|m.winfield|A|
+ca|53|CXS_LIMIT_SWITCH|m.winfield|A|
+ca|54|CXS_MTR_DRIVE|m.winfield|A|
+ca|55|ENDSTATION_DRIVE|m.winfield|A|
+ca|56|ENDSTATION LIMIT_SWITCH|m.winfield|A|
+ca|57|DC_ACTUATOR_CNTRL|m.winfield|A|
+ca|58|CHASSIS_CXS_ENDSTN_DRIVE|m.winfield|A|
+ca|59|CHASSIS_CXS_ENDSTN_LIMIT_SWITCH|m.winfield|A|
+ca|60|CHASSIS_CXS_MTR_DRIVE|m.winfield|A|
+ca|61|CHASSIS_PROFILE_MONITOR_DRIVE|m.winfield|A|
+ca|62|CHASSIS_PROFILE_MONITOR_LIMIT_SWITCH|m.winfield|A|
+ca|63|CHASSIS_DC_ACTUATOR_CNTRL|m.winfield|A|
+ca|64|chassis_cxs_limit switch|m.winfield|A|
+ca|65|bpm_adc|o.lipkind|A|
+ca|66|bpm_dac|o.lipkind|A|
+ca|67|bpm chassis, dc power out|m.winfield|A|
+ca|68|bpm chassis, if control|m.winfield|A|
+ca|69|rf diagnostics, dc power|m.winfield|A|
+ca|70|if distribution, dc power|m.winfield|A|
+ca|71|if distribution, control|m.winfield|A|
+ca|72|TSDG, Serial Communication|m.winfield|A|
+ca|73|bpm chassis, trigger input|m.winfield|A|
+ca|74| injector laser  - motor controller cable|m.winfield|A|
+ca|75| regen amplifier  - motor controller cable|m.winfield|A|
+ca|76|chassis_shutter cable harness|m.winfield|A|
+ca|77|M^2 cable assy|m.winfield|A|
+ca|78|klixon long haul cable|jrifkin|A|
+ca|79|power supply enables|jrifkin|A|
+ca|80|ips chiller|jrifkin|A|
+ca|81|emergency off button|jrifkin|A|
+ca|82|l-band amplifier ps enable|jrifkin|A|
+ca|83|wg gas pressure switch|jrifkin|A|
+ca|84|radiation monitor cable type a|jrifkin|A|
+ca|85|radiation monitor cable type b|jrifkin|A|
+ca|86|cathode cleaning status protection|jrifkin|A|
+ca|87|klystron solenoid ps enable|jrifkin|A|
+ca|88|optical cavity ps enable|jrifkin|A|
+ca|89|annunciator lights|jrifkin|A|
+ca|90|ips chiller cable type b|jrifkin|A|
+ca|91|ips - ion pump ps|jrifkin|A|
+ca|92|klystron solenoide current sensor|jrifkin|A|
+ca|93|modulator enable and solenoide flow switch|jrifkin|A|
+ca|94|enclosure door microswitch|jrifkin|A|
+ca|95|s-band amplifier enable|jrifkin|A|
+ca|96|ips klystron vacuum|jrifkin|A|
+ca|97|cathode cleaning protection|jrifkin|A|
+ca|98|vacuum system ip cntrlr-adc|m.winfield|A|
+ca|99|dac-llrf chassis|m.winfield|A|
+ca|100|j-box to optcl crctn assy|m.winfield|A|
+ca|101|j-box to stgmtsm assy|m.winfield|A|
+ca|102|j-box to optcl cvty trnsprt - diagnostic a assy|m.winfield|A|
+ca|103|j-box linear stage assy|m.winfield|A|
+ca|104|regen amp ps cable|jrifkin|A|
+ca|105|bpm chassis, ring if control|m.winfield|A|
+ca|106|damping cavity dc power|m.winfield|A|
+ca|107|laser pwr sply chassis to blk ps|jrifkin|A|
+ca|108|laser PS chassis to injector laser|m.winfield|A|
+ca|109|optical cavity sys TEC control cable|m.winfield|A|
+ca|110|j-box to regen amp|m.winfield|A|
+ca|111|cxs motor controller 4 ch dc motor|m.winfield|A|
+ca|112|cxs motor controller 2 ch dc motor|m.winfield|A|
+ca|113|cxs motor controller to inj laser chassis|m.winfield|A|
+ca|114|cxs motor controller to jbox|m.winfield|A|
+ca|115|j-box to m^2 lens actuator|m.winfield|A|
+ca|116|j-box to m^2 camera stpr mtr|m.winfield|A|
+ca|117|camera power and video adaptor|m.winfield|A|
+ca|118|m^2 assy camera|m.winfield|A|
+ca|119|jbox to cavity laser J1|m.winfield|A|
+ca|120|jbox to optical cavity transport J9|m.winfield|A|
+ca|121|jbox to optical cavity J2|m.winfield|A|
+ca|122|terminal block to optical cavity laser|m.winfield|A|
+ca|123|optical cavity laser power control harness|m.winfield|A|
+ca|124|endstation stepper|m.winfield|A|
+ca|125|endstation limit switch|m.winfield|A|
+ca|126|2 channel dc motor|m.winfield|A|
+ca|127|3 channel dc motor|m.winfield|A|
+ca|128|vacuum chamber steppers|m.winfield|A|
+ca|129|vacuum chamber limit switch|m.winfield|A|
+ca|130|controller-upbeam jbox stepper|m.winfield|A|
+ca|131|controller-upbeam jbox dc motor|m.winfield|A|
+ca|132|controller-downbeam&endstation- jbox|m.winfield|A|
+ca|133|controller-bender|m.winfield|A|
+ca|134|jbox-slit assembly|m.winfield|A|
+ca|135|jbox-upbeam dc motor|m.winfield|A|
+ca|136|jbox-stepper|m.winfield|A|
+ca|137|jbox-endstation stepper|m.winfield|A|
+ca|138|vcm chmber upbm stpr|m.winfield|A|
+ca|139|vcm chmber upbm lmt swtch|m.winfield|A|
+ca|140|1.	RG-316 CABLE- SMA_R/A to WIRE LEADS|M. Winfield|A|
+ca|141|RG-316 CABLE- SMA_STR TO WIRE LEADS|M. Winfield|A|
+ca|142|RG-316 CABLE- SMA(m)- SMA(m)R/A|M. Winfield|A|
+ca|143|RG-316 CABLE- SMA(m)|M. Winfield|A|
+ca|144|RG-58 CABLE- SMA(m)|M. Winfield|A|
+ca|145|RG-58 CABLE- SMA(m)- BNC(m)|M. Winfield|A|
+ca|146|LMR-240 CABLE- SMA(m)|M. Winfield|A|
+ca|147|LMR-240 CABLE- SMA(m) to  N(m)R/A|M. Winfield|A|
+
+
+
+ei|1|oc amplifier assembly|jrifkin|A|
+ei|2|oc laser|jrifkin|A|
+ei|3|motor controller junction box|jrifkin|A|
+ei|4|motor controller system|jrifkin|A|
+ei|5|oc m^2 asse,b;u|jrifkin|A|
+ei|6|oc transport assembly|jrifkin|A|
+ei|7|oc pitch-yaw assembly|jrifkin|A|
+ei|8|oc astimatism assembly|jrifkin|A|
+ei|9|profile monitor cable|r.fuller|A|
+ei|10|vacuum system|jrifkin|A|
+ei|11|IPS system|jrifkin|A|
+ei|12|ips electrical interconnect - enclosure|jrifkin|A|
+ei|13|profile monitor system|jrifkin|A|
+ei|14|oscilloscope system|jrifkin|A|
+ei|15|optical cavity system|jrifkin|A|
+ei|16|kicker magnet system|m.winfield|A|
+ei|17|magnet system|jrifkin|A|
+ei|18|corrector magnet system|b.woo|A|
+ei|19|signal capture system interconnects|o.lipkind|A|
+ei|20|oscilloscop system|m.winfield|A|
+ei|21|auxillary dc power|m.winfield|A|
+ei|22|cxs system interconnects|m.winfield|A|
+ei|23|cxs x-ray optics downbeam motors|m.winfield|A|
+ei|24| 	cxs endstation motors|m.winfield|A|
+ei|25|cxs x-ray optics upbeam motors|m.winfield|A|
+ei|26|Low Level RF/Timing Interconnect|rmurphy|A|
+
+es|1|BPM prototype|olipkind|A|
+es|2|UNIPOLAR P.S. CONTROLLER|bwoo|A|
+es|3|UNIPOLAR P.S. CONTROLLER BACKPLANE|bwoo|A|
+es|4|kicker magnet board|o.lipkind|A|
+es|5|trigger fanout|o.lipkind|A|
+es|6|kicker fanout board|o.lipkind|A|
+es|7|60 Hz synchronization board|o.lipkind|A|
+es|8|kicker box interconnects|o.lipkind|A|
+es|9|bpm if test fixture|o.lipkind|A|
+es|10|kicker magnet trim board|o.lipkind|A|
+es|11|bipolar power supply controller|b.woo|A|
+es|12|sband waveguide breakdown detector|o.lipkind|A|
+es|13|bpm backplane|o.lipkind|A|
+es|14|kicker magnet power supply|mwinfield|A|
+es|15|bpm IF test fixture|jrifkin|A|
+es|16|Ring Reference IF Distribution|m.winfield|A|
+es|17|Injector Reference IF Distribution|m.winfield|A|
+es|18|BPM Local Oscillator|m.winfield|A|
+es|19|Low Level RF|m.winfield|A|
+es|20|LLRF Voltage Regulator PCB|m.winfield|A|
+es|21|bi-polar ps controller backplane|b.woo|A|
+es|22|timing system delay generator|o.lipkind|A|
+es|23|60Hz_65MHz Synchronization Unit|m.winfield|A|
+es|24|RF Diagnostics Local Oscillator Unit|m.winfield|A|
+es|25|RF Diagnostics Reference Distribution Unit|m.winfield|A|
+es|26|ac distribution unit|b.woo|A|
+es|27|bi-polar ps unit|b.woo|A|
+es|28|timing system delay generator chassis|o.lipkind|A|
+es|29|bpm frequency distribution chassis|m.winfield|A|
+es|30|rf diagnostic  frequency distribution chassis|m.winfield|A|
+es|31|s-band amplifier chassis|m.winfield|A|
+es|32|l-band amplifier chassis|m.winfield|A|
+es|33|motor controller chassis|m.winfield|A|
+es|34|unipolar ps controller crate|b.woo|A|
+es|35|bipolar ps controller crate|b.woo|A|
+es|36|tsdg chassis|m.winfield|A|
+es|37|regen amplifier head|b.woo|A|
+es|38|bpm chassis interconnect|m.winfield|A|
+es|39|bpm system interconnect|m.winfield|A|
+es|40|lsr.fdbck.injctr interconnect|olipkind|A|
+es|41|lsr.fdbck.optcl.cvty interconnect|olipkind|A|
+es|42|lsr.fdbck.injctr.rf|olipkind|A|
+es|43|lsr.fdbck.optcl.cvty.rf|olipkind|A|
+es|44|laser feedback pcb|olipkind|A|
+es|45|laser feedback power supply|olipkind|A|
+es|46|integrated protection sys chassis|b.woo|A|
+es|47|oscilloscope multiplexer chassis|m.winfield|A|
+es|48|longintudinal feedback chassis|jrifkin|A|
+es|49|transverse feedback chassis|jrifkin|A|
+es|50|uv pulse amplitude measurement|o.lipkind|A|
+es|51|longitudonal feedback pcb|o.lipkind|A|
+es|52|laser power supply chassis|b.woo|A|
+es|53|laser ps logic board|b.woo|A|
+es|54|cxs motor controller chassis|jrifkin|A|
+es|55|transient blanking switch|m.winfield|A|
+es|56|rf power meter chassis|o.lipkind|A|
+es|57|ac distribution assy  - HE|b.woo|A|
+es|58|ips distribution panel|jrifkin|A|
+es|59|motor controller junction box|m.winfield|A|
+es|60|R1FP52|m.winfield|A|
+es|61|R2FP52|m.winfield|A|
+es|62|RF power meter pcb|o.lipkind|A|
+es|63|optical cavity fdbck piggyback pcb|m.winfield|A|
+es|64|bpm calibration card|m.winfield|A|
+es|65|bpm electronics card|m.winfield|A|
+es|66|rf diagnostics card|m.winfield|A|
+es|67|ocsilloscope multiplexer pcb|o.lipkind|A|
+es|68|damping cavity down converter|m.winfield|A|
+es|69|oscilloscope multiplexer board|o.lipkind|A|
+es|70|microwave amplifiers s-band amp chassis|m.winfield|A|
+es|71|dual magnet main board, motherboard|b.woo|A|
+es|72|dual magnet main board, mezzanine|b.woo|A|
+es|73|dual magnet trim board, motherboard|b.woo|A|
+es|74|dual magnet trim board, mezzanine|b.woo|A|
+es|75|photodiode buffer pcb|o.lipkind|A|
+es|76|network analyzer pcb|o.lipkind|A|
+es|77|cxs x-ray optics upbeam motor jbox|m.winfield|A|
+es|78|cxs x-ray optics downbeam motors|m.winfield|D|
+es|79|cxs x-ray optics downbeam motor jbox|m.winfield|A|
+es|80|cxs endstation motors|m.winfield|D|
+es|81|cxs endstation motor jbox|m.winfield|A|
+es|82| 	cxs x-ray optics upbeam motors|m.winfield|D|
+es|83|bender assembly|m.winfield|A|
+es|84|Silicon X-Ray Detector/Amplifier|M. Winfield|A|
+es|85|Optical Cavity Network Analyzer|O. Lipkind|A|
+es|86|PDH Photodiode Preamplifier|M. Winfield|A|
+
+fm|1|Letterhead|jrifkin|A|
+fm|2|Purchase Order|jrifkin|A|
+fm|3|Reimbursment Request|jrifkin|A|
+fm|4|Form For Writing a Techinal Note|jrifkin|A|
+fm|5|Contractors Agreement|jrifkin|A|
+fm|6|Non-Disclosure Agreement|jrifkin|A|
+fm|7|Memorandum|jrifkin|A|
+fm|8|FAX Form|jrifkin|A|
+fm|9|Time Sheets|jrifkin|A|
+fm|10|Meeting Minutes Form|jrifkin|A|
+fm|11|Bank Transfer Form|jrifkin|A|
+fm|12|Formatted Template For Writing a Technical Note in Latex|jrifkin|A|
+fm|13|Form For Checking Out Property, Including Keys|jrifkin|A|
+fm|14|Form For Travel Reimbursment|jrifkin|A|
+fm|15|Formatted Header For Writing a Safety Instruction|jrifkin|A|
+fm|16|Sign Off Form For Revising a Mechanical Drawing|jrifkin|A|
+fm|17|Sign Off Form for Releasing a Mechanical Drawing|jrifkin|A|
+fm|18|electronics document release|jrifkin|A|
+fm|19|mutual nda|jrifkin|A|
+fm|20|electronics_document_revision|jrifkin|A|
+fm|21|Shipper|jrifkin|A|
+fm|22|electronics production traveller|m.winfield|A|
+fm|23|employee PIAA|jrifkin|A|
+fm|24|design review|jrifkin|A|
+fm|25|employee evaluation|jrifkin|A|
+fm|26|work instruction|jrifkin|A|
+fm|27|electronics assembly release|jrifkin|A|
+fm|28|slide show template|r.ruth|A|
+fm|29|template for cable assembly|jrifkin|A|
+
+
+mm|1|linac reference cavity|v.dolgashev|A|
+mm|2|rectangular bpm|v.dolgashev|A|
+mm|3|.984_.248 bpm|v.dolgashev|A|
+mm|4|63db_directional coupler|v.dolgashev|A|
+mm|5|l band rf cavity for ring|v.dolgashev|A|
+mm|6|ring feedback pickup|v.dolgashev|A|
+mm|7|storage ring damping cavity|v.dolgashev|A|
+
+mo|1|PI STAGE ADAPTER|jrifkin
+|A|
+mo|2|PI STAGE SPACER|jrifkin
+|A|
+mo|3|EOM HOLDER|jrifkin
+|A|
+mo|4|OPTI-CLAW MOD|jrifkin
+|D|
+mo|5|OPTIC HOLDER, 2.24 IN|jrifkin
+|A|
+mo|6|NEW FOCUS TILT STAGE ADAPTER|jrifkin
+|A|
+mo|7|NEW FOCUS MOTOR STAGE ADAPTER|jrifkin
+|A|
+mo|9|BRACKET FOR PLEXIGLASS|jrifkin
+|A|
+mo|10|CORE DUMMY, SMALL|ejongewaard
+|A|
+mo|11|CORE DUMMY, LARGE|ejongewaard
+|A|
+mo|12|CUT FERRITE, SMALL|ejongewaard
+|A|
+mo|13|CUT FERRITE, LARGE|ejongewaard
+|A|
+mo|14|CLS TOP ASSEMBLY|ejongewaard
+|A|
+mo|15|INJECTOR SYSTEM|ejongewaard
+|A|
+mo|16|RING SYSTEM|ejongewaard
+|A|
+mo|17|TRANSPORT LINE SYSTEM|ejongewaard
+|A|
+mo|18|INJECTOR RF SYSTEM|ejongewaard
+|A|
+mo|19|RF PHOTOCATHODE GUN ASSY|ejongewaard
+|A|
+mo|20|ACCELERATOR STRUCTURE ASSEMBLY|ejongewaard
+|A|
+mo|30|PLATE BASE|oshulepov
+|A|
+mo|31|PLATE PRESS|oshulepov
+|A|
+mo|32|BRACKET CONNECTORS|oshulepov
+|A|
+mo|33|ROD THREADED|oshulepov
+|A|
+mo|34|LID BOTTOM|oshulepov
+|A|
+mo|35|LID TOP|oshulepov
+|A|
+mo|36|SPACER TOP|oshulepov
+|A|
+mo|37|STACK QC FIXTURE ASSY|oshulepov
+|A|
+mo|38|BRACKET CLAMP|oshulepov
+|A|
+mo|39|SHAFT CLAMP|oshulepov
+|A|
+mo|40|SHAFT CLAMP LONG|oshulepov
+|A|
+mo|41|PIN PUSHING|oshulepov
+|A|
+mo|42|JACK-SCREW SHORT|oshulepov
+|A|
+mo|43|INSERT CENTERING|oshulepov
+|A|
+mo|44|BUSHING INCLINED|oshulepov
+|A|
+mo|45|INSERT INCLINED|oshulepov
+|A|
+mo|46|PIN CENTERING|oshulepov
+|A|
+mo|47|C-CLAMP ASSY|oshulepov
+|A|
+mo|48|CLAMP HALF LEFT|oshulepov
+|A|
+mo|49|CLAMP HALF RIGHT|oshulepov
+|A|
+mo|50|JACK-SCREW LONG|oshulepov
+|A|
+mo|51|CLAMP ASSY|oshulepov
+|A|
+mo|61|STANDARD CELL|ejongewaard
+|A|
+mo|62|END CELL|ejongewaard
+|A|
+mo|63|BRAZE WASHER 1|ejongewaard
+|A|
+mo|64|ACCEL IN/OUT DRIFT TUBE|ejongewaard
+|A|
+mo|65|CELL STACK ASSY|ejongewaard
+|A|
+mo|66|SPLITTER ASSY|ejongewaard
+|A|
+mo|67|SPLITTER BODY|ejongewaard
+|A|
+mo|68|SPLITTER COVER|ejongewaard
+|A|
+mo|69|BRAZE SHIM 1|ejongewaard
+|A|
+mo|70|BRAZE SHIM 2|ejongewaard
+|A|
+mo|71|LINAC COUPLER ASSY|ejongewaard
+|A|
+mo|72|LINAC COUPLER BODY|ejongewaard
+|A|
+mo|73|COUPLER COVER|ejongewaard
+|A|
+mo|74|BRAZE SHIM 3|ejongewaard
+|A|
+mo|75|BRAZE SHIM 4|ejongewaard
+|A|
+mo|76|WATER TUBING|ejongewaard
+|A|
+mo|77|LINAC COOLING TUBE, SHORT|ejongewaard
+|A|
+mo|78|LINAC COOLING TUBE, LONG|ejongewaard
+|A|
+mo|79|LINAC COUPLER HALF CELL|ejongewaard|A|
+mo|80|PUMPOUT SCREEN BLANK|ejongewaard|A|
+mo|81|PUMPOUT SCREEN|ejongewaard|A|
+mo|82|SPLITTER PUMPOUT TUBE|ejongewaard|A|
+mo|83|W/G BRAZE WASHER 1|ejongewaard|A|
+mo|84|W/G BRAZE WASHER 2|ejongewaard|A|
+mo|85|ACCELERATOR BRAZE ASSEMBLY|ejongewaard|A|
+mo|86|BRAZE SHIM 5|ejongewaard|A|
+mo|87|BRAZE SHIM 6|ejongewaard|A|
+mo|88|SHORT COOLING TUBE ASSY|ejongewaard|A|
+mo|89|COOLING BLOCK|ejongewaard|A|
+mo|90|COOLING STUB|ejongewaard|A|
+mo|91|END FITTING 1|ejongewaard|A|
+mo|92|SPLITTER ASSEMBLY MACHINE|ejongewaard|A|
+mo|93|MALE FLANGE|lensler|A|
+mo|94|cylinder-alumina waterload assembly|lensler|D|
+mo|95|CYLINDER. ALUMINA WATERLOAD ASSEMBLY|lensler|A|
+mo|96|FLANGE COOLING RING|lensler|A|
+mo|97|WINDOW FLANGE|lensler|A|
+mo|98|PLATED WINDOW FLANGE|lensler|A|
+mo|99|S-BAND MOD 2 WAVEGUIDE|lensler|A|
+mo|100|WAVEGUIDE-WATERLOAD|lensler|A|
+mo|101|WAVEGUIDE STIFFENER|lensler|A|
+mo|102|CERAMIC, COATED|lensler|A|
+mo|103|CERAMIC, PLATED|lensler|A|
+mo|104|RING, SEALING|lensler|A|
+mo|105|CERAMIC RING ASSY|lensler|A|
+mo|106|CERAMIC ASSEMBLY|lensler|A|
+mo|107|WINDOW FLANGE TUBE|lensler|A|
+mo|108|COOLING RING PLUG|lensler|A|
+mo|109|PIN, TUNING|lensler|A|
+mo|110|WAVEGUIDE ASSY|lensler|A|
+mo|111|WATER CHAMBER|lensler|A|
+mo|112|ASSY WATER CHAMBER|lensler|A|
+mo|113|WATER CHAMBER/CERAMIC ASSY|lensler|A|
+mo|114|GASKET, WINDOW|lensler|A|
+mo|115|PIPE, LONG|lensler|A|
+mo|116|PIPE, SHORT|lensler|A|
+mo|117|long cooling tube assy|ejongewaard|A|
+mo|118|COOLING SPLITTER BLOCK|ejongewaard|A|
+mo|119|MOD SWAGELOCK FITTING|ejongewaard|A|
+mo|120|ACCEL STRCTR COOLING TUBE 1|ejongewaard|A|
+mo|121|ACCEL STRCTR COOLING TUBE 2|ejongewaard|A|
+mo|122|ACCEL STRCTR COOLING TUBE 3|ejongewaard|A|
+mo|123|ACCEL STRCTR COOLING TUBE 4|ejongewaard|A|
+mo|124|ACCEL STRCTR COOLING TUBE 5|ejongewaard|A|
+mo|125|ACCEL STRCTR COOLING TUBE 6|ejongewaard|A|
+mo|126|MG CATHODE PLATE ASSY|ejongewaard|A|
+mo|127|MG CATHODE PLATE|ejongewaard|A|
+mo|128|CATHODE BACK PLATE|ejongewaard|A|
+mo|129|MG PLUG|ejongewaard|A|
+mo|130|CATHODE COOLING TUBE|ejongewaard|A|
+mo|131|WELD EYELET|ejongewaard|A|
+mo|132|RF GUN COUPLER ASSY|ejongewaard|A|
+mo|133|RF GUN COUPLER BODY|ejongewaard|A|
+mo|134|BRAZE SHIM 7|ejongewaard|A|
+mo|135|BRAZE SHIM 8|ejongewaard|A|
+mo|136|DRIFT TUBE DISK|ejongewaard|A|
+mo|137|IRIS DISK|ejongewaard|A|
+mo|138|CELL 1 MACH ASSY|ejongewaard|A|
+mo|139|RF GUN CELL 1|ejongewaard|A|
+mo|140|END RING|ejongewaard|A|
+mo|141|TUNER INSERT|ejongewaard|A|
+mo|142|CHANNEL RING|ejongewaard|A|
+mo|143|COOLANT ELBOW|ejongewaard|A|
+mo|144|GUN COOLING TUBE 1|ejongewaard|A|
+mo|145|GUN COOLING TUBE 2|ejongewaard|A|
+mo|146|GUN COOLING TUBE 3|ejongewaard|A|
+mo|147|CLAMP RING|ejongewaard|A|
+mo|148|GUN DRIFT TUBE|ejongewaard|A|
+mo|149|BRAZE SHIM 9|ejongewaard|A|
+mo|60|TEST ASSY|oshulepov|A|
+mo|150|FERRITE|oshulepov|A|
+mo|151|CRYSTAL HOLDER FOR REGEN AMPLIFIER|oshulepov|A|
+mo|152|SPLITTER COVER EXTENSION|oshulepov|A|
+mo|153|BRAZE SHIM 10|oshulepov|A|
+mo|154|RF FLANGE|oshulepov|A|
+mo|155|laser didode mounting block|jrifkin|A|
+mo|156|LINAC COUPLER COVER ASSEMBLY|oshulepov|A|
+mo|157|LINAC COUPLER CELL ASSEMBLY BRAZE|oshulepov|A|
+mo|158|LINAC COUPLER ASSEMBLY BRAZE|oshulepov|A|
+mo|159|RULER ALIGNMENT TOOL|oshulepov|A|
+mo|160|CELL BRAZING ALIGNMENT TOOL|oshulepov|A|
+mo|161|ACCEL WATER LINE FTNG|oshulepov|A|
+mo|162|ACCEL STRCTR COOLING TUBE 7|oshulepov|A|
+mo|163|WATER CHANNEL|oshulepov|A|
+mo|164|WATER CHANNEL COVER|oshulepov|A|
+mo|165|LINAC WATER CHANNEL ASSY|oshulepov|A|
+mo|166|LINAC END FITTING|oshulepov|A|
+mo|167|LINAC COUPLER BODY ROUGH|oshulepov|A|
+mo|168|LINAC COUPLER CELL ASSEMBLY MACHINE|oshulepov|A|
+mo|169|LINAC COUPLER COVER ROUGH|oshulepov|A|
+mo|170|LINAC COUPLER COVER ASSEMBLY MACHINE|oshulepov|A|
+mo|171|LINAC COUPLER ASSEMBLY MACHINE|oshulepov|A|
+mo|172|SPLITTER BRAZE ASSY|oshulepov|A|
+mo|173|RF BPM ANTENNA PIECE|lensler|A|
+mo|174|.740in BPM BODY|lensler|A|
+mo|175|.740 bpm cover plate|lensler|A|
+mo|176|.740 bpm tube w/.315 dia hole|lensler|A|
+mo|177|COOLING TUBE SHORT|lensler|A|
+mo|178|COOLING TUBE LONG|lensler|A|
+mo|179|rf bpm feedthru assy|lensler|A|
+mo|180|inrad pockel cell holder|jrifkin|A|
+mo|181|lytron water chiller plate|jrifkin|A|
+mo|182|bpm feedthru adaptor|lensler|A|
+mo|183|RF SXLS FLNG BRZ SHIM|oshulepov|A|
+mo|184|LINAC BRAZE SHIM 12|oshulepov|A|
+mo|279|BRAZE WASHER 13|oshulepov|A|
+mo|185|SPLITTER INTERMEDIATE BRAZE ASSY|oshulepov|A|
+mo|186|SPLITTER INTERMEDIATE ASSY MACH|oshulepov|A|
+mo|187|.740/.315  RF BPM BRZMT|lensler|A|
+mo|188|.740/.315  RF BPM ASSY|lensler|A|
+mo|189|bpm brzmt align tool long|lensler|A|
+mo|190|bpm brzmt align tool short|lensler|A|
+mo|191|3/8 FLARE WATER CONNECTOR|oshulepov|A|
+mo|192|SHORT COOLING TUBE ASSY|oshulepov|A|
+mo|193|COOLING TUBE CONNECTORS SHORT|oshulepov|A|
+mo|194|HALF CELL WATER CHANNEL COVER BRAZE|oshulepov|A|
+mo|195|COVER WATER CHANNEL HALF CELL|oshulepov|A|
+mo|196|Nd:YLF ROD 2X15MM .5% DOPE|jrifkin|A|
+mo|197|crystal holder - 2mm|jrifkin|A|
+mo|198|crystal holder - 3mm|jrifkin|A|
+mo|199|RF FLANGE SEXLESS|oshulepov|A|
+mo|200|SPACER RF FLANGE SEXLESS|oshulepov|A|
+mo|201|RF GUN BRAZE WASHER 1|oshulepov|A|
+mo|202|RF GUN COUPLER BODY ROUGH|oshulepov|A|
+mo|203|RF GUN COUPLER ASSY BRAZE|oshulepov|D|
+mo|204|RF GUN COUPLER BODY ASSY BRAZE|oshulepov|A|
+mo|205|RF GUN COUPLER BODY ASSY MACHINED|oshulepov|A|
+mo|206|RF GUN COUPLER COVER ROUGH|oshulepov|A|
+mo|207|RF GUN COUPLER COVER ASSY|oshulepov|A|
+mo|208|RF GUN COUPLER COVER ASSY MACHINED|oshulepov|A|
+mo|209|BRAZE SHIM 11|oshulepov|A|
+mo|210|BRAZE SHIM 12|oshulepov|A|
+mo|211|RF GUN COUPLER ASSY BRAZE|oshulepov|A|
+mo|212|RF GUN COUPLER ASSY MACHINED|oshulepov|A|
+mo|213|RF GUN CELL 2|oshulepov|A|
+mo|214|RF GUNN CELL STACK ASSY BRAZE|oshulepov|A|
+mo|215|RF GUN SPACER MIDDLE|oshulepov|A|
+mo|216|RF GUN BRAZE ASSY|oshulepov|A|
+mo|217|RF GUN STRUCTURE ASSY|oshulepov|A|
+mo|218|SOLENOID COLLAR SHORT|oshulepov|A|
+mo|219|SOLENOID COLLAR LONG|oshulepov|A|
+mo|220|LONG COOLING TUBE ASSY|oshulepov|A|
+mo|221|SPLITTER BODY LEFT|oshulepov|A|
+mo|222|LEFT SPLITTER INTERMEDIATE BRAZE ASSY|oshulepov|A|
+mo|223|LEFT SPLITTER INTERMEDIATE ASSY MACHINED|oshulepov|A|
+mo|224|LEFT SPLITTER BRAZE ASSY|oshulepov|A|
+mo|225|LEFT SPLITTER ASSY MACHINED|oshulepov|A|
+mo|226|LEFT SPLITTER ASSY|oshulepov|A|
+mo|227|RF GUN COMPLETE ASSY|oshulepov|A|
+mo|228|SOLENOID LIMIT|oshulepov|A|
+mo|229|RF GUN SOLENOID END CLAMP|oshulepov|A|
+mo|230|RF GUN LOCK ASSY|oshulepov|A|
+mo|231|RF GUN LOCK FLANGE|oshulepov|A|
+mo|232|RF GUN LOCK TUBE|oshulepov|A|
+mo|233|RF GUN LOCK PLATE|oshulepov|A|
+mo|234|RF GUN CATHODE PLATE|oshulepov|A|
+mo|235|RF GUN CATHODE PLATE RING|oshulepov|A|
+mo|236|RF GUN CATHODE INSERT MAGNESIUM|oshulepov|A|
+mo|237|RF GUN CATHODE PLATE ASSY|oshulepov|A|
+mo|238|SOLENOID POLE END PLATE|oshulepov|A|
+mo|239|RF GUN SOLENOID POLE MIDDLE PLATE|oshulepov|A|
+mo|240|SOLENOID POLE RING|oshulepov|A|
+mo|241|RF GUN SOLENOID ASSY|oshulepov|A|
+mo|242|PANCAKE SOLENOID COIL|oshulepov|A|
+mo|243|SOLENOID COIL ASSY|oshulepov|A|
+mo|244|q2041, Quadrupole, braze, base blank|dhaigh|A|
+mo|245|q2041, quadrupole, braze, pole yoke blank|dhaigh|A|
+mo|246|q2041, quadrupole, braze, side blank|dhaigh|A|
+mo|247|q2041, quadrupole, braze shim|dhaigh|A|
+mo|248|q2041, quadrupole, braze, lower assy|dhaigh|A|
+mo|249|q2041, quadrupole, braze, upper assy|dhaigh|A|
+mo|250|q2041, quadrupole, machining, lower pole piece|dhaigh|A|
+mo|251|q2041, quadrupole, machining, upper pole piece|dhaigh|A|
+mo|252|q2041, quadrupole, alignment, pole yoke assy|dhaigh|A|
+mo|253|q2531lg, quadrupole, braze, base blank|dhaigh|A|
+mo|254|q2531lg, quadrupole,braze, pole yoke blank|dhaigh|A|
+mo|255|q2531lg, quadrupole, braze, side blank|dhaigh|A|
+mo|256|q2531lg, quadrupole, braze shim|dhaigh|A|
+mo|257|q2531lg, quadrupole, braze, lower assy|dhaigh|A|
+mo|258|q2531lg, quadrupole, braze, upper assy|dhaigh|A|
+mo|259|q2531lg, quadrupole, machining, lower pole piece|dhaigh|A|
+mo|260|q2531lg, quadrupole, machining, upper pole piece|dhaigh|A|
+mo|261|q2531lg, quadrupole, alignment, pole yoke assy|dhaigh|A|
+mo|262|q2531sm, quadrupole, braze, base blank|dhaigh|A|
+mo|263|q2531sm, quadrupole, braze, pole yoke blank|dhaigh|A|
+mo|264|q2531sm, quadrapole, braze, side blank|dhaigh|A|
+mo|265|q2531sm, quadrupole, braze shim|dhaigh|A|
+mo|266|q2531sm, quadrupole, braze, lower assy|dhaigh|A|
+mo|267|q2531sm, quadrupole, braze, upper assy|dhaigh|A|
+mo|268|q2531sm, quadrupole, machining, lower pole piece|dhaigh|A|
+mo|269|q2531sm, quadrupole, machining, upper pole piece|dhaigh|A|
+mo|270|q2531sm, quadrupole, alignment, pole yoke assy|dhaigh|A|
+mo|271|quadrupole, alignment, pin, bronze|dhaigh|A|
+mo|272|quadrupole, q2541, contour data|dhaigh|A|
+mo|273|quadrupole, q2531lg, countour data|dhaigh|A|
+mo|274|quadrupole, q2531sm, contour data|dhaigh|A|
+mo|275|BRAZE TEST 2 ASSY|oshulepov|A|
+mo|276|GASKET RF FLANGE|oshulepov|A|
+mo|277|ACCL STRUCTURE COOLING TUBE 1 ASSY|oshulepov|A|
+mo|278|ACCELERATOR STRUCTURE COOLING TUBE 2 ASSY|oshulepov|A|
+mo|280|BRAZE WASHER 14|oshulepov|A|
+mo|281|BRAZE WASHER 15|oshulepov|A|
+mo|282|BRAZE WASHER 16|oshulepov|A|
+mo|283|RF FLANGE SEXLESS BLANK|oshulepov|A|
+mo|8|370 PORTAGE BUILDING LAYOUT|jrifkin|A|
+mo|284|PI adaptor .521in|jrifkin|A|
+mo|285|LINAC SOLENOID ASSY|oshulepov|A|
+mo|286|RF GUN COUPLER HALF CELL BRAZE WASHER|oshulepov|A|
+mo|287|Shielding Plan|w.savage|A|
+mo|288|KNIFE SHARP EDGE INSERT|oshulepov|A|
+mo|289|SHARP EDGE INSERT SPACER BRAZE WASHER|oshulepov|A|
+mo|290|6u accopian ps brd|jrifkin|A|
+mo|291|RF GUN LOCK TUBE ASSY|oshulepov|A|
+mo|292|bbo xtal holder|jrifkin|A|
+mo|293|bbo xtal support block|jrifkin|A|
+mo|294|PIPE BRAZE INSERT|oshulepov|A|
+mo|295||dhaigh|A|
+mo|296|cls, ring, q2041i, tube fitting mod, swagelok ss-301-1-2bt|dhaigh|A|
+mo|297|cls, ring, q2041i, flare fitting mod, parker 3 ftx ss|dhaigh|A|
+mo|298|cls, ring, q2041i, cooling tube|dhaigh|A|
+mo|299|cls, ring, q2041i, cooling plate #1|dhaigh|A|
+mo|300|cls, ring, q2041i, cooling plate #2|dhaigh|A|
+mo|301|cls, ring, q2041i, cooling plate assy|dhaigh|A|
+mo|302|cls, ring, q2041i, coil assy #1|dhaigh|A|
+mo|303|cls, ring, q2041i, coil assy #2|dhaigh|A|
+mo|304|cls, ring, q2041i, coil assy #3|dhaigh|A|
+mo|305|cls, ring, q2531iL, cooling tube|dhaigh|A|
+mo|306|cls, ring, q2531iL, cooling plate #1|dhaigh|A|
+mo|307|cls, ring, q2531iL, cooling plate #2|dhaigh|A|
+mo|308|cls, ring, q2531iL, cooling plate assy|dhaigh|A|
+mo|309|cls, ring, q2531iL, coil assy #1|dhaigh|A|
+mo|310|cls, ring, q2531iL, coil assy #2|dhaigh|A|
+mo|311|cls, ring, q2531iL, coil assy #3|dhaigh|A|
+mo|312|CLS,ring,Q2531iS,Cooling Tube|dhaigh|A|
+mo|313|cls, ring, q2531iS, cooling plate #1|dhaigh|A|
+mo|314|cls, ring, q2531iS, cooling plate #2|dhaigh|A|
+mo|315|cls, ring, q2531iS, cooling plate assy|dhaigh|A|
+mo|316|cls, ring, q2531iS, coil assy #1|dhaigh|A|
+mo|317|cls, ring, q2531iS, coil assy #2|dhaigh|A|
+mo|318|cls, ring, q2531iS, coil assy #3|dhaigh|A|
+mo|319|CLS, ring, Q2041i, Magnet Assembly|dhaigh|A|
+mo|320|cls, ring, q2041v, magnet assy|dhaigh|A|
+mo|321|cls, ring, q2531iL, magnet assy|dhaigh|A|
+mo|322|cls, ring, q2531iS, magnet assy|dhaigh|A|
+mo|323|RF GUN SPACER END|oshulepov|A|
+mo|324|SPACER MID END BRAZE WASHER|oshulepov|A|
+mo|325|cls, ring, q2041v, pole yoke blank|dhaigh|A|
+mo|326|SOLENOID POLE SCREW SPACER|oshulepov|A|
+mo|327|cls, ring, q2041v, lower braze assy|dhaigh|A|
+mo|328|RF GUN SOLENOID POLE ROUGH|oshulepov|A|
+mo|329|cls, ring, q2041v, upper braze assy|dhaigh|A|
+mo|330|cls, ring, q2041v, lower pole piece|dhaigh|A|
+mo|331|cls, ring, q2041v, upper pole piece|dhaigh|A|
+mo|332|cls, ring, q2041v, pole yoke assy|dhaigh|A|
+mo|333|RF GUN SOLENOID COLLAR ROUGH|oshulepov|A|
+mo|334|RF GUN SOLENOID POLE BRAZED ASSY|oshulepov|A|
+mo|335|RF GUN SOLENOID POLE TIGHT UNTHREADED HALF|oshulepov|A|
+mo|336|RF GUN SOLENOID POLE TIGHT THREADED HALF|oshulepov|A|
+mo|337|RF GUN SOLENOID POLE SLIDE UNTHREADED HALF|oshulepov|A|
+mo|338|RF GUN SOLENOID POLE SLIDE THREADED HALF|oshulepov|A|
+mo|339|RF GUN SOLENOID POLE TIGHT MACHINED ASSY|oshulepov|A|
+mo|340|RF GUN SOLENOID POLE SLIDE MACHINED ASSY|oshulepov|A|
+mo|341|s-band instrument short|jrifkin|A|
+mo|342|line match flange|jrifkin|A|
+mo|343|HALF CELL IRIS MCHNE|oshulepov|A|
+mo|344|ROD THD SOLENOID|oshulepov|A|
+mo|345|SOLENOID POLE SAWED|oshulepov|A|
+mo|346|ACCEL STRCTR SOLENOID ASSY|oshulepov|A|
+mo|347|ROD THREADED SHORT SOLENOID|oshulepov|A|
+mo|348|FLANGE REAR|oshulepov|A|
+mo|349|ALIGN TOOL LONG|oshulepov|A|
+mo|350|ALIGN TOOL SHORT|oshulepov|A|
+mo|351|WATER MANIFOLD|oshulepov|A|
+mo|352|WATER MANIFOLD ASSY|oshulepov|A|
+mo|353|BRAZE CATHODE PLATE|oshulepov|A|
+mo|354|BRAZE CATHODE INSERT|oshulepov|A|
+mo|355|cls, photo injector, linacc support frame, support|dhaigh|A|
+mo|356|cls, photo injector, linacc support frame, stretcher, short|dhaigh|A|
+mo|357|cls, photo injector, linacc support frame, stretcher, long|dhaigh|A|
+mo|358|cls, photo injector, linacc support frame, shim|dhaigh|A|
+mo|359|cls, photo injector, linacc support frame, clamp|dhaigh|A|
+mo|360|cls, photo injector, linacc support frame, tube clamp, single|dhaigh|A|
+mo|361|cls, photo injector, linacc support frame, tube clamp, dual|dhaigh|A|
+mo|362|cls, photo injector, ion #1 support frame, support|dhaigh|A|
+mo|363|cls, photo injector, ion #1 support frame, base|dhaigh|A|
+mo|364|cls, photo injector, ion #1 support frame, cradle, tee tube|dhaigh|A|
+mo|365|cls, photo injector, ion #1 support frame, standoff|dhaigh|A|
+mo|366|cls, photo injector, ion #2 support frame, support|dhaigh|A|
+mo|367|cls, photo injector, ion #2 support frame, base|dhaigh|A|
+mo|368|cls, photo injector, valve support frame, support|dhaigh|A|
+mo|369|cls, photo injector, valve support frame, base|dhaigh|A|
+mo|370|cls, photo injector, valve support frame, side|dhaigh|A|
+mo|371|cls, photo injector, valve support frame, cradle|dhaigh|A|
+mo|372|SOLENOID ENDPLATE LARGE ROUGH|oshulepov|A|
+mo|373|SOLENOID ENDPLATE LARGE BRAZE|oshulepov|A|
+mo|374|SOLENOID ENDPLATE LARGE SAW CUT|oshulepov|A|
+mo|375|cls, injector, support frame, accel, accel support assy|dhaigh|A|
+mo|376|cls, injector, support frame, ion #1, ion#1 support assy|dhaigh|A|
+mo|377|cls, injector, support frame, ion #2, ion#2 support assy|dhaigh|A|
+mo|378|cls, injector, support frame, valve, valve support assy|dhaigh|A|
+mo|379|cathode knife edge test|jrifkin|A|
+mo|380|cathode knife edge test b|jrifkin|A|
+mo|381|SOLENOID LINAC ENDPLATE A SAW CUT|oshulepov|A|
+mo|382|SOLENOID LINAC ENDPLATE B SAW CUT|oshulepov|A|
+mo|383|SOLENOID LINAC ENDPLATE A ROUGH|oshulepov|A|
+mo|384|SOLENOID LINAC ENDPLATE B ROUGH|oshulepov|A|
+mo|385|cls, ring, d2145i, guide bar|dhaigh|A|
+mo|386|cls, ring, d2145i, support base|dhaigh|A|
+mo|387|cls, ring, d2145i, lower yoke|dhaigh|A|
+mo|388|cls, ring, d2145i, upper yoke|dhaigh|A|
+mo|389|cls, ring, d2145i, pole piece|dhaigh|A|
+mo|390|cls, ring, d2145i, field clamp|dhaigh|A|
+mo|391|cls, ring, d2145i, support base, final mach|dhaigh|A|
+mo|392|cls, ring, d2145i, coil|dhaigh|A|
+mo|393|cls, ring, d2145i, pusher|dhaigh|A|
+mo|394|cls, ring, d2145i, set screw|dhaigh|A|
+mo|395|OUTPUT TUBE FLANGE ASSY|oshulepov|A|
+mo|396|WAVEGUIDE 6 in. RADIUS, E PLANE|lensler|A|
+mo|397|WAVEGUIDE 6 in. RADIUS, H PLANE|lensler|A|
+mo|398|FITTING SWAGELOK MOD|oshulepov|A|
+mo|399|LINAC FITTING SWAGELOK MOD|oshulepov|A|
+mo|400|.740/.205  RF BPM ASSY|lensler|A|
+mo|401|.740/.205  RF BPM BRZMT|lensler|A|
+mo|402|.740/.205 in BPM BODY|lensler|A|
+mo|403|.740 bpm tube w/.205 dia hole|lensler|A|
+mo|404|.740/.205  RF BPM ALIGN TOOL LONG|lensler|A|
+mo|405|.740/.205  RF BPM ALIGN TOOL SHORT|lensler|A|
+mo|406|SPLITTER PUMPOUT TUBE ASSY|oshulepov|A|
+mo|407|DRIFT TUBE NONROT FLANGE ASSY|oshulepov|A|
+mo|408|DRIFT TUBE ROT FLANGE ASSY|oshulepov|A|
+mo|409|RF GUN COOLING TUBE 1|oshulepov|A|
+mo|410|RF GUN COOLING TUBE 2|oshulepov|A|
+mo|411|RF GUN COOLING TUBE 3|oshulepov|A|
+mo|412|RF GUN COOLING TUBE 4|oshulepov|A|
+mo|413|RF GUN COOLING TUBE 5|oshulepov|A|
+mo|414|3/8 ELBOW FITTING MOD|oshulepov|A|
+mo|415|S-BAND HYBRID BASE FAB|lensler|A|
+mo|416|S-BAND HYBRID COVER FAB|lensler|A|
+mo|417|S-BAND HYBRID ASSY MACHINE|lensler|A|
+mo|418|S-BAND HYBRID ASSY BRZMNT|lensler|A|
+mo|419|CROSS MOD|oshulepov|A|
+mo|420|RING SUPPORT|oshulepov|A|
+mo|421|VIEWPORT FLANGE MOD|oshulepov|A|
+mo|422|CROSS ASSY|oshulepov|A|
+mo|423|FLANGE HALF MIRROR MOUNT|oshulepov|A|
+mo|424|MOUNT MIRROR|oshulepov|A|
+mo|425|MIRROR MOUNT ASSY|oshulepov|A|
+mo|426|MIRROR|oshulepov|A|
+mo|427|CELL 1|oshulepov|A|
+mo|428|CELL 2|oshulepov|A|
+mo|429|COVER|oshulepov|A|
+mo|430|CL1/CL2 BRZ WASHER|oshulepov|A|
+mo|431|CL2/CVR BRZ WASHER|oshulepov|A|
+mo|432|REFERENCE CAVITY ASSY|oshulepov|A|
+mo|433|OPTICAL CROSS ASSY|oshulepov|A|
+mo|434|OPTICAL I/O ASSY|oshulepov|A|
+mo|435|MIRROR ASSY|oshulepov|A|
+mo|436|REFERENCE CAVITY BRZ|oshulepov|A|
+mo|437|BELLOWS CF ASSY|oshulepov|A|
+mo|438|s band hybrid assy flange_brzmt|lensler|A|
+mo|439|ADAPTOR BELLOWS|oshulepov|A|
+mo|440|ADAPTOR FEEDTHRU|oshulepov|A|
+mo|441|cls,ring,d2045i,assembly|dhaigh|A|
+mo|442|cls,ring,d2190i,assembly|dhaigh|A|
+mo|443|cls,ring,d4090i,assembly|dhaigh|A|
+mo|444|BRACKET HALF THD LINAC SOLENOID|oshulepov|A|
+mo|445|BRACKET HALF UNTHD LINAC SOLENOID|oshulepov|A|
+mo|446|RING BRACKET LINAC SOLENOID|oshulepov|A|
+mo|447|BPM_I_P12|lensler|A|
+mo|448|BPM_I_P12_top_assy|lensler|A|
+mo|449|kicker chamber, raw|jrifkin|A|
+mo|450|local oscilaro chassis|jrifkin|A|
+mo|451|local oscilator front panel|jrifkin|A|
+mo|452|local oscilator rear panel|jrifkin|A|
+mo|453|local oscilator assembly|jrifkin|A|
+mo|454|cls, ring, d2190i, guide bar|dhaigh|A|
+mo|455|cls, ring, d2190i, upper yoke|dhaigh|A|
+mo|456|cls, ring, d2190i, lower yoke|dhaigh|A|
+mo|457|cls, ring, d2190i, pole piece|dhaigh|A|
+mo|458|cls, ring, d2190i, field clamp|dhaigh|A|
+mo|459|cls, ring, d2190i, support base rough mach|dhaigh|A|
+mo|460|cls, ring, d2190i, support base r2 final mach|dhaigh|D|
+mo|461|cls, ring, d2190i, support base r1 final mach|dhaigh|A|
+mo|462|cls, ring, d2190i, coil|dhaigh|A|
+mo|463|cls, ring, d2190i, pusher|dhaigh|A|
+mo|464|cls, ring, d2190i, spring tensioning screw|dhaigh|A|
+mo|465|cls, ring, d2190i, guide bar|dhaigh|A|
+mo|466|CATHODE KNIFE EDGE TEST C|oshulepov|A|
+mo|467|CATHODE KNIFE EDGE TEST D|oshulepov|A|
+mo|468|KNIFE EDGE TEST CELL|oshulepov|A|
+mo|469|rolling door|jrifkin|A|
+mo|470|CATHODE SPRING PUMP FLANGE|oshulepov|A|
+mo|471|MAGNESIUM CATHODE PLATE, FRICTION WELD|oshulepov|A|
+mo|472|COPPER CATHODE PLATE|oshulepov|A|
+mo|473|TUBE KNIFE EDGE TEST|oshulepov|A|
+mo|474|KNIFE EDGE TEST BRAZE 45 DEG|oshulepov|A|
+mo|475|KNIFE EDGE TEST BRAZE 35 DEG|oshulepov|A|
+mo|476|KNIFE EDGE TEST TUBE|oshulepov|A|
+mo|477|TUBE T:P15|oshulepov|A|
+mo|478|TUBE T:P27|oshulepov|A|
+mo|479|cls, ring, d4090i, guide bar|dhaigh|A|
+mo|480|cls, ring, d4090i, upper yoke|dhaigh|A|
+mo|481|cls, ring, d4090i, lower yoke|dhaigh|A|
+mo|482|cls, ring, d4090i, pole piece|dhaigh|A|
+mo|483|cls, ring, d4090i, field clamp|dhaigh|A|
+mo|484|cls, ring, d4090i, coil|dhaigh|A|
+mo|485|cls, ring, d4090i, support base, rough mach|dhaigh|A|
+mo|486|cls, ring, d4090i, support base, final mach|dhaigh|A|
+mo|487|3.375 OD FLANGE BLANK MOD|oshulepov|A|
+mo|488|ANTENNA, REF CAVITY FEEDTHRU|oshulepov|A|
+mo|489|FEEDTHRU, REF CAVITY|oshulepov|A|
+mo|490|CHAMBER SPLIT HALF TOP|oshulepov|A|
+mo|491|CHAMBER SPLIT HALF BOTTOM|oshulepov|A|
+mo|492|TUBE INPUT SPLIT CHAMBER|oshulepov|A|
+mo|493|TUBE INPUT SPLIT CHAMBER ASSY|oshulepov|A|
+mo|494|2.75 OD FLANGE MOD|oshulepov|A|
+mo|495|TUBE T:P53|oshulepov|A|
+mo|496|TUBE T:P63|oshulepov|A|
+mo|497|2.75 N_CF FLANGE MOD, .035 W TUBE|oshulepov|A|
+mo|498|LINAC BELLOWS SHORT ASSY|oshulepov|A|
+mo|499|SPACER TUBE, LINAC BELLOWS|oshulepov|A|
+mo|500|LINAC BELLOWS LONG ASSY|oshulepov|A|
+mo|501|REF CAVITY IN-TUBE|oshulepov|A|
+mo|502|REF CAVITY IN-TUBE ASSY|oshulepov|A|
+mo|504|CATHODE ROUGH|oshulepov|A|
+mo|505|MAGNESIUM CATHODE, WELD PREP|oshulepov|A|
+mo|506|MAGNESIUM CATHODE|oshulepov|A|
+mo|507|TUBE OUTPUT SPLIT CHAMBER|oshulepov|A|
+mo|508|TUBE OUTPUT SPLIT CHAMBER ASSY|oshulepov|A|
+mo|509|cls, injector, support frame, gun, mount plate|dhaigh|A|
+mo|510|cls, injector, support frame, gun, adjust plate|dhaigh|A|
+mo|511|cls, injector, support frame, gun, align plate|dhaigh|A|
+mo|512|cls, injector, support frame, gun, base plate|dhaigh|A|
+mo|513|cls, injector, support frame, gun, support plate|dhaigh|A|
+mo|514|cls, injector, support frame, gun, align plate|dhaigh|A|
+mo|515|cls, injector, support frame, solinoid, slider mount plate|dhaigh|A|
+mo|516|cls, injector, support frame, solinoid, align plate|dhaigh|A|
+mo|517|cls, injector, support frame, solinoid, base plate|dhaigh|A|
+mo|518|cls, injector, support frame, solinoid, small side plate|dhaigh|A|
+mo|519|cls, injector, support frame, solinoid, support plate|dhaigh|A|
+mo|520|cls, injector, support frame, solinoid, large side plate|dhaigh|A|
+mo|521|cls, injector, support frame, solinoid, accell support|dhaigh|A|
+mo|522|cls, injector, support frame, solinoid, stiffiner plate|dhaigh|A|
+mo|523|cls, injector, support frame, solinoid, align target|dhaigh|A|
+mo|524|cls, injector, support frame, solinoid, clamp disk|dhaigh|A|
+mo|525|cls, injector, support frame, solinoid, slider adjust block|dhaigh|A|
+mo|526|cls, injector, support frame, gun-solinoid, assy|dhaigh|A|
+mo|527|TUBE TRANSPORT SPLIT CHAMBER|oshulepov|A|
+mo|528|BRAZE SHIM LONG SPLIT CHAMBER|oshulepov|A|
+mo|529|BRAZE SHIM STRAIGHT SPLIT CHAMBER|oshulepov|A|
+mo|530|BRAZE SHIM CURVED SPLIT CHAMBER|oshulepov|A|
+mo|531|SPLIT CHAMBER ASSY|oshulepov|A|
+mo|532|ceramic test tube|jrifkin|A|
+mo|533|S-Band Instrument Flange|jrifkin|A|
+mo|534|T:P15 BPM BRAZE|oshulepov|A|
+mo|535|T:P15 BPM ASSY|oshulepov|A|
+mo|536|SET SCREW, FRICTION WELD|oshulepov|A|
+mo|537|BEND TUBE|oshulepov|A|
+mo|538|CAP, TRANSPORT LINE|oshulepov|A|
+mo|539|BENT SECTION TRANSPORT LINE|oshulepov|A|
+mo|540|BPM T:P53 BRAZE|oshulepov|A|
+mo|541|BPM T:P53 FINAL ASSY|oshulepov|A|
+mo|542|PUMPOUT TUBE BRAZE FIXTURE|oshulepov|A|
+mo|543|PUMPOUT TUBE TRANSPORT LINE|oshulepov|A|
+mo|544|T:P63 BPM BRAZE|oshulepov|A|
+mo|545|T:P63 BPM FINAL ASSY|oshulepov|A|
+mo|546|head spinner vacuum chuck|jrifkin|A|
+mo|547|head spinner 2in optic holder|jrifkin|A|
+mo|548|head spinner 2.5in optic holder|jrifkin|A|
+mo|549|head spinner 3in optic holder|jrifkin|A|
+mo|550|PROFILE MONITOR ORTHOGONAL TUBE|oshulepov|A|
+mo|551|BPM T:P27 BRAZE|oshulepov|A|
+mo|552|BPM T:P27 FINAL ASSY|oshulepov|A|
+mo|553|ORTHOGONAL TUBE BRAZE FIXTURE|oshulepov|A|
+mo|554|Coating for Ceramic Test Tube|jrifkin|A|
+mo|555|TUBE T:Q35|oshulepov|A|
+mo|556|TUBE VIEWPORT, PROFILE MONITOR|oshulepov|A|
+mo|557|TUBE BELLOWS, PROFILE MONITOR|oshulepov|A|
+mo|558|CROSS REDUCING MOD|oshulepov|A|
+mo|559|cls, injector, support frame, gun, align bearing mod|dhaigh|A|
+mo|560|cls,injector, support frame, accel, clamp bar|dhaigh|A|
+mo|561|cls,injector, support frame, accel, mount plate 2|dhaigh|A|
+mo|562|cls,injector, support frame, accel, mount plate 3|dhaigh|A|
+mo|563|cls, control system, electronics rack|dhaigh|A|
+mo|564|PIN BRAZE|oshulepov|A|
+mo|565|BENT CHAMBER ASSY|oshulepov|A|
+mo|566|INPUT TUBE, BENT CHAMBER|oshulepov|A|
+mo|567|ADAPTOR, BELLOWS-FLANGE|oshulepov|A|
+mo|568|CAP, BENT CHAMBER|oshulepov|A|
+mo|569|MOD TEE|oshulepov|A|
+mo|570|CERAMIC CHAMBER, TAPER|jrifkin|A|
+mo|571|bpm rectangle brzmt align tool .217 dia|lensler|A|
+mo|572|bpm rectangle brzmt align tool .300 dia|lensler|A|
+mo|573|CLS, INJECTOR, BPM SYSTEM, FRONT PANEL #3|dhaigh|A|
+mo|574|bpm 990 tube brzmt align tool long|lensler|A|
+mo|575|bpm 990 tube brzmt align tool short|lensler|A|
+mo|576|.990in bpm body|lensler|A|
+mo|577|.990in bpm cover plate|lensler|A|
+mo|578|.990in bpm tube/w .315 dia hole|lensler|A|
+mo|579|.990in rf bpm brazement assy|lensler|A|
+mo|580|.990in rf bpm top assy|lensler|A|
+mo|581|waveguide rf bpm|lensler|A|
+mo|582|bpm cover. x-band|lensler|A|
+mo|583|bpm body. x-band|lensler|A|
+mo|584|x-band rf bpm brazement assy|lensler|A|
+mo|585|x-band rf bpm top assy|lensler|A|
+mo|586|1.33 R_CF INSRT MOD, .75 ID|oshulepov|A|
+mo|587|1.33 NR_CF MOD, .75 ID|oshulepov|A|
+mo|588|BEND SECTION BOTTOM HALF TRANSP LINE|oshulepov|A|
+mo|589|BEND SECTION TOP HALF TRANSP LINE|oshulepov|A|
+mo|590|cls, injector, bpm system, local oscltr x/y axis|dhaigh|A|
+mo|591|cls, injector, bpm system, rf reference dist|dhaigh|A|
+mo|592|cls, ring, bpm system, rf dist, x/y axis|dhaigh|A|
+mo|593|KICKER GO GAUGE|oshulepov|A|
+mo|594|KICKER NO-GO GAUGE|oshulepov|A|
+mo|595|1.33 R_CF INSRT MOD, .75 ID|oshulepov|A|
+mo|596|unipolar controller front panel|jrifkin|A|
+mo|597|unipolar controller rear panel|jrifkin|A|
+mo|598|wr284 to cpr284 adaptor|l.giannini|A|
+mo|599|cls, injector, bpm system, signal capture card, card|dhaigh|A|
+mo|600|cls, injector, bpm system, signal capture card, front panel|dhaigh|A|
+mo|601|cls, injector, bpm system, signal capture card|dhaigh|A|
+mo|602|3.00 optic adaptor/mnt|lensler|A|
+mo|603|optic reducer 3.0 to 2.5|lensler|A|
+mo|604|optic detant plate|lensler|A|
+mo|605|optical adaptor nut|lensler|A|
+mo|606|CERAMIC CHAMBER, METALIZED|oshulepov|A|
+mo|607|assy optic mount adaptor|lensler|A|
+mo|608|CERAMIC RING|oshulepov|A|
+mo|609|CERAMIC RING METALIZATION|oshulepov|A|
+mo|610|KICKER END FLANGE|oshulepov|A|
+mo|611|KICKER CHAMBER BRAZE|oshulepov|A|
+mo|612|KICKER CHAMBER WELD|oshulepov|A|
+mo|613|optic mount assy, 2.0in|lensler|A|
+mo|614|optic detent plate, 2.0in|lensler|A|
+mo|615|optic reducer 3.0 to 2.0|lensler|A|
+mo|616|optical adaptor nut,3.0-2.0in ID|lensler|A|
+mo|617|ELBOW 90 DEG MOD TRANSPORT LINE|oshulepov|A|
+mo|618|cls, injector, support frame, gun vac, tube cradle|dhaigh|A|
+mo|619|cls, injector, support frame, gun vac, tube clamp|dhaigh|A|
+mo|620|cls, injector, support frame, gun vac, tube side|dhaigh|A|
+mo|621|cls, injector, support frame, gun vac, assembly|dhaigh|A|
+mo|622|cls, injector, support frame, gun vac, tube weldment|dhaigh|A|
+mo|623|ELBOW 45 DEG MOD TRANSPORT LINE|oshulepov|A|
+mo|624|BACKUP RING, KICKER|oshulepov|A|
+mo|625|1.33 NR_CF MOD, .55 ID|oshulepov|A|
+mo|626|cls,injector, support frame, gun, mount, optic cross|dhaigh|A|
+mo|627|cls, injector, support frame, gun, support, optic cross|dhaigh|A|
+mo|628|cls, injector, support frame, gun, cradle, optic cross|dhaigh|A|
+mo|629|WAVEGUIDE 6 IN. RADIUS, E PLANE SHORT|oshulepov|A|
+mo|630|cls, injector, gun vacuum, flange, 4.5" to 1" tube|dhaigh|A|
+mo|631|crystal holder mod - 2mm|jrifkin|A|
+mo|632|pckl_cl_hvps_mnt_plt|jrifkin|A|
+mo|633|pckl_cl_hvps_mnt_plt_mod|jrifkin|A|
+mo|634|fbr_optc_clmtr_mod|jrifkin|A|
+mo|635|1.33 R_CF INSRT MOD, .55 ID|oshulepov|A|
+mo|636|1.33 R_CF MOD, .55 ID|oshulepov|A|
+mo|637|BELLOWS CYLINDER|oshulepov|A|
+mo|638|SPRING FINGERS|oshulepov|A|
+mo|639|SEPTUM BELLOWS ASSY|oshulepov|A|
+mo|640|SPRING FINGERS CYLINDER|oshulepov|A|
+mo|641|8u side panel mod|jrifkin|A|
+mo|642|8u handle bracket mod|jrifkin|A|
+mo|643|TAPER DUMP|oshulepov|A|
+mo|644|COLLIMATOR TUBE|oshulepov|A|
+mo|645|KICKER BOX SIDE PLATE|oshulepov|A|
+mo|646|KICKER BOX CLAMP|oshulepov|A|
+mo|647|KICKER BOX GUIDE PLATE BOTTOM|oshulepov|A|
+mo|648|KICKER BOX GUIDE PLATE TOP|oshulepov|A|
+mo|649|FERRITE SUPPORT|oshulepov|A|
+mo|650|FERRITE CLAMP|oshulepov|A|
+mo|651|DISTRIBUTION BOARD GUIDE|oshulepov|A|
+mo|652|KICKER BOX TERMINAL BRACKET|oshulepov|A|
+mo|653|KICKER BOX FRONT COVER|oshulepov|A|
+mo|654|KICKER BOX TOP COVER|oshulepov|A|
+mo|655|KICKER BOX BOTTOM COVER|oshulepov|A|
+mo|656|KICKER BOX MOUNTING BRACKET|oshulepov|A|
+mo|657|periscope downpost|m.gifford|A|
+mo|658|TRANSITION COLLIMATOR|oshulepov|A|
+mo|659|2.75 R_CF INSRT MOD, RECT|oshulepov|A|
+mo|660|2.75 R_CF MOD, RECT|oshulepov|A|
+mo|661|COLLIMATOR BELLOWS ASSY|oshulepov|A|
+mo|662|KICKER MAGNET SPACER BUSHING|oshulepov|A|
+mo|663|COLLIMATOR BRAZE|oshulepov|A|
+mo|664|1.33 R_CF INSRT MOD, .221 ID|oshulepov|A|
+mo|665|1.33 R_CF MOD, .221 ID|oshulepov|A|
+mo|666|KICKER MAGNET BOARD STOPPER|oshulepov|A|
+mo|667|cls, injector, rf gun vacuum system, tube cradle|dhaigh|A|
+mo|668|practice coating chamber|jrifkin|A|
+mo|669|practice coating chamber mtlztn|jrifkin|A|
+mo|670|cls, ring, horizontal granite table|dhaigh|A|
+mo|671|cls, transport line, vertical granite table|dhaigh|A|
+mo|672|dual xtal holder, 2mm|jrifkin|A|
+mo|673|dual xtal holder, 3mm|jrifkin|A|
+mo|674|BASE PLATE, BEAM DUMP|oshulepov|A|
+mo|675|SUPPORT PLATE, BEAM DUMP|oshulepov|A|
+mo|676|SUPPORT, BEAM DUMP|oshulepov|A|
+mo|677|SUPPORT MACHINED, BEAM DUMP|oshulepov|A|
+mo|678|BRICK BASIC, BEAM DUMP|oshulepov|A|
+mo|679|BRICK 2-HOLE, BEAM DUMP|oshulepov|A|
+mo|680|BRICK CLAMP, BEAM DUMP|oshulepov|A|
+mo|681|BRICK REAR HALF RIGHT, BEAM DUMP|oshulepov|A|
+mo|682|BRICK REAR HALF LEFT, BEAM DUMP|oshulepov|A|
+mo|683|BRICK FRONT HALF RIGHT, BEAM DUMP|oshulepov|A|
+mo|684|BRICK FRONT HALF LEFT, BEAM DUMP|oshulepov|A|
+mo|685|ALUMINUM INSERT, BEAM DUMP|oshulepov|A|
+mo|686|THREADED ROD LONG, BEAM DUMP|oshulepov|A|
+mo|687|THREADED ROD SHORT, BEAM DUMP|oshulepov|A|
+mo|688|BEAM DUMP ASSY|oshulepov|A|
+mo|689|XTAL/DIODE MNT PLT|jrifkin|A|
+mo|690|I:P12 BPM TUBE|oshulepov|A|
+mo|691|P12 BPM|oshulepov|D|
+mo|692|ld heat sink|jrifkin|A|
+mo|693|2.75 R_CF INSRT MOD, .75 ID|oshulepov|A|
+mo|694|2.75 R_CF MOD, .75 ID|oshulepov|A|
+mo|695|FRONT PANEL 3U|oshulepov|A|
+mo|696|FRONT PANEL 4U|oshulepov|A|
+mo|697|BACK PANEL 3U|oshulepov|A|
+mo|698|BACK PANEL 4U|oshulepov|A|
+mo|699|SIDE PANEL 3U|oshulepov|A|
+mo|700|SIDE PANEL 4U|oshulepov|A|
+mo|701|BOTTOM PANEL|oshulepov|A|
+mo|702|STAND-OFF|oshulepov|A|
+mo|703|BUS|oshulepov|A|
+mo|704|BLANK PANEL|oshulepov|A|
+mo|705|cls, ring, septum, coil iron return|dhaigh|A|
+mo|706|cls, ring, septum, pole iron|dhaigh|A|
+mo|707|cls, ring, septum, yoke return|dhaigh|A|
+mo|708|cls, ring, septum, yoke, vacuum chamber|dhaigh|A|
+mo|709|cls, ring, septum, polar field clamp|dhaigh|A|
+mo|710|cls, ring, septum, field clamp|dhaigh|A|
+mo|711|cls, ring, septum, transport flange weldment|dhaigh|A|
+mo|712|cls, ring, septum, tube, transport flange|dhaigh|A|
+mo|713|cls, ring, septum, tube, ring input, copper|dhaigh|A|
+mo|714|cls, ring, septum, tube, ring input, iron|dhaigh|A|
+mo|715|cls, ring, septum, transport tube, blank|dhaigh|A|
+mo|716|cls, ring, septum, braze shim inner|dhaigh|A|
+mo|717|cls, ring, septum, braze shim outer|dhaigh|A|
+mo|718|cls, ring, septum, braze one, vacuum chamber|dhaigh|A|
+mo|719|cls, ring, septum, machine prep for braze two|dhaigh|A|
+mo|720|cls, ring, septum, braze two, vacuum chamber|dhaigh|A|
+mo|721|cls, ring, septum, bellows weld, vacuum chamber|dhaigh|A|
+mo|722|cls, ring, septum, mounting bracket|dhaigh|A|
+mo|723|cls, ring, septum, assembly|dhaigh|A|
+mo|724||dhaigh|A|
+mo|725|cls, transport line, hoist insert, vertical table|dhaigh|A|
+mo|726|BASE PLATE NARROW|oshulepov|A|
+mo|727|PANEL BLANK|oshulepov|A|
+mo|728|AC DISTRIBUTION BOX 3U|oshulepov|A|
+mo|729|AC DISTRIBUTION BOX 4U|oshulepov|A|
+mo|730|c;s. transport line, septum, 1.33 nr_cf, .5 id, mod|dhaigh|A|
+mo|731|1.33 NR_CF MOD, .277 ID|oshulepov|A|
+mo|732|ANTENNA LOOP RF CAVITY|oshulepov|A|
+mo|733|INPUT FEEDTHRU, RF CAVITY|oshulepov|A|
+mo|734|RF CAVITY ASSY|oshulepov|A|
+mo|735|cls, transport line, septum, input braze shim, 25/75|dhaigh|A|
+mo|736|cls, transport line, septum, output braze shim, 25/75|dhaigh|A|
+mo|737|ge 100 rack shelf|m.gifford|A|
+mo|738|laser diode drvr cld plt|m.gifford|A|
+mo|739|lsr diode drvr mnt plt|m.gifford|A|
+mo|740|RF CAVITY|oshulepov|A|
+mo|741|RF CAVITY FINAL ASSY|oshulepov|A|
+mo|742|1.33 R_CF INSRT MOD, .277 ID|oshulepov|A|
+mo|743|DUAL HALL PROBE HOLDER|jrifkin|A|
+mo|744|DUAL HALL PROBE tube|jrifkin|A|
+mo|745|RF CAVITY BODY|oshulepov|A|
+mo|746|RF CAVITY COVER|oshulepov|A|
+mo|747|RF CAVITY FEEDTHRU TUBE|oshulepov|A|
+mo|748|RF CAVITY BRAZE WASHER|oshulepov|A|
+mo|749|RF CAVITY COOLING TUBE|oshulepov|A|
+mo|750|RF CAVITY FEEDTHRU BRAZE WASHER|oshulepov|A|
+mo|751|1.33 NR_CF MOD, .551 ID|oshulepov|A|
+mo|752|RF CAVITY MOUNT|oshulepov|A|
+mo|753|RF CAVITY BRAZE FIXTURE|oshulepov|A|
+mo|754|2.75 R_CF INSRT MOD, 1.37 ID|oshulepov|A|
+mo|755|2.75 R_CF MOD, 1.37 ID|oshulepov|A|
+mo|756|2.75 R_CF INSRT MOD, .87 ID|oshulepov|A|
+mo|757|2.75 R_CF MOD, .87 ID|oshulepov|A|
+mo|758|RF GASKET, 1.37 ID|oshulepov|A|
+mo|759|RF GASKET, .87 ID|oshulepov|A|
+mo|760|RF GASKET, .551 ID|oshulepov|A|
+mo|761|RF CAVITY 3/8 OD TUBE FITTING MOD|oshulepov|A|
+mo|762|LSR CNTRLR SIDE RAIL ADPTR|m.gifford|A|
+mo|763|LSR CNTRLR SIDE RAIL MNT PLT|m.gifford|A|
+mo|764|cls, transport line, septum, coil|dhaigh|A|
+mo|765|cls,transport line, septum, flange brazement, ring input|dhaigh|A|
+mo|766|RF CAVITY BRAZE WASHER .87 ID|oshulepov|A|
+mo|767|RF CAVITY BRAZE WASHER 1.37 ID|oshulepov|A|
+mo|768|P47 BPM TUBE|oshulepov|D|
+mo|769|P47 BPM BRAZE|oshulepov|D|
+mo|770|P47 BPM WELD|oshulepov|D|
+mo|771|WAIVEGUIDE BEND CHAMBER MACH|oshulepov|A|
+mo|772|WAIVEGUIDE BEND CHAMBER BRAZE|oshulepov|A|
+mo|773|WAIVEGUIDE BEND CHAMBER BODY|oshulepov|A|
+mo|774|WAIVEGUIDE BEND CHAMBER COVER|oshulepov|A|
+mo|775|TRANSITION COLLIMATOR WAIVEGUIDE|oshulepov|A|
+mo|776|PUMPOUT WAIVEGUIDE|oshulepov|A|
+mo|777|PUMPOUT TUBE SHORT|oshulepov|A|
+mo|778|RING BEND|oshulepov|A|
+mo|779|FLANGE TRANSITION COLLIMATOR|oshulepov|A|
+mo|780|TRANSITION BEND CHAMBER MACH|oshulepov|A|
+mo|781|TRANSITION BEND CHAMBER BRAZE|oshulepov|A|
+mo|782|BEND CHAMBER HALF MALE|oshulepov|A|
+mo|783|BEND CHAMBER HALF FEMALE|oshulepov|A|
+mo|784|WAIVEGUIDE STRAIGHT A|oshulepov|A|
+mo|785|WAIVEGUIDE STRAIGHT B|oshulepov|A|
+mo|786|WAIVEGUIDE STRAIGHT C|oshulepov|A|
+mo|787|TRANSITION BEND CHAMBER TUBE SHORT|oshulepov|A|
+mo|788|ADAPTOR RING BOW TIE|oshulepov|A|
+mo|789|rf sexless flange blank, al|jrifkin|A|
+mo|790|accel strctr brz fxtr a|jrifkin|A|
+mo|791|accel strctr brz fxtr a tube|jrifkin|A|
+mo|792|accel strctr brz fxtr a wldmnt|jrifkin|A|
+mo|793|RING RIGHT SIDE BRAZE|oshulepov|A|
+mo|794|RING RIGHT SIDE WELD|oshulepov|A|
+mo|795|RING LEFT SIDE BRAZE|oshulepov|A|
+mo|796|RING LEFT SIDE WELD|oshulepov|A|
+mo|797|accel strctr brz fxtr b|jrifkin|A|
+mo|798|accel strctr brz fxtr b wldmnt|jrifkin|A|
+mo|799|TRANSITION SEPTUM WAIVEGUIDE|oshulepov|A|
+mo|800|PUMPOUT WAIVEGUIDE LONG|oshulepov|A|
+mo|801|RING WELDMENT ADAPTOR|oshulepov|A|
+mo|802|RING QUARTER A BRAZE|oshulepov|A|
+mo|803|RING QUARTER B BRAZE|oshulepov|A|
+mo|804|RING QUARTER C BRAZE|oshulepov|A|
+mo|805|RING HALF A WELD|oshulepov|A|
+mo|806|RING HALF B WELD|oshulepov|A|
+mo|807|RING QUARTER A WELD|oshulepov|A|
+mo|808|RING QUARTER B WELD|oshulepov|A|
+mo|809|RING QUARTER C WELD|oshulepov|A|
+mo|810|TRANSITION SEPTUM FLANGE|oshulepov|A|
+mo|811|PUMPOUT CROSS TUBE|oshulepov|A|
+mo|812|PUMPOUT CROSS ASSY|oshulepov|A|
+mo|813|PUMPOUT CROSS SPACER|oshulepov|A|
+mo|814|CLAMP HOOK|oshulepov|A|
+mo|815|CLAMP SPACER|oshulepov|A|
+mo|816|cls, injector, bpm system, signal capture cards, back panel|dhaigh|A|
+mo|817|5mm aperature|m.gifford|A|
+mo|818|FEEDTHRU TEST FIXTURE|jrifkin|A|
+mo|819|SEPTUM BLWS INR CYLNDR PLT|oshulepov|A|
+mo|820|CLMTR BLWS SHLD FNGRS PLT|oshulepov|A|
+mo|821|SEPTUM BLWS SHLD FINGERS PLT|oshulepov|A|
+mo|822|cls, ring, q2041i - ncw, coil assy|dhaigh|A|
+mo|823|cls, ring, q2041i - ncw, cooling plate assy|dhaigh|A|
+mo|824|cls, ring, q2041i - ncw, cooling plate #1|dhaigh|A|
+mo|825|cls, ring, q2041i - ncw, cooling plate #|dhaigh|A|
+mo|826|cls, ring, q2041i - ncw, cooling tube|dhaigh|A|
+mo|827|end plate, bellows E, mod 572-403|lensler|A|
+mo|828|E BEND SHORT MACHINED|oshulepov|A|
+mo|829|E BEND SHORT BRAZE|oshulepov|A|
+mo|830|E BEND EXTRA LONG MACHINED|oshulepov|A|
+mo|831|E BEND EXTRA LONG BRAZE|oshulepov|A|
+mo|832|E BEND EXTRA LONG WELD|oshulepov|A|
+mo|833|E BEND EXTRA LONG ASSY|oshulepov|A|
+mo|834|E BEND LONG MACHINED|oshulepov|A|
+mo|835|E BEND LONG BRAZE|oshulepov|A|
+mo|836|E BEND LONG WELD|oshulepov|A|
+mo|837|E BEND LONG ASSY|oshulepov|A|
+mo|838|H BEND MACHINED|oshulepov|A|
+mo|839|H BEND BRAZE|oshulepov|A|
+mo|840|WAVEGUIDE FEEDTHRU ADAPTOR|oshulepov|A|
+mo|841|PLATE, WAVEGUIDE FEEDTHRU COVER|oshulepov|A|
+mo|842|WAVEGUIDE FEEDTHRU COVER|oshulepov|A|
+mo|843|PUMPOUT TUBE, WAVEGUIDE|oshulepov|A|
+mo|844|PUMPOUT TUBE ASSY|oshulepov|A|
+mo|845|cls,ring,q2041iNC, magnet assembly|dhaigh|A|
+mo|846|cls, ring, frame, horizontal granite, lifing stop|dhaigh|A|
+mo|847|cls, ring, assembly, frame, horizontal granite|dhaigh|A|
+mo|848|cls, ring, assembly, frame, vertical granite|dhaigh|A|
+mo|849|CYLINDER, INNER, BEAM DUMP|oshulepov|A|
+mo|850|CYLINDER, OUTTER, BEAM DUMP|oshulepov|A|
+mo|851|CLAMP, PUMPOUT|oshulepov|A|
+mo|852|cls, ring, table frame, bearing shaft|dhaigh|A|
+mo|853|cls, ring, table frame, bearing cup|dhaigh|A|
+mo|854|cls, ring, table frame, bearing retainer|dhaigh|A|
+mo|855|cls, ring, table frame, adjustment plate|dhaigh|A|
+mo|856|cls, ring, table frame, bracket, 12in air castor|dhaigh|A|
+mo|857|cls, ring, table frame, bracket, 9in air castor|dhaigh|A|
+mo|858|cls, ring, table frame, mod, 12in air castor|dhaigh|A|
+mo|859|cls, ring, table frame, mod, 9in air castor|dhaigh|A|
+mo|860|cls, ring, table frame, mount assy, horizontal table|dhaigh|A|
+mo|861|cls, ring, table frame, lifting stop|dhaigh|A|
+mo|862|cls, ring, table frame, lifting block, 1|dhaigh|A|
+mo|863|cls, ring, table frame, lifting block, 2|dhaigh|A|
+mo|864|cls, ring, table frame, lifting block, 3|dhaigh|A|
+mo|865|cls, ring, table frame, lifting block, 4|dhaigh|A|
+mo|866|cls, ring, table frame, lifting block, 5|dhaigh|A|
+mo|867|H BAND, X-BAND WG, RING|oshulepov|A|
+mo|868|accel structure cradle, painting|jrifkin|A|
+mo|869|accel structure mnt plt, painting|jrifkin|A|
+mo|870|short spacer tube, braze|jrifkin|A|
+mo|871|cls, ring, table frame, gland nut|dhaigh|A|
+mo|872|cls, ring, table frame, alignment tube|dhaigh|A|
+mo|873|cls, ring, table frame, base 2, tie rod mount|dhaigh|A|
+mo|874|cls, ring, table frame, base 1, tie rod mount|dhaigh|A|
+mo|875|cls, ring, table frame, arm, long, upper|dhaigh|A|
+mo|876|cls, ring, table frame, arm, long, lower|dhaigh|A|
+mo|877|cls, ring, table frame, arm, med, upper|dhaigh|A|
+mo|878|cls, ring, table frame, arm, med, lower|dhaigh|A|
+mo|879|cls, ring, table frame, arm, short, upper|dhaigh|A|
+mo|880|cls, ring, table frame, arm, short, lower|dhaigh|A|
+mo|881|cls, ring, table frame, mount, upper tie rods|dhaigh|A|
+mo|882|cls, ring, table frame, mount, tie rod, short|dhaigh|A|
+mo|883|cls, ring, table frame, mount, tie rod, long|dhaigh|A|
+mo|884|cls, ring, table frame, standoff 1, tie rod ends|dhaigh|A|
+mo|885|cls, ring, table frame, standoff 2, tie rod ends|dhaigh|A|
+mo|886|cls, ring, table frame, standoff 3, tie rod ends|dhaigh|A|
+mo|887|H BEND, KLYSTRON, WELD|oshulepov|A|
+mo|888|H BEND KLYSTRON, ASSY|oshulepov|A|
+mo|889|ACCEL STRCTR BRZ SPRT ASSY|jrifkin|A|
+mo|890|ACCEL STRCTR BRZ thrd rd|jrifkin|A|
+mo|891|accel strctr brz crdl thrd rd||A|
+mo|892|cls, ring, table frame, spacer, hold down horz table|dhaigh|A|
+mo|893|cls, ring, table frame, hold down bracket|dhaigh|A|
+mo|894|cls, ring, table frame, vert table, hold down, front, left|dhaigh|A|
+mo|895|cls, ring, table frame, vert table, hold down, back, left|dhaigh|A|
+mo|896|cls, ring, table frame, vert table, hold down, front, right|dhaigh|A|
+mo|897|cls, ring, table frame, vert table, hold down, back, right|dhaigh|A|
+mo|898|table, bowtie optics|lensler|A|
+mo|899|slide modification, bowtie optics|lensler|A|
+mo|900|KICKER FANOUT BOARD MECHANICAL LAYOUT|oshulepov|A|
+mo|901|KICKER FERRITE BOARD MECHANICAL LAYOUT|oshulepov|A|
+mo|902|KICKER FERRITE COIL|oshulepov|A|
+mo|903|PLATE, KICKER FERRITE SLDRNG FXTR|oshulepov|A|
+mo|904|FERRITE SLDRNG FIXTURE, KICKER|oshulepov|A|
+mo|905|HOUSING, VERTICAL GUIDE, KICKER|oshulepov|A|
+mo|906|PUSH-HANDLE, KICKER|oshulepov|A|
+mo|907|LOCK BAR, FERRITE BOARDS, KICKER|oshulepov|A|
+mo|908|AXIAL LIMIT, KICKER|oshulepov|A|
+mo|909|CONNECTOR PLATE, KICKER|oshulepov|A|
+mo|910|CONNECTOR PLATE BLANK, KICKER|oshulepov|A|
+mo|911|TOP COVER ASSY, KICKER|oshulepov|A|
+mo|912|SIDE COVER ASSY, KICKER|oshulepov|A|
+mo|913|accel strctr brz cradle|jrifkin|A|
+mo|914|BASE, KICKER BOX|oshulepov|A|
+mo|915|TOP, KICKER BOX|oshulepov|A|
+mo|916|CONNECTOR PLATE ASSY, KICKER|oshulepov|A|
+mo|917|KICKER BOX ASSY|oshulepov|A|
+mo|918|SHIELDING STRIP A, KICKER|oshulepov|A|
+mo|919|SHIELDING STRIP B, KICKER|oshulepov|A|
+mo|920|cls, ring, table frame, standoff 4, tie rod ends|dhaigh|A|
+mo|921|cls, ring, transport line, optic mount base|dhaigh|A|
+mo|922|rf gun brz cradle|jrifkin|A|
+mo|923|TAPER CHAMBER, RING|oshulepov|A|
+mo|924|TAPER CHAMBER ASSY|oshulepov|A|
+mo|925|FIXTURE PLATE, KICKER BOARDS|oshulepov|A|
+mo|926|BPM P53_P70 TUBE, RING|oshulepov|A|
+mo|927|CUP, FEEDBACK PICKUP, RING|oshulepov|A|
+mo|928|BPM P53_P70 BRAZE|oshulepov|A|
+mo|929|BPM P53_P70 WELD|oshulepov|A|
+mo|930|TUBE BPM P47|oshulepov|A|
+mo|931|BPM R1P47 BRAZE|oshulepov|A|
+mo|932|BPM R2P47 BRAZE|oshulepov|A|
+mo|933|BPM R1P47 WELD|oshulepov|A|
+mo|934|BPM R2P47 WELD|oshulepov|A|
+mo|935|BPM P47_P53_P70 FINAL WELD|oshulepov|A|
+mo|936|cls, ring, q2531iS, modification pole yoke assy|dhaigh|A|
+mo|937|SHAFT, KICKER CLAMP|oshulepov|A|
+mo|938|EXTENSION, FEEDTHRU, FEEDBACK PICKUP|oshulepov|A|
+mo|939|OUTER CYLINDER, LEAD|oshulepov|A|
+mo|940|CROSS MODIFIED|oshulepov|A|
+mo|941|CROSS WELD, PROFILE MONITOR|oshulepov|A|
+mo|942|cls, bowtie, lens adjustment assy, spring button|dhaigh|A|
+mo|943|cls, bowtie, lens adjustment assy, spring compression screw|dhaigh|A|
+mo|944|cls, bowtie, lens adjustment assy, flat, kinimatic mount|dhaigh|A|
+mo|945|cls, bowtie, lens adjustment assy, groove, kinimatic mount|dhaigh|A|
+mo|946|cls, bowtie, lens adjustment assy, cone, kinimatic mount|dhaigh|A|
+mo|947|cls, bowtie, lens adjustment assy, spacer 1, kinimatic mount|dhaigh|A|
+mo|948|cls, bowtie, lens adjustment assy, bellows weld shim|dhaigh|A|
+mo|949|cls, bowtie, lens adjustment assy, rear detant plate|dhaigh|A|
+mo|950|cls, bowtie, lens adjustment assy, front detant plate|dhaigh|A|
+mo|951|cls, bowtie, lens adjustment assy, heat sink, lens|dhaigh|A|
+mo|952|cls, bowtie, lens adjustment assy, support plate|dhaigh|A|
+mo|953|cls, bowtie, lens adjustment assy, support tube, heat sink|dhaigh|A|
+mo|954|cls, bowtie, lens adjustment assy, adjustment rod mount|dhaigh|A|
+mo|955|cls, bowtie, lens adjustment assy, adjustment bar|dhaigh|A|
+mo|956|cls, bowtie, lens adjustment assy, alignment pin|dhaigh|A|
+mo|957|cls, bowtie, lens adjustment assy, adjustment rod|dhaigh|A|
+mo|958|cls, bowtie, lens adjustment assy, mount rod, rear detant plate|dhaigh|A|
+mo|959|cls, bowtie, lens adjustment assy, alignment rod|dhaigh|A|
+mo|960|cls, bowtie, lens adjustment assy, cooling tube|dhaigh|A|
+mo|961|cls, bowtie, lens adjustment assy, bellows weldment|dhaigh|A|
+mo|962|cls, bowtie, lens adjustment assy, flange weldment|dhaigh|A|
+mo|963|cls, bowtie, lens adjustment assy, flange brazement|dhaigh|A|
+mo|964|cls, bowtie, lens adjustment assy, bellows weldment final|dhaigh|A|
+mo|965|cls, bowtie, lens adjustment assy, top assy|dhaigh|A|
+mo|966|HOLDER, SCREEN|oshulepov|A|
+mo|967|SCREEN, ALUMINA|oshulepov|A|
+mo|968|POST, SCREEN|oshulepov|A|
+mo|969|POST SCREEN BRAZE|oshulepov|A|
+mo|970|SCREEN ASSY|oshulepov|A|
+mo|971|BRACKET SLIDER, PROFILE MONITOR|oshulepov|A|
+mo|972|BRACKET RAIL, PROFILE MONITOR|oshulepov|A|
+mo|973|CLAMP BASE, PROFILE MONITOR|oshulepov|A|
+mo|974|CLAMP, PROFILE MONITOR|oshulepov|A|
+mo|975|PROFILE MONITOR ASSY|oshulepov|A|
+mo|976|POST SCREEN LONG|oshulepov|A|
+mo|977|POST SCREEN LONG BRAZE|oshulepov|A|
+mo|978|SCREEN LONG ASSY|oshulepov|A|
+mo|979|FLANGE MODIFIED, SCREEN BASE,PROFILE MONITOR|oshulepov|A|
+mo|980|EXTENDED FEEDTHRU ASSY|oshulepov|A|
+mo|981|EXTENDED FEEDTHRU PRE-CUT|oshulepov|A|
+mo|982|crclr to rctnglr flng adp|jrifkin|A|
+mo|983|LINEAR ACTUATOR ASSY, PROFILE MONITOR|oshulepov|A|
+mo|984|cls, bowtie, lens aiming assy, lens adjust mount plate|dhaigh|A|
+mo|985|cls, bowtie, lens adjust assy, support, lens adjust mount|dhaigh|A|
+mo|986|cls, bowtie, lens adjust assy, rear aiming plate|dhaigh|A|
+mo|987|cls, bowtie, lens adjust assy, kinimatic mount plate|dhaigh|A|
+mo|988|cls, bowtie, lens adjust assy, kinimatic mount flange|dhaigh|A|
+mo|989|cls, bowtie, lens adjust assy, weldment 1|dhaigh|A|
+mo|990|cls, bowtie, lens isolation assy, 8 inch flange|dhaigh|A|
+mo|991|cls, bowtie, lens isolation assy, weld flange|dhaigh|A|
+mo|992|cls, bowtie, lens isolation assy, spool|dhaigh|A|
+mo|993|cls, bowtie, lens isolation assy, 6 inch flange|dhaigh|A|
+mo|994|cls, bowtie, lens isolation assy, support tube, vacuum pump|dhaigh|A|
+mo|995|cls, bowtie, lens isolation assy, weldment 2|dhaigh|A|
+mo|996|cls, bowtie, lens aiming assy, weld fixture #1|dhaigh|A|
+mo|997|cls, bowtie, lens aiming assy, weld fixture #2|dhaigh|A|
+mo|998|MOTORIZED LINEAR ACTUATOR ASSY|oshulepov|A|
+mo|999|BRACKET, PUMP SUPPORT|oshulepov|A|
+mo|1000|BASE, PUMP SUPPORT|oshulepov|A|
+mo|1001|CLAMP. PUMP SUPPORT|oshulepov|A|
+mo|1002|ROD THD, PUMP SUPPORT|oshulepov|A|
+mo|1003|PUMP SUPPORT ASSY|oshulepov|A|
+mo|1004|SUPPORT BRACKET, PROFILE MONITOR|oshulepov|A|
+mo|1005|SUPPORT BRACKET SHORT, PROFILE MONITOR|oshulepov|A|
+mo|1006|wire centering fixture|jrifkin|A|
+mo|1007|cls, bowtie, lens aiming assembly, threaded bushing mod|dhaigh|A|
+mo|1008|cls, bowtie, lens aiming assembly, spacer kinimetic mount|dhaigh|A|
+mo|1009|cls, bowtie, -, y flange|dhaigh|A|
+mo|1010|cls, bowtie, rear lens assemblies, y flange weldment|dhaigh|A|
+mo|1011|cls, bowtie, -, mount block y flange|dhaigh|A|
+mo|1012|cls, bowtie, -, mount base y flange|dhaigh|A|
+mo|1013|cls, bowtie, -, mount plate|dhaigh|A|
+mo|1014|cls, bowtie, -, rotating clamp plate|dhaigh|A|
+mo|1015|cls, bowtie, lens isolation assy, lower clamp|dhaigh|A|
+mo|1016|cls, bowtie, lens isolation assy, upper clamp|dhaigh|A|
+mo|1017|cls, bowtie, rear lens assy left, bracket adaptor|dhaigh|A|
+mo|1018|cls, bowtie, rear lens assy right, bracket adaptor|dhaigh|A|
+mo|1019|I:P35_T:P15 BPM MNT BRACKET|oshulepov|A|
+mo|1020|I:P35_T:P15 BPM CLAMP|oshulepov|A|
+mo|1021|I:P35_T:P15 BPM SUPPORT ASSY|oshulepov|A|
+mo|1022|s/l band if reference front paneel|jrifkin|A|
+mo|1023|s/l band if reference bottom panel|jrifkin|A|
+mo|1024|s/l band local oscilator front panel|jrifkin|A|
+mo|1025|s/l band local oscilator bottom panel|jrifkin|A|
+mo|1026|accel strctr bakeout sprt plate|jrifkin|A|
+mo|1027|accel strctr bakeout wg sprt plate|jrifkin|A|
+mo|1028|FLANGE CLAMP SPACER|oshulepov|A|
+mo|1029|FLANGE MOUNT BRACKET SPACER|oshulepov|A|
+mo|1030|LINEAR STAGE ASSY, TRANSPORT LINE|oshulepov|A|
+mo|1031|MOTORIZED LINEAR STAGE ASSY, TRANSPORT LINE|oshulepov|A|
+mo|1032|cls, ring, q2531iL & q2531iS, terminal block bracket|dhaigh|A|
+mo|1033|cls, ring, q2041i, terminal block bracket|dhaigh|A|
+mo|1034|LINAC SOLENOID SPACER|oshulepov|A|
+mo|1035|verticle granite table-addendum|lensler|A|
+mo|1036|horiz granite table-addendum|lensler|A|
+mo|1037|HORIZONTAL BRACKET CABLE SUPPORT|oshulepov|A|
+mo|1038|VERTICAL BRACKET CABLE SUPPORT|oshulepov|A|
+mo|1039|cls, laser system, y-flange, 2.5 rot-cf 1.5 tube, mod|dhaigh|A|
+mo|1040|cls, laser system, output optic aiming assy, kinimatic mount plate|dhaigh|A|
+mo|1041|cls, laser system, output optic aiming assy, kinimatic mount spacer|dhaigh|A|
+mo|1042|cls, laser system, output optic aiming assy, pzt holder|dhaigh|A|
+mo|1043|cls, laser system, output optic aiming assy, pzt positioner|dhaigh|A|
+mo|1044|cls, laser system, front optic assemblies, mount plate|dhaigh|A|
+mo|1045|power supply mount card|m.gifford|A|
+mo|1046|cls, laser system, lens aiming assy, brazement|dhaigh|A|
+mo|1047|cathode colling fixture top plate|k.cook|A|
+mo|1048|cathode cleaning fixture macor insulator|k.cook|A|
+mo|1049|cathode cleaning fixture bottom plate|k.cook|A|
+mo|1050|CABLE SUPPORT, BRACKET|oshulepov|A|
+mo|1051|cls, laser system, output optic assy, lens cooling plate|dhaigh|A|
+mo|1052|cls, laser system, output optic assy, aiming plate|dhaigh|A|
+mo|1053|cls, laser system, output optic assy, window tube|dhaigh|A|
+mo|1054|cls, laser system, output optic assy, lens compression plate|dhaigh|A|
+mo|1055|cls, laser system, output optic assy, lens collor plate|dhaigh|A|
+mo|1056|cls, laser system, output optic assy, cooling tube 3/16 od|dhaigh|A|
+mo|1057|cls, laser system, output optic assy, brazement|dhaigh|A|
+mo|1058|cls, laser system, output optic assy, weldment|dhaigh|A|
+mo|1059|cls, laser system, output optic assy, assembly|dhaigh|A|
+mo|1060|cls, laser system, input optic assy, aiming plate|dhaigh|A|
+mo|1061|cls, laser system, input optic assy, lens collar|dhaigh|A|
+mo|1062|cls, laser system, input optic assy, clamping plate|dhaigh|A|
+mo|1063|cls, laser system, input optic assy, spacer kinimatic mount|dhaigh|A|
+mo|1064|cls, laser system, input optic assy, brazement|dhaigh|A|
+mo|1065|cls, laser system, input optic assy, weldment|dhaigh|A|
+mo|1066|cls, laser system, input optic assy, assembly|dhaigh|A|
+mo|1067|PUMPOUT EXTENSION, WAVEGUIDE|oshulepov|A|
+mo|1068|PUMPOUT EXTENSION TUBE, WAVEGUIDE|oshulepov|A|
+mo|1069|BASE PLATE, WVGD SPRT|oshulepov|A|
+mo|1070|VERTICAL BEAM, WVGD SPRT|oshulepov|A|
+mo|1071|HORIZONTAL BEAM, WVGD SPRT|oshulepov|A|
+mo|1072|TOP PLATE, WVGD SPRT|oshulepov|A|
+mo|1073|SHORT BEAM, WVGD SPRT|oshulepov|A|
+mo|1074|GUSSET A, WVGD SPRT|oshulepov|A|
+mo|1075|GUSSET B, WVGD SPRT|oshulepov|A|
+mo|1076|WAVEGUIDE SUPPORT|oshulepov|A|
+mo|1077|INLET WATER PIPE WELD ASSY|lensler|A|
+mo|1078|RF GUN PUMPOUT EXTENSION|oshulepov|A|
+mo|1079|RF GUN PUMPOUT EXTENSION TUBE|oshulepov|A|
+mo|1080|power entry module|m.gifford|A|
+mo|1081|ACCL STRCTR ELBOW PMPT EXTNSN|oshulepov|A|
+mo|1082|OUTLET  WATER PIPE WELD ASSY|lensler|A|
+mo|1083|ring, water pipe, inlet, r1b20|lensler|A|
+mo|1084|VACUUM TUBE A, VCM MNFLD|oshulepov|A|
+mo|1085|VACUUM TUBE B, VCM MNFLD|oshulepov|A|
+mo|1086|2.5" TUBE SPACER, VACUUM MNFLD|oshulepov|A|
+mo|1087|2.5" OD NIPPLE TUBE|oshulepov|A|
+mo|1088|1.5" OD TUBE SPACER|oshulepov|A|
+mo|1089|2.5" OD NIPPLE|oshulepov|A|
+mo|1090|DUAL ELBOW ASSY, VCM MNFLD|oshulepov|A|
+mo|1091|VACCUM TUBE A ASSY|oshulepov|A|
+mo|1092|VACUUM TUBE B ASSY, VCM MNFLD|oshulepov|A|
+mo|1093|ACCEL VACUUM MANIFOLD|oshulepov|A|
+mo|1094|SPACER VACUUM PUMP|oshulepov|A|
+mo|1095|water pipe vert table, output weld assy|lensler|A|
+mo|1096|water pipe vert table, input weld assy|lensler|A|
+mo|1097|pipe tube strap long, vert table|lensler|A|
+mo|1098|pipe tube strap medium, vert table|lensler|A|
+mo|1099|pipe tube strap short, vert table|lensler|A|
+mo|1100|top weld assy, verticle table|lensler|A|
+mo|1101|VACUUM PUMP SHIM|oshulepov|A|
+mo|1102|ring, water pipe, inlet manifold,l rb40|lensler|A|
+mo|1103|ring, water pipe, outlet manifold, rb20|lensler|A|
+mo|1104|ring, water pipe, outlet manifold, rb40|lensler|A|
+mo|1105|ring, water pipe, septum inlet manifold|lensler|A|
+mo|1106|ring, water pipe, septum outlet manifold|lensler|A|
+mo|1107|storage ring water sys, outlet final assy|lensler|A|
+mo|1108|FLANGE CLAMP, LASER INJECTOR|oshulepov|A|
+mo|1109|CLAMP PLATE, LASER INJECTOR|oshulepov|A|
+mo|1110|NUT PLATE, LASER INJECTOR|oshulepov|A|
+mo|1111|OPTICAL INPUT SETUP, LASER INJECTOR|oshulepov|A|
+mo|1112|storage ring water sys, inlet final assy|lensler|A|
+mo|1113|FLANGE SUPPORT, VACUUM SYSTEM, INJECTOR|oshulepov|A|
+mo|1114|FLANGE CLAMP, VACUUM SYSTEM, INJECTOR|oshulepov|A|
+mo|1115|cls, laser system, pitch-yaw assy, assembly|dhaigh|A|
+mo|1116|cls, laser system, optical correction assy, top assy|dhaigh|A|
+mo|1117|BELLOWS ADAPTOR, REFERENCE CAVITY|oshulepov|A|
+mo|1118|cls, laser system, input optic assy, assembly|dhaigh|A|
+mo|1119|cls, laser system,input optic assy, assembly|dhaigh|A|
+mo|1120|cls, laser system, input optical assy, y flange support, uneven|dhaigh|A|
+mo|1121|cls, laser system, input optical assy, y flange support, even|dhaigh|A|
+mo|1122|cls, laser system, input optical assy, granite mount block|dhaigh|A|
+mo|1123|prism coating|m.gifford|A|
+mo|1124|FRONT PANLE MOD, BPM PSU|oshulepov|A|
+mo|1125|REAR PANEL MOD, BPM PSU|oshulepov|A|
+mo|1126|BOTTOM PANEL MOD, BPM PSU|oshulepov|A|
+mo|1127|cls,laser system, y flange, short tube|dhaigh|A|
+mo|1128|cls,laser system, y flange, long tube|dhaigh|A|
+mo|1129|LOWER FRAME, DOOR|oshulepov|A|
+mo|1130|SIDE SUPPORT FRAME, DOOR|oshulepov|A|
+mo|1131|BEARING FRAME, DOOR|oshulepov|A|
+mo|1132|BUNKER DOOR|oshulepov|A|
+mo|1133|SIDE SUPPORT ASSY, DOOR|oshulepov|A|
+mo|1134|PS BOTTOM PLATE MOD, KICKER|oshulepov|A|
+mo|1135|PS REAR PANEL MOD, KICKER|oshulepov|A|
+mo|1136|PS FRONT PANEL MOD, KICKER|oshulepov|A|
+mo|1137|PS MOUNT BRACKET, KICKER|oshulepov|A|
+mo|1138|align bar, ip|lensler|A|
+mo|1139|align bar, jp|lensler|A|
+mo|1140|align bar, block|lensler|A|
+mo|1141|align bar, long|lensler|A|
+mo|1142|align bar, short|lensler|A|
+mo|1143|align bar, #2|lensler|A|
+mo|1144|align bar, #3|lensler|A|
+mo|1145|cls, laser system, output optic assy, 4.5 r_cf mod, lens support|dhaigh|A|
+mo|1146|cls, laser system, output optic assy, 4.5 nr_cf 3 tube mod|dhaigh|A|
+mo|1147|PIPE, DOOR|oshulepov|A|
+mo|1148|THREADED ROD, DOOR|oshulepov|A|
+mo|1149|SUPPORT PLATE MOD, ACCEL SOLENOID|oshulepov|A|
+mo|1150|cls,laser system,output optic assy, pzt assy|dhaigh|A|
+mo|1151|horiz table_align tooling assy|lensler|A|
+mo|1152|align tool, r1 jp|lensler|A|
+mo|1153|align tool, r1 ip|lensler|A|
+mo|1154|align tool, r2 ip|lensler|A|
+mo|1155|align tool, r2 jp|lensler|A|
+mo|1156|assy align tool, r2 ip|lensler|A|
+mo|1157|assy align tool, r1 ip|lensler|A|
+mo|1158| align tool, dipole bar|lensler|A|
+mo|1159| align tool, dipole bar|lensler|D|
+mo|1160|horiz table, verticle align bar|lensler|A|
+mo|1161|horiz table, r1 distance bar|lensler|A|
+mo|1162|horiz table, r2 distance bar|lensler|A|
+mo|1163|16" AIR CASTOR MOD|oshulepov|A|
+mo|1164|cls,laser system, output optic assy, optic cushion|dhaigh|A|
+mo|1165|align tool, IP_JP|lensler|A|
+mo|1166|cls, laser system, central chamber, chamber tube short|dhaigh|A|
+mo|1167|cls, laser system, central chamber, chamber tube long|dhaigh|A|
+mo|1168|cls, laser system, central chamber, chamber base|dhaigh|A|
+mo|1169|cls, laser system, central chamber, chamber wall|dhaigh|A|
+mo|1170|cls, laser system, central chamber, chamber weldment|dhaigh|A|
+mo|1171|BOTTOM PANEL MOD, LOW LEVEL RF|oshulepov|A|
+mo|1172|REAR PANEL MOD, LOW LEVEL RF|oshulepov|A|
+mo|1173|FRONT PANEL MOD, LOW LEVEL RF|oshulepov|A|
+mo|1174|ANGLE BRACKET A, LOW LEVEL RF|oshulepov|A|
+mo|1175|ANGLE BRACKET B, LOW LEVEL RF|oshulepov|A|
+mo|1176|ANGLE BRACKET C, LOW LEVEL RF|oshulepov|A|
+mo|1177|ANGLE BRACKET C, LOW LEVEL RF|oshulepov|A|
+mo|1178|ANGLE BRACKET E, LOW LEVEL RF|oshulepov|A|
+mo|1179|cls, laser system, central chamber, 12 to 2.75 cf rdcng flange|dhaigh|A|
+mo|1180|cls, laser system, central chamber, optic tube|dhaigh|A|
+mo|1181|cls, laser system, central chamber, optic i/o ring|dhaigh|A|
+mo|1182|cls, laser system, central chamber, chamber lid brazement|dhaigh|A|
+mo|1183|cls, laser system, central chamber, aperture tube|dhaigh|A|
+mo|1184|cls, laser system, central chamber, optical i/o mirror mount|dhaigh|A|
+mo|1185|cls, laser system, central chamber, aperture mnt post|dhaigh|A|
+mo|1186|cls, laser system, central chamber, aperture|dhaigh|A|
+mo|1187|cls, laser system, central chamber, optical i/o mirror assy|dhaigh|A|
+mo|1188|cls, laser system, central chamber, aperture bellows|dhaigh|A|
+mo|1189|cls, laser system, central chamber, aperture post weldment|dhaigh|A|
+mo|1190|cls, laser system, central chamber, aperture assy|dhaigh|A|
+mo|1191|cls, laser system, central chamber, stage bracket|dhaigh|A|
+mo|1192|cls, laser system, central chamber, aperture adjust bracket|dhaigh|A|
+mo|1193|cls, laser system, central chamber, central chamber assy|dhaigh|A|
+mo|1194|BOTTOM PANEL MOD, SYNC BOX|oshulepov|A|
+mo|1195|REAR PANEL MOD, SYNC BOX|oshulepov|A|
+mo|1196|SERVO AMPLIFIER PANEL|oshulepov|A|
+mo|1197|block, ip, horiz align tool|lensler|A|
+mo|1198|horiz table unistrut mnt|lensler|A|
+mo|1199|assy uni-strut mnt|lensler|A|
+mo|1200|cls, laser system, laser system assy, even, interconnect tube #1|dhaigh|A|
+mo|1201|cls, laser system, laser system assy, even, interconnect tube #2|dhaigh|A|
+mo|1202|cls, laser system, laser system assy, uneven, interconnect tube #3|dhaigh|A|
+mo|1203|cls, laser system, laser system assy, uneven, interconnect tube #4|dhaigh|A|
+mo|1204|cls, laser system, laser system assy, uneven, interconnect tube #5|dhaigh|A|
+mo|1205|cls, laser system, laser system assy, uneven, interconnect tube #6|dhaigh|A|
+mo|1206|cls, laser system, laser system assy, even|dhaigh|A|
+mo|1207|cls, laser system, laser system assy, uneven|dhaigh|A|
+mo|1208|VACUUM PUMP SPACER|oshulepov|A|
+mo|1209|VACUUM PUMP SHIM|oshulepov|A|
+mo|1210|WAVEGUIDE SUPPORT, CONFIGURATION B|oshulepov|A|
+mo|1211|SERVO AMP PANEL COVER|oshulepov|A|
+mo|1212|KLYSTRON DRIVER AMP FRONT PANEL|oshulepov|A|
+mo|1213||dhaigh|A|
+mo|1214|cls, laser system, correction assy, correction vacuum assy|dhaigh|A|
+mo|1215|cls, laser system, correction assy, correction support assy|dhaigh|A|
+mo|1216|cls, laser system, output optic assy, output optic vacuum assy|dhaigh|A|
+mo|1217|cls, laser system, output optic assy, output optic even assy|dhaigh|A|
+mo|1218|cls, laser system, output optic assy, output optic uneven assy|dhaigh|A|
+mo|1219|cls, laser system, input optic assy, input optic vacuum assy|dhaigh|A|
+mo|1220|cls, laser system, input optic assy, input optic even assy|dhaigh|A|
+mo|1221|cls, laser system, input optic assy, input optic uneven assy|dhaigh|A|
+mo|1222|MOTOR CONTROL THD ROD #6-32 X 4in|oshulepov|D|
+mo|1223|MOTOR CONTROL CHASSIS|oshulepov|A|
+mo|1224|MOTOR CONTROL FRONT PANEL|oshulepov|A|
+mo|1225|RACK SHELF MOD, KLYSTRON AMP BOX|oshulepov|A|
+mo|1226|THREADED ROD #8-32 X 4.125 LG, KLYSTRON AMP BOX|oshulepov|A|
+mo|1227|THREADED ROD, #6-32 X 4LG, MOTOR CONTROL|oshulepov|A|
+mo|1228|SPCR RND, .250 OD X 3LG, MOTOR CONTROL|oshulepov|A|
+mo|1229|SPCR RND, .250 OD X .250LG, MOTOR CONTROL|oshulepov|A|
+mo|1230|transducer mount bracket a|k.cook|A|
+mo|1231|transducer mount bracket b|k.cook|A|
+mo|1232|SUPRT PLATE, TRGR FNT BRD|oshulepov|A|
+mo|1233|UNISTRUT 42in, BPM RACK|oshulepov|A|
+mo|1234|horiz table, align bar tooling|lensler|A|
+mo|1235|horiz table, align bars|lensler|A|
+mo|1236|horiz table, cooling pipes|lensler|A|
+mo|1237|horiz table, align pin assy|lensler|A|
+mo|1238|horiz table_IP_tool assy|lensler|A|
+mo|1239|horiz table_IP_tool body|lensler|A|
+mo|1240|MOTOR CONTROL REAR PANEL|oshulepov|A|
+mo|1241|FRONT PANEL, PLC|oshulepov|A|
+mo|1242|MOUNTING STRIP, PLC|oshulepov|A|
+mo|1243|cls, control system, radiation detector, rack mount kit|dhaigh|A|
+mo|1244|cls, control system, ion guage, rack mount kit|dhaigh|A|
+mo|1245|cls, ring, rf cavity, rf gasket, .880 id|dhaigh|A|
+mo|1246|cls, ring, rf cavity, rf gasket, .554 id|dhaigh|A|
+mo|1247|cls, ring, rf cavity, rf gasket, .394 id|dhaigh|A|
+mo|1248|cls, ring, rf cavity, rf gasket, .221 id|dhaigh|A|
+mo|1249|cls, ring, rf cavity, rf gasket, 1.380 id|dhaigh|A|
+mo|1250|vertical table align tool|lensler|A|
+mo|1251|vertical table align bar tooling assy|lensler|A|
+mo|1252|water maniford weld assy, first acel|lensler|A|
+mo|1253|top assy water manifold, first acel|lensler|A|
+mo|1254|bracket, water manifold, first acel|lensler|A|
+mo|1255|clamp, water manifold, first accel struct|lensler|A|
+mo|1256|weld assy, linacc water manifold|lensler|A|
+mo|1257|cls, ring, d2045i, bus bar|dhaigh|A|
+mo|1258|cls, ring, d2190i, bus bar|dhaigh|A|
+mo|1259|cls, ring, d4090i, bus bar|dhaigh|A|
+mo|1260|water manifold weld assy, solinoid magnets|lensler|A|
+mo|1261|water manifold top assy, solinoid magnets|lensler|A|
+mo|1262|lower brkt, water manifold, solinoid magnets|lensler|A|
+mo|1263|upper brkt, water manifold, solinoid magnets|lensler|A|
+mo|1264|cls, laser system, central chamber, 3.375 nr_cf mod|dhaigh|A|
+mo|1265|cls, ring, D2145i, connector extension|dhaigh|A|
+mo|1266|cls, ring, D4090i, connector extension|dhaigh|A|
+mo|1267|cls, ring, D2145i, clamp, strain relief|dhaigh|A|
+mo|1268|cls, ring, D2145i, base, strain relief|dhaigh|A|
+mo|1269|cls, ring, D2090i, base, strain relief|dhaigh|A|
+mo|1270|regen cover. rf gun|lensler|A|
+mo|1271|assy regen cover. rf gun|lensler|A|
+mo|1272|bracket, regen cover. rf gun|lensler|A|
+mo|1273|OPTICAL MOUNT BRACKET|oshulepov|A|
+mo|1274|OPTICAL MOUNTING PLATE|oshulepov|A|
+mo|1275|CAMERA MOUNTING SPACER|oshulepov|A|
+mo|1276|OPTICAL MOUNTING SPACER|oshulepov|A|
+mo|1277|FILTER MOUNT|oshulepov|A|
+mo|1278|OPTICAL COVER|oshulepov|A|
+mo|1279|OPTICAL OUTPUT ASSY|oshulepov|A|
+mo|1280|horiz table, r2a distance bar|lensler|A|
+mo|1281|cls, injector, gun, selonoid lifting plate|dhaigh|A|
+mo|1282|OPTICAL OUTPUT ADJUSTMENT BRACKET|oshulepov|A|
+mo|1283|cls, laser system, vacuum system, 3.375 nr_cf 1.75 mod|dhaigh|A|
+mo|1284|beam dump, poly shield, long|lensler|A|
+mo|1285|beam dump, poly shield, short|lensler|A|
+mo|1286|beam dump, poly shield, curved|lensler|A|
+mo|1287|assy beam dump, poly shield,|lensler|A|
+mo|1288|FARADAY CUP DISK|oshulepov|A|
+mo|1289|FARADAY CUP SHIELD|oshulepov|A|
+mo|1290|FARADAY CUP BUSHING|oshulepov|A|
+mo|1291|cls, ring, D2190i, connector extension|lensler|A|
+mo|1292|FARADAY CUP CLAMP|oshulepov|A|
+mo|1293|FARADAY CUP SHIELD ASSY|oshulepov|A|
+mo|1294|FARADAY CUP FEEDTHRU ASSY|oshulepov|A|
+mo|1295|BRACKET, LIGHTWEIGHT POWERSUPPLY|oshulepov|A|
+mo|1296|align tool, jp, horiz granite|lensler|A|
+mo|1297|cls, control system, vacuum system, ion pump hv distribution box|dhaigh|A|
+mo|1298|cls, control system, vacuum system, ion pump hv dstrbtn box assy|dhaigh|A|
+mo|1299|cls, ring, transport line, vert table, align bar tooling|dhaigh|A|
+mo|1300|cls, ring, transport line, vertical frame & granite table|dhaigh|A|
+mo|1301|cls, ring, transport line, air castor mounting assy|dhaigh|A|
+mo|1302|cls, ring, support, horiz frame & granite table|dhaigh|A|
+mo|1303|cls, horizontal table frame, air castor mounting assy|dhaigh|A|
+mo|1304|cls, support, horiz table hold downs|dhaigh|A|
+mo|1305|cls, support, horiz & vert tie rod assy|dhaigh|A|
+mo|1306|cls, support, vert table hold downs|dhaigh|A|
+mo|1307|CORRECTOR SUPPORT|oshulepov|A|
+mo|1308|CORRECTOR ASSEMBLY|oshulepov|A|
+mo|1309|DRAIN CAP, STORAGE RING WATER SYSTEM|oshulepov|A|
+mo|1310|DRAIN CAP, TRANSPORT LINE WATER SYSTEM|oshulepov|A|
+mo|1311|LIFITNG PLATE|oshulepov|A|
+mo|1312|LIFTING BRACKET|oshulepov|A|
+mo|1313|LIFITNG FIXTURE|oshulepov|A|
+mo|1314|ALIGNMENT FIXTURE, VERTICAL GRANITE|oshulepov|A|
+mo|1315|ALIGNMENT TARGET A|oshulepov|A|
+mo|1316|ALIGNMENT FIXTURE B|oshulepov|A|
+mo|1317|ALIGNMENT TARGET C|oshulepov|A|
+mo|1318|ALIGNMENT APPERTURE|oshulepov|A|
+mo|1319|ALIGNMENT TARGET A ASSY|oshulepov|A|
+mo|1320|ALIGNMENT TARGET B ASSY|oshulepov|A|
+mo|1321|ALIGNMENT TARGET C ASSY|oshulepov|A|
+mo|1322|ALIGNMENT FIXTURE ASSEMBLY|oshulepov|A|
+mo|1323|cls, transport line, beamline assy, shim 1|dhaigh|A|
+mo|1324|cls, transport line, beamline assy, shim 2|dhaigh|A|
+mo|1325|ANGLE BLOCK MACHINED|oshulepov|A|
+mo|1326|ALIGNMENT ROD|oshulepov|A|
+mo|1327|CAMERA MOUNT TUBE|oshulepov|A|
+mo|1328|CAMERA MOUNT CUP|oshulepov|A|
+mo|1329|CAMERA ASSEMBLY, CENTRAL CHAMBER|oshulepov|A|
+mo|1330|cls, ring, ip beamline assy, feedthru spacer|dhaigh|A|
+mo|1331|FAN BASE PLATE|oshulepov|A|
+mo|1332|FAN ANGLE BRACKET|oshulepov|A|
+mo|1333|FAN SHELF ASSEMBLY, BPM RACK|oshulepov|A|
+mo|1334|cls, ring, q2041I, nut plate|dhaigh|A|
+mo|1335|cls, ring, q2531iS, nut plate|dhaigh|A|
+mo|1336|SEPTUM SHILED UPSTREAM|oshulepov|A|
+mo|1337|SEPTUM SHIELD DOWNSTREAM|oshulepov|A|
+mo|1338|cls, ring, d2045i, bolt, modified|dhaigh|A|
+mo|1339|CLS, INJECTOR, SUPPORT FRAME, ACCEL,, MOUNTING PLATE ALIGNMENT|dhaigh|A|
+mo|1340|cls, ring, d4090i, cable connector, top|dhaigh|A|
+mo|1341|cls, ring, 2045I, buss bar washer|dhaigh|A|
+mo|1342|cls, ring, septum, cable connector|dhaigh|A|
+mo|1343|WEDGE PLATE, OPTICS|oshulepov|A|
+mo|1344|cls, laser system, optic mount plate|dhaigh|A|
+mo|1345|d2190i_pole_add_on|lensler|A|
+mo|1346|front panel, bunker table|lensler|A|
+mo|1347|support plate, bunker table|lensler|A|
+mo|1348|top sheet, bunker table|lensler|A|
+mo|1349|edge cover, long, bunker table|lensler|A|
+mo|1350|edge cover, short, bunker table|lensler|A|
+mo|1351|edge cover, wide, bunker table|lensler|A|
+mo|1352|edge cover, narrow, bunker table|lensler|A|
+mo|1353|aperture mnt plt, x-ray optics assy|lensler|A|
+mo|1354|kinematic mnt plt, x-ray optics table|lensler|A|
+mo|1355|x-ray optics mnt plt, x-ray optics table|lensler|A|
+mo|1356|slide bar, x-ray optics table|lensler|A|
+mo|1357|side slide rail mod, bunker table|lensler|A|
+mo|1358|end station assembly, bunker|lensler|A|
+mo|1359|x-ray optic support table|lensler|A|
+mo|1360|TUBE BOTTOM, SHIELD SUPPORT, FARADAY CUP|oshulepov|A|
+mo|1361|TUBE TOP, SHIELD SUPPORT, FARADAY CUP|oshulepov|A|
+mo|1362|TOP PLATE, SHIELD SUPPORT, FARADAY CUP|oshulepov|A|
+mo|1363|SHIELD SUPPORT, FARADAY CUP|oshulepov|A|
+mo|1364|vacuum tube, bunker|lensler|A|
+mo|1365|shutter support horiz, x-ray optic table|lensler|A|
+mo|1366|shutter support vert. x-ray table optics stand|lensler|A|
+mo|1367|assy_x_ray_vac_tube_weld, bunker|lensler|A|
+mo|1368|assy x-ray kapton window, bunker|lensler|A|
+mo|1369|cxs, x-ray optics support table, sutter assy, cradle, tube|dhaigh|A|
+mo|1370|cxs, x-ray optics support table, shutter assembly, tube clamp|dhaigh|A|
+mo|1371|cxs, x-ray optics support table, shutter assembly, shutter support horiz|dhaigh|A|
+mo|1372|vacuum tube support outside, bunker|lensler|A|
+mo|1373|x-ray optics, vac assy, cradle tube|lensler|A|
+mo|1374|cradle, tube support, end station, bunker|lensler|A|
+mo|1375|Aluminum window w/cut, enclosure, bunker|lensler|A|
+mo|1376|CLAMP, CRADLE, RF GUN|oshulepov|A|
+mo|1377|INSTRUMENT FLANGE|oshulepov|A|
+mo|1378|GUN SOLENOID SPACER|oshulepov|A|
+mo|1379|aluminum profile monitor screen|jrifkin|A|
+mo|1380|l-band hv feedthru clamp|jrifkin|A|
+mo|1381|MOTOR BRACKET, X RAY STATION|oshulepov|A|
+mo|1382|ROTARY STAGE SPACER, X RAY STATION|oshulepov|A|
+mo|1383|BASE PLATE, X RAY STATION|oshulepov|A|
+mo|1384|X RAY STATION TABLE|oshulepov|A|
+mo|1385|MAR TABLE ASSY|oshulepov|A|
+mo|1386|ANGLE BRACKET, X-RAY TUBE|oshulepov|A|
+mo|1387|GUIDE LONG MODIFIED|oshulepov|A|
+mo|1388|GUIDE SHORT MODIFIED|oshulepov|A|
+mo|1389|rf gun cooling plate|jrifkin|A|
+mo|1390|cathode spring tube assy mod|jrifkin|A|
+mo|1391|profile monitor nut plate|jrifkin|A|
+mo|1392|cls, injectore, rf gun vacuum system, tubing weldment-c|dhaigh|A|
+mo|1393|cls, injector, rf gun assy, flange, water lines|dhaigh|A|
+mo|1394|cls, injector, rf gun assembly, cathode cooling line|dhaigh|A|
+mo|1395|cls, ring, d2045i, d2045i top assembly|dhaigh|A|
+mo|1396|cls, ring, d2090i, d2090i, top assembly|dhaigh|A|
+mo|1397|cls, ring, d4090i, d4090i, top assembly|dhaigh|A|
+mo|1398|cathode spacer, .015 thick|jrifkin|A|
+mo|1399|cxs,-,bunker layout, x-ray port layout|dhaigh|A|
+mo|1400|cls, injector, rf gun assy, copper cathode, 1.125 thk|dhaigh|A|
+mo|1401|cls, injector, vacuum system, vacuum manifold, short|dhaigh|A|
+mo|1402|cls, ring, d2190i, back leg|ablack|A|
+mo|1403|cls, injector, support frame, ion #2, support|dhaigh|A|
+mo|1404|cls, injector, s band hybrid, s band hybrid base fab|dhaigh|A|
+mo|1405|cls, injector, s band hybrid, s band hybrid cover fab|dhaigh|A|
+mo|1406|cls, injector, s band hybrid, s band hybrid brazement|dhaigh|A|
+mo|1407|cls, injector, s band hybrid, s band hybrid machine|dhaigh|A|
+mo|1408|cls, injector, s band hybrid, s band hybrid final brzmt|dhaigh|A|
+mo|1409|cls, injector, support frame, ip #1, pump support assy|dhaigh|A|
+mo|1410|cls, injector, support frame, ip #2, pump support assy|dhaigh|A|
+mo|1411|cls, ring, d2190i, pole plug|ablack|A|
+mo|1412|cls, rf system, waveguides, adaptor flange, tuning|dhaigh|A|
+mo|1413|cls, rf system, waveguides, e bend, gun|dhaigh|A|
+mo|1414|cls, rf system, waveguides, e bend, linacc|dhaigh|A|
+mo|1415|cls, rf system, waveguides, e bend, load|dhaigh|A|
+mo|1416|cls, rf system, waveguides, scandinova, e bend, klystron|dhaigh|A|
+mo|1417|cls, rf system, waveguides, scandinova, h bend 1, klystron|dhaigh|D|
+mo|1418|cls, rf system, waveguides, scandinova, h bend 2, klystron|dhaigh|D|
+mo|1419|cls, rf system, waveguides, scandinova, h bend 3, klystron|dhaigh|A|
+mo|1420|cls, rf system, waveguides, h bend, klystron|dhaigh|A|
+mo|1421|cls, injector, rf gun assy, cathode spring pump flange|dhaigh|A|
+mo|1422|cls, ring, d2190i, shoulder screw|ablack|A|
+mo|1423|cls,ring,d4090i,back leg|ablack|A|
+mo|1424|cls,ring,d4090i,pole plug|ablack|A|
+mo|1425|pellicle holder|jrifkin|A|
+mo|1426|nutplate, 1.125|jrifkin|A|
+mo|1427|pellicle assembly|jrifkin|A|
+mo|1428|pellicle clamp|jrifkin|A|
+mo|1429|aperature, .0325|jrifkin|A|
+mo|1430|cls,ring,vacuum chamber,rctnglr pumpout tube|ablack|A|
+mo|1431|cls,ring,quadrupole magnet,terminal block bracket|ablack|A|
+mo|1432|xray detector holder a|jrifkin|A|
+mo|1433|xray detector slide a|jrifkin|A|
+mo|1434|bi-polar ps controller heat sink|jrifkin|A|
+mo|1435|4u front panel dimensions|jrifkin|A|
+mo|1436|4u rear panel dimensions|jrifkin|A|
+mo|1437|4u, 14in deep bottom panel dimensions|jrifkin|A|
+mo|1438|4u, 14in deep top panel dimensions|jrifkin|A|
+mo|1439|3u front panel template|jrifkin|A|
+mo|1440|3u rear panel template|jrifkin|A|
+mo|1441|3u bottom panel template|jrifkin|A|
+mo|1442|6u front panel template|jrifkin|A|
+mo|1443|6u rear panel template|jrifkin|A|
+mo|1444|6u, 20in deep bottom panel|jrifkin|A|
+mo|1445|20in deep top panel|jrifkin|A|
+mo|1446|cls,ring,kicker installation instructions|ablack|A|
+mo|1447|kicker ps bottom panel|jrifkin|A|
+mo|1448|kicker ps front panel|jrifkin|A|
+mo|1449|kicker ps rear panel|jrifkin|A|
+mo|1450|2u front panel template|jrifkin|A|
+mo|1451|2u rear panel template|jrifkin|A|
+mo|1452|2u bottom panel template|jrifkin|A|
+mo|1453|60Hz_65MHz synchronization rear panel|jrifkin|A|
+mo|1454|60Hz_65MHz synchronization bottom panel|jrifkin|A|
+mo|1455|1u front panel|jrifkin|A|
+mo|1456|1u rear panel|jrifkin|A|
+mo|1457|1u bottom panel|jrifkin|A|
+mo|1458|60Hz_65MHz_ sync_assy|jrifkin|A|
+mo|1459|kicker_ps_assy|jrifkin|A|
+mo|1460|BREAKDOWN DETECTOR PCB|jrifkin|A|
+mo|1461|14 in dp tp pnl w/perf template|jrifkin|A|
+mo|1462|3U, 14DP, BTM PNL W/PERF TMPLT|jrifkin|A|
+mo|1463|2u handle|jrifkin|A|
+mo|1464|3u handle|jrifkin|A|
+mo|1465|4u handle|jrifkin|A|
+mo|1466|6u handle|jrifkin|A|
+mo|1467|Ion Pump support, modified cf blank|sbaum|A|
+mo|1468|granite table, horizontal|sbaum|A|
+mo|1469|granite table, horizontal|sbaum|D|
+mo|1470|BLWS SHLD FNGRS PLT|restrada|A|
+mo|1471|ac distribution front panel|jrifkin|A|
+mo|1472|ac distribution rear panel|jrifkin|A|
+mo|1473|ac distribution bottom panel|jrifkin|A|
+mo|1474|ac distribution assembly|jrifkin|A|
+mo|1475|6U 17IN DP BTM PNL TMPLT|jrifkin|A|
+mo|1476|Vertical Granite Table|sbaum|A|
+mo|1477|YLF BREWSTER ROD, 1.2MM OD|m.gifford|A|
+mo|1478|ATCG3D FLOOR PLAN|jrifkin|A|
+mo|1479|3U 17IN DP BTM PNL TMPLT|jrifkin|A|
+mo|1480|llrf front panel|jrifkin|A|
+mo|1481|llrf rear panel|jrifkin|A|
+mo|1482|llrf bottom panel|jrifkin|A|
+mo|1483|BRACKET, SMA, QUADRUPOLE MAGNET|restrada|A|
+mo|1484|  	3U 20IN DP BTM PNL TMPLT|jrifkin|A|
+mo|1485|llrf angle bracket a|jrifkin|A|
+mo|1486|bipolar ps front panel, top|jrifkin|A|
+mo|1487|bipolar ps front panel, bottom|jrifkin|A|
+mo|1488|bipolar ps rear panel|jrifkin|A|
+mo|1489|bipolar ps bottom panel|jrifkin|A|
+mo|1490|bipolar ps assembly|jrifkin|A|
+mo|1491|CLS, RING, RECTANGULAR RF BPM, BRAZE SHIM|restrada|A|
+mo|1492|cxs bunker layout|r.estrada|A|
+mo|1493|bi-polar ps case|jrifkin|A|
+mo|1494|bi-polar ps top panel|jrifkin|A|
+mo|1495|bi-polar ps rear panel|jrifkin|A|
+mo|1496|bi-polar ps inner filter screen|jrifkin|A|
+mo|1497|bi-polar ps outer filter screen|jrifkin|A|
+mo|1498|bi-polar ps filter cover|jrifkin|A|
+mo|1499|bi-polar ps 3u front panel|jrifkin|A|
+mo|1500|bi-polar ps 3u filter|jrifkin|A|
+mo|1501|bi-polar ps assembly|jrifkin|A|
+mo|1502|bi-polar ps filter cover assy|jrifkin|A|
+mo|1503|bi-polar ps extrusion  mod|jrifkin|A|
+mo|1504|cls facility layout|jrifkin|A|
+mo|1505|Lead Bottle|sbaum|A|
+mo|1506|Lead Bottle|sbaum|D|
+mo|1507|FRAME WELDMENT, HORIZONTAL GRANITE TABLE|sbaum|A|
+mo|1508|bi-polar ps extrussion mod|jrifkin|A|
+mo|1509|bi-polar 6U front panel|jrifkin|A|
+mo|1510|BI-POLAR PS DIN RAIL|jrifkin|A|
+mo|1511|ac distribution rear panel assy|jrifkin|A|
+mo|1512|20 DP PRFRTD TOP PNL|jrifkin|A|
+mo|1513|unipolar ps rear panel|jrifkin|A|
+mo|1514|unipolar ps 6u front panel|jrifkin|A|
+mo|1515|unipolar ps assy|jrifkin|A|
+mo|1516|llrf assy|jrifkin|A|
+mo|1517|bi-polar ps extrussion mod b|jrifkin|A|
+mo|1518|bpm case|jrifkin|A|
+mo|1519|bpm rear panel|jrifkin|A|
+mo|1520|bpm assy|jrifkin|A|
+mo|1521|CLS, INJECTOR, REGEN, TOOLING BASE, RT|restrada|A|
+mo|1522|CLS, INJECTOR, REGEN, OPTIC MOUNT|restrada|A|
+mo|1523|CLS, INJECTOR, REGEN, OPTIC, DX.05X CURVED|restrada|A|
+mo|1524|CLS, INJECTOR, REGEN, APERTURE, 4mm|restrada|A|
+mo|1525|CLS, INJECTOR, REGEN, OPTIC, Dx15x52|restrada|A|
+mo|1526|CLS, INJECTOR, REGEN, OPTIC, Dx.5xPLANO|restrada|A|
+mo|1527|bpm upper rear panel|jrifkin|A|
+mo|1528|BPM BACKPLANE|jrifkin|A|
+mo|1529|slide_support_weldment_BT|sbaum|A|
+mo|1530|BPM top front panel|jrifkin|A|
+mo|1531|slide-2_support_weldment_BT|sbaum|A|
+mo|1532|cls, injector, regen, rod holder module|restrada|A|
+mo|1533|cls, injector, regen, rod clamp|restrada|A|
+mo|1534|cls, injector, regen, base, rod holder|restrada|A|
+mo|1535|cls, injector, regen, foil, reflector|restrada|A|
+mo|1536|Clamp-Cover, Lead Bricks, X-End|sbaum|A|
+mo|1537|Clamp Channel, Lead Bricks, X-End|sbaum|A|
+mo|1538|Back Wall, Lead Bricks, X-End|sbaum|A|
+mo|1539|cls, injector, regen, ldm base|restrada|A|
+mo|1540|cls, injector, regen, tec module|restrada|A|
+mo|1541|cls, injector, regen, diode mount|restrada|A|
+mo|1542|L-BRACKET, ROLL-ON SLIDER|sbaum|A|
+mo|1543|cls, injector, regen, diode isolator|restrada|A|
+mo|1544|L-BRACKET, LEVELLING, SLIDER|sbaum|A|
+mo|1545|ADJUSTMENT PLATE, OFFSET|sbaum|A|
+mo|1546|SPHERICAL MOUNT ASSY, OFFSET|sbaum|A|
+mo|1547|cls, injector, regen, clamp, exit window|restrada|A|
+mo|1548|cls, injector, regen, cover, top|restrada|A|
+mo|1549|cls, injector, regen, mount, pd ir|restrada|A|
+mo|1550|cls, injector, regen, holder, collimator|restrada|A|
+mo|1551|cls, injector, regen, base, wave plate|restrada|A|
+mo|1552|cls, injector, regen, holder, shg|restrada|A|
+mo|1553|cls, injector, regen, base, fhg|restrada|A|
+mo|1554|cls, injector, regen, holder, fhg|restrada|A|
+mo|1555|cls, injector, regen, base, polarizer|restrada|A|
+mo|1556|cls, injector, regen, base, laser|restrada|A|
+mo|1557|BEARING RETAINER, SPHERICAL ADJSTR.|sbaum|D|
+mo|1558|BEARING CLAMP, SPHERICAL ADJSTR.|sbaum|A|
+mo|1559|cls, injector, regen, clamp, fi|restrada|A|
+mo|1560|cls, injector, regen, clamp, fr|restrada|A|
+mo|1561|cls, injector, regen, clamp, pc|restrada|A|
+mo|1562|motor controller chassis assy|jrifkin|A|
+mo|1563|motor controller chassis|jrifkin|A|
+mo|1564|motor controller front pane;|jrifkin|A|
+mo|1565|motor controller rear panel|jrifkin|A|
+mo|1566|4U 19IN DP BOTTOM PANEL TEMPLATE|jrifkin|A|
+mo|1567|cls, injector, regen, laser diode module|restrada|A|
+mo|1568|SCINTILLATOR  MOUNT|jrifkin|A|
+mo|1569|motor controller chassis din rail|jrifkin|A|
+mo|1570|cls, injector, regen, laser assembly|restrada|A|
+mo|1571|cls, injector, regen, mount, pd uv|restrada|A|
+mo|1572|OPTICS TABLE ASSY., LASER SYS.|sbaum|A|
+mo|1573|SLIDER & BRACKETS ASSY.|sbaum|A|
+mo|1574|cls, injector, regen, adjustable mirror assy|restrada|A|
+mo|1575|cls, injector, regen, polarizer assy|restrada|A|
+mo|1576|cls, injector, regen, clamp, diode feedthru clamp|restrada|A|
+mo|1577|cls, injector, regen, fhg ASSY|restrada|A|
+mo|1578|cls, injector, regen, shg assy|restrada|A|
+mo|1579|cls, injector, regen, ldm feedthru clamp|restrada|A|
+mo|1580|cls, injector, regen, thin film polarizer|restrada|A|
+mo|1581|rf diagnostics assembly|jrifkin|A|
+mo|1582|rf chasis|jrifkin|A|
+mo|1583|rf diagnostics top panel|jrifkin|A|
+mo|1584|rf diagnostics shelf|jrifkin|A|
+mo|1585|cls, injector, regen, input base|restrada|A|
+mo|1586|cls, injector, regen, pd retainer|restrada|A|
+mo|1587|SLIDER STOP L-BRKT, TABLE SIDE|sbaum|A|
+mo|1588|SLIDER STOP L-BRKT, SUPPORT SIDE|sbaum|A|
+mo|1589|rf diagnostics rear panel|jrifkin|A|
+mo|1590|tsdg assembly|jrifkin|A|
+mo|1591|tsdg case|jrifkin|A|
+mo|1592|tsdg front panel|jrifkin|A|
+mo|1593|tsdg rear panel|jrifkin|A|
+mo|1594|din strip 3in|jrifkin|A|
+mo|1595|inner filter screen mod|jrifkin|A|
+mo|1596|bpm lo/if distribution assembly|jrifkin|A|
+mo|1597|bpm lo/if distribution case|jrifkin|A|
+mo|1598|bpm lo/if distribution top panel|jrifkin|A|
+mo|1599|bpm lo/if distribution rear panel|jrifkin|A|
+mo|1600|bpm lo/if distribution shelf|jrifkin|A|
+mo|1601|bpm lo distribution a|jrifkin|A|
+mo|1602|bpm lo distribution b|jrifkin|A|
+mo|1603|bpm if distribution a|jrifkin|A|
+mo|1604|bpm if distribution b|jrifkin|A|
+mo|1605|bpm if distribution bklhd conn tab|jrifkin|A|
+mo|1606|bpm lo/if distribution shelf bracket|jrifkin|A|
+mo|1607|l-band amplifier cold plate mounting bar|jrifkin|A|
+mo|1608|l-band amplifier cold plate|jrifkin|A|
+mo|1609|l-band amplifier water plate modification|jrifkin|A|
+mo|1610|l-band amplifier 2in threaded rod|jrifkin|A|
+mo|1611|l-band amplifier 1in threaded rod|jrifkin|A|
+mo|1612|l-band amplifier .75in threaded rod|jrifkin|A|
+mo|1613|l-band amplifier case|jrifkin|A|
+mo|1614|l-band amplifier front panel|jrifkin|A|
+mo|1615|l-band amplifier front panel rear panel|jrifkin|A|
+mo|1616|l-band amplifier water manifold|jrifkin|A|
+mo|1617|l-band amplifier assembly|jrifkin|A|
+mo|1618|l-band amplifier pre-assembly|jrifkin|A|
+mo|1619|cls, injector, regen, cooling plate|restrada|A|
+mo|1620|loop_cplr_adpdtr_plt|jrifkin|A|
+mo|1621|cls, injector, regen, pockel cell supply mount|restrada|A|
+mo|1622|cls, injector, regen, pockel cell driver mount|restrada|A|
+mo|1623|cls, injector, regen, bottom cover|restrada|A|
+mo|1624|6in l din strip|jrifkin|A|
+mo|1625|cls, injector, regen, tooling base, lt|restrada|A|
+mo|1626|s-band amp case|jrifkin|A|
+mo|1627|s-band amp front panel|jrifkin|A|
+mo|1628|s-band amp rear panel|jrifkin|A|
+mo|1629|s-band amp shelf|jrifkin|A|
+mo|1630|s-band amp assembly|jrifkin|A|
+mo|1631|r_cf 2.75x.982odx.68id|jrifkin|A|
+mo|1632|nr_cf 2.75xblank|jrifkin|A|
+mo|1633|cls, injector, regen, vee mount,|restrada|A|
+mo|1634|cls, injector, regen, cone mount,|restrada|A|
+mo|1635|cls, injector, regen, mounting clamp|restrada|A|
+mo|1636|bi-polar ps fan mount plate|jrifkin|A|
+mo|1637|Lower Pole Piece, Threaded, Q2041i|sbaum|A|
+mo|1638|Lower Pole Piece, Threaded, Q2531iL|sbaum|A|
+mo|1639|Lower Pole Piece, Threaded, q2531iS|sbaum|A|
+mo|1640|cls, injector, regen, test port cover|restrada|A|
+mo|1641|cls, injector, regen, lower shroud|restrada|A|
+mo|1642|cls, injector, regen, lower shroud mount|restrada|A|
+mo|1643|cls, injector, regen, shroud side|restrada|A|
+mo|1644|cls, injector, regen, shroud base|restrada|A|
+mo|1645|cls, injector, regen, exit mirror base|restrada|A|
+mo|1646|cls, injector, regen, exit mirror mount plate|restrada|A|
+mo|1647|cls, injector, regen, lens flipper mount|restrada|A|
+mo|1648|cls, injector, regen, output assembly|restrada|A|
+mo|1649|laser power amplifier, nd:yag rod|jrifkin|A|
+mo|1650|waveguide-support_adjustable|sbaum|A|
+mo|1651|cls, injector, regen, cored optic|restrada|A|
+mo|1652|cls, injector, regen, test pickoff|restrada|A|
+mo|1653|fan mount plate|jrifkin|A|
+mo|1654|Regen-Laser-Mtg-Brackets|sbaum|A|
+mo|1655|il, injector, regen, Input Collimator|sbaum|A|
+mo|1656|buss bar|jrifkin|A|
+mo|1657|IL-regen-connector-plate|sbaum|A|
+mo|1658|mirror|jrifkin|A|
+mo|1659|Gun / Linac assy, Short, Injector, CLS|sbaum|A|
+mo|1660|CLS,injector, regen, Q-Switch Lead|sbaum|A|
+mo|1661|cls,injector, regen, mirror clip tool|sbaum|A|
+mo|1662|Injection Laser system|sbaum|A|
+mo|1663|IL Cooling Brzmt|sbaum|A|
+mo|1664|Limit Switch Mount|sbaum|A|
+mo|1665|Flipper Slider Plate|sbaum|A|
+mo|1666|chassis bracket 3in wide|jrifkin|A|
+mo|1667|chassis bracket 1in wide|jrifkin|A|
+mo|1668|chassis bracket 7/8 in wide|jrifkin|A|
+mo|1669|bpm lo osc cooling plate|jrifkin|A|
+mo|1670|bpm lo osc cooling plate assy|jrifkin|A|
+mo|1671|D2190i_Shoe_Shim_3mm|barnold|A|
+mo|1672|D4090i_Shoe_Shim_3mm|barnold|A|
+mo|1673|ac distribution chassis circuit breaker blank|jrifkin|A|
+mo|1674|Optical Output Adjustable Bracket|barnold|A|
+mo|1675|Optical Output Adjustable Cover|barnold|A|
+mo|1676|Optical Output Cover Standoff|barnold|A|
+mo|1677|Motor Bearing Plate|barnold|A|
+mo|1678|Pitch-Yaw Linear Actuator|barnold|A|
+mo|1679|LSR CVTY XTNSN SLIDE BRACKET|jrifkin|A|
+mo|1680|LSR CVTY XTNSN PIEZO BRACKET|jrifkin|A|
+mo|1681|LSR CVTY XTNSN ACTUATOR MOUNT|jrifkin|A|
+mo|1682|LSR CVTY XTNSN MOUNT PLATE|jrifkin|A|
+mo|1683|LSR CVTY XTNSN QUARTZ PLATE|jrifkin|A|
+mo|1684|LSR CVTY XTNSN ACTUATOR ASSY|jrifkin|A|
+mo|1685|cavity laser cooling tube|jrifkin|A|
+mo|1686|cavity laser cooling plate|jrifkin|A|
+mo|1687|cavity laser cooling assy|jrifkin|A|
+mo|1688|Pitch-Yaw Linear Actuator Ball Screw Shaft|barnold|A|
+mo|1689|Pitch-Yaw Actuator Linear Guide Shaft|barnold|A|
+mo|1690|Pitch-Yaw Actuator-Spring Final Assy|barnold|D|
+mo|1691|Pitch-Yaw Actuator Rotary Encoder Spacer|barnold|A|
+mo|1692|Pitch-Yaw Actuator Limit Swich Bracket|barnold|A|
+mo|1693|Pitch-Yaw Actuator Linear Bearing Clamp|barnold|A|
+mo|1694|Pitch-Yaw Correction Assembly|barnold|A|
+mo|1695|Pitch-Yaw Actuator Limit Swich Assembly|barnold|A|
+mo|1696|Pitch-Yaw Kinematic Flange Brazement|barnold|A|
+mo|1697|Astigmatism Correction Kinematic Flange|barnold|A|
+mo|1698|Astigmatism Correction Weldment|barnold|A|
+mo|1699|Pitch-Yaw Non-Rotation Bellows Flange|barnold|A|
+mo|1700|Pitch-Yaw Welding Fixture|barnold|A|
+mo|1701|Pitch-Yaw Kinematic Motor Plate|barnold|A|
+mo|1702|R_CF 8.00X6X.042W|barnold|A|
+mo|1703|Astigmatism Correction Ptich-Yaw Assy|barnold|A|
+mo|1704|Pitch-Yaw Kinematic-Piezo Back Plate|barnold|A|
+mo|1705|Input Optic Pitch-Yaw Motor-Spring Assy|barnold|A|
+mo|1706|Output Optic Pitch-Yaw Motor-Spring Assy|barnold|A|
+mo|1707|Pitch-Yaw Retension Spring Tube|barnold|A|
+mo|1708|Pitch-Yaw Retension Spring End Cap|barnold|A|
+mo|1709|Pitch-Yaw Retension Spring Assembly|barnold|A|
+mo|1710|Output Optic Pitch-Yaw Bellows Weldment|barnold|A|
+mo|1711|Input Optic Pitch-Yaw Bellows Weldment|barnold|A|
+mo|1712|Input Optic Pitch-Yaw Plate|barnold|A|
+mo|1713|Output Optic Pitch-Yaw Plate|barnold|A|
+mo|1714|Input Optic Vacuum Tube Brazement|barnold|A|
+mo|1715|Correction Optic Heat Sink Alignment Pin|barnold|A|
+mo|1716|Bowtie Pitch-Yaw Flat Kinematic Mount|barnold|A|
+mo|1717|Bowtie Pitch-Yaw Groove Kinematic Mount|barnold|A|
+mo|1718|Bowtie Pitch-Yaw Cone Kinematic Mount|barnold|A|
+mo|1719|Kinematic Piezo Actuator|barnold|A|
+mo|1720|Piezo Flat Kinematic Mount|barnold|D|
+mo|1721|Pitch-Yaw Kinimatic Piezo Spacer|barnold|A|
+mo|1722|Pitch-Yaw Motor Harness Connector Bracket|barnold|A|
+mo|1723|Pitch-Yaw Actuator Connector Interface|barnold|A|
+mo|1724|Input Output Slide Dovetail Assy|barnold|A|
+mo|1725|Optical Correction Slide Dovetail Assy|barnold|A|
+mo|1726|Bowtie Optic Measuring Fixture|barnold|A|
+mo|1727|Output Optic Pitch-Yaw Plate W/ Bushings|barnold|A|
+mo|1728|Astigmatism Correction Motor Adjustment Bar|barnold|A|
+mo|1729|injector laser chasis|jrifkin|A|
+mo|1730|injector laser bottom panel|jrifkin|A|
+mo|1731|injector laser front panel|jrifkin|A|
+mo|1732|injector laser rear panel|jrifkin|A|
+mo|1733|injector laser ps chasis|jrifkin|A|
+mo|1734|injector laser ps bottom panel|jrifkin|A|
+mo|1735|injector laser ps fronr panel|jrifkin|A|
+mo|1736|injector laser ps rear panel|jrifkin|A|
+mo|1737|injector laser adaptor plate|jrifkin|A|
+mo|1738|injector laser gimble mount bracket|jrifkin|A|
+mo|1739|injector laser mounting post|jrifkin|A|
+mo|1740|injector laser fiber optic holder|jrifkin|A|
+mo|1741|injector laser conductive sheet|jrifkin|A|
+mo|1742|panel|jrifkin|A|
+mo|1743|ps rack din strip|jrifkin|A|
+mo|1744|ps rack terminal block assy|jrifkin|A|
+mo|1745|Output Optic Pitch Yaw Bellows with Bushings|barnold|A|
+mo|1746|inj lsr chassis front panel|jrifkin|A|
+mo|1747|inj lsr access panel|jrifkin|A|
+mo|1748|ips ir assembly|jrifkin|A|
+mo|1749|ips ir front panel|jrifkin|A|
+mo|1750|ips ir front rear panel|jrifkin|A|
+mo|1751|ips ir front bottom panel|jrifkin|A|
+mo|1752|ips ir din rail|jrifkin|A|
+mo|1753|current sense chassis|jrifkin|A|
+mo|1754|current sense chassis top panel|jrifkin|A|
+mo|1755|current sense chassis bottom panel|jrifkin|A|
+mo|1756|current sense chassis rear panel|jrifkin|A|
+mo|1757|8-32 SET SCREW MODIFICATION|jrifkin|A|
+mo|1758|Laser Cavity Iris Cross Weldment|barnold|A|
+mo|1759|Laser Cavity Iris Cross|barnold|A|
+mo|1760|Laser Cavity Iris Bellows Weldment|barnold|A|
+mo|1761|Laser Cavity Iris Cross/Bellows Assembly|barnold|A|
+mo|1762|R_CF_2.75_1.625_.049W|barnold|A|
+mo|1763|NR_CF_2.75_1.625_.049W|barnold|A|
+mo|1764|Laser Cavity Iris Flange|barnold|A|
+mo|1765|Laser Cavity Iris Mount Post Weld|barnold|A|
+mo|1766|Laser Cavity Iris Mount Post|barnold|A|
+mo|1767|Laser Cavity Iris Assembly|barnold|A|
+mo|1768|l-band load heat spreader|jrifkin|A|
+mo|1769|Laser Cavity Aperture-Pellicle Mounted Assy|barnold|A|
+mo|1770|lband amplifier, cooling plate, circulator|jrifkin|A|
+mo|1771|lband amplifier, circulator, spacer|jrifkin|A|
+mo|1772|Aperture-Pellicle Actuator Flange Bracket|barnold|A|
+mo|1773|Aperture-Pellicle Actuator Flange Clamp|barnold|A|
+mo|1774|Aperture-Pellicle Spring Stop Block|barnold|A|
+mo|1775|Aperture-Pellicle Actuator Sub-Plate|barnold|A|
+mo|1776|Aperture-Pellicle Actuator Adjustment Plate|barnold|A|
+mo|1777|Aperture-Pellicle Actuator Mount Bracket|barnold|A|
+mo|1778|Aperture-Pellicle Actuator Tube Bracket|barnold|A|
+mo|1779|Aperture-Pellicle Actuator Tube Clamp|barnold|A|
+mo|1780|Aperture-Pellicle Linear Actuator Assy|barnold|A|
+mo|1781|tibbo mount bracket, tsdg|jrifkin|A|
+mo|1782|ips patch panel, enclosure|jrifkin|A|
+mo|1783|ips patch panel, panel cutout ,enclosure|jrifkin|A|
+mo|1784|linac beamline assy - le|jrifkin|A|
+mo|1785|26in dp top panel, perf|jrifkin|A|
+mo|1786|xcyte feedthru plug, actuator cable|jrifkin|A|
+mo|1787|xcyte feedthru plug, sma conn|jrifkin|A|
+mo|1788|xcyte feedthru plug, output window|jrifkin|A|
+mo|1789|circulator spacer|jrifkin|A|
+mo|1790|Allignment Aperture-Pellicle Assy, Pellicle Clamp|barnold|A|
+mo|1791|Aperture-Pellicle Assy|barnold|A|
+mo|1792|Aperture-Pellicle Base|barnold|A|
+mo|1793|Aperture, 6mm, Offset|barnold|A|
+mo|1794|laser Cavity Alignment Aperture-Pellicle Assy|barnold|A|
+mo|1795|d4090i shoe shim|jrifkin|A|
+mo|1796|Modulator Support Frame Corner Plate|barnold|A|
+mo|1797|Modulator Support Frame Long Beam|barnold|A|
+mo|1798|Modulator Support Frame Short Beam|barnold|A|
+mo|1799|Modulator Support Frame|barnold|A|
+mo|1800|Modulator Support Frame Weldment|barnold|A|
+mo|1801|Output Optic Bushing Reaming Guide|barnold|A|
+mo|1802|Waveguide Captive Support Plate|barnold|A|
+mo|1803|s-band waveguide|jrifkin|A|
+mo|1804|x-band waveguide|jrifkin|A|
+mo|1805|lsr sys fdbck brd layout|jrifkin|A|
+mo|1806|laser feedback system|jrifkin|A|
+mo|1807|laser feedback system case|jrifkin|A|
+mo|1808|laser feedback system front panel|jrifkin|A|
+mo|1809|laser feedback system rear panel|jrifkin|A|
+mo|1810|RF Injector Waveguide E-bend gun final machining|barnold|A|
+mo|1811|RF Injector Waveguide E-bend Linac Final Machining|barnold|A|
+mo|1812|Gun Waveguide Assembly|barnold|A|
+mo|1813|Linac Waveguide Assembly|barnold|A|
+mo|1814|H Bend Waveguide, K-1 Klystron|barnold|A|
+mo|1815|s-band gas waveguide flanges|jrifkin|A|
+mo|1816|rf component mount bracket|jrifkin|A|
+mo|1817|H Bend Waveguide, K-2 Klystron|barnold|A|
+mo|1818|oscilliscope multiplexer|jrifkin|A|
+mo|1819|oscilliscope multiplexer rear panel|jrifkin|A|
+mo|1820|oscilliscope multiplexer case|jrifkin|A|
+mo|1821|oscilliscope multiplexer front panel|jrifkin|A|
+mo|1822|oscilliscope multiplexer rf switch bracket|jrifkin|A|
+mo|1823|S Band Hybrid, Brass, Final Machining|barnold|A|
+mo|1824|adc mount bracket|jrifkin|A|
+mo|1825|din strip 2.5in long|jrifkin|A|
+mo|1826|rpt.65 mount bracket|jrifkin|A|
+mo|1827|din strp, 8in long|jrifkin|A|
+mo|1828|lsr fdbck rf mount plate|jrifkin|A|
+mo|1829|optical cavity feedback rf assy|jrifkin|A|
+mo|1830|rf gun laser rf feedback assy|jrifkin|A|
+mo|1831|ns15 din strip, 5in long|jrifkin|A|
+mo|1832|uv pulse measurement|jrifkin|A|
+mo|1833|fiber component mount plate|jrifkin|A|
+mo|1834|fiber coupler mount tab|jrifkin|A|
+mo|1835|lynx sub-assembly|jrifkin|A|
+mo|1836|ns15 din rail 2.5in l|jrifkin|A|
+mo|1837|profile monitor optics assy|jrifkin|A|
+mo|1838|profile monitor optics base plate|jrifkin|A|
+mo|1839|Linac Solenoid Retaining Bracket|barnold|A|
+mo|1840|10in din rail|jrifkin|A|
+mo|1841|Injector Laser Transport Filter Body|barnold|A|
+mo|1842|Injector Laser Transport Filter Assembly|barnold|A|
+mo|1843|Injector Laser Transport Actuator/Filter Assembly|barnold|A|
+mo|1844|Injector Laser Transport Lower Shroud|barnold|A|
+mo|1845|Injector Laser Transport Lower Shroud Cover|barnold|A|
+mo|1846|Injector Laser Transport Lower Shroud Assembly|barnold|A|
+mo|1847|Injector Laser Transport Actuator/Shroud Mount Block|barnold|A|
+mo|1848|Injector Laser Transport Actuator Short Standoff|barnold|A|
+mo|1849|Injector Laser Transport Actuator Tall Standoff|barnold|A|
+mo|1850|longitudinal feedback pcb|jrifkin|A|
+mo|1851|voltage regulator|jrifkin|A|
+mo|1852|laser power supply chassis|jrifkin|A|
+mo|1853|laser power supply bottom panel|jrifkin|A|
+mo|1854|laser power supply rear panel|jrifkin|A|
+mo|1855|laser power supply front panel|jrifkin|A|
+mo|1856|ns15 din rail 3in long|jrifkin|A|
+mo|1857|laser power supply component mnt plt|jrifkin|A|
+mo|1858|laser power supply tec assy|jrifkin|A|
+mo|1859|laser power supply ps controller assy|jrifkin|A|
+mo|1860|4u front panel w/fan assy|jrifkin|A|
+mo|1861|L&T FEEDBACK ASSY|jrifkin|A|
+mo|1862|L&T FEEDBACK case|jrifkin|A|
+mo|1863|L&T FEEDBACK rear panel|jrifkin|A|
+mo|1864|LONGITUDINAL FDBCK PLATE|jrifkin|A|
+mo|1865|LONGITUDINAL FDBCK assy|jrifkin|A|
+mo|1866|transverse FDBCK assy|jrifkin|A|
+mo|1867|transverse FDBCK plate|jrifkin|A|
+mo|1868|rnd plcl adptr|jrifkin|A|
+mo|1869|profile monitor optics assy pm1|jrifkin|A|
+mo|1870|profile monitor optics assy pm3|jrifkin|A|
+mo|1871|NS 15 din rail 8in l|jrifkin|A|
+mo|1872|tie wrap mount bracket|jrifkin|A|
+mo|1873|mirror mount spacer|jrifkin|A|
+mo|1874|camera spacer|jrifkin|A|
+mo|1875|profile monitor adjtmnt brckt|jrifkin|A|
+mo|1876|2.375in cf flange clamp|jrifkin|A|
+mo|1877|profile monitor flange cover|jrifkin|A|
+mo|1878|profile monitor optics cover|jrifkin|A|
+mo|1879|mtr cntrlr patch panel front|jrifkin|A|
+mo|1880|d4090i chamber spacer|jrifkin|A|
+mo|1881|DETECTOR PROTECTIVE COVER|jrifkin|A|
+mo|1882|TEC LOGIC BOARD LAYOUT|jrifkin|A|
+mo|1883|power amplifier assy|jrifkin|A|
+mo|1884|base plate|jrifkin|A|
+mo|1885|ivm.500.base|jrifkin|A|
+mo|1886|eom.base|jrifkin|A|
+mo|1887|piezo adaptor|jrifkin|A|
+mo|1888|cover|jrifkin|A|
+mo|1889|water fitting plate|jrifkin|A|
+mo|1890|electrical connector plate|jrifkin|A|
+mo|1891|tip tilt assy|jrifkin|A|
+mo|1892|eom assy|jrifkin|A|
+mo|1893|mirror assy|jrifkin|A|
+mo|1894|OPTICAL CAVITY TRANSPORT LAYOUT|jrifkin|A|
+mo|1895|astigmitism adjuster assy|jrifkin|A|
+mo|1896|astigmitism motor adaptor|jrifkin|A|
+mo|1897|astigmatism correction assy|jrifkin|A|
+mo|1898|gimble assy|jrifkin|A|
+mo|1899|1IN TOP ADJ MIRROR ASSY|jrifkin|D|
+mo|1900|1IN FIXED MIRROR ASSY|jrifkin|A|
+mo|1901|2IN gimble MIRROR ASSY|jrifkin|A|
+mo|1902|.5IN top adj MIRROR ASSY|jrifkin|A|
+mo|1903|astigmatism plate|jrifkin|A|
+mo|1904|cavity input optics plate|jrifkin|A|
+mo|1905|telescope trnsltn stage|jrifkin|A|
+mo|1906|3.25IN STANDOFF|jrifkin|A|
+mo|1907|mirror periscope mount|jrifkin|A|
+mo|1908|ivm 100.5 mirror mnt spacer 2in bm ht|jrifkin|A|
+mo|1909|telescope optic spacer|jrifkin|A|
+mo|1910|transport assembly|jrifkin|A|
+mo|1911|diagnostic assembly|jrifkin|A|
+mo|1912|diagnostic assembly BASE PLATE|jrifkin|A|
+mo|1913|ophir pm spacer|jrifkin|A|
+mo|1914|camera spacer|jrifkin|A|
+mo|1915|detector spacer|jrifkin|A|
+mo|1916|quad detector base|jrifkin|A|
+mo|1917|quad detector mnt plate|jrifkin|A|
+mo|1918|screen w/10mm hole|jrifkin|A|
+mo|1919|iris assembly|jrifkin|A|
+mo|1920|transport assembly cover|jrifkin|A|
+mo|1921|piezo connector bracket|jrifkin|A|
+mo|1922|CXS DTB Translation Stage|barnold|A|
+mo|1923|CXS DTB Translation Stage Upper Plate|barnold|A|
+mo|1924|CXS DTB Translation Stage Lower Plate|barnold|A|
+mo|1925|CXS DTB Translation Stage Motor Assy|barnold|A|
+mo|1926|CXS DTB Translation Stage Motor Plate|barnold|A|
+mo|1927|CXS DTB Translation Stage Ball Nut Spacer|barnold|A|
+mo|1928|CXS DTB Translation Limit Sensor Assy|barnold|A|
+mo|1929|CXS DTB Translation Sensor Adjustable Bracket|barnold|A|
+mo|1930|CXS DTB Translation Sensor Bracket|barnold|A|
+mo|1931|CXS DTB Translation Sensor Flag|barnold|A|
+mo|1932|CXS DTB Translation Sensor Nut Plate|barnold|A|
+mo|1933|Stud, 3/4-10 x 10.000, Black Oxide Steel|barnold|A|
+mo|1934|Rear Rail Follower Assy|barnold|A|
+mo|1935|excite laser assembly|jrifkin|A|
+mo|1936|ab90 modification|jrifkin|A|
+mo|1937|tooling socket plate|jrifkin|A|
+mo|1938|water cooling plate modification|jrifkin|A|
+mo|1939|CXS Rear Rail Follower Assy|barnold|D|
+mo|1940|CXS Rear Rail Follower Lower Plate|barnold|A|
+mo|1941|CXS Rear Rail Follower Upper Plate|barnold|A|
+mo|1942|CXS Rear Rail Follower Bearing Block|barnold|A|
+mo|1943|CXS Rear Rail FollowerPreload Bearing Plate|barnold|A|
+mo|1944|pedestal modification|jrifkin|A|
+mo|1945|CXS Rear Rail Follower Sensor Flag Bracket|barnold|A|
+mo|1946|CXS Rear Rail Follower Cross Roller Section|barnold|A|
+mo|1947|CXS Rear Rail Follower Cross Roller Rail|barnold|A|
+mo|1948|CXS Rear Rail Follower Pivot Spcer|barnold|A|
+mo|1949|CXS Rear Rail Follower Pivot Clamp Base|barnold|A|
+mo|1950|CXS Rear Rail Follower Pivot Clamp|barnold|A|
+mo|1951|CXS Rear Rail Follower Anti-Pivot Weldment|barnold|A|
+mo|1952|CXS Rear Rail Follower Pivot Support Weldment|barnold|A|
+mo|1953|CXS Rear Rail Follower Anti-Pivot Base Plate|barnold|A|
+mo|1954|CXS Rear Rail Follower Anti-Pivot Back Plate|barnold|A|
+mo|1955|CXS Rear Rail Follower Anti-Pivot Gusset Plate|barnold|A|
+mo|1956|CXS Rear Rail Follower Pivot Support Gusset Plate|barnold|A|
+mo|1957|CXS Rear Rail Follower Pivot Support Base Plate|barnold|A|
+mo|1958|CXS Rear Rail Follower Pivot Support Back Plate|barnold|A|
+mo|1959|CXS Rear Rail Follower Preload Bearing Carrier|barnold|A|
+mo|1960|CXS Rear Rail Follower Preload Bearing Index Shaft|barnold|A|
+mo|1961|angle w/cone|jrifkin|A|
+mo|1962|angle w/groove|jrifkin|A|
+mo|1963|angle w/flat|jrifkin|A|
+mo|1964|pedestal assy|jrifkin|A|
+mo|1965|ball screw|jrifkin|A|
+mo|1966|ball screw assy|jrifkin|A|
+mo|1967|e-plane bend|jrifkin|A|
+mo|1968|CXS Rear Rail Preload Cam Follower|barnold|A|
+mo|1969|CXS Rear Rail Preload Compression Plate|barnold|A|
+mo|1970|Rail Follower Left Pivot Support Weldment|barnold|A|
+mo|1971|aptr.plcl.assy.otpt|jrifkin|A|
+mo|1972|oc.aptr.plcl.baseplate.mi|jrifkin|A|
+mo|1973|aptr.plcl.assy.otpt.cm1|jrifkin|A|
+mo|1974|oc.aptr.plcl.brckt.cm1|jrifkin|A|
+mo|1975|oc.aptr.plcl.brckt.cm2|jrifkin|A|
+mo|1976|oc.aptr.plcl.flng.clmp|jrifkin|A|
+mo|1977|oc.aptr.plcl.camera. spacer|jrifkin|A|
+mo|1978|nf.9884.mod|jrifkin|A|
+mo|1979|Injection Laser Mount Plate|barnold|D|
+mo|1980|Regen Mount Plate|barnold|A|
+mo|1981|Regen Transport Optic Assy|barnold|A|
+mo|1982|Regen Transport Optic Mount Plate|barnold|A|
+mo|1983|RF Gun Optical Input Assembly|barnold|A|
+mo|1984|RF Gun Input Optical Shroud Base|barnold|A|
+mo|1985|Gun Regen Optical Shroud|barnold|A|
+mo|1986|apperture/pellicle cover|jrifkin|A|
+mo|1987|apperture/pellicle cover cm1|jrifkin|A|
+mo|1988|RF Gun Input Optics Mount Plate|barnold|A|
+mo|1989|oscilloscope signal patch panel|jrifkin|A|
+mo|1990|RF Gun Input Optics Lower Mount Plate|barnold|A|
+mo|1991|RF Gun Input Optics Flipper Assy|barnold|A|
+mo|1992|CXS Rdl Trnsltn Drv Trunnion Assy|barnold|A|
+mo|1993|CXS Rdl Trnsltn Drv Trunnion Bearing|barnold|A|
+mo|1994|CXS Rdl Trnsltn Drv Motor Assy|barnold|A|
+mo|1995|CXS Rdl Trnsltn Drv Trnion Ball Nut Carrier|barnold|A|
+mo|1996|CXS Rdl Trnsltn Drv Trnion Carrier|barnold|A|
+mo|1997|CXS Rdl Trnsltn Drv Trunnion Mount Plate|barnold|A|
+mo|1998|CXS Rdl Trnsltn Drv Trunnion Base Plate|barnold|A|
+mo|1999|ATCG3D Low Energy Injector|barnold|A|
+mo|2000|Regen Top Mount Plate|barnold|A|
+mo|2001|m2 final assy|jrifkin|A|
+mo|2002|m2 optics assy|jrifkin|A|
+mo|2003|m2 optics assy base plate|jrifkin|A|
+mo|2004|m2 optics assy 45deg mirror mount plate|jrifkin|A|
+mo|2005|m2 optics assy lens holder|jrifkin|A|
+mo|2006|m2 optics assy camera bracket|jrifkin|A|
+mo|2007|m2 optics assy central chamber bracket|jrifkin|A|
+mo|2008|m2 optics assy dovetail mod|jrifkin|A|
+mo|2009|m2 optics assy dovetail mount studs|jrifkin|A|
+mo|2010|m2 optics assy cover|jrifkin|A|
+mo|2011|m^2 assy lmr1 mod|jrifkin|A|
+mo|2012|m^2 assy assy mount bracket|jrifkin|A|
+mo|2013|ATCG3D Scandinovo Modulator Assy|barnold|A|
+mo|2014|CXS Rdl Trnsltn Drv Trunnion Side Plate|barnold|A|
+mo|2015|9834 mod|jrifkin|A|
+mo|2016|CXS Rdl Trnsltn Drv Mtr Bl Scrw Sprt Plt|barnold|A|
+mo|2017|CXS Rdl Trnsltn Drv Mtr Bl Scrw Brng Plt|barnold|A|
+mo|2018|CXS Rdl Trnsltn Drive Motor Mount|barnold|A|
+mo|2019|CXS Rdl Trnsltn Drive Motor Belt Cover|barnold|A|
+mo|2020|CXS Rdl Trnsltn Drive Motor Assy|barnold|A|
+mo|2021|CXS Rdl Trnsltn Drv Bl Scrw Brng Plt Gst|barnold|A|
+mo|2022|bushing modification|jrifkin|A|
+mo|2023|.010 optical mount shim|jrifkin|A|
+mo|2024|.5in pedestal mod|jrifkin|A|
+mo|2025|CXS Rdl Trnsltn Drv Bl Scrw Brng Plt Gst|barnold|D|
+mo|2026|CXS Rdl Trnsltn Drive Pulley|barnold|A|
+mo|2027|CXS Rear Rail Assy|barnold|A|
+mo|2028|CXS Rear Rail Assy Cross Roller Track|barnold|A|
+mo|2029|CXS Rear Rail Assy Rail Mount Plate|barnold|A|
+mo|2030|CXS Rear Rail Assy Preload Surface Plate|barnold|A|
+mo|2031|CXS Rear Rail Assy Rail Spacer|barnold|A|
+mo|2032|conduit bracket|jrifkin|A|
+mo|2033|transport assy adaptor table mounting plate|jrifkin|A|
+mo|2034|CXS Translation Stage Height Flag Bracket|barnold|A|
+mo|2035|CLS Strg Rng Vacuum Chamber Gaskets|barnold|A|
+mo|2036|CXS Front Ball Slider Assy|barnold|A|
+mo|2037|CXS Ball Slider Bottom Plate|barnold|A|
+mo|2038|CXS Ball Slider Side Plate|barnold|A|
+mo|2039|CXS Ball Slider Gusset Plate|barnold|A|
+mo|2040|CXS Ball Slider Top Plate|barnold|A|
+mo|2041|CXS Front Ball Slider Carrier Assy|barnold|A|
+mo|2042|CXS Ball Slider Carrier Plate|barnold|A|
+mo|2043|CXS Ball Slider Carrier Surface Plate|barnold|A|
+mo|2044|CXS Ball Slider Carrier Stiffening Rib|barnold|A|
+mo|2045|Ball Carrier Weldment Horizontal Wall Beam|barnold|A|
+mo|2046|Ball Carrier Weldment Verticle Wall Beam|barnold|A|
+mo|2047|Ball Carrier Weldment Strut Wall Beam|barnold|A|
+mo|2048|Ball Carrier Weldment Strut Beam|barnold|A|
+mo|2049|Ball Carrier Weldment Horizontal Beam|barnold|A|
+mo|2050|Ball Carrier Weldment|barnold|A|
+mo|2051|CXS Frame Upper Platform Weldment|barnold|A|
+mo|2052|CXS Frame Upper Platform End Cap 4x6|barnold|A|
+mo|2053|CXS Frm Upr Pltfrm Mtr Mount End Cap 4x6|barnold|A|
+mo|2054|CXS Frm Upper Platform Gusset|barnold|A|
+mo|2055|CXS Frm Upper Platform Rear Flange Plate|barnold|A|
+mo|2056|CXS Frm Upper Platform Strut Beam|barnold|A|
+mo|2057|CXS Frm Upr Pltfrm Front Support Beam|barnold|A|
+mo|2058|CXS Frm Upr Pltfrm Front Cross Beam|barnold|A|
+mo|2059|CXS Frm Upr Pltfrm Rail Cross Beam|barnold|A|
+mo|2060|CXS Frm Upr Pltfrm Left Rear Beam|barnold|A|
+mo|2061|CXS Frm Upr Pltfrm Right Rear Beam|barnold|A|
+mo|2062|CXS Frm Upr Pltfrm Nut Plate|barnold|A|
+mo|2063|CXS Workstation Frame|barnold|A|
+mo|2064|CXS Workstation Front Upright Weldment|barnold|A|
+mo|2065|CXS Workstation Rear Upright Weldment|barnold|A|
+mo|2066|CXS Workstation Lower Platform Weldment|barnold|A|
+mo|2067|CXS Frm Lower Platform Front Cross Beam|barnold|A|
+mo|2068|CXS Frm Lower Platform Rear Cross Beam|barnold|A|
+mo|2069|CXS Frm Lower Platform Left Runner Beam|barnold|A|
+mo|2070|CXS Frm Lower Platform Right Runner Beam|barnold|A|
+mo|2071|CXS Frm Lwr Pltfrm Frnt Mtr Support Beam|barnold|A|
+mo|2072|CXS Frm Lwr PltfrmRear Mtr Support Beam|barnold|A|
+mo|2073|CXS Frm Lwr Pltfrm Rear Motor Bracket|barnold|A|
+mo|2074|CXS Frm Lwr Pltfrm Front Motor Bracket|barnold|A|
+mo|2075|CXS Frm Frnt Uprht Lower Gusset|barnold|A|
+mo|2076|CXS Frm Frnt Uprht Lower Flange Plate|barnold|A|
+mo|2077|CXS Frm Frnt Uprht Upper Flange Plate|barnold|A|
+mo|2078|CXS Frm Frnt Uprht Verticle Support Beam|barnold|A|
+mo|2079|CXS Frm Rear Uprght Upper Cross Beam|barnold|A|
+mo|2080|CXS Frm Rear Uprght Verticle Support Beam|barnold|A|
+mo|2081|CXS Frm Rear Uprght Strut Beam|barnold|A|
+mo|2082|CXS Frm Rear Uprght Lower Flange Plate|barnold|A|
+mo|2083|CXS Lower Platform End Plate|barnold|A|
+mo|2084|CXS Lower Platform Nut Plate|barnold|A|
+mo|2085|CXS Rear Upright Cross Beam Washer Plate|barnold|A|
+mo|2086|CXS SCREW JACK MOUNT PLATE|barnold|A|
+mo|2087|CXS Workstation Support Frame|barnold|A|
+mo|2088|CXS Wrkstn Sprt Frm Hrzntl Pltfrm Wldmnt|barnold|A|
+mo|2089|CXS Wrkstn Sprt Frm Long Strut|barnold|A|
+mo|2090|CXS Wrkstn Sprt Frm Short Strut|barnold|A|
+mo|2091|CXS Wrkstn Sprt Frm Strut Flange Plate|barnold|A|
+mo|2092|CXS Wrkstn Sprt Frm Lng Strt Gst Plt|barnold|A|
+mo|2093|CXS Wrkstn Sprt Frm Shrt Strt Gst Plt|barnold|A|
+mo|2094|CXS Wrkstn Sprt Frm Shrt Strt Bm|barnold|A|
+mo|2095|CXS Wrkstn Sprt Frm Lng Strt Bm|barnold|A|
+mo|2096|CXS Wrkstn Hrzntl Pltfrm Crs Bm|barnold|A|
+mo|2097|CXS Wrkstn Hrzntl Pltfrm Flng Plt|barnold|A|
+mo|2098|CXS Wrkstn Hrzntl Pltfrm End Plt|barnold|A|
+mo|2099|CXS Wrkstn Hrzntl Pltfrm Lng Bm|barnold|A|
+mo|2100|CXS Wrkstn Hrzntl Pltfrm Shrt Bm|barnold|A|
+mo|2101|CXS Wrkstn Hrzntl Pltfrm Trn Sprt Bm|barnold|A|
+mo|2102|CXS Wrkstn Hrzntl Pltfrm Trn Mnt Plt|barnold|A|
+mo|2103|CXS Wrkstn Hrzntl Pltfrm Trn Mnt Plt Gst|barnold|A|
+mo|2104|CXS Wrkstn Hrzntl Pltfrm Rl Flwr Sprt Bm|barnold|A|
+mo|2105|CXS Wrkstn Hrzntl Pltfrm Rl Flwr Mnt Plt|barnold|A|
+mo|2106|CXS Wrkstn Hrzntl Pltfrm Rl Flwr Mnt Plt Gst|barnold|A|
+mo|2107|CXS Wrkstn Hrzntl Pltfrm Shrt Bm Gst|barnold|A|
+mo|2108|CXS Wrkstn Hrzntl Pltfrm Lng Bm Gst|barnold|A|
+mo|2109|1.75dx1t bobin|jrifkin|A|
+mo|2110|transient blanking switch|jrifkin|A|
+mo|2111|IVM100.5 photo diode mod|jrifkin|A|
+mo|2112|IVM100.5 photo diode assy|jrifkin|A|
+mo|2113|IVM100.5 photo diode assy mod|jrifkin|A|
+mo|2114|ivm spacer mod|jrifkin|A|
+mo|2115|CXS Enclosure Subframe|barnold|A|
+mo|2116|dc cabling juntion box case|jrifkin|A|
+mo|2117|dc cabling juntion box assy|jrifkin|A|
+mo|2118|din rail ns35 20in l|jrifkin|A|
+mo|2119|dc cabling junction box - ring|jrifkin|A|
+mo|2120|din rail ns35 14in l|jrifkin|A|
+mo|2121|dc cabling juntion box assy ring|jrifkin|A|
+mo|2122|l&t feedbacl front panel|jrifkin|A|
+mo|2123|l&t feedbacl front panel assy|jrifkin|A|
+mo|2124|Y-Height Flag Bracket|barnold|A|
+mo|2125|ips junction panel bracket|jrifkin|A|
+mo|2126|dc cable junction panel tie wrap bracket|jrifkin|A|
+mo|2127|dc cable junction panel cover standoff|jrifkin|A|
+mo|2128|Trunion Bearing, .750 x 1/2-13, Bronze|barnold|A|
+mo|2129|8in unistrut|jrifkin|A|
+mo|2130|camera mount adaptor 30.5mm - 1.035in|jrifkin|A|
+mo|2131|CXS Enclosure Subframe Cross Beam|barnold|A|
+mo|2132|CXS Enclosure Subframe Vertical Beam|barnold|A|
+mo|2133|CXS Enclosure Subframe Strut Beam|barnold|A|
+mo|2134|CXS Enclosure Subframe Cross Strut Beam|barnold|A|
+mo|2135|CXS Enclosure Subframe Horizontal Beam|barnold|A|
+mo|2136|CXS Enclosure Subframe Long Flange Plate|barnold|A|
+mo|2137|CXS Enclosure Subframe Short Flange Plate|barnold|A|
+mo|2138|CXS Enclosure Subframe Gusset Plate|barnold|A|
+mo|2139|CXS Enclosure Subframe 4 X 4 End Plate|barnold|A|
+mo|2140|motor controller junction box assy|jrifkin|A|
+mo|2141|motor controller junction box|jrifkin|A|
+mo|2142|motor controller junction box cover|jrifkin|A|
+mo|2143|motor controller jbox input panel 1|jrifkin|A|
+mo|2144|motor controller jbox input panel 2|jrifkin|A|
+mo|2145|motor controller jbox output panel 1|jrifkin|A|
+mo|2146|motor controller jbox output panel 2|jrifkin|A|
+mo|2147|motor controller jbox coax cable panel|jrifkin|A|
+mo|2148|motor controller jbox blank panel|jrifkin|A|
+mo|2149|waveguide extension|jrifkin|A|
+mo|2150|imv100.c2l mod|jrifkin|A|
+mo|2151|photodiode bracket|jrifkin|A|
+mo|2152|RF Damper Cavity Tuning Post Braze Fixture|barnold|A|
+mo|2153|RF Damper Cavity Final Braze|barnold|A|
+mo|2154|RF Damper Cavity First Braze|barnold|A|
+mo|2155|RF Damper Cavity Weldment|barnold|A|
+mo|2156|RF Damper Cavity Cooling Tube|barnold|A|
+mo|2157|RF Damper Cavity Cooling Plug|barnold|A|
+mo|2158|Braze Shim .960 x .875 x .002 Thk, 65Cu/35Au|barnold|A|
+mo|2159|Braze Shim 2.570 x 2.452 x .002 Thk, 65Cu/35Au|barnold|A|
+mo|2160|Braze Shim 1.480 x 1.375 x .002 Thk, 65Cu/35Au|barnold|A|
+mo|2161|Braze Shim .680 x .630 x .002 Thk, 65Cu/35Au|barnold|A|
+mo|2162|Feedthrough Weldment Adapter|barnold|A|
+mo|2163|RF Damper Cavity Short Tube|barnold|A|
+mo|2164|RF Damper Cavity Long Tube|barnold|A|
+mo|2165|RF Damper Cavity Body|barnold|A|
+mo|2166|RF Damper Cavity Cover|barnold|A|
+mo|2167|CXS optics layout|jrifkin|A|
+mo|2168|R CF 2.75 X .982 OD X .870 ID|barnold|A|
+mo|2169|R CF 2.75 X 1.480 OD X 1.370 ID|barnold|A|
+mo|2170|R CF 2.75 X 1.480 OD X 1.370 ID INSERT|barnold|A|
+mo|2171|laser cable bracket|jrifkin|A|
+mo|2172|RF_DMPING_CVTY_R_CF_BLWS_2750|barnold|A|
+mo|2173|R CF 2.75 BELLOWS PREP|barnold|A|
+mo|2174|R_CF INSRT 2.750 BLWS PREP AG PLTD|barnold|A|
+mo|2175|RING IP TAPER CHAMBER AG PLTD|barnold|A|
+mo|2176|Ring IP Taper Chamber w/ Bellows Prep|barnold|A|
+mo|2177|Ring IP Taper Chamber Assy w/ Blws Prep|barnold|A|
+mo|2178|RF Dmpng Cvty Blws Fngrs Insrt|barnold|A|
+mo|2179|RF Dmpng Cvty Blws Fngrs Insrt Pltd|barnold|A|
+mo|2180|power meter assy|jrifkin|A|
+mo|2181|power meter front panel|jrifkin|A|
+mo|2182|rear panel with pwr entry module|jrifkin|A|
+mo|2183|RF power meter chassis rear mount|jrifkin|A|
+mo|2184|RF power meter chassis rear panel w/connectors|jrifkin|A|
+mo|2185|RF Damping Cavity Tuning Pin|barnold|A|
+mo|2186|RF Damping Cavity Tuning Braze Tube|barnold|A|
+mo|2187|   	Braze Shim .605 x .505 x .002 Thk, 75Cu/25Au|barnold|A|
+mo|2188| RF Damping Cavity Finger Interface Tube Plated|barnold|A|
+mo|2189|RF Damping Cavity DeTuning Pin|barnold|A|
+mo|2190|RF Damping Cavity DeTuning Pin Plated|barnold|A|
+mo|2191|RF Damping Cavity DeTuning Pin Body|barnold|A|
+mo|2192|RF Damping Cavity DeTuning Pin Brazement|barnold|A|
+mo|2193|RF Damping Cavity Assy|barnold|A|
+mo|2194|Metal Flex 04520 Bellows Weld Prep Flange|barnold|A|
+mo|2195|RF Damping Cavity DeTuning Pin Adjuster|barnold|A|
+mo|2196|RF Dmpng Cvty Dtng Pn Adjuster Body|barnold|A|
+mo|2197|RF Dmpng Cvty Dtng Pn Adjstr Key Bushing|barnold|A|
+mo|2198|RF Dmpng Cvty Dtng Pn Adjstr Knob|barnold|A|
+mo|2199|RF Dmpng Cvty Dtng Pn Adjstr Shaft Bushing|barnold|A|
+mo|2200|RF Dmpng Cvty Dtng Pn Adjstr Button|barnold|A|
+mo|2201|RF Dmpng Cvty Dtng Pn Adjstr Jam Nut|barnold|A|
+mo|2202|RF Dmpng Cvty Dtng Pn Adjstr Lrg Bshng|barnold|A|
+mo|2203|RF Dmpng Cvty Dtng Pn Brzmnt Pltd|barnold|A|
+mo|2204|RF Dmpng Cvty Tuning Slide Hammer|barnold|A|
+mo|2205|RF Dmpng Cvty Tuning Slide Hammer Shaft|barnold|A|
+mo|2206|R1FP52 assembly|jrifkin|A|
+mo|2207|R2FP51 mounting plate|jrifkin|A|
+mo|2208|R#FP52 tube clamp|jrifkin|A|
+mo|2209|R#FP52 hybrid spacer|jrifkin|A|
+mo|2210|r2fp52 assembly|jrifkin|A|
+mo|2211|RF Dmpng Cvty Dtng Pn Adjstr Knob Cap|barnold|A|
+mo|2212|optical cavity output optic|jrifkin|A|
+mo|2213|rf power meter pcb|jrifkin|A|
+mo|2214|output optic cladding|jrifkin|A|
+mo|2215|9 channel pwr mtr rr pnl mod|jrifkin|A|
+mo|2216|k-b optic substrate 400mm L|jrifkin|A|
+mo|2217|CXS X-Ray Optic 400x30x19 Silicon Optic|barnold|D|
+mo|2218|B4C substrate machining|jrifkin|A|
+mo|2219|B4C coating|jrifkin|A|
+mo|2220|RF Damping Cavity Test Tube, Large|barnold|A|
+mo|2221|RF Damping Cavity Test Tube, Small|barnold|A|
+mo|2222|RF Damping Cavity Drift Tube, Large|barnold|A|
+mo|2223|RF Damping Cavity Drift Tube, Small|barnold|D|
+mo|2224|RF Damipng Cavity Drift Tube Wldmnt, Small|barnold|D|
+mo|2225|RF Damipng Cavity Drift Tube Wldmnt, Large|barnold|A|
+mo|2226|RF Damipng Cavity  Cold Test Tube Plug|barnold|A|
+mo|2227|RF Damipng Cavity  Frst Brz Upstrm Hlf|barnold|A|
+mo|2228|Profile Monitor Lower Mount Bracket|barnold|A|
+mo|2229|Profile Monitor Upper Mount Bracket|barnold|A|
+mo|2230|Profile Monitor Pipe Clamp Spacer|barnold|A|
+mo|2231|Profile Monitor Linear Actuator, Transport #1|barnold|A|
+mo|2232|s-band amplifier chassis (MA)|jrifkin|A|
+mo|2233|s-band amplifier case (MA)|jrifkin|A|
+mo|2234|s-band amplifier fron panel (MA)|jrifkin|A|
+mo|2235|s-band amplifier rear panel (MA)|jrifkin|A|
+mo|2236|ma sband amplifer front panel|jrifkin|A|
+mo|2237|ma sband amplifer front panel assy|jrifkin|A|
+mo|2238|RF Dmpng Cvty Dtng Pn Blws Wldmnt|barnold|A|
+mo|2239|RF Dmpng Cvty Dtng Pn Bdy Pltng|barnold|A|
+mo|2240|ion pump distribution box b|jrifkin|A|
+mo|2243|Injector, Bmln Dvcs, Structure Spool Piece|barnold|A|
+mo|2244|Injector, Bmln Dvcs, Spacer Spool Piece|barnold|A|
+mo|2245|Injector, Bmln Dvcs, Spacer Tube|barnold|A|
+mo|2246|Injector, Bmln Dvcs, Structure Tube|barnold|A|
+mo|2247|Lower Pole Piece, Quadrant B, Q2531iL|bmoyle|A|
+mo|2248|kicker magnet tapered ceramic chamber|bmoyle|A|
+mo|2249|RF_DMPNG_CVTY_FDTHR_TST_FXTR|barnold|A|
+mo|2250|RF_DMPNG_CVTY_FDTHR_TST_FXTR_ASSY|barnold|A|
+mo|2251|kicker magnet ferrite .38thk|b.arnold|A|
+mo|2252|Kicker Sheild Sliding Stage Assy|barnold|A|
+mo|2253|Kicker Sheild Sliding Base|barnold|A|
+mo|2254|Kicker Sheild Gear Rack|barnold|A|
+mo|2255|Kicker Sheild Gear Rack Mount Plate|barnold|A|
+mo|2256|Kicker Sheild Lead Side Plate|barnold|A|
+mo|2257|Kicker Sheild Lead Inside Cover|barnold|A|
+mo|2258|Kicker Sheild Lead Outside Cover|barnold|A|
+mo|2259|Kicker Sheild Pinion Gear|barnold|A|
+mo|2260|Kicker Sheild Crank Handle|barnold|A|
+mo|2261|Kicker Sheild Crank Handle|barnold|D|
+mo|2262|Kicker Sheild Crank Shaft|barnold|A|
+mo|2263|Kicker Sheild Rail Weldment|barnold|A|
+mo|2264|CXS Platform Base Assembly|barnold|A|
+mo|2265|CXS Platform Kinematic Support Block|barnold|A|
+mo|2266|CXS Platform Base End Plate|barnold|A|
+mo|2267|CXS Platform Base Side Plate|barnold|A|
+mo|2268|oscilloscope multiplexer board|jrifkin|A|
+mo|2269|substrate end block bender assy xray optic, cxs|bmoyle|A|
+mo|2270|XRAY OPTICS BENDER ASSY GLUED SUBSTRATE ASSY|bmoyle|A|
+mo|2271|key, .188SQ X 1.25LG, kicker shielding|bmoyle|A|
+mo|2272|key, .125SQ X .75LG, kicker shielding|bmoyle|A|
+mo|2273|assy, crank shaft, kicker shielding|bmoyle|A|
+mo|2274|Rail, Modified, Kicker Shielding|bmoyle|A|
+mo|2275|CLS Bwt Astgmtsm Crctr Fngr Stck Wldmnt|barnold|A|
+mo|2276|Etalon Mod, Pellicle Assy, Central Chamber, Laser System|bmoyle|A|
+mo|2277|CLS Bwt Astgmtsm Crctr Fngr Stck Rng|barnold|A|
+mo|2278|CLS Bwt Astgmtsm Crctr Pl Rd Wldmnt Fxtr|barnold|A|
+mo|2279|CLS Bwt Astgmtsm Crctr Preload Pin|barnold|A|
+mo|2280|Central Chamber Pellicle Aperature, .031|barnold|A|
+mo|2281|x-ray optics case bottom|jrifkin|A|
+mo|2282|x-ray optics case top|jrifkin|A|
+mo|2283|x-ray optics case|jrifkin|A|
+mo|2284|PELLICLE OPTIC CLAMP|barnold|A|
+mo|2285|PELLICLE OPTIC NUT PLATE|barnold|A|
+mo|2286|APERATURE, PELLICLE, MIRROR, ASSY|barnold|A|
+mo|2287|Aperature, Mirror, Pellicle Holder|barnold|A|
+mo|2288|correction assy, kinimatic lens mount, cone|bmoyle|A|
+mo|2289|correction assy, kinimatic lens mount, groove|bmoyle|A|
+mo|2290|correction assy heat sink support|bmoyle|A|
+mo|2291|CLS Bwt Astgmtsm Crctr Brz Shm|barnold|A|
+mo|2292|L-Band Cavity Water Cooled Feedthrough|barnold|A|
+mo|2293|CXS OPTCS GL FIXTR END CLMP WNG, TPD|barnold|A|
+mo|2294|CXS OPTCS GL FIXTR END CLMP WNG, THR|barnold|A|
+mo|2295|CXS OPTCS GL FIXTR END CLMP BS|barnold|A|
+mo|2296|CXS OPTCS GL FIXTR END CLMP PLNGR|barnold|A|
+mo|2297|CXS OPTCS GL FIXTR TOP CLAMP|barnold|A|
+mo|2298|CXS OPTCS GL FIXTR BOTTOM CLAMP|barnold|A|
+mo|2299|CXS OPTICS GLUE FIXTURE|barnold|A|
+mo|2300|CXS enclosure mounting hole location|n.kelez|A|
+mo|2301|diffractometer enclosure|jrifkin|A|
+mo|2302|diffractometer enclosure endpanel assy|jrifkin|A|
+mo|2303|diffractometer enclosure door assy|jrifkin|A|
+mo|2304|diffractometer enclosure top panel|jrifkin|A|
+mo|2305|diffractometer enclosure side panel|jrifkin|A|
+mo|2306|diffractometer enclosure door panel|jrifkin|A|
+mo|2307|diffractometer enclosure cornerpost|jrifkin|A|
+mo|2308|diffractometer enclosure endrail|jrifkin|A|
+mo|2309|diffractometer enclosure cornerbend|jrifkin|A|
+mo|2310|diffractometer enclosure door rail|jrifkin|A|
+mo|2311|diffractometer enclosure door style|jrifkin|A|
+mo|2312|diffractometer enclosure side style|jrifkin|A|
+mo|2313|cxs enclosure end panel|jrifkin|A|
+mo|2314|cxs enclosure door top panel|jrifkin|A|
+mo|2315|sensor plate, workstation, vrtcl stg assy|bmoyle|A|
+mo|2316|assy, sensor plate, workstation, vrtcl stg assy|bmoyle|A|
+mo|2317|slider block, workstation, vrtcl stg assy|bmoyle|A|
+mo|2318|assy, kinematic slider block, workstation, vrtcl stg assy|bmoyle|A|
+mo|2319|mtr mntng plate, workstation, vrtcl stg assy|bmoyle|A|
+mo|2320|vrtcl mntng plate, workstation, vrtcl stg assy|bmoyle|A|
+mo|2321|flat kinematic cvr, workstation, vrtcl stg assy|bmoyle|A|
+mo|2322|front rail spacer, workstation, vrtcl stg assy|bmoyle|A|
+mo|2323|flat kinematic insert, workstation, vrtcl stg assy|bmoyle|A|
+mo|2324|cone kinematic insert, workstation, vrtcl stg assy|bmoyle|A|
+mo|2325|groove kinematic insert, workstation, vrtcl stg assy|bmoyle|A|
+mo|2326|assy, flat, workstation, vrtcl stg assy|bmoyle|A|
+mo|2327|assy, cone, workstation, vrtcl stg assy|bmoyle|A|
+mo|2328|assy, groove, workstation, vrtcl stg assy|bmoyle|A|
+mo|2329|cxs enclosure door glass panel|jrifkin|A|
+mo|2330|cxs enclosure end glass panel|jrifkin|A|
+mo|2331|CXS_Xry_Optc_Bndr_Cntlvr_Sprng|barnold|A|
+mo|2332|CXS X-ray Optics Bender Strong Back|bmoyle|A|
+mo|2333|CXS X-ray Optics Bender Vertical Spring|bmoyle|A|
+mo|2334|CXS X-ray Optics Bender Mtr Mnt Brkt|bmoyle|A|
+mo|2335|CXS X-ray Optics Bender Bell Crank|bmoyle|A|
+mo|2336|CXS X-ray Optics Bender Flexure Mount|bmoyle|A|
+mo|2337|CXS X-ray Optics Bender Ptch Cntrl Arm|bmoyle|A|
+mo|2338|CXS X-ray Optics Bender Mdl Mtr Mnt Brkt|bmoyle|A|
+mo|2339|CXS Vertical Stage Kinematic Ball|barnold|A|
+mo|2340|CXS Vrtcl Stg Knmtc Bl Prld Bshng|barnold|A|
+mo|2341|CXS X-ray Optics Bender Bi-axel Flxr Joint|bmoyle|A|
+mo|2342|CXS X-ray Optics Bender Cntlvr Plr Rod|bmoyle|A|
+mo|2343|CXS X-ray Optics Bender Substrate Clip|bmoyle|A|
+mo|2344|CXS X-ray Optics Bender Nut Bar|bmoyle|A|
+mo|2345|CXS X-ray Optics Bender Clamp Plate|bmoyle|A|
+mo|2346|Assy, CXS, X-ray Optics, Bender, Bell Crank|bmoyle|A|
+mo|2347|Assy, CXS, X-ray Optics, Bender, Strong Back|bmoyle|A|
+mo|2348|Assy, CXS, X-ray Optics, Bender|bmoyle|A|
+mo|2349|CXS Lngtdnl Trnsltn Stg Sensor Flag|barnold|A|
+mo|2350|CXS End Station Transport Leg|barnold|A|
+mo|2351|CXS End Station Transport Cross Member|barnold|A|
+mo|2352|CXS End Station Transport Lft Lg Wldmnt|barnold|A|
+mo|2353|CXS End Station Transport Rght Lg Wldmnt|barnold|A|
+mo|2354|CXS End Station Transport Crs Wldmnt|barnold|A|
+mo|2355|CXS End Stn Trnsprt Cylndr Cstr Mnt|barnold|A|
+mo|2356|CXS End Stn Trnsprt Cylndr Mnt|barnold|A|
+mo|2357|CXS End Stn Trnsprt Lrg Gst|barnold|A|
+mo|2358|CXS End Stn Trnsprt Sml Gst|barnold|A|
+mo|2359|CXS End Stn Trnsprt Nut Plt|barnold|A|
+mo|2360|CXS_SUPPORT_STAND|barnold|A|
+mo|2361|CXS Support Stand Leg Weldment|barnold|A|
+mo|2362|CXS Support Stand Strut Weldment|barnold|A|
+mo|2363|CXS End Station Transport Assy|barnold|D|
+mo|2364|motor controller - cxs|jrifkin|A|
+mo|2365|CXS End Station Hold Down Bracket|barnold|A|
+mo|2366|CXS End Station Hold Down Nut Plate|barnold|A|
+mo|2367|CXS End Station Transport Air Bearing Plate|barnold|A|
+mo|2368|CXS End Station Transport Jack Chock|barnold|A|
+mo|2369|CXS End Station Transport Leg Reciever|barnold|A|
+mo|2370|CXS End Station Transport Leg Tongue|barnold|A|
+mo|2371|CXS X-ray Optics Bender Limit Block Frame|bmoyle|A|
+mo|2372|CXS X-ray Optics Bender Limit Block Actuator|bmoyle|A|
+mo|2373|CXS X-ray Optics Bender Limit Frame Bar|bmoyle|A|
+mo|2374|CXS X-ray Optics Bender Limit Copper Strip|bmoyle|A|
+mo|2375|CXS End Stn Trnsprt Crs Mmbr Assy|barnold|A|
+mo|2376|CXS End Stn Trnsprt Lft Lg Assy|barnold|A|
+mo|2377|CXS End Stn Trnsprt Rght Lg Assy|barnold|A|
+mo|2378|CXS End Stn Trnsprt Assy|barnold|A|
+mo|2379|CXS X-ray Optics Bender LVDT Clamp|bmoyle|A|
+mo|2380|CXS X-ray Optics Bender LVDT Core Mnt Brkt|bmoyle|A|
+mo|2381|CXS End Station Support Cross  Weldment|barnold|A|
+mo|2382|CXS End Stn Support Cross Flange Plate|barnold|A|
+mo|2383|CXS End Stn Support Cross Gusset|barnold|A|
+mo|2384|CXS End Stn Support Cross Long Beam|barnold|A|
+mo|2385|CXS End Stn Support Cross Short Beam|barnold|A|
+mo|2386|CXS End Stn Support Stand Assy|barnold|A|
+mo|2387|CXS Support Leg Beam|barnold|A|
+mo|2388|CXS Support Leg Base Plate|barnold|A|
+mo|2389|CXS Support Leg Base Cap Plate|barnold|A|
+mo|2390|CXS Support Leg Weldment|barnold|A|
+mo|2391|CXS Support Leg Assembly, Kinematic Flat|barnold|A|
+mo|2392|CXS Support Leg Assembly, Kinematic Cone|barnold|A|
+mo|2393|CXS Support Leg Assembly, Kinematic Groove|barnold|A|
+mo|2394|CXS Support Leg Caster Hinge Plate|barnold|A|
+mo|2395|CXS Support Leg Caster Toggle Lever|barnold|A|
+mo|2396|CXS Support Leg Caster Hinge Pin|barnold|A|
+mo|2397|CXS Support Leg Caster Toggle Pin|barnold|A|
+mo|2398|CXS Support Leg Caster Toggle Roller Pin|barnold|A|
+mo|2399|CXS Support Leg Adjustable Foot Plate|barnold|A|
+mo|2400|CXS Support Leg Kinematic Foot|barnold|A|
+mo|2401|CXS Support Leg Caster Jacking Lever|barnold|A|
+mo|2402|CXS Support Leg Nut Plate|barnold|A|
+mo|2403|CXS End Station Kinematic Floor Insert, Flat|barnold|A|
+mo|2404|CXS End Station Kinematic Floor Insert, Cone|barnold|A|
+mo|2405|CXS End Station Kinematic Floor Insert, Groove|barnold|A|
+mo|2406|CXS X-ray Optics Mirror Sprt Wall Plate|bmoyle|A|
+mo|2407|CXS X-ray Optics Mirror Sprt Strut Tab|bmoyle|A|
+mo|2408|CXS X-ray Optics Mirror Hrzntl Stg Mnt Brckt|bmoyle|A|
+mo|2409|CXS X-ray Optics Mirror Shrt Vrtcl Stg Mnt Brckt|bmoyle|A|
+mo|2410|CXS X-ray Optics Mirror Vrtcl Stg Mnt Brckt|bmoyle|A|
+mo|2411|CXS X-ray Optics Mirror Sprt Clevis Block|bmoyle|A|
+mo|2412|CXS X-ray Optics Mirror Sprt End Plate|bmoyle|A|
+mo|2413|CXS X-ray Optics Mirror Sprt Limit Trigger|bmoyle|A|
+mo|2414|CXS X-ray Optics Mirror Sprt .625 Spacer|bmoyle|A|
+mo|2415|CXS X-ray Optics Mirror Sprt 3.875 Spacer|bmoyle|A|
+mo|2416|CXS X-ray Optics Bender Shldr Scr 5-40X375|bmoyle|A|
+mo|2417|CXS End Station Right Side Skirt|barnold|A|
+mo|2418|CXS End Station Left Side Skirt|barnold|A|
+mo|2419|CXS End Station Rear Skirt|barnold|A|
+mo|2420|CXS End Station|barnold|A|
+mo|2421|CXS X-ray Optics Chamber Mod. NW 250 Flange|bmoyle|A|
+mo|2422|CXS X-ray Optics Chamber Ent. Flange Plate|bmoyle|A|
+mo|2423|CXS X-ray Optics Chamber Mod NW250 Flng Wldmnt|bmoyle|A|
+mo|2424|CXS X-ray Optics Chamber Ent. End Flange|bmoyle|A|
+mo|2425|CXS X-ray Optics Chamber Mod. NW 320 Flange|bmoyle|A|
+mo|2426|CXS X-ray Optics Chamber Strut Mount Boss|bmoyle|A|
+mo|2427|CXS X-ray Optics Chamber Assy, Chamber Wldmnt|bmoyle|A|
+mo|2428|CXS X-ray Optics Chamber NW40 KF Flange|bmoyle|A|
+mo|2429|CXS X-ray Optics Chamber Bushing Mnt Bracket|bmoyle|A|
+mo|2430|CXS X-ray Optics Chamber Rail Mnt Bracket|bmoyle|A|
+mo|2431|CXS X-ray Optics Chamber Z Strut Tab|bmoyle|A|
+mo|2432|CXS X-ray Optics Chamber Assy|bmoyle|A|
+mo|2433|CXS X-ray Optics Mirror Stg Mnt Hrzntl Stg Brckt|bmoyle|A|
+mo|2434|CXS X-ray Optics Mirror Stg Mnt Vrtcl Brckt|bmoyle|A|
+mo|2435|CXS X-ray Optics Chamber Assy, Tube|bmoyle|A|
+mo|2436|CXS X-ray Optics Mirror Sprt Assy|bmoyle|A|
+mo|2437|CXS End Station Floor Insert Mount|barnold|A|
+mo|2438|CXS, Ring, Shielding, Sliding Base|bmoyle|A|
+mo|2439|CXS, Ring, Shielding, Side Plate|bmoyle|A|
+mo|2440|CXS, Ring, Shielding, Inside Cover|bmoyle|A|
+mo|2441|CXS, Ring, Shielding, Outside Cover|bmoyle|A|
+mo|2442|CXS, Ring, Shielding, Sliding Stage|bmoyle|A|
+mo|2443|CLS, Ring, Shielding, Dwnstrm Rght Crnr Post|bmoyle|A|
+mo|2444|CLS, Ring, Shielding, Corner Post Base Plt|bmoyle|A|
+mo|2445|CLS, Ring, Shielding, Corner Post Lwr Sprt Plt|bmoyle|A|
+mo|2446|CLS, Ring, Shielding, Corner Post Top Plt|bmoyle|A|
+mo|2447|CLS, Ring, Shielding, Corner Post Mounting Ears|bmoyle|A|
+mo|2448|CLS, Ring, Shielding, Corner Post Sm Gusset|bmoyle|A|
+mo|2449|CLS, Ring, Shielding, Corner Post Lg Gusset|bmoyle|A|
+mo|2450|CLS, Ring, Shielding, Corner Post Tube|bmoyle|A|
+mo|2451|CLS, Ring, Shielding, Dwnstrm Lft Crnr Post|bmoyle|A|
+mo|2452|CLS, Ring, Shielding, Lft Corner Post Tube|bmoyle|A|
+mo|2453|CLS, Ring, Shielding, Lft Corner Post Extension|bmoyle|A|
+mo|2454|CLS, Ring, Shielding, Post Nut Plate|bmoyle|A|
+mo|2455|CLS, Ring, Shielding, Corner Post Upr Sprt Plt|bmoyle|A|
+mo|2456|CLS, Ring, Shielding, Corner Post Spacer|bmoyle|A|
+mo|2457|CLS, Ring, Shielding, Corner Post Ext Btm Plt|bmoyle|A|
+mo|2458|CXS Facility Layout|barnold|A|
+mo|2459|qrtr round end cap|jrifkin|A|
+mo|2460|end panel qrtr round  assy|jrifkin|A|
+mo|2461|CXS Kinematic Floor Insert Cover|barnold|A|
+mo|2462|CXS X-ray Optics Chamber Assembly|bmoyle|A|
+mo|2463|CXS X-ray Optics Chamber Mod NW250 Flange|bmoyle|A|
+mo|2464|CXS X-ray Optics Chamber Mod. 4" DS Half Npl|bmoyle|A|
+mo|2465|CXS X-ray Optics Chamber Assy, Mod. 1.5" DS Half Npl|bmoyle|A|
+mo|2466|CXS X-ray Optics Chamber Assy NW80 Hlf Npl Tube|bmoyle|A|
+mo|2467|CXS X-ray Optics Chamber Assy NW80 Npl Wldmnt|bmoyle|A|
+mo|2468|CXS X-ray Optics Chamber Assy Frnt End Flng Wldmnt|bmoyle|A|
+mo|2469|CLS, Shielding, Lead Stand Assy|bmoyle|A|
+mo|2470|CXS X-ray Optics Chamber NW40 KF Flange Assy|bmoyle|A|
+mo|2471|CXS X-ray Optics Chamber Assy, Output Flange Assy|bmoyle|A|
+mo|2472|CXS X-ray Optics Internal Optics Support Plate|bmoyle|A|
+mo|2473|CXS X-ray Optics Internal Optics Support Block Mnt|bmoyle|A|
+mo|2474|CXS X-ray Optics Internal Optics Guide Pin Mnt Brkt|bmoyle|A|
+mo|2475|CXS X-ray Optics Internal Optics Guide Wheel Brkt|bmoyle|A|
+mo|2476|CXS X-ray Optics Internal Optics Support Assy|bmoyle|A|
+mo|2477|CXS X-ray Optics Chamber Assy Output Flng Exit Wndw|bmoyle|A|
+mo|2478|CXS X-ray Optics Chamber Vacuum Assembly|bmoyle|A|
+mo|2479|CHRIS Grating Case Foam|barnold|A|
+mo|2480|CHRIS Grating Case Base|barnold|A|
+mo|2481|CHRIS Grating Case Cover|barnold|A|
+mo|2482|CHRIS Grating Case Window|barnold|A|
+mo|2483|CHRIS Grating Case Rotation Adapter Plate|barnold|A|
+mo|2484|CHRIS Grating Case Trnsltn Adapter Plate|barnold|A|
+mo|2485|CXS X-ray Optics Chamber Assy, Rail Mod.|bmoyle|A|
+mo|2486|CHRIS Grating Case Assy|barnold|A|
+mo|2487|sngl rf mltplxr swtch brckt|jrifkin|A|
+mo|2488|CXS Hutch Support Outrigger|barnold|A|
+mo|2489|CXS X-ray Optics Internal Optics Vrtcl Sprt Wall|bmoyle|A|
+mo|2490|Astgmtsm Crctn PI Motor Adjustment Bar|barnold|A|
+mo|2491|Astgmtsm Crctn PI Motor Adaptor|barnold|A|
+mo|2492|CXS X-ray Optics Front End Flange Assy|bmoyle|A|
+mo|2493|CXS X-ray Optics Bender Assy And Rail Hrdwr Assy|bmoyle|A|
+mo|2494|CXS X-ray Optics Bender Assy w/ Intrnl Plt Assy|bmoyle|A|
+mo|2495|CXS X-ray Optics Frnt Flange Exit Wndw Assy|bmoyle|A|
+mo|2496|CXS X-ray Optics Mirror Sprt Extrnl Drive Assy|bmoyle|A|
+mo|2497|CXS X-ray Optics J-Plate|bmoyle|A|
+mo|2498|CXS X-ray Optics Slide Adapter Plate|bmoyle|A|
+mo|2499|CXS X-ray Optics Slide Plate Modification|bmoyle|A|
+mo|2500|CXS X-ray Optics Vertical Slide Adapter Plate|bmoyle|A|
+mo|2501|CLS, Ring, Shielding, Rail Support Plate|bmoyle|A|
+mo|2502|CLS, Ring, Shielding, Beam Weldment|bmoyle|A|
+mo|2503|CXS Enclosure Door Left Spring Plate|barnold|A|
+mo|2504|CXS Enclosure Door Right Spring Plate|barnold|A|
+mo|2505|CLS, Ring, T-Side Upper Shldng, Rail Assy|bmoyle|A|
+mo|2506|CLS, Ring, Dwnstrm Shldng, Rail Assy|bmoyle|A|
+mo|2507|CXS X-ray Optics Wall Mnt Linear Drive Assy|bmoyle|A|
+mo|2508|CXS X-ray Optics Wall Mnt Strut Assy|bmoyle|A|
+mo|2509|CXS X-ray Optics Linear Stg Readhead Mnt|bmoyle|A|
+mo|2510|CXS X-ray Optics Linear Stg Lmt Sw Brkt|bmoyle|A|
+mo|2511|CXS X-ray Optics Linear Stg Gearhead Spacer|bmoyle|A|
+mo|2512|CXS X-ray Optics Linear Stg Gearhead Adapter|bmoyle|A|
+mo|2513|CXS X-ray Optics Linear Stg Mod|bmoyle|A|
+mo|2514|CXS X-ray Optics Strut Assy Turn Rod|bmoyle|A|
+mo|2515|CXS X-ray Optics Shielding, XYR1 Linear Stage Mod|bmoyle|A|
+mo|2516|CXS Enclosure Door Stiffener|barnold|A|
+mo|2517|CXS Enclosure Roof Stiffener|barnold|A|
+mo|2518|photodetector buffer board|jrifkin|A|
+mo|2519|photodetector buffer lid|jrifkin|A|
+mo|2520|photodetector buffer box|jrifkin|A|
+mo|2521|photodetector buffer assembly|jrifkin|A|
+mo|2522|photodetector buffer lid assembly|jrifkin|A|
+mo|2523|CXS Enclosure Door Rail End Cap|barnold|A|
+mo|2524|CXS Enclosure Door Rail Weldment|barnold|A|
+mo|2525|CXS Enclosure Vertical Support|barnold|A|
+mo|2526|upstream motor jbox|jrifkin|A|
+mo|2527|upstream motor jbox assy|jrifkin|A|
+mo|2528|downstream motor jbox|jrifkin|A|
+mo|2529|downstream motor jbox  assy|jrifkin|A|
+mo|2530|enclosure motor jbox|jrifkin|A|
+mo|2531|enclosure motor jbox  assy|jrifkin|A|
+mo|2532|CXS Endstation Rear Skirt Stiffening Rib|barnold|A|
+mo|2533|CXS Endstation Side Skirt Stiffening Rib|barnold|A|
+mo|2534|CXS Endstation Rear Skirt Weldment|barnold|A|
+mo|2535|CXS Endstation Left Skirt Weldment|barnold|A|
+mo|2536|CXS Endstation Right Skirt Weldment|barnold|A|
+mo|2537|excyte modifications|jrifkin|A|
+mo|2538|Kckr Frt Cl Sldrng Fxtr Dghtr Brd Spcr|barnold|A|
+mo|2539|CXS Endstation Skirt Seam Strip|barnold|A|
+mo|2540|CXS Endstation Jack Handle Tube|barnold|A|
+mo|2541|CXS Endstation Jack Handle Assy|barnold|A|
+mo|2542|Kicker Magnet Coil, Short|barnold|A|
+mo|2543|cxs x-ray optics downstream slit mtg assy|bmoyle|A|
+mo|2544|CXS X-Ray Optics Detector Bracket|barnold|A|
+mo|2545|CXS X-Ray Optics Knife Edge Detector Assy|barnold|A|
+mo|2546|CXS X-Ray Optics Bender Motor Spacer|barnold|A|
+mo|2547|CLS, Ring, Q2531iS, Cooling Tube|bmoyle|A|
+mo|2548|CLS, Ring, Q2531iL, Cooling Tube|bmoyle|A|
+mo|2549|CLS, Ring, Q2041i, Cooling Tube|bmoyle|A|
+mo|2550|CLS, Ring, Q2041iNC, Cooling Tube|bmoyle|A|
+mo|2551|CLS, Ring, Q2041iNC, Final Magnet Assy|bmoyle|A|
+mo|2552|CLS, Ring, Q2041iNC, Long Cooling Tube|bmoyle|A|
+mo|2553|CLS, Ring, Q2041iNC, Short Cooling Tube|bmoyle|A|
+mo|2554|CLS, Ring, Q2531iS, Base Mod, Final Magnet Assy|bmoyle|A|
+mo|2555|CXS Chmbr Otpt Blws Wldmnt|barnold|A|
+mo|2556|CXS Chamber Output Drift Tube|barnold|A|
+mo|2557|CXS Chamber Output Drift Tube Weldment|barnold|A|
+mo|2558|CLS, X-ray Optics, Alignment, Modified Knife|bmoyle|A|
+mo|2559|CXS Chamber Drift Tube Assy|barnold|A|
+mo|2560|CLS, Ring, Diagnostics Assy, X-Ray Detector PCB|bmoyle|A|
+mo|2561|zx10 double stack bracket|jrifkin|A|
+mo|2562|Cavity Support Assy OC90|barnold|A|
+mo|2563|Cavity Support Base Plate OC90|barnold|A|
+mo|2564|Cavity Support Subplate OC90|barnold|A|
+mo|2565|Cavity Support Upper Block OC90|barnold|A|
+mo|2566|Cavity Support Tab Plate OC90|barnold|A|
+mo|2567|Cavity Support Tie Rod|barnold|A|
+mo|2568|Cavity Support Tie Rod Assy|barnold|A|
+mo|2569|Cavity Support Flange Clamp|barnold|A|
+mo|2570|Cavity Support Flange Support Plate|barnold|A|
+mo|2571|Cavity Support Flange Support Yoke|barnold|A|
+mo|2572|Cavity Support Flange Support Assy|barnold|A|
+mo|2573|Optical Corrector Center Plate|barnold|A|
+mo|2574|Optical Corrector Center Plunger|barnold|A|
+mo|2575|Optical Corrector Center Push Rod|barnold|A|
+mo|2576|Optical Corrector Center Spring Cap|barnold|A|
+mo|2577|Optical Corrector Center Micrometer Mount|barnold|A|
+mo|2578|Optical Corrector Center Piezo Assy|barnold|A|
+mo|2579|Optical Corrector Center Plate Bushing Assy|barnold|A|
+mo|2580|CXS, x-ray optics, vacuum chamber, kf nw 50 flange|bmoyle|A|
+mo|2581|BELLOWS WELD TUBE 103-55|barnold|A|
+mo|2582|Astgmtsm Crctr Brz Shm 1195x1050|barnold|A|
+mo|2583|Optical Corrector Adjustable Rod Mount 103-55|barnold|A|
+mo|2584|Optical Corrector Micrometer Piezo Actuator|barnold|A|
+mo|2585|Optcl Crctr Micrometer Bushing|barnold|A|
+mo|2586|Optcl Crctr Mcrmtr Actr Piezo Assy|barnold|A|
+mo|2587|Optcl Crctr Mcrmtr Actr Piezo Base|barnold|A|
+mo|2588|Optcl Crctr Mcrmtr Actr Piezo Push Rod|barnold|A|
+mo|2589|Optcl Crctr Mcrmtr Actr Bdy|barnold|A|
+mo|2590|CLS, Ring, Laser, Optics Granite Table|bmoyle|A|
+mo|2591|Hi Bnd-Ps Crctr Optc Psh-Pl Rod|barnold|A|
+mo|2592|Hi Bnd-Ps Crctr Optc Holder Assy|barnold|A|
+mo|2593|Hi Bnd-Ps Crctr Optc Bottom Plate|barnold|A|
+mo|2594|Hi Bnd-Ps Crctr Optc Top Plate|barnold|A|
+mo|2595|Hi Bnd-Ps Crctr Optc Cooling Ring|barnold|A|
+mo|2596|Hi Bnd-Ps Crctr Optc Piezo Mount Plate|barnold|A|
+mo|2597|Hi Bnd-Ps Crctr Optc Stiff Adjuster Bar|barnold|A|
+mo|2598|Hi Bnd-Ps Crctr Optc Stand Off|barnold|A|
+mo|2599|Hi Bnd-Ps Crctr Optc Transverse Flexure|barnold|A|
+mo|2600|Hi Bnd-Ps Crctr Optc Thermal Strap|barnold|A|
+mo|2601|Hi Bnd-Ps Crctr Optc Flng Blws Wldmnt Mod|barnold|A|
+mo|2602|Hi Bnd-Ps Crctr Optc Assy|barnold|A|
+mo|2603|CLS, Ring, Laser, Raw Optics Granite Table|bmoyle|A|
+mo|2604|Hi Bnd-Ps Crctr Optc Pz Spcr|barnold|A|
+mo|2605|Optic Table Support Plate|barnold|A|
+mo|2606|Optic Table Support Foot|barnold|A|
+mo|2607|CLS, INJECTOR, ACCEL STRCTR WELD ASSY|bmoyle|A|
+mo|2608|CLS, INJECTOR, ACCEL STRCTR ASSY|bmoyle|A|
+mo|2609|CLS, INJECTOR, RF GUN. WELD ASSY|bmoyle|A|
+mo|2610|CHRIS Imgng Stn Breadboard Table|barnold|A|
+mo|2611|CHRIS Imgng Stn Tbl Sprt Bm|barnold|A|
+mo|2612|CHRIS Imgng Stn Tbl Lp Lng|barnold|A|
+mo|2613|CHRIS Imgng Stn Tbl Lp Shrt|barnold|A|
+mo|2614|CHRIS Imgng Stn Table Assy|barnold|A|
+mo|2615|CLS, Laser System, Output Optic, Assy, Weldment|bmoyle|A|
+mo|2616|CXS End Sation Front/Rear Short Panel|barnold|A|
+mo|2617|CXS End Sation Front/Rear Lower Rail|barnold|A|
+mo|2618|CXS End Sation Front/Rear Upper Rail|barnold|A|
+mo|2619|CXS End Sation Front/Rear Coupling Plate|barnold|A|
+mo|2620|CXS ENCLSR CRNR BRCKT 90X70|barnold|A|
+mo|2621|CXS MAR Lift Cross Support Weldment|barnold|A|
+mo|2622|CXS MAR Lift Cross Support Beam|barnold|A|
+mo|2623|CXS MAR Lift Cross Support End Cap|barnold|A|
+mo|2624|CXS MAR Lift Cross Support Gusset|barnold|A|
+mo|2625|CXS MAR Lift Crs Sprt Mid Mount Plate|barnold|A|
+mo|2626|CXS MAR Lift Crs Sprt End Mount Plate|barnold|A|
+mo|2627|CXS Drift Tube Clamp Adapter|barnold|A|
+mo|2628|CXS Drift Tube Support Post Base Insert|barnold|A|
+mo|2629|CXS Drift Tube Support Post|barnold|A|
+mo|2630|CXS Drift Tube Support Post End Cap|barnold|A|
+mo|2631|CXS Drift Tube Front Support Assy|barnold|A|
+mo|2632|CXS Drift Tube Front Support Base Plate|barnold|A|
+mo|2633|CXS Drift Tube Front Support Pivot Plate|barnold|A|
+mo|2634|CXS Drift Tube Front Support Lower Clamp|barnold|A|
+mo|2635|CXS Drift Tube Front Support Upper Clamp|barnold|A|
+mo|2636|CXS Drift Tube Front Support Clamp Adapter|barnold|D|
+mo|2637|CXS Drift Tube Support Post Bezel|barnold|A|
+mo|2638|CXS Drift Tube Support Post Assy|barnold|A|
+mo|2639|CXS Drift Tube Support Post Clamp|barnold|A|
+mo|2640|CXS Drift Tube Support Post Lower Plate|barnold|A|
+mo|2641|CXS Drift Tube Support Post Upper Plate|barnold|A|
+mo|2642|CXS Drift Tube Support Post Gusset Plate|barnold|A|
+mo|2643|CXS Drift Tube Support Post Washer Plate|barnold|A|
+mo|2644|CXS Drift Tube Support  Lower Clamp|barnold|A|
+mo|2645|CXS Drift Tube Support  Upper Clamp|barnold|A|
+mo|2646|CXS Drift Tube Support  Clamp Assy|barnold|A|
+mo|2647|MAR Lift Assy|barnold|A|
+mo|2648|CXS MAR DTB Lift Spacer|barnold|A|
+mo|2649|CXS MAR DTB Lift Plate|barnold|A|
+mo|2650|CXS MAR DTB Lift Assy|barnold|A|
+mo|2651|CLS,Optcl Cvty Sys, Lsr, Case Plug, 8-32 Tap|bmoyle|A|
+mo|2652|CLS,Optcl Cvty Sys, Lsr, Case Plug, 3/8-24 Tap|bmoyle|A|
+mo|2653|CXS End Station Rear Cover Plate|barnold|A|
+mo|2654|CXS MAR Lift Cross Extension Plate|barnold|A|
+mo|2655|CXS 4.00 Drift Tube Lower Support Clamp|barnold|A|
+mo|2656|CXS 2.50 Drift Tube Lower Support Clamp|barnold|A|
+mo|2657|CXS 2.50 Drift Tube Upper Support Clamp|barnold|A|
+mo|2658|CXS Drift Tube Flat Rear Support|barnold|A|
+mo|2659|CXS Drift Tube Flat Front Support|barnold|A|
+mo|2660|Sampl|barnold|D|
+mo|2661|Sample Enclosure Front/Rear Skirt|barnold|A|
+mo|2662|Sample Enclosure Side Skirt|barnold|A|
+mo|2663|Sample Enclosure Assy|barnold|A|
+mo|2664|Sample Enclosure Frame|barnold|A|
+mo|2665|Sample Enclosure 24x36x1/2 Bread Board|barnold|A|
+mo|2666|Sample Enclosure Nut Plate|barnold|A|
+mo|2667|Workstation Limit Switch Adapter Plate|barnold|A|
+mo|2668|Sample Enclosure Front/Rear Window|barnold|A|
+mo|2669|Sample EnclosureTop Window|barnold|A|
+mo|2670|Sample Enclosure Door Window|barnold|A|
+mo|2671|Workstation Enclosure Door Limit Switch|barnold|A|
+mo|2672|Chris, Chamber Flange Assy, Exit Window Flange|bmoyle|A|
+mo|2673|Chris, Chamber Flange Assy, 4" Quick Clamp, Mod.|bmoyle|A|
+mo|2674|Chris, Chamber Flange Assy, Drift Tube, 102in.|bmoyle|A|
+mo|2675|Chris, Chamber Flange Assy, Drift Tube, 49in.|bmoyle|A|
+mo|2676|Chris, Chamber Flange Assy, Drift Tube, 6.185in.|bmoyle|A|
+mo|2677|Chris, Chamber Flange Assy, Drift Tube, 135in.|bmoyle|A|
+mo|2678|CHRIS GONIOMETER GRATING HOLDER|barnold|A|
+mo|2679|Chris, Chamber Flange Assy, Drift Tube, 102in SST Tube|bmoyle|A|
+mo|2680|Chris, Chamber Flange Assy, Drift Tube, 49in SST Tube|bmoyle|A|
+mo|2681|Chris, Chamber Flange Assy, Drift Tube, 6.185in SST Tube|bmoyle|A|
+mo|2682|Chris, Chamber Flange Assy, Drift Tube, 135in SST Tube|bmoyle|A|
+mo|2683|CLS Bwt Astgmtsm Crctr Wldmnt Fxtr Rd|barnold|A|
+mo|2684|CLS Bwt Astgmtsm Crctr Cntr Pshrd|barnold|A|
+mo|2685|CLS Bwt Astgmtsm Crctr Cntr Bl Pshrd|barnold|A|
+mo|2686|CLS Bwt Astgmtsm Crctr Klvn Clmp|barnold|A|
+mo|2687|CLS Bwt Astgmtsm Crctr Cntr Cntct|barnold|A|
+
+
+pr|1|Format for writing a procedure|jrifkin|A|
+pr|2|Explanation of acronyms, numbers and format for documentation control numbers|jrifkin|A|
+pr|3|Storage of documentation on servers|jrifkin|A|
+pr|4|Obtaining Email from an off-site location.|jrifkin|A|
+pr|5|Rules for Assigning System, Sub-system, Hardware and Control Point Name Designations|Borland|A|
+pr|6|Operation Safety Procedure for Lightwave Electronics 200mW NPRO laser while working at the 3260 Ash Street, Palo Alto, CA|kkase jrifkin|A|
+pr|7||kkase|A|
+pr|8|Naming Conventions for Computers, Printers, People and Passwords|jrifkin|A|
+pr|9|Procedure for Installing and Using VPN|Drown|A|
+pr|10|Instructions for Using the Norstar Telephones|jrifkin|A|
+pr|11|Making Empoyee Business Cards|jrifkin|A|
+pr|12|Purchases for the CLS|jrifkin|A|
+pr|13|General Safety Procedures for all Laser Use|kkase|A|
+pr|14|Operating Safety Procedure for kicker magnet switch and ferrite characterization experiments|ejongewaard|A|
+pr|15|Format for title block and notes in mechanical drawings|jrifkin|A|
+pr|16|Procedure for creating and using web-based laboratory notebooks|loewen|A|
+pr|17|Document Release|jrifkin|A|
+pr|18|Using Vacuum Flanges|jrifkin|A|
+pr|19|Magnet Naming Conventions|jrifkin|A|
+pr|20|Quick Guide To Magnetic Measurement Software|jrifkin|A|
+pr|21|Quick Guide to Calibrating DAC/ADC cards|jrifkin|A|
+pr|22|BPM Traveler|jrifkin|A|
+pr|23|RF Components Traveler|jrifkin|A|
+pr|24|magnet traveler||A|
+pr|25|Fabrication of Septum Chamber||A|
+pr|26|Cleaning and Optimization of the GE-100 Laser|c.melton|A|
+pr|27|Release of Mechanical Drawings|jrifkin|A|
+pr|28|naming conventions for optics|m.gifford|A|
+pr|29|cls start-up procedure|m.gifford|A|
+pr|30|Format for writing technical notes.|jrifkin|A|
+
+
+si|1|Health and Safety manual|kkase|A|
+si|3|General Safety Procedures for all Laser Use|kkase|A|
+si|4|Operating Safety Procedure for kicker magnet switch and ferrite characterization experiments|ejongewaard|A|
+si|5|Emergency Action Plan|kkase|A|
+si|6|Operating Safety Procedure for Lightwave Electronics 7W Xcyte CW mode-locked laser|kkase|A|
+si|2|Operation Safety Procedure for Lightwave Electronics 200mW NPRO laser hile working at the 3260 Ash Street, Palo Alto, CA|kkase jrifkin|A|
+si|7|Operational Radiation Safety Manual|kkase|A|
+si|8|Operating Safety Procedure for Magnet System Test and Measurement|k.kase|A|
+si|9|Tagout Procedure for Magnet Testing and Measurement|k.kase|A|
+si|10|Operating Safety Procedure for working on the Test Facility roof|k.kase|A|
+si|11|Operating Safety Procedure for Time-Bandwidth Products GE-100 CW mode-locked lasers, Coherent, Inc. pulsed semiconductor laser diode and Lightwave Electronics 200mW NPRO laser.|k.kase|A|
+si|12|OSP for RF Conditioning of Accelerator Structures and Gun|k.kase|A|
+si|13|OSP for Ceramic Chamber Coating|k.kase|A|
+si|14|Bunker Entry|k.kase|A|
+si|15|X-Ray Beam Outside of Test Bunker|k.kase|A|
+si|16|OSP for Laser Operation in the Test Bunker|k.kase|A|
+si|17|refrigerant in rayonix SX 165 detector|k.kase|A|
+si|18|enclosure entry - short form|k.kase|A|
+
+sp|1|A template for writing company specifications|jrifkin|A|
+sp|2|Allowed fluids for fabricating vacuum system components|ejongewaard|A|
+sp|3|Machining, deburring, and polishing practices for vacuum components|ejongewaard|A|
+sp|4|Cleaning Ceramics for UHV|a.farvid|A|
+sp|5|Cleaning Stainless Steel for UHV|a.farvid|A|
+sp|6|Cleaning SS Flanges for UHV|a.farvid|A|
+sp|7|Cleaning Diamond Turned OFE Copper for UHV|a.farvid|A|
+sp|8|Cleaning Copper Gold Foils for Brazing|a.farvid|A|
+sp|9|Cleaning OFE Copper for UHV|a.farvid|A|
+sp|10|Processing Low Carbon Magnet Steel|jrifkin|A|
+sp|11|Processing Hiperco 50A|jrifkin|A|
+sp|12|magnetic anneal by brazing|jrifkin|A|
+sp|13|Annealing OFE copper|jrifkin|A|
+sp|14|Cleaning Aluminum for UHV|a.farvid|A|
+sp|15|vacuum firing components|cummings|A|
+sp|16|Cleaning ceramic feedthru's for UHV|u.cummings|A|
+sp|17|cleaning wire edm'd parts for vacuum|a.farvid|A|
+sp|18|Cleaning Waveguide Flanges for UHV|a.farvid|A|
+sp|19|Cleaning Inconel for UHV|a.farvid|A|
+sp|20|Cleaning SS Bellows for UHV|a.farvid|A|
+sp|21|electropolishing materials for uhv|a.farvid|A|
+sp|22|copper plating for uhv applications|a.farvid|A|
+sp|23|Silver Plating Copper Gaskets|a.farvid|A|
+sp|24|Silver Plating Stainless Steel|a.farvid|A|
+sp|25|Cleaning Ceramic Profile Monitor Screens|a.farvid|A|
+sp|26|Cleaning Viewports for UHV|a.farvid|A|
+sp|27|Cleaning Metal Coated Ceramic|a.farvid|A|
+sp|28|Cleaning Teflon for UHV|a.farvid|A|
+sp|29|Cleaning Tin for UHV|a.farvid|A|
+sp|30|cleaning low carbon steel for UHV|a.farvid|A|
+sp|31|clean copper silver alloys for uhv|a.farvid|A|
+sp|32|removing beeswax from UHV components|a.farvid|A|
+sp|33|coating aluminum with Gd2O2STb|a.farvid|A|
+sp|34|10 MHz Crystal Oscillator|m.winfield|A|
+sp|35|s-band amplifier|jrifkin|A|
+sp|36|l-band amplifier|jrifkin|A|
+sp|37|Double Wide Electronics Racks|jrifkin|A|
+sp|38|planning guidlines for cls facility|jrifkin|A|
+sp|39|paint colors for electronic components|k.silverton|A|
+sp|40|RF Gun Laser Specifications|m.gifford|A|
+sp|41|Radiation Monitoring System for CLS|k.kase|A|
+sp|42|weight of cls|l.giannini|A|
+sp|43|AC power requirements for the cls|b.woo, j.rifkin|A|
+sp|44|requirements for water chillers|jrifkin|A|
+sp|45|Bakeout requirements for UHV parts|l.giannini|A|
+sp|46|optical cavity optics|jrifkin|A|
+sp|47|nickel plating of kovar for brazing|a.farvid|A|
+sp|48|cleaning kovar for uhv|a.farvid|A|
+sp|49|Pellicle for Optical Cavity Central Chamber|r.loewen|A|
+sp|50|1.5m x-ray optic chamber|jrifkin|A|
+sp|51|1.5m reflective x-ray optic|jrifkin|A|
+sp|52|silicon k-b mirror sbstrt plsh spec|n.kelez|A|
+sp|53|specifications for x-ray gratings|jrifkin|A|
+sp|54|RF_DMPNG_CVTY_FDTHR_TST_FXTR_ASSY|barnold|D|
+sp|55|Color coding of network cables|e.mayssat|A|
+sp|56|Cleaning Silver Wire for UHV|barnold|A|
+sp|57|CXS MAR Lift Cross Support Weldment|barnold|D|
+
+tn|1|Estimate the shielding thickness required for test bunkers|kkase|A|
+tn|2|Choice of rf frequency for the injector|Borland|A|
+tn|3|Design of a completely self-shielded CLS|kkase|A|
+tn|4|Estimate the shielding materials and thicknesses required for beam dump assuming installation in a concrete room|kkase|A|
+tn|5|Nomenclature Rules|Borland|A|
+tn|6|System, Sub-system, and Control-tag Designations|Borland|A|
+tn|7|Ring Design|Borland|D|
+tn|8|Requirements for CLS Kicker|Borland|A|
+tn|9|Selection of Safety Glasses for 1064nm CW Lasers|jrifkin|A|
+tn|10|EOPC EOM Driver Requirements|MacPherson|A|
+tn|11|Options for kicker cross section|Borland|A|
+tn|12|Estimate of Weight, Water and Power Requirements|ejongewaard|A|
+tn|13|Control point types and required functionality|Borland|A|
+tn|14|Timing Sequence|borland|A|
+tn|15|Fabry-Perot Cavity Tolerances|borland|A|
+tn|16|Drive laser specifications for the photoinjector|ejongewaard|A|
+tn|17|Physics Specifications for the Photoinjector Solenoid Magnets|borland gbowden|A|
+tn|18|High-level Photoinjector Design|borland|A|
+tn|19|Commissioning Plan for the CLS Injector|borland|A|
+tn|20|Commissioning Plan for the CLS Transport Line|Borland|A|
+tn|21|Control System Architecture|Borland|A|
+tn|22|Timing and Synchroniztion Systems|abbott/heefner|A|
+tn|23|Lattice for Transport Line|Borland|A|
+tn|24|Specifications for Photoinjector and Transport Line Diagnostics|Borland|A|
+tn|25|The CLS RF ring dynamics|Borland/Hofmann|A|
+tn|26|Measuring tunes, dispersion, and beta functions in the CLS|Borland/Hofmann|A|
+tn|27|Beam diagnostics with synchrotron radiation in the CLS|Hofmann|A|
+tn|28|CLS Instabilities|Borland/Hofmann|A|
+tn|29|Injector Klystron Specification|ejongewaard|A|
+tn|30|Injector Klystron Modulator Specification|ejongewaard|A|
+tn|31|Steering Correction for the Photoinjector|Borland|A|
+tn|32|Access Control|kkase|A|
+tn|33|Additional Kicker Design Options|Borland|A|
+tn|34|Bipolar power supplies for corrector magnets|pbellomo|A|
+tn|35|dc power supplies for quad and bend magnets|pbellomo|A|
+tn|36|tests of ASTRA|Borland|A|
+tn|37|Physics design of the photoinjector|Borland|A|
+tn|38|Controlling Power Supplies|pbellomo|A|
+tn|39|Kicker Pulser|pbellomo|A|
+tn|40|Laser Cavity Control System|Abbott|A|
+tn|41|Physics design of the transport line|Borland|A|
+tn|42|Summary of power supply specifications|pbellomo|A|
+tn|43|BPM design|Dolgashev|A|
+tn|44|Possible control system architectures|Heefner|A|
+tn|45|Design of a photocathode gun|Dolgashev|A|
+tn|46|Design of an s-band accelerator structure design|Dolgashev|A|
+tn|47|Design of an s-band coupler|Dolgashev|A|
+tn|48|Study of a Pillbox Shaped RF Cavity|Dolgashev|A|
+tn|49|Specification for Bipolar (Corrector) Power Supplies|pbellomo|A|
+tn|50|Specifications for Weak Magnet Power Supplies|pbellomo|A|
+tn|51|||A|
+tn|52|Quadrapole Magnet Design - Q25.0/24|gbowden|A|
+tn|53|90 Deg Dipoles|gbowden|A|
+tn|54|Vacuum requirements and ion trapping|Hofmann|A|
+tn|55|Preliminary design of laser system for photocathode injector|Bolton|A|
+tn|56|PhotoInjector Solenoid|Bowdon|A|
+tn|57|Impedance calculaltions for the ring|Dogashev|A|
+tn|58|Specifications for Strong Magnet Power Supplies|pbellomo|A|
+tn|59|Storage ring physics design|Borland|A|
+tn|60|||A|
+tn|61|cavity laser servo|abbott|A|
+tn|62|parameter search for stnding wave accelerator cell|Dolgashev|A|
+tn|63|bpm design for round and waveguide-like beampipe|Dolgashev|A|
+tn|64|quadrupole magnet design - Q25.0/16|gbowden|A|
+tn|65|quadrupole magnet design - Q15.5/40|gbowden|A|
+tn|66|Quadrupole trim coils|gbowden|A|
+tn|67|a 28mm RF cavity|Dolgashev|A|
+tn|68|Alignment of Bow Tie Cavity|MacPherson|A|
+tn|69|KTP Electro Optic Modulator|MacPherson|A|
+tn|70|Phase I High Finess Bow Tie Cavity Experiment|MacPherson|A|
+tn|71|CLS Instabilities (up-date)|Hofmann|A|
+tn|72|Beam diagnostics with synchrotron radiation at the CLS|Hofmann|A|
+tn|73|Tuning Tolerances for the Standing Wave Accelerator Cells|Dolgashev|A|
+tn|74|RF Gun and Accelerator Cell Dimensions and Tolerances|Dolgashev ejongewaard|A|
+tn|75|Temperature Effects for the Standing Wave Accelerator Cells|Dolgashev|A|
+tn|76|CLS Injector and Transport Line Components and Controls Nomenclature|Borland|A|
+tn|77|Alternative design for a kicker magnet|gbowden|A|
+tn|78|R&D for Alternative Kicker Design|gbowden|A|
+tn|79|Considerations for a Magnetic Kicker with a Sinusoidal Pulse|Borland|A|
+tn|80|RF Phase and Timing Tolerances|Borland|A|
+tn|81|Specifications for 150A and 600A Zero Flux Current Transductors|pbellomo|A|
+tn|82|Transport line update|Borland|A|
+tn|83|Storage ring design update|Borland|A|
+tn|84|Updated and Alternative Timing System Diagrams|Borland|A|
+tn|85|Analysis of Neutron and Radionuclide Production in the CLS Dump Shield|kkase|A|
+tn|86|Timing Clock and Trigger Generation Systems Conceptual Design|heefner|A|
+tn|87|Role of Impedance in Traveling Wave Kicker Design|Borland|A|
+tn|88|cls radiation safety system|kkase|A|
+tn|89|specs for injector corrector magnets|gbowden|A|
+tn|90|Specifications for BPM’s and Tapers for Test and Measurement|dolgashev|A|
+tn|91|specifications for BPM test fixture|shulepov|A|
+tn|92|Radiation Emission from Beam Profile Monitors|kkase|A|
+tn|93|Timing Clock and Trigger Generation Systems Conceptual Design|heefner|A|
+tn|94|Optical Transition Radiation Profile Monitor Imaging for CLS Injector|Borland|A|
+tn|95|Linac and RF Gun Vacuum Calculations|ejongewaard|A|
+tn|96|Linac and RF Gun Thermal Analysis|ejongewaard|A|
+tn|97|Quad Type Q2.5/40 Coil Thermal Analysis|ejongewaard|A|
+tn|98|Preliminary Design of BPM with “flat” to fit inside 2.1 cm radius|dolgashev|A|
+tn|99|Pulsed Timing System Using COTS Components|Borland|A|
+tn|100|Magnetic Simulation Benchmarking|ejongewaard|A|
+tn|101|Determination of Quadrupole Effective Length Using 3D Magnetic FEA|ejongewaard|A|
+tn|102|3D Magnetic Field Calculation of 90º Bend Magnet|ejongewaard|A|
+tn|103|Determination of Kicker Core Inductance Using 3D Magnetic FEA|ejongewaard|A|
+tn|104|Septum Magnet Flux Leakage and Shielding Calculations|ejongewaard|A|
+tn|105|CLS Ring and Transport Line Vacuum Calculations|ejongewaard|A|
+tn|106|Contact List|ejongewaard|A|
+tn|107|CLS Kicker Magnet Designs|Borland|A|
+tn|108|cls kicker double-coil  p spice simlulation|olipkind|A|
+tn|109|Specification for BNC555 Digital Delay Generator|Borland|A|
+tn|110|Measurement of Accelerator Cell Frequency|dolgashev|A|
+tn|111|Performance Specifications for Unipolar Magnet Power Supply Controller|pbellomo|A|
+tn|112|BPM Electronics Design Considerations|olipkind|A|
+tn|113|45 degree bend magnet|gbowden|A|
+tn|114|.74 inch ID Racetrack Style BPM|vdolgashev|A|
+tn|115|Revised Quadrupole Designs|borland|A|
+tn|116|quadrupole magnetic forces|gbowden|A|
+tn|117|Magnetic Designs for CLS Ring Dipole Magnets|borland|A|
+tn|118|Magnetic Design for CLS Transport Line Dipole Magnet|borland|A|
+tn|119|Thermal Analysis of Accelerator Structures|oshulepov|A|
+tn|138|Test Results of the Dynamic Range of the Prototype BPM Electronics|o.lipkind|A|
+tn|120|Connection Issues for Data Acquisition System Boards|Borland|A|
+tn|121|BPM Frequencies for Designing the RF BPM Prototype Electronics|lipkind|A|
+tn|122|Technical Overview of the Regenerative Amplifier|m.gifford|A|
+tn|123|Thermal Analysis of RF Gun|o.shulepov|A|
+tn|124|Operating Energies for the CLS|m.borland|A|
+tn|125|Specifications for an S-band Hybrid|v.dolgashev|A|
+tn|126|Conceptual Design of Mux Electronics for the BPM System|o.lipkind|A|
+tn|127|preliminary design of a 2.7 cell rf gun|jrifkin|A|
+tn|128|Operating Values for CLS Magnets|m.borland|A|
+tn|129|Technical Specifications for the Design of a High Frequency BPM Module|o.lipkind|A|
+tn|130|Deformation of S-band Waveguide and Coupler Under Vacuum Loading|o.shulepov|A|
+tn|131|Thermal Analysis of a 2.7 cell RF Gun|o.shulepov|A|
+tn|132|calulation of harmonic generation using bbo|p.bolton|A|
+tn|133|Deformation of CERN RF flange during compression of RF gasket|o.shulepov|A|
+tn|134|High Frequency Multiplexing of BPM's|o.lipkind|A|
+tn|135|Summary of Power Supply Specifications - Another Option|p.bellomo|A|
+tn|136|H63 Corrector Design for the Ring|m.borland|A|
+tn|137|Preliminary Magnetic Measurements of the R&D Magnetics Corrector|m.borland|A|
+tn|139|Magnetic Measurement Methods and Requirements|m.borland|A|
+tn|140|Thermal deformation of the RF Gun cathode|O.shulepov, V.dolgashev|A|
+tn|141|beamsize in injector|m. borland|A|
+tn|142|Specification of Dump Shielding and Concrete Thickness and Evaluation of the Shielding Effectiveness of the CLS Test Facility|k. kase|A|
+tn|143|more modulator specs|jrifkin|A|
+tn|144|Cable Tray Size for the CLS Bunker|p.bellomo|A|
+tn|145|Phase II REO mirror order 1|jrifkin|A|
+tn|146|Analysis of Capture Gamma Ray Production in Polyethylene|k.kase|A|
+tn|147|Survey Coordinates for the Transport Line and Ring|jrifkin|A|
+tn|148|.740/.205in ring bpm design|vdolgashev|A|
+tn|149|Parameters for ceramic pipe, resistive coating, and kicker excitation|mplacidi, rruth|A|
+tn|150|Kicker development results|o.lipkind|A|
+tn|151|S-Band Hybrid Deflection Analysis|l.ensler|A|
+tn|152|Shielding Wall Analysis|jrifkin|A|
+tn|153|Revised Field and Inductance Data for the CLS Magnets and Solenoids|m.placidi|A|
+tn|154|Equalizing the CLS dipole effective bending strengths|m.placidi|A|
+tn|155|reference cavity design for linac|v.dolgashev|A|
+tn|156|Estimate of Gas Bremsstrahlung in Interaction Region|k.kase|A|
+tn|157|Ceramic samples for laboratory tests of kicker beam pipe|m.placidi|A|
+tn|158|FDA requirements pertaining to the CLS|k.kase|A|
+tn|159|Tolerances for Ceramic Kicker Tube|m.placidi|A|
+tn|160|Dump and Vacuum pipe structure between Kicker and R1:Q10 quad|m.placidi|A|
+tn|161|Criteria for the CLS beam profile monitor screens|m.placidi|A|
+tn|162|Overview of Current &Voltage requirements for the CLS correctors|m.placidi|A|
+tn|163|Magnetic Design for the Septum|m.borland|A|
+tn|164|Effect of the relative frequency offset between the BPM and Reference Cavity on a Magnitude Demodulator Output.|o.lipkind|A|
+tn|165|Requirements for Double Wide Electronics Racks|p.bellomo, b.wo|A|
+tn|166|final design of rectangular bpm|v.dolgashev|A|
+tn|167|final design of .984/.248 ring bpm|v.dolgashev|A|
+tn|168|Ferrite core design and specifications|m.placidi|A|
+tn|169|Twin Hall probe support|m.placidi|A|
+tn|170|BPM dynamic range and noise update|o.lipkind|A|
+tn|171|BPM peak detector parameter optimization for Burst and CW modes.|o.lipkind|A|
+tn|172|BPM phase measurements using a BPSK test fixture|o.lipkind|A|
+tn|173|Design of a 63dB directional coupler for S-band waveguide|v.dolgashev|A|
+tn|174|l band rf cavity for ring|v.dolgashev|A|
+tn|175|Structural Analysis and Thermal Expansion Calculations for RF Cavity|o.shulepov|A|
+tn|176|Kicker Fanout Channel Evaluation|o.lipkind|A|
+tn|177|magnet polarities, conventions and wiring|m.placidi|A|
+tn|178|CLS Video Image Processing|m.borland|A|
+tn|179|feedback kicker|v.dolgashev|A|
+tn|180|cable trays|p.bellomo|A|
+tn|181|CLS Magnet Cooling System|g.bowden|A|
+tn|182|Description of 60Hz/65MHz Synchronization Board|o.lipkind|A|
+tn|183|Evaluation of the Effectiveness of the Shielding of the CLS and the Test|k.kase|A|
+tn|184|Matching Optics Design for CLS Bowtie Cavity|r.loewen|A|
+tn|185|Optical scan parameters for cathode cleaning|m.gifford|A|
+tn|186|Compression of CERN RF flange gasket|jrifkin|A|
+tn|187|Faraday Cup for 45 MeV Electron Beam|m.borland|A|
+tn|188|Final coating parameters for the ceramic kicker chamber|m.placidi|A|
+tn|189|Momentum Offset and Orbit Variation with Operating Energy|m.borland|A|
+tn|190|Transport-to-Ring Alignment Tolerances|m.borland|A|
+tn|191|Shielding Tubes for the Septum|m.borland|A|
+tn|192|Estimated Power and Cooling requirements for the CLS magnets|m.placidi|A|
+tn|193|modification of cls ring dipole magnets to fix path length problem|m.borland|A|
+tn|194|Stoppers for the Desk-Top Beamline|k.kase|A|
+tn|195|pH of water in the CLS cooling system|j.rifkin|A|
+tn|196|Profile Monitor cable connections to the Servomotor Control Chassis|m.winfield|A|
+tn|197|FPGA based Timing system specifications|o.lipkind|A|
+tn|198|Measurements to Assess the Efficacy of Local Shielding of Ring Dipoles and Gun|k.kase|A|
+tn|199|Modification to FPGA based Timing system specification|o.lipkind|A|
+tn|200|Specifications for a narrow band, CW, S-band amplifier|o.lipkind|A|
+tn|201|Specifications for a CW L-band Amplifier|o.lipkind|A|
+tn|202|Radiation Measurements to Identify Sources of Radiation from CLS Linac and|k.kase|A|
+tn|203|Power supplies requirements for a 30MeV production CLS.|m.placidi|A|
+tn|204|Specifications for the nominal operation of the Stanford Research Systems SR630 TC Monitor	|c.melton|A|
+tn|205|X-ray Shutter|k.kase|A|
+tn|206|Alignment of regen amplifier|m.gifford|A|
+tn|207|Assembly of regen pump module TEC|m.gifford|A|
+tn|208|Mounting NdYLF crystals in the dual crystal holder|m.gifford|A|
+tn|209|Design of injector laser system|m.gifford|A|
+tn|210|specifications for the Injector Laserâ€™s regenerative amplifer|m.gifford|A|
+tn|211|Analysis of YAG view port deflection due to atmospheric loading|o.shulepov|A|
+tn|212|Measured magnet excitation data for CLS version alpha|m.placidi, b.wo|A|
+tn|213|A revised quadrupole steel design for â€˜productionâ€™ CLS machines.|m.placidi|A|
+tn|214|atcg3d Dump Shielding|k.kase|A|
+tn|215|ac power requirements for the ac distribution crate|b.woo|A|
+tn|216|Specifications for an FPGA based timing system|o.lipkind|A|
+tn|217|Dump Shielding for ATCG3D|k.kase|A|
+tn|218|Design of the IOC network|e.mayssat|A|
+tn|219|cxs control system architecture|e.mayssat|A|
+tn|220|choosing chillers|jrifkin|A|
+tn|221|Design specifications for an FPGA based timing system|j.chu|A|
+tn|222|Calibrating the charge in the storage ring|v.dolgashev|A|
+tn|223|fpga based tsdg design specifications|j.chu|A|
+tn|224|Potential for Radiation Damage to Injector Laser Diodes|k.kase|A|
+tn|225|faulty copper cathodes|jrifkin|A|
+tn|226|low carbon steel for magnet/uhv applications|u.cummings|A|
+tn|227|integrated protection system for the cls prototype|jrifkin|A|
+tn|228|Failures in kicker MOSFETs and related radiation measurements|k.kase|A|
+tn|229|Thermal actuator design and performance|m.gifford|A|
+tn|230|rf breakdown detector|jrifkin|A|
+tn|231|high power test using clinac modulator|r.loewen|A|
+tn|232|UPS and line voltage filters|jrifkin|A|
+tn|233|assembly issues with alignment tooling on horizontal table|b.arnold|A|
+tn|234|cooling system options|g.bowden|A|
+tn|235|Planning the evolution of CLS/ATCG3D feedback hardware|r.loewen|A|
+tn|236|theoretical rf layout|jrifkin|A|
+tn|237|motor count for atcg3d cls and cxs|jrifkin|A|
+tn|238|The CLS as an IR Source|a.hofmann|A|
+tn|239|Beta Measurements|a.hofmann|A|
+tn|240|Dispersion from the energy change by a deflection|a.hofmann|A|
+tn|241|Lattice with inverted polarity for Q45 and Q50|a.hofmann|A|
+tn|242|Pb Shielding for Exterior of Enclosure|g.bowden|A|
+tn|243|Lattice without IP-quadrupoles|a.hofmann|A|
+tn|244|Correcting the path-length error with local bumps|a.hofmann|A|
+tn|245|Conditioning operating ATCG3D Quadrupole Magnets|r.loewen|A|
+tn|246|Radiation Measurements Made at the CLS Shielding Enclosure|k.kase|A|
+tn|247|ips block diagram|jrifkin|A|
+tn|248|Layout of equipment in electronics racks|jrifkin|A|
+tn|249|Planning the Integration of CLS Scope Signals in to EPICS|r.loewen|A|
+tn|250|cabling infrastructure for the cls|jrifkin|A|
+tn|251|machine protectio logic for cleaning the cathode.|jrifkin|A|
+tn|252|CLS network configuration at client site|e.mayssat|A|
+tn|253|X-ray Beam Hazard|k.kase|A|
+tn|254|Shielding to Limit Radiation Damage to Regen Electronics|k.kase|A|
+tn|255|storage ring bpm temperatures - as measured|r.fuller|A|
+tn|256|Optical alignment of the optical cavity to storage ring|m.gifford|A|
+tn|257|Discussion of the cavity laser, amplifier, transport and diagnostic assembly design.|m.gifford|A|
+tn|258|cameras for the cls|jrifkin|A|
+tn|259|device names and control tags for the optical cavity|jrifkin|A|
+tn|260|hw/sw requirements for optical cav com in lab|r.loewen|A|
+tn|261|specifications for storage ring damping cavity|v.dolgashev|A|
+tn|262|Differential Phase Contrast Imaging (DPCI) hardware/software requirements|r.loewen|A|
+tn|263|specifications for injector correctors|m.placidi|A|
+tn|264|CXS X-Ray Optics Geometry|barnold|A|
+tn|265|thermal loading of the CLS on the enclosure|b.arnold|A|
+tn|266|outgassing of hysol 9309NA|jrifkin|A|
+tn|267|otr screens|c.limborg-depre|A|
+tn|268|Configuring UPS's|r.denduluri|A|
+tn|269|motor count and control designations for cxs|jrifkin|A|
+
+
+wd|1|optical cavity amplifier assy|r.fuller|A|
+wd|2|optical cavity transport assy|r.fuller|A|
+wd|3|optical cavity input optic assy|r.fuller|A|
+wd|4|optical cavity correction assy|r.fuller|A|
+wd|5|optical cavity output assy|r.fuller|A|
+wd|6|optical cavity central chamber assy|r.fuller|A|
+
+wi|1|BPM IF electronics, x/y channel|o.lipkind|A|
+wi|2|Kicker Trigger Fanout Board|o.lipkind|A|
+wi|3|Loading Equipment Racks|jrifkin|A|
+wi|4|assembly of quadrupole magnets|jrifkin|A|
+wi|5|kicker magnet assembly|jrifkin|A|
+wi|6|Alignment of the optical cavity assemblies to the CLS electron storage ring.|m.gifford|A|
+wi|7|removin sensor glass from 1st vision camera|l.giannini|A|
+wi|8|optical cavity feedback pcb|o.lipkind|A|
+
+wl|1|mtr cntrlr j-box|m.winfield|A|
