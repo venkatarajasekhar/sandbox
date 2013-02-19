@@ -38,9 +38,12 @@ JSP = implementation by Sun of a Java web framework called Java Server Page
 JSP use the MVC (model, view, controller design)
 
 Q: What are war files?
+A WAR file (or Web application ARchive[1]) is a JAR file used to distribute a collection of 
+JavaServer Pages, Java Servlets, Java classes, XML files, tag libraries, static Web pages 
+(HTML and related files) and other resources that together constitute a Web application.
 War files are jar file with the structure to be used as webapp in JSP (Java Server Page)
 unzip <file.war>
-!!! Beware, the files are extrated directly in the current corwking directory !!!
+!!! Beware, the files are extracted directly in the current working directory !!!
 !!! You can edit war files with vim !!!
 
 WAR files placed in ${TOMCAT_VERSION_FOLDER}/webapps

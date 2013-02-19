@@ -10,9 +10,9 @@ F1          : manual to get started
 b           : bounce active email
 m           : new mail
 a           : create an alias using the email sender of active email
-c           : change to a different mailbox ( ! is inbox, =lists/epics for others) 
 s           : save current email in a new folder
 r           : replay to active message
+f           : forward active message
 g           : group reply to active message
 q           : quit
 d           : mark active message for deletion
@@ -36,6 +36,11 @@ NAVIGATION
 <- ->       : prev / next message
 up - down   : prev / next page 
 
+c           : change to a different mailbox 
+                - ! is inbox
+                - =sent is sent folder
+                - =lists/epics for mailing list
+                - ? for list of folders
 #---------------------------------------------------------------------- 
 # PAGER MODE (WHILE READING EMAIL)
 
