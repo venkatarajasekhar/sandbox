@@ -27,6 +27,8 @@ set index_format="%4C %Z %[%b%d] %-15.15F %s"
 set folder_format="%2C %t %8s %d %N %f"
 
 set sort=threads                        #sort by message threads in index
+set sort_aux = last-date-received       #order threads based on last email rec'd in that thread
+
 set arrow_cursor=yes
 #set status_on_top                       #put status line at top
 set pager_context=3

@@ -10,7 +10,7 @@ F1          : manual to get started
 b           : bounce active email
 m           : new mail
 a           : create an alias using the email sender of active email
-c           : change to a different mailbox 
+c           : change to a different mailbox ( ! is inbox, =lists/epics for others) 
 s           : save current email in a new folder
 r           : replay to active message
 g           : group reply to active message
