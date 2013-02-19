@@ -68,8 +68,11 @@ set pager_format="%-10.10i %[!%a %b %d %R]"
 #----------------------------------------------------------------------
 # Email display
 #----------------------------------------------------------------------
+
+# Name of hook  <matching pattern> <what-to-do>
 message-hook ~A 'set pager=builtin'
 message-hook '~f freshmeat-news' 'set pager="less \"+/^  subject: .*\""'
+#folder-hook ubuntu-users 'push <tag-pattern>~r>1w!~F<enter>'
 
 
 #--- Header
@@ -163,6 +166,12 @@ set edit_headers = yes
 
 set alias_file=~/.mutt/aliases
 source ~/.mutt/aliases
+# source '~/bin/detectgui.sh|'          # detectgui.sh is a script that output mutt conf command !
+
+#alias identity_1         Chuck Norris                   <chuck@example.com>
+#alias identity_2         Harry Callahan                 <harry@another-example.com>
+#macro compose v "<edit-from>^Uidentity_<tab>" "Select from" 
+
 #----------------------------------------------------------------------
 #----------------------------------------------------------------------
 #----------------------------------------------------------------------
