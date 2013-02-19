@@ -20,6 +20,7 @@ u           : undelete active message
 w           : set flags of active message manually
 G           : pop mails from mail server to spool file
 o           : change sort email order in current mailbox
+l           : limit display (filter display) based on pattern-matching
 
 TAGS
 t           : tag current message
@@ -49,6 +50,7 @@ c           : change to a different mailbox
 <space>     : scroll down or go to next email
 $           : jump to end of message
 \           : toggle search coloring
+Ctrl-u      : (macro) start urlview
 
 #---------------------------------------------------------------------- 
 # FLAGS

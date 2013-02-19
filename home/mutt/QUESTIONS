@@ -4,7 +4,23 @@ The first is the index of messages in the mailbox, which is called the ``index''
 The second mode is the display of the message contents. This is called the ``pager.''
 
 Q: How to send mails with mutt?
-mutt -s "Party Invitation" faber bolte george -c lharden jrickard -b lin < invitation
+mutt -s "Party Invitation" faber bolte george -c lharden jrickard -b lin -a attachment.png < invitation
 This sends the contents of the file "invitation" from your current working directory 
 with the subject header (-s) "Party Invitation" to faber, bolte, and george, 
 with carbon copies (-c) to lharden and jrickard and a blind carbon copy (-b) to lin.
+There is one attached file.
+
+#---------------------------------------------------------------------- 
+# MIME
+
+Q: What are MIME documents?
+There is one standard technique for sending multimedia through email, it's called MIME.
+Mutt supports both sending and receiving it. 
+MIME is an acronym for Multipurpose Internet Mail Extensions
+
+Q: Mailcap file?
+Mutt, like many other mime aware tools, refers to the mailcap configuration file 
+for instructions on viewing different types of mime-encoded mail attachments.
+There are two likely locations for your mailcap file; 
+* /etc/mailcap for system-wide settings 
+* ~/.mailcap where you should add entries you create or modify as a normal user

@@ -44,7 +44,8 @@ set confirmappend=no                    #no prompt for save to =keep
 set to_chars=" +TCF"                    #no L for mail_list
 
 #--- macros
-macro pager \cu |urlview\n
+#macro pager \cu |urlview\n              #Ctrl-u to view url
+macro pager \cu <pipe-entry>'urlview'<enter>  'Follow links with urlview'              #Ctrl-u to view url
 
 #--- Colors
 color normal		white		blue
@@ -110,6 +111,12 @@ color   attachment      brightgreen     blue
 #mono    body            bold				"[-a-z_0-9.]+@[-a-z_0-9.]+"
 #mono    body            bold				"^Good signature"
 #mono    body            bold				"^Bad signature from.*"
+
+# we want to see some MIME types inline, see below this code listing for explanation
+# Check ~/.mailcap for text conversion
+# Require the installation of pdftotext and antiword
+auto_view application/msword
+auto_view application/pdf
 
 #----------------------------------------------------------------------
 # Procmail / Mail folders
