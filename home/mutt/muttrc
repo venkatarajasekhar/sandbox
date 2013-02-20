@@ -25,10 +25,9 @@ set spoolfile=/var/spool/mail/emayssat
 #set spoolfile=+inbox       # Copy all pop'ed emails in spool file
 
 #set mail_check=5		    # Check mail/spool file every 5 sec
-set mbox="~/Mail/inbox"     # Where read mails are moved
+set mbox="~/Mail/inbox"     # Where read emails are moved
 set mbox_type=mbox          # All messages are stored in a single fileA (<> Maildir, MH)
-set move=ask-no			    # Move message from spoolfile to mbox @ exit?
-#set move=no			        # Move message from spoolfile to mbox @ exit
+set move=ask-no			    # Move message from spoolfile to mbox @ exit? (yes, ask-yes, ask-no, no)
 
 #---------------------------------------------------------------------- 
 # Keyboard macros
