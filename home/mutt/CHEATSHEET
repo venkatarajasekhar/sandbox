@@ -38,10 +38,10 @@ NAVIGATION
 up - down   : prev / next page 
 
 c           : change to a different mailbox 
-                - ! is inbox
+                - ! is spoolfile
                 - < or =sent is sent folder
+                - > mbox / inbox file (read emails)
                 - =lists/epics for mailing list
-                - > mboc file
                 - ? for list of folders
 #---------------------------------------------------------------------- 
 # PAGER MODE (WHILE READING EMAIL)

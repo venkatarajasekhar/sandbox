@@ -4,7 +4,9 @@ The first is the index of messages in the mailbox, which is called the ``index''
 The second mode is the display of the message contents. This is called the ``pager.''
 
 Q: How to send mails with mutt?
+
 mutt -s "Party Invitation" faber bolte george -c lharden jrickard -b lin -a attachment.png < invitation
+
 This sends the contents of the file "invitation" from your current working directory 
 with the subject header (-s) "Party Invitation" to faber, bolte, and george, 
 with carbon copies (-c) to lharden and jrickard and a blind carbon copy (-b) to lin.

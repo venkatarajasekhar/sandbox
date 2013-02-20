@@ -18,6 +18,18 @@ set ispell="/usr/bin/ispell"
 set postponed="$HOME/Mail/postponed"
 set signature="~/.mutt/signature"
 
+# Spoolfile = which folder to open when mutt is called
+# Spoolfile contains unread and newly pop'ed emails
+# Note that spoolfile is not backed up and is on local machine only!
+set spoolfile=/var/spool/mail/emayssat
+#set spoolfile=+inbox       # Copy all pop'ed emails in spool file
+
+#set mail_check=5		    # Check mail/spool file every 5 sec
+set mbox="~/Mail/inbox"     # Where read mails are moved
+set mbox_type=mbox          # All messages are stored in a single fileA (<> Maildir, MH)
+set move=ask-no			    # Move message from spoolfile to mbox @ exit?
+#set move=no			        # Move message from spoolfile to mbox @ exit
+
 #---------------------------------------------------------------------- 
 # Keyboard macros
 
@@ -207,13 +219,6 @@ mailboxes "=lists/ts7000"
 #mailboxes "=lists/svlug"
 #mailboxes "=lists/comedi"
 #mailboxes "=lists/mplayer"
-
-#set spoolfile=+inbox       # Copy all pop'ed emails in spool file
-#set mail_check=5		    #Check mail/spool file every 5 sec
-set mbox="~/Mail/inbox"
-set mbox_type=mbox          #All messages are stored in a single fileA (<> Maildir, MH)
-set move=ask-no			    #Move message from spool to mbox @ exit
-set move=no			        #Move message from spool to mbox @ exit
 
 #----------------------------------------------------------------------
 # POP'ing of emails
