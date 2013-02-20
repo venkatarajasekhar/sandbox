@@ -45,6 +45,7 @@ c           : change to a different mailbox
 #---------------------------------------------------------------------- 
 # PAGER MODE (WHILE READING EMAIL)
 
+h           : toggle show-all-headers
 ^           : jump to beginning of message
 -           : scroll up
 <space>     : scroll down or go to next email
