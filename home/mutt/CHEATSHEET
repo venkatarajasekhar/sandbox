@@ -39,8 +39,9 @@ up - down   : prev / next page
 
 c           : change to a different mailbox 
                 - ! is inbox
-                - =sent is sent folder
+                - < or =sent is sent folder
                 - =lists/epics for mailing list
+                - > mboc file
                 - ? for list of folders
 #---------------------------------------------------------------------- 
 # PAGER MODE (WHILE READING EMAIL)

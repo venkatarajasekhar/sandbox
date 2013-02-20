@@ -1,6 +1,7 @@
+# Every variable set are accessible with $variable
 #----------------------------------------------------------------------
-## Global
-#----------------------------------------------------------------------
+# Global
+
 #set print_command = "a2ps -1 --font-size=12.0 --output=- | lpr -Pnetprinter1"
 set print_command = "a2ps -1 --font-size=12.0 --output=- | lpr -PHP-LaserJet-5100-Dtn-48"
 set print=ask-yes			            # Ask confirmation for prints (p to print)
@@ -21,29 +22,70 @@ set signature="~/.mutt/signature"
 # Keyboard macros
 
 # macro menu key sequence [description]
-# menu in generic, index, pager, alias, query, attach, compose, postpone, browser, pgp, editor
+# menu in 
+# * generic, 
+# * index, 
+# * pager, 
+# * alias, 
+# * query, 
+# * attach, 
+# * compose,                    After writing the email where you see attachment + header
+# * postpone, 
+# * browser, 
+# * editor,
+# * pgp, 
 # key in 
-# * \cx for ctrl-x              !!! case is ignored !!!
-# * a-z                         !!! case is ignored !!!
-# * \t, \r, \n, \e
-# * <esc>, <up>, <backspace>, <pagedown>, <delete>, <insert>, <home>, <end>, <f1>, <f10>, <return>...
+# * \cx for ctrl-x              !!! case is ignored for Ctrl key binding !!!
+# * a-z, A-Z
+# * \t, \r, \n, \e or <tab>, <return>?, <enter>, <esc> 
+# * <up>, <backspace>, <pagedown>, <delete>, <insert>, <home>, <end>, <f1>, <f10>, ...
 # sequence can include: 
 # * generic functions                     More @ http://www.mutt.org/doc/manual/manual-6.html#functions
 # * functions for that menu 
-# * shell function !<shell-command>
+# * shell function !<shell-command> or <shell-escape><shell-command>
 # * existing key bindings (e.g. b for bounce) List @
 
+macro index,pager <f1> "<shell-escape>less /usr/local/doc/mutt-1.5.21/manual.txt<enter>" "Show Mutt documentation"
 #macro pager \cu |urlview\n              #Ctrl-u to view url
-macro pager \cu <pipe-entry>'urlview'<enter>  'Follow links with urlview'              #Ctrl-u to extract and view message's url
-#macro pager h "unignore *\r" 'Show headers'
-macro index G "!fetchmail\r" 'Run fetchmail'
+macro index,pager \cu <pipe-entry>'urlview'<enter>  'Follow links with urlview'              #Ctrl-u to extract and view message's url
+#macro pager H "unignore *\r" 'Show headers'
+macro index G "<shell-escape>fetchmail\r" 'Run fetchmail'
 macro pager G "!fetchmail\r" 'Run fetchmail'
-#macro compose v "<edit-from><kill-line>identity_<tab>" "Select from" 
-# Caught by vi and not mutt?
+macro compose v "<edit-from><kill-line>identity_<tab>" "Select from" 
+
+#---------------------------------------------------------------------- 
+# Hooks
+#
+# Hooks allows you to execute arbitrary commands before performing some operation. 
+# For example, you may wish to tailor your configuration based upon which mailbox 
+# you are reading, or to whom you are sending mail.
+#
+# Available hooks:
+# * account-hook
+# * folder-hook
+# * message-hook        executed before viewing or formatinng a message based on info in message
+# * reply-hook
+# * send-hook           executed just before sending an email
+# * save-hook           overrider default filename when saving messages
+# * mbox-hook           used to move read messages from a specified to another mailbox automatically when you quit or change folders
+# * fcc-hook            save outgoing mail in mailbox other than $record
+# * fcc-save-hook       equivalent to both save-hook and fcc-hook
+# * pgp-hook            choosing the pgp key of the recipeitn
+#
+# Format:
+# <Name of hook>  <matching pattern> <what-to-do>
+#
+unhook *                                                                        # Delete all existing hooks
+message-hook ~A                     'set pager=builtin'                         # All messages use the builtin pager
+message-hook '~f freshmeat-news'    'set pager="less \"+/^  subject: .*\""'     # Message from freshmeat use less as a pager
+#folder-hook ubuntu-users 'push <tag-pattern>~r>1w!~F<enter>'
+#send-hook '~t ^me@cs\.hmc\.edu$' 'my_hdr From: Mutt User <user@host>'
+#save-hook me@(turing\\.)?cs\\.hmc\\.edu$ +elkins
+#save-hook aol\\.com$ +spam
 
 #----------------------------------------------------------------------
 # Index
-#----------------------------------------------------------------------
+
 set status_format=" %r %b %f %n      Del %d      Msgs %m %l %> (%P)"
 set date_format="!%H:%M %a %d %b     "
 set index_format="%4C %Z %[%b%d] %-15.15F %s"
@@ -90,27 +132,23 @@ set pager_format="%-10.10i %[!%a %b %d %R]"
 # Email display
 #----------------------------------------------------------------------
 
-# <Name of hook>  <matching pattern> <what-to-do>
-message-hook ~A                     'set pager=builtin'                         # All messages use the builtin pager
-message-hook '~f freshmeat-news'    'set pager="less \"+/^  subject: .*\""'     # Message from freshmeat use less as a pager
-#folder-hook ubuntu-users 'push <tag-pattern>~r>1w!~F<enter>'
-#
-# Other hooks:
-#  folder-hook, message-hook, reply-hook (v1.5.x), send-hook, and my_hdr.
 
-
-#--- Headers
+#--- Headers to display ( h to toggle full header)
 # Too many email headers make reading a message difficult
 ignore x-                               # Ignore custom headers?
 ignore *                                # ignore all headers, but the following ones ...
-unignore From: To: Cc: Subject: Date:   # 
-unignore Message-Id:                    # Thread
-unignore Content-Type:                  # Mime type
-unignore organization organisation 
-unignore x-mailer:                      # Email client used
-unignore x-newsreader: 
-unignore x-mailing-list:                # Mailing list
-unignore posted-to: reply-to:
+unignore From: To: Cc: Date: Subject:   # 
+#unignore Message-Id:                    # Thread
+#unignore Content-Type:                  # Mime type
+#unignore organization organisation 
+#unignore x-mailer:                      # Email client used
+#unignore x-newsreader: 
+#unignore x-mailing-list:                # Mailing list
+#unignore posted-to: reply-to:
+
+#--- Header order   
+unhdr_order *                           # Erase default order
+hdr_order From: To: Cc: Date: Subject: 
 
 #--- Headers' color
 color hdrdefault	brightcyan	blue
@@ -170,10 +208,10 @@ mailboxes "=lists/ts7000"
 #mailboxes "=lists/comedi"
 #mailboxes "=lists/mplayer"
 
-#set spoolfile=+inbox
+#set spoolfile=+inbox       # Copy all pop'ed emails in spool file
 #set mail_check=5		    #Check mail/spool file every 5 sec
 set mbox="~/Mail/inbox"
-set mbox_type=mbox
+set mbox_type=mbox          #All messages are stored in a single fileA (<> Maildir, MH)
 set move=ask-no			    #Move message from spool to mbox @ exit
 set move=no			        #Move message from spool to mbox @ exit
 
@@ -185,7 +223,7 @@ set move=no			        #Move message from spool to mbox @ exit
 #set pop_user="emmanuel_mayssat@lynceantech.com"
 #set pop_pass="XXXXX"
 #set pop_delete=ask-yes
-#set pop_checkinterval=60
+#set pop_checkinterval=60   # Pop emails every 60 sec
 #set pop_auth_try_all yes
 #set pop_reconnect=ask-yes
 
@@ -201,8 +239,9 @@ set use_from=yes
 set edit_headers = yes                  # Show From: header during composition
 
 #--- Multiple identities (From:)
-alias identity_1         Chuck Norris                   <chuck@example.com>
-alias identity_2         Harry Callahan                 <harry@another-example.com>
+alias identity_O         President Obama    <president@whitehouse.gov>
+alias identity_1         Jeff Rifkin        <jeff_rifkin@lynceantech.com>
+alias identity_2         Kenneth Kase       <kenneth_kase@lynceantech.com>
 
 #--- Custom headers
 #my_hdr Company: Lyncean Technologies, Inc
