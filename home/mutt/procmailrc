@@ -1,76 +1,107 @@
 #PATH for binary used herein
 PATH=/bin:/usr/bin
 
-#TOP DIR for all other dir
-MAILDIR=$HOME/Mail
+MAILDIR=$HOME/Mail              # Top directory for all other directories
 LOGFILE=$HOME/.procmail.log
 VERBOSE=yes
 
+MONTHFOLDER=‘date +%y-%m‘
+#DUMMY=‘test -d $MONTHFOLDER || mkdir $MONTHFOLDER‘
 
-# Executed sequentially until original mail is stored
-# (Check man procmailex for examples)
-#
-# :0 [flags] [ : [locallockfile] ]
-# <zero or more conditions (one per line)>
-# <exactly one action line>
+SUBJECT=‘formail -xSubject:‘    # regular field
+FROM=‘formail -rt -xTo:‘        # special case
 
+#----------------------------------------------------------------------
+# RECIPES
+ 
+# Sample recipes are provided at 'man procmailex' 
 
-# action:
-# ! Forwards to all the specified mail addresses
-# | 
-# { Start of nesting block
+# The recipes are processed sequentially until original mail is stored
+
+# :0 [flags] [ : [locallockfile] ]                  <-- recipe meta info
+# <ZERO or more conditions (one per line)>          <-- used for selection/filtering
+# <exactly one action line>                         <-- what to do
+
+# flags :
+# c         - carbon copy email and if matched execute action, continue with next recipe
+# a or A    - executed if the conditions on the last preceding recipe (on the current block-nesting level) without the `A' or `a' flag matched
+# E         - executes if the immediately preceding recipe was not executed. 
+# B         - apply condition only on the body?
+# H         - apply condition only on the header?
+# h         - feed the header to the pipe-action
+# b         - feed the body to the pipe-action
+# i         - Ignore any write errors on this recipe (i.e. usually due to an early closed pipe that is a pipe-action that doesn't use the piped info)
+# f         - consider pipe-action like a filter (transformation). With filter, the email is not considered delivered and therefore processing continues
+# w or W    - Wait for the pipe-action to finish and check its exit code (normally ignored); if unsuccessful, the text will not have been filtered.
+
+# :                                 - use a lockfile
+# locallockfile                     - nnon default name of lock file
+
+# action format is :
+# ! email1, email2                  - Forwards to all the specified mail addresses
+# |                                 - pipe-action 
+# {                                 - Start of nesting block (subset of recipes)
+# storage_file_or_dir               - where to store the email (could be ‘date +%y-%m‘/inbox)
+
+# Condition
+# * !^FROM_MAILER                   - not from postmaster (FROM_MAILER)
+# * < 1000                          - email shorter than 1000 bytes
+# * B ?? spam                       - body of message contains the word 'spam'
 
 # Make a backup of everything...
 # Copy the new mails in the backup dir
-:0 c
-backup_2011
+#:0 c
+#backup_2011
 
-:0:
-* ^from.*firewall@lynceantech.com
-firewall
+:0
+inbox
 
-:0:
-* ^Subject:.*beagleboard
-lists/beagleboard
+#:0:
+#* ^from.*firewall@lynceantech.com
+#firewall
 
-:0:
-* ^Subject:.*comedi
-lists/comedi
+#:0:
+#* ^Subject:.*beagleboard
+#lists/beagleboard
 
-:0:
-* ^Subject:.*Qt-interest
-lists/qt
+#:0:
+#* ^Subject:.*comedi
+#lists/comedi
 
-:0:
-* ^Subject:.*PyQt
-lists/pyqt
+#:0:
+#* ^Subject:.*Qt-interest
+#lists/qt
 
-:0:
-* ^Subject:.*svlug
-lists/svlug
+#:0:
+#* ^Subject:.*PyQt
+#lists/pyqt
 
-:0:
-* ^TOsupd-members
-lists/stanford
+#:0:
+#* ^Subject:.*svlug
+#lists/svlug
 
-:0:
-* ^TOtech-talk@aps.anl.gov
-lists/epics
+#:0:
+#* ^TOsupd-members
+#lists/stanford
 
-:0:
-* ^Subject:.*Lcms-users
-lists/lcms
+#:0:
+#* ^TOtech-talk@aps.anl.gov
+#lists/epics
+
+#:0:
+#* ^Subject:.*Lcms-users
+#lists/lcms
 #:0:
 #* ^(From|Cc:|To:) lcms-user@lists.sourceforge.net
 #lists/lcms
 
-:0:
-* ^Subject:.*ts-7000
-lists/ts7000
+#:0:
+#* ^Subject:.*ts-7000
+#lists/ts7000
 
-:0:
-* ^TOmplayer-users@mplayerhq.hu
-lists/mplayer
+#:0:
+#* ^TOmplayer-users@mplayerhq.hu
+#lists/mplayer
 
 
 
@@ -89,9 +120,9 @@ lists/mplayer
   ##petcompil
 ##}
 
-:0 c
-* ^FROM_MAILER
-postmaster
+#:0 c
+#* ^FROM_MAILER
+#postmaster
 
 
 #Store  all  the messages about meetings in a folder that is in a direc-
@@ -117,3 +148,6 @@ postmaster
 # i: ignore any write error on the recipe
 #:0 ic
 #| cd backup && rm -f dummy ‘ls -t msg.* | sed -e 1,32d‘
+
+# ALL MESSAGES NO PROCESSED GO TO 
+# /var/mail/spool/<username>

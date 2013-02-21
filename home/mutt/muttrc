@@ -15,19 +15,20 @@ set editor="vim -c 'set nohlsearch noshowmatch modelines=0 tw=75 et noai spell n
 # map <F6> :!ispell %<CR>:e %<CR>
 # yum install aspell-en  (Dictionary)
 set ispell="/usr/bin/ispell"
-set postponed="$HOME/Mail/postponed"
-set signature="~/.mutt/signature"
+set signature="~/.mutt/signature"       # Signature
 
+set folder = $HOME/Mail                 # Directory where mutt is started + top folder for other mailboxes
+set postponed="$HOME/Mail/postponed"    # Mailbox for postponed emails
 # Spoolfile = which folder to open when mutt is called
-# Spoolfile contains unread and newly pop'ed emails
+# Spoolfile contains unread and newly pop'ed emails delivered by procmail
 # Note that spoolfile is not backed up and is on local machine only!
-set spoolfile=/var/spool/mail/emayssat
-#set spoolfile=+inbox       # Copy all pop'ed emails in spool file
+# set spoolfile=/var/spool/mail/emayssat
+set spoolfile=+inbox       # Copy all pop'ed emails in spool file
 
 #set mail_check=5		    # Check mail/spool file every 5 sec
 set mbox="~/Mail/inbox"     # Where read emails are moved
 set mbox_type=mbox          # All messages are stored in a single fileA (<> Maildir, MH)
-set move=ask-no			    # Move message from spoolfile to mbox @ exit? (yes, ask-yes, ask-no, no)
+set move=ask-no			    # Move message from spoolfile to mbox (if different) @ exit? (yes, ask-yes, ask-no, no)
 
 #---------------------------------------------------------------------- 
 # Keyboard macros
@@ -102,22 +103,22 @@ set date_format="!%H:%M %a %d %b     "
 set index_format="%4C %Z %[%b%d] %-15.15F %s"
 set folder_format="%2C %t %8s %d %N %f"
 
-set sort=threads                        #sort by message threads in index
-set sort_aux=last-date-received         #order threads based on last email rec'd in that thread
+set sort=threads                        # sort by message threads in index
+set sort_aux=last-date-received         # order threads based on last email rec'd in that thread
 
 set arrow_cursor=yes
-#set status_on_top                      #put status line at top
+#set status_on_top                      # put status line at top
 set pager_context=3
 set menu_scroll
-set pgp_verify_sig=no                   #dont show pgp in pager
-set record="$HOME/Mail/sent"        	#sent mail is saved here
-set delete=yes                          #delete without prompting
-set include=yes                         #quote msg in reply
-#set fast_reply=yes                     #no prompting on reply
-set beep=no                             #no noise
-set markers=no                          #no + on wrapped lines
-set confirmappend=no                    #no prompt for save to =keep
-set to_chars=" +TCF"                    #no L for mail_list
+set pgp_verify_sig=no                   # dont show pgp in pager
+set record="$HOME/Mail/sent"        	# sent mail are saved here
+set delete=yes                          # delete without prompting
+set include=yes                         # quote msg in reply
+#set fast_reply=yes                     # no prompting on reply
+set beep=no                             # no noise
+set markers=no                          # no + on wrapped lines
+set confirmappend=no                    # no prompt for save to =keep
+set to_chars=" +TCF"                    # no L for mail_list
 
 
 #--- Colors
@@ -201,25 +202,6 @@ auto_view application/msword
 auto_view application/pdf
 
 #----------------------------------------------------------------------
-# Procmail / Mail folders
-
-#Where procmail put stuff and mutt check for new stuff
-set folder = $HOME/Mail
-
-# Mutt lets you define certain mailboxes as "active"
-# —that is, mailboxes which are likely to receive new mail on an ongoing basis. 
-# When any of these active mailboxes receives a new message, 
-# Mutt will alert you with a status bar notification. 
-mailboxes "=inbox"
-mailboxes "=lists/epics"
-mailboxes "=lists/pyqt"
-mailboxes "=lists/qt"
-mailboxes "=lists/ts7000"
-#mailboxes "=lists/svlug"
-#mailboxes "=lists/comedi"
-#mailboxes "=lists/mplayer"
-
-#----------------------------------------------------------------------
 # POP'ing of emails
 
 #--- Built-in POP3 support
@@ -233,6 +215,25 @@ mailboxes "=lists/ts7000"
 
 #--- Interface to Fetchmail
 # Check ~/.fetchmailrc for fetchmail configuration
+
+#----------------------------------------------------------------------
+# Procmail / Mail folders
+#
+#  Fetchmail -> procmail -> mutt
+
+
+# Mutt lets you define certain mailboxes as "active"
+# —that is, mailboxes which are likely to receive new mail on an ongoing basis. 
+# When any of these active mailboxes receives a new message, 
+# Mutt will alert you with a status bar notification. 
+mailboxes "=inbox"
+mailboxes "=lists/epics"
+mailboxes "=lists/pyqt"
+mailboxes "=lists/qt"
+mailboxes "=lists/ts7000"
+#mailboxes "=lists/svlug"
+#mailboxes "=lists/comedi"
+#mailboxes "=lists/mplayer"
 
 #----------------------------------------------------------------------
 # Sending mail
