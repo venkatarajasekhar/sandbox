@@ -20,6 +20,7 @@ EC2         - Amazon Elastic Cloud Compute
 S3          - Amazon Simple Storage Service
 EBS         - Amazon Elastic Block Store
 SNS         - Amazon Simple Notification Service
+Route53     - Authoritative DNS
 ...
 CloudFront  - 1 static repository is mirrored at severael geographical locations (closer to end user)
 
@@ -59,6 +60,17 @@ subscribe clients to these topics, publish messages, and have these messages del
 over clients’ protocol of choice (i.e. HTTP, email, SMS, etc.). 
 Amazon SNS delivers notifications to clients using a “push” mechanism that eliminates 
 the need to periodically check or “poll” for new information and updates.
+
+Q: What is Route 53?
+Amazon Route 53 is an authoritative Domain Name System (DNS) service. 
+DNS is the system that translates human-readable domain names (example.com) into IP addresses (192.0.2.0). 
+With authoritative name servers in data centers all over the world, Route 53 is reliable, scalable, and fast.
+You can use Amazon Route 53 for any domain or subdomain that you own. 
+Creating a domain that uses Route 53 requires only a few easy steps:
+1. Register your domain name with a domain name registrar. For a list of the registrars that you can use to register your domain name, go to ICANN.org.
+2. In the Route 53 console, create a hosted zone.
+3. Using the tools provided by your domain name registrar, update the registrar's name server (NS) records with the four name servers that we assigned to your Route 53 hosted zone. Name servers are listed in the Route 53 console.
+4. In the Route 53 console, add record sets to your hosted zone.
 
 Q: What is Amazon CloudFront?
 In Amazon CloudFront, your content is organized into distributions. 
