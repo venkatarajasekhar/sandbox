@@ -51,5 +51,8 @@ To modify them, (1) extract them, (2) modify, (3) zip'em
 jar xf .../mgmt.war
 <modification>
 
+Q: Where is the tomcat management interface?
+systemctl status tomcat.service
+server.xml is the tomcat server configuration file
 
 
