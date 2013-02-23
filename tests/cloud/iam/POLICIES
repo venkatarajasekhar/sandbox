@@ -1,0 +1,102 @@
+Q: What are IAM?
+User accounts managed by one administrator.
+You can 
+* create groups
+* create users accounts
+* setup a password policy
+* create roles
+
+!!! IAM is not to be confused with AMI, or Amazon Machine Image 
+
+Q: Where is the IAM console?
+https://console.aws.amazon.com/iam/home?#
+
+Q: Where can I log if I have an IAM ?
+https://770194671265.signin.aws.amazon.com/console
+Note that 770194671265 is the administrative account (AWS Account ID).
+!!! The user account is the one defined in the IAM console (emmanuel_mayssat)
+!!! The User should also have a password that was assigned to him by the administrator
+!!! > IAM > User > username > Security Credentials > (sign in credential) Manage Password
+
+!!! NOTE THIS WEBSITE IS TO ACCESS THE SAME AMAZON ADMINISTRATIVE INTERFACE !!!
+
+Q: What are users?
+Users interact with websites and services.
+
+Q: What are groups?
+Groups enable you to manage permissions for multiple users.
+
+Q: What Are Permissions?
+Permissions specify which actions a user can perform.
+
+Q: What Are Roles?
+Roles allow AWS services and IAM users to act on your behalf.
+
+Q: Amazon Resource Name?
+arn:aws:s3:::example_bucket/developers/design_info.doc
+
+#---------------------------------------------------------------------- 
+# CREDENTIALS
+
+Q: Access credentials vs sing-in credentials?
+Sign-in credentials are used to log on the AWS website.
+Access credentials is used by 3rd party applications to work as the user.
+
+Q: How many access credentials can a user account have?
+Many!
+Each can be made active or inactive, or simply deleted.
+
+#---------------------------------------------------------------------- 
+# GROUP POLICY
+
+Q: Group policy to access everything in S3?
+{
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": "*"
+    }
+  ]
+}
+
+Q: Group policy to everything in S3 with read only mode?
+{
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:Get*",
+        "s3:List*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+
+Q: Allow everything on a specific bucket?
+{
+  "Statement": [
+    {
+      "Sid": "Stmt1361595623860",
+      "Action": [
+        "s3:*"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws:s3:::mucls.lynceantech.com"
+      ]
+    }
+  ]
+}
+
+Q: Group ARN ?
+arn:aws:s3:
+
+#---------------------------------------------------------------------- 
+# POLICIES
+
+Sid     - Statement identifier?
+
+
+
