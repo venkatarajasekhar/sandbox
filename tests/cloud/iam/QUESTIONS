@@ -1,0 +1,9 @@
+Q: What are IAM?
+User accounts managed by one administrator.
+
+Q: Where is the IAM console?
+https://console.aws.amazon.com/iam/home?#
+
+Q: Where can I log if I have an IAM ?
+https://770194671265.signin.aws.amazon.com/console
+Note that 770194671265 is the administrative account (AWS Account ID).
