@@ -1,8 +1,43 @@
+#---------------------------------------------------------------------- 
+# Invitation to use?
+
+Q: How to invite people to use a S3 share?
+Send them an email manually!
+
+Q: What is the procedure for a guest?
+Create an account on amazon web services or amazon.com
+That account is now accessible from AWS (for ACL for example)
+
+Q: What about account created on amazon.fr, etc?
+Those accounts are also accessible from AWS.
+
+Q: Is it possible to share a Amazon S3 bucket between Amazon S3 users?
+You can use s3cmd (http://s3tools.org/s3cmd) to do this.
+First determine the Canonical User ID of the user you want to share a bucket with.
+(Canonical User ID can be found by log into your AWS account, go to Account - Security Credentials, scroll to the bottom and click the link to reveal ID)
+Both parties install s3cmd and set up credentials: s3cmd --configure
+The bucket owner does this: s3cmd setacl --grant-acl=read:<canonical-user-id> s3://BUCKETNAME[/OBJECT]
+The recipient can then see the bucket: s3cmd ls s3://BUCKETNAME[/OBJECT]
+
+#----------------------------------------------------------------------
+# S3 ?
+
+Q: How does S3 work?
+S3 handles objects and buckets. 
+An object matches to a stored file. 
+Each object has an identifier, an owner, and permissions. 
+Objects are stored in a bucket. 
+A bucket has a unique name that must be compliant with internet domain naming rules. 
+Once you have an AWS (Amazon Web Services) account, you can create up to 100 buckets associated with that account
+
 Q: What every s3fs user needs to know about S3's propagation delay (aka Eventual Consistency) ?
 After creation of a file, it may not be immediately available for any subsequent file operation, 
 s3fs may return HTTP 404 (File not found) errors.
 !!! You may have to run your sync again !!!
 More @ https://forums.aws.amazon.com/message.jspa?messageID=106354
+
+#----------------------------------------------------------------------
+# Tools
 
 Q: S3 tools?
 http://www.aboutonlinetips.com/amazon-s3-tools/
@@ -21,6 +56,9 @@ https://www.jungledisk.com          : mount s3 buckets as drives
 (linux/windows?) http://www.elasticdrive.com/
 (limited linux support) http://www.gladinet.com/    : drive
 
+#----------------------------------------------------------------------
+# FROM OS
+
 Q: How to mount a s3 bucket on linux?
 sudo yum install fuse-s3fs-0.9-1.fc16.noarch
 sudo yum install s3cmd 
@@ -31,18 +69,162 @@ chmod 600 /root/.password-s3fs
 s3fs -o passwd_file=/root/.passwd-s3fs dailybackup /amazonbackup
 rsync -av –progress /backup/cpbackup/weekly /amazonbackup/
 More @ http://code.google.com/p/s3fs/wiki/FuseOverAmazon
-
-Q: How to rsync files to s3?
+ 
+Q: How to backup a file to a bucket?
 #MySQL backup
 mysqldump -u root --password=mysqlpassword --all-databases --result-file=/root/all-databases.sql
 s3cmd put /root/all-databases.sql s3://my-bucket-name/mysql/
 rm -f /root/all-databases.sql
 
+#---------------------------------------------------------------------- 
+# ACCESS CONTROL (ACL / POLICY / IAM))
+
+Q: What are ACL?
+An ACL is a list of grants. 
+A grant consists of one grantee and one permission to access Amazon S3 resources (buckets and objects). 
+ACLs only grant permissions; they do not deny them. 
+ACLs can contain the following grantee types:
+* Specific AWS accounts
+* All AWS accounts
+* Any anonymous request
+
+Q: What are bucket policies?
+Bucket policies provide access control management at the bucket level for both a bucket and the objects in it. 
+Bucket policies are a collection of JSON statements written in the access policy language. 
+The policies provide a fine granularity of access control for Amazon S3 resources. 
+The policies also allow you to set permissions for a large number of objects with one statement.
+
+Q: What are AWS Identity and Access Managementi, or IAM?
+IAM enables you to create multiple users within your AWS account and manage their permissions via IAM policies. 
+These policies are attached to the users, enabling centralized control of permissions for users under your AWS account. 
+Note that bucket policies are attached to a bucket and the IAM policies are attached to individual users in your account.
+
+Q: How to check the ACL of a bucket?
+s3cmd info s3://bucket.lynceantech.com                              # Return acl and key info on bucket
+s3://files.lynceantech.com/ (bucket):
+   Location:  any 
+   ACL:       emayssat: READ
+   ACL:       emayssat: WRITE
+   ACL:       emayssat: READ_ACP
+   ACL:       emayssat: WRITE_ACP
+   ACL:       *anon*: READ
+   ACL:       *anon*: WRITE
+   ACL:       *anon*: READ_ACP
+   ACL:       *anon*: WRITE_ACP
+   URL:       http://files.lynceantech.com.s3.amazonaws.com/
+
+Q: How to check ACL of an object?
+s3cmd info s3://bucket.lynceantech.com/homepage.html
+s3://files.lynceantech.com/s3cmd.sh (object):
+   File size: 1687
+   Last mod:  Thu, 21 Feb 2013 22:03:44 GMT
+   MIME type: application/x-sh
+   MD5 sum:   2562050d66815f318d023d31f8557d1e
+   ACL:       emayssat: FULL_CONTROL
+
+Q: How to set the acl?
+s3cmd setacl ... 
+s3mcd grant ...
+
+Q: Bucket ACL vs Object ACL?
+* Permissions set for a Bucket do NOT automatically propagate to files stored in that Bucket.
+* “Read” permission at Bucket level does NOT mean that the authorized user can read all the files in that Bucket . 
+Read permission at Bucket Level means that 'list bucket' command is authorized on a bucket. 
+Which essentially means that if you give 'read' permission on a bucket to everyone then everyone can 
+list the file names, their size and last modified date from that bucket. 
+In most use cases, this is a very bad idea.
+
+Q: Type of ACL for buckets on amazon S3?
+Read : Authorized user can list the file names, their size and last modified date from a bucket.
+Write : Authorized user can upload new files in your bucket. They can also delete files on which they don’t have permission. Someone with write permission on a bucket can delete files even if they don’t have read permission to those files.
+Read ACP : Authorized users can check ACL of a bucket.
+Write ACP : Authorized user can update ACL of the bucket.
+
+Q: Type of ACL for objects on amazon S3?
+Read : Authorized user can download the file.
+Write : Authorized user can replace the file or delete it.
+Read ACP : Authorized user can list ACL of that file.
+Write ACP : Authorized user can modify the ACL of the file.
+
+Q: With ACL , who has access and how?
+Amazon grants permission to four types of users:
+1. Owner (Account Holder) 
+   Person who holds Amazon s3 account is also known as owner of the service. By default owner has full permission. Owner can create access and delete objects. She can also view and modify ACLs of each and every Bucket and its object(s).
+2. Amazon S3 Users (by Adding Amazon.com email address or Canonical Id)
+   If owner wants to share or allow another AmazonS3 user to access her bucket, then owner should know the email address of the invitee, email address only works if invitee has registered her Amazon s3 account with that email address.
+3. Authenticated User (Sharing globally with all Amazon s3 Users)
+   Anyone with a valid S3 account is a member of “Authenticated Users” group.If Owner wants to share her bucket globally with all Amazon's s3 users then she can give read permission to authenticated user see the objects and can give write permission to update existing and upload new objects.
+4. Non Authenticated Users (All Users) 
+   If owner wants to make public her bucket and objects with all internet users, then she needs to give the appropriate permissions to ALL USERS. Now any user will be able to access the object provided name of the bucket.
+
+Q: What is are the available account identifiers?
+Acccount identifiers are used to share resources between accounts.
+There are 2 types:
+(1) canonical user ID (cc967c503ea6ce75c824855df23fd52b80e5e67c3015210790745a73dd3109)
+(2) AWS account ID (7701-9467-1265)
+The AWS account ID can be used for all AWS service resources except Amazon S3. 
+These resources include Amazon EC2 AMIs, Amazon EBS snapshots, Amazon SQS queues, etc.
+
+Q: What happens if I use an email in an ACL which is not registered on amazon.com ?
+Error: "The email address you provided does not match any account on record"
+
+Q: How to set default permission on object?
+Bucket policies
+More at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucketPolicies.html
+
+Q: What are policies?
+
+Q: Where can I create policies?
+http://awspolicygen.s3.amazonaws.com/policygen.html
+
+Q: What are IAM?
+
+Q: Where can I manage the IAM?
+
+Q: What are Amazon Resource Names when used for S3?
+They are used in policies to identifies a AWS resource  ( Bucket or object in S3)
+arn:aws:s3:::bucket_name/object_name
+With S3 the Region and AWS Account ID portions of the ARN must be empty because bucket names are global.
+ex: arn:aws:s3:::example_bucket/developers/design_info.doc
+
+#---------------------------------------------------------------------- 
+# HTTP
+
+Q: How to change the content-type?
+The content type is used to tell the browser what to do with the payload
+Content-type: text/html             --> display as html
+Content-type: text/plain            --> display as text
+Content-type: application/x-sh      --> download
+Content-type: image/jpeg-sh         --> content is a jpeg image
+!!! The default mime type is deduced based from extension ???
+
 Q: How to access bucket files with a http[s] url?
 Objects stored in Amazon S3 are addressable using the REST API under the domain bucketname.s3.amazonaws.com. 
 For example, if the object homepage.html is stored in the Amazon S3 bucket mybucket its address would be 
 http://mybucket.s3.amazonaws.com/homepage.html.
+alternatively
+http://s3.amazonaws.com/mybucket/homepage.html
 More @ http://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html
+!!! ACL on the bucket and the homepage.html object must be set properly !!!
+!!! Static web hosting doesn't need to be enabled !!!
+
+#----------------------------------------------------------------------
+# REST API
+
+Q: where is the description of the REST API?
+More @ http://docs.aws.amazon.com/AmazonS3/latest/API/APIRest.html
+
+Q: what is the difference between anonymous and authenticated requests?
+Authorization header: The information required for request authentication.
+Authorization: AWS AWSAccessKeyId:Signature
+For request authentication, theAWSAccessKeyId element identifies the secret key 
+that was used to compute the signature, and (indirectly) the developer making the request.
+The Signature element is the RFC 2104HMAC-SHA1 of selected elements from the request, 
+and so theSignature part of the Authorization header will vary from request to request. 
+If the request signature calculated by the system matches theSignature included with the request, 
+then the requester will have demonstrated possession to the AWSSecret Access Key. 
+The request will then be processed under the identity, and with the authority, of the developer to whom the key was issued.
+http://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html
 
 Q: Can I use http://public.lynceantech.com as a URL instead?
 Yes, create a DNS alias.
@@ -50,4 +232,5 @@ images.johnsmith.net CNAME          images.johnsmith.net.s3.amazonaws.com.
 
 Q: How to host a static website on s3?
 http://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html
+http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html
 

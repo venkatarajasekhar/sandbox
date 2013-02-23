@@ -18,9 +18,10 @@ q           : quit
 d           : mark active message for deletion
 u           : undelete active message
 w           : set flags of active message manually
-G           : pop mails from mail server to spool file
+G           : pop mails from mail server to $spoolfile (aka inbox)
 o           : change sort email order in current mailbox
 l           : limit display (filter display) based on pattern-matching
+s           : move email to a different folder
 
 TAGS
 t           : tag current message
