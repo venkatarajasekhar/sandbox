@@ -1,5 +1,10 @@
 Q: What are IAM?
 User accounts managed by one administrator.
+You can 
+* create groups
+* create users accounts
+* setup a password policy
+* create roles
 
 Q: Where is the IAM console?
 https://console.aws.amazon.com/iam/home?#
@@ -7,3 +12,19 @@ https://console.aws.amazon.com/iam/home?#
 Q: Where can I log if I have an IAM ?
 https://770194671265.signin.aws.amazon.com/console
 Note that 770194671265 is the administrative account (AWS Account ID).
+!!! The user account is the one defined in the IAM console (emmanuel_mayssat)
+
+Q: What are users?
+Users interact with websites and services.
+
+Q: What are groups?
+Groups enable you to manage permissions for multiple users.
+
+Q: What Are Permissions?
+Permissions specify which actions a user can perform.
+
+Q: What Are Roles?
+Roles allow AWS services and IAM users to act on your behalf.
+
+Q: Amazon Resource Name?
+arn:aws:s3:::example_bucket/developers/design_info.doc
