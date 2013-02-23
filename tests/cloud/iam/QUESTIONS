@@ -13,6 +13,10 @@ Q: Where can I log if I have an IAM ?
 https://770194671265.signin.aws.amazon.com/console
 Note that 770194671265 is the administrative account (AWS Account ID).
 !!! The user account is the one defined in the IAM console (emmanuel_mayssat)
+!!! The User should also have a password that was assigned to him by the administrator
+!!! > IAM > User > username > Security Credentials > (sign in credential) Manage Password
+
+!!! NOTE THIS WEBSITE IS TO ACCESS THE SAME AMAZON ADMINISTRATIVE INTERFACE !!!
 
 Q: What are users?
 Users interact with websites and services.
