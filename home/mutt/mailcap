@@ -1,0 +1,10 @@
+application/msword; antiword '%s'; copiousoutput; description=Word Document;
+nametemplate=%s.doc
+application/pdf; pdftotext '%s' -; copiousoutput; description=PDF Document;
+nametemplate=%s.pdf
+#text/plain; more %s
+#text/html; lynx %s
+# If $DISPLAY is set, open it in 'xless,' the X11 version of classic 'less'
+text/*; xless '%s'; test=test -n "$DISPLAY"
+# If it's not set, we can't use X, so fall back on the usual console pager, 'less'
+text/*; less '%s'

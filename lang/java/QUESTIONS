@@ -1,0 +1,58 @@
+#---------------------------------------------------------------------- 
+# JAVA
+
+Q: Is JAVA a scripted language?
+No! It is compiled.
+As such if you edit your war, jar files, you will find the compiled version and not the source.
+While the .class files are binary, the  manifest files are xml (i.e disassembled).
+In the class file, you may also be able to edit text strings.
+
+Q: What are jar files?
+Jar files are gzipped java archive
+unzip <file.jar>
+!!! Beware, the files are extrated directly in the current corwking directory !!!
+!!! You can edit jar files with vim !!!
+
+Q: How to run a file?
+To run SyncStaticContentHeadersFooters using /tmp/master_template.html as the master template like so
+
+java -cp ${TOMCAT_HOME}/webapps/mgmt/WEB-INF/classes \
+  org.epics.archiverappliance.mgmt.bpl.SyncStaticContentHeadersFooters \
+  /tmp/master_template.html \
+  ${TOMCAT_HOME}/webapps/mgmt/ui
+
+Q: How to run a jar file?
+
+Q: How to edit a .class file?
+
+
+#---------------------------------------------------------------------- 
+# TOMCAT
+
+Q: What is Tomcat?
+Tomcat is the open source implementation of JSP.
+Like JSP, it uses WAR files.
+
+Q: What is JSP?
+JSP = implementation by Sun of a Java web framework called Java Server Page
+JSP use the MVC (model, view, controller design)
+
+Q: What are war files?
+A WAR file (or Web application ARchive[1]) is a JAR file used to distribute a collection of 
+JavaServer Pages, Java Servlets, Java classes, XML files, tag libraries, static Web pages 
+(HTML and related files) and other resources that together constitute a Web application.
+War files are jar file with the structure to be used as webapp in JSP (Java Server Page)
+unzip <file.war>
+!!! Beware, the files are extracted directly in the current working directory !!!
+!!! You can edit war files with vim !!!
+
+WAR files placed in ${TOMCAT_VERSION_FOLDER}/webapps
+To modify them, (1) extract them, (2) modify, (3) zip'em 
+jar xf .../mgmt.war
+<modification>
+
+Q: Where is the tomcat management interface?
+systemctl status tomcat.service
+server.xml is the tomcat server configuration file
+
+

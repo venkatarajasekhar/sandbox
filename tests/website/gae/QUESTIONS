@@ -26,6 +26,7 @@ Q: When running the development server, which are the key URI?
 http://localhost:8080/_ah/admin         # Localhost dashboard
 http://localhost:8080/_ah/login         # Login page (no password because localhost)
 http://localhost:8080/_ah/stats/shell   # Interactive playground (with environment var)
+http://localhost:8080/_ah/bounce        # A mail bounce notification feature (to be release soon!)
 
 
 Q: What is a YAML file?

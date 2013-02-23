@@ -1,0 +1,2 @@
+/usr/bin/mysqladmin -u root -p version
+

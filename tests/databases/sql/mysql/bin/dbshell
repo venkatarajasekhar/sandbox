@@ -1,0 +1,4 @@
+../bin/mysql -p <<EOT
+help
+status
+EOT

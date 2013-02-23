@@ -1,0 +1,91 @@
+
+--
+-- Dumping data for table `db`
+--
+
+
+INSERT INTO db VALUES ('localhost','documents','jrifkin','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','documents','rmurphy','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','%','www','Y','N','N','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','parts','oshulepov','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','parts','olipkind','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','parts','mwinfield','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','parts','dhaigh','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','parts','mgifford','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','parts','ablack','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','documents','jrifkin','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','documents','rmurphy','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','%','www','Y','N','N','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','parts','oshulepov','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','parts','olipkind','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('localhost','parts','bwoo','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','parts','bwoo','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','parts','mwinfield','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','parts','dhaigh','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','parts','mgifford','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+INSERT INTO db VALUES ('%.lynceantech.com','parts','ablack','Y','Y','Y','N','N','N','N','N','N','N','N','Y');
+
+--
+-- Table structure for table `host`
+--
+
+
+--
+-- Dumping data for table `host`
+--
+
+
+
+--
+-- Dumping data for table `tables_priv`
+--
+
+
+INSERT INTO tables_priv VALUES ('localhost','documents','ablack','mo','root@localhost',20050829172739,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','documents','lensler','mo','root@localhost',20030820151554,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','parts','bwoo','datasheet','root@localhost',20030828165756,'Delete','');
+INSERT INTO tables_priv VALUES ('localhost','parts','olipkind','datasheet','root@localhost',20030828170011,'Delete','');
+INSERT INTO tables_priv VALUES ('localhost','parts','oshulepov','datasheet','root@localhost',20030828170026,'Delete','');
+INSERT INTO tables_priv VALUES ('localhost','documents','oshulepov','mo','root@localhost',20030909135321,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','documents','olipkind','es','root@localhost',20031103140943,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','documents','bwoo','es','root@localhost',20031105135337,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','documents','dhaigh','mo','root@localhost',20031230124819,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','documents','sbaum','mo','root@localhost',20060308142127,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','documents','restrada','mo','root@localhost',20060308142456,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','documents','barnold','mo','root@localhost',20060308142456,'Select,Insert,Update','');
+INSERT INTO tables_priv VALUES ('localhost','documents','bmoyle','mo','root@localhost',20060308142456,'Select,Insert,Update','');
+
+--
+-- Table structure for table `user`
+--
+
+
+--
+-- Dumping data for table `user`
+--
+
+
+INSERT INTO user VALUES ('localhost','root','2c20d5bd6ff371fc','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','www','510862d2708b95ba','Y','N','N','N','N','N','N','N','N','Y','N','N','N','N','Y','N','Y','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','jrifkin','65798b99165838a6','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','rmurphy','65798b99165838a6','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','olipkind','3deee44549e79390','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','bwoo','25df3ce4131953dd','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','mwinfield','32967fc76fbc4d28','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','dhaigh','55f101ec5585b44c','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','mgifford','10ab548f01984f67','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('%.lynceantech.com','ablack','1e9897ff1717f2f2','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','www','510862d2708b95ba','Y','N','N','N','N','N','N','N','N','Y','N','N','N','N','Y','N','Y','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','jrifkin','65798b99165838a6','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','rmurphy','7b3bd5655e7e6f70','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','olipkind','3deee44549e79390','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','bwoo','25df3ce4131953dd','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','mwinfield','32967fc76fbc4d28','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','dhaigh','55f101ec5585b44c','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','mgifford','10ab548f01984f67','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','ablack','1e9897ff1717f2f2','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','sbaum','171f43c014c5d76f','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','restrada','453a0783005c6e44','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','barnold','453a0783005c6e44','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','N','N','N','N','N','N','N','','','','',0,0,0);
+INSERT INTO user VALUES ('localhost','bmoyle','52dbe9b657e7e841','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','N','N','N','N','N','N','N','','','','',0,0,0);
+

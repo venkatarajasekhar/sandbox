@@ -1,0 +1,6 @@
+mysql -p  <<EOT
+drop database parts;
+create database parts;
+use parts;
+source parts.sql.daily.dump;
+EOT

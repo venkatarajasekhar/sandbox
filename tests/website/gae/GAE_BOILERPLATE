@@ -24,3 +24,51 @@ Q: BaseHandler?
 self.user = {'user_id': 1, 'remember': 0, 'token': u'vq2GLyFGM3yBW6vez0evDv', 'token_ts': 1356996808, 'cache_ts': 1357004086}
 self.user_id = 1
 self.user_key = <ndb Key of user>                   <-- not auth key/content
+
+Q: Admin pages?
+
+http://localhost:8080/admin/geochart                <-- To see users' location
+http://localhost:8080/admin/users                   <-- to update a users profile
+
+
+Q: wtforms?
+Doc @ http://wtforms.simplecodes.com/docs/1.0.2/
+To make the for accessible in the template, in the handler add the method/property
+from web import forms
+class MyHandler(BaseHandler):
+    @webapp2_extras.property
+    def form(self):
+        return forms.MyForm(self)
+In the template, form fields are accessible like form.email
+    {{ form.email(required=True, class="toto") }} is the widget assiciated with the type
+    {{ form.email.errors }} is a list of all the validation errors
+    !!! A macro has been written to facilitate the construction of horizontal? forms
+
+
+In handler.post
+    form.validate() return True or False and populate field.error
+    If not form.validate(): self.get()  , but with form.fields.errors set
+    You can have several errors. One error for each of the validator
+   
+Q: Cookies?
+Cookies are managed by the client.
+user_id         1|<hash>                    
+hl              en_US                       use for locale
+dvc             desktop
+session                                     save a session or session id
+session_name
+_atshc
+__atuvc
+
+Q: Sessions?
+Session are managed by the server.
+A session is a python dictionary attached to a particular IP-UserAgent?
+As such, variables related to a specific 'connection' can be saved  (on the server side)
+The session expires (time parameter?) (or is brought down by the client? when session is invalid!)
+More @ http://webapp-improved.appspot.com/api/webapp2_extras/sessions.html
+
+Q: CSRF protection?
+CSRF is a session variable
+If the session variiable is not the same as the post.request parameter, 
+then the client (IP/UserAgent) is not who he says he is !
+

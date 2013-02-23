@@ -1,0 +1,36 @@
+#!/usr/bin/ipython -pylab
+
+
+
+"""
+Example: simple line plot.
+Show how to make and save a simple line plot with labels, title and grid
+"""
+import numpy
+import pylab as lab
+
+pi=numpy.pi
+x = numpy.arange(0.0, 1.0+0.01, 0.01)
+y = numpy.sin(2*pi*x)
+y = numpy.cos(2*2*numpy.pi*x)
+lab.plot(x, y, label="Sin")
+lab.plot(x, x, label="Straight line")
+
+lab.legend(loc='lower center')
+
+#decoration
+lab.xlabel('time (s)')
+lab.ylabel('voltage (mV)')
+lab.title('About as simple as it gets, folks')
+lab.grid(True)
+
+#save png file
+#lab.savefig('simple_plot')
+
+lab.show()
+
+print """Now enter in ipython:
+ *  plot(x,-x) 
+ * legend (loc='upper right')
+ """
+

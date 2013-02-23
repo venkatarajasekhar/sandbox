@@ -1,0 +1,4 @@
+../../mysql -p <<EOT
+use documents;
+SELECT * FROM bd;
+EOT

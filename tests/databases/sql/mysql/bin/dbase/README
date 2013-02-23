@@ -1,0 +1,2 @@
+../../bin/mysql -p
+source file.sql

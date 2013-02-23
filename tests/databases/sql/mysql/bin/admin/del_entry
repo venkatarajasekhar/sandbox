@@ -1,0 +1,8 @@
+mysql -p
+
+show database;
+connect documents;
+select * from mo;
+delete from mo where id=toto;
+select * from mo;
+exit

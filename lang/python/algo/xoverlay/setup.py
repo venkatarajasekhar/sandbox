@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+
+
+WIDGET_VERSION=1.0
+
+WIDGET, CONTAINER, SIGNALS, SLOTS, MAIN, HELPERS = (1<<x for x in range(6))
+DEBUG = WIDGET | CONTAINER | SIGNALS | SLOTS | HELPERS | MAIN
+
+

@@ -1,0 +1,1 @@
+drop table es;  <- erase entire table

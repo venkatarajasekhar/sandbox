@@ -1,0 +1,15 @@
+#!/bin/sh
+
+sudo yum install wodim
+
+wodim --devices
+
+cat <<EOT
+
+Validate image:
+sha1sum.exe Fedora-i386-DVD.iso ?
+
+To burn an iso, enter:
+wodim -v dev=/dev/xxx speed=4 -eject /path/to/Fedora.iso
+
+EOT

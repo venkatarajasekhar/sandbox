@@ -1,0 +1,75 @@
+#!/usr/bin/env python
+import sys
+import cProfile
+import pstats
+
+from PyQt4.QtCore import Qt, QAbstractItemModel, QVariant, QModelIndex
+from PyQt4.QtGui import QApplication, QTreeView
+
+# 200 root nodes with 10 subnodes each
+
+class TreeNode(object):
+    def __init__(self, parent, row, text):
+        self.parent = parent
+        self.row = row
+        self.text = text
+        if parent is None: # root node, create subnodes
+            self.children = [TreeNode(self, i, unicode(i)) for i in range(10)]
+        else:
+            self.children = []
+
+class TreeModel(QAbstractItemModel):
+    def __init__(self):
+        QAbstractItemModel.__init__(self)
+        self.nodes = [TreeNode(None, i, unicode(i)) for i in range(200)]
+        self.nodes = [TreeNode(None, 1, unicode(1)) , TreeNode(None, 2, unicode(2))]
+
+    def index(self, row, column, parent):
+        if not self.nodes:
+            return QModelIndex()
+        if not parent.isValid():
+            return self.createIndex(row, column, self.nodes[row])
+        node = parent.internalPointer()
+        return self.createIndex(row, column, node.children[row])
+
+    def parent(self, index):
+        if not index.isValid():
+            return QModelIndex()
+        node = index.internalPointer()
+        if node.parent is None:
+            return QModelIndex()
+        else:
+            return self.createIndex(node.parent.row, 0, node.parent)
+
+    def columnCount(self, parent):
+        return 2
+
+    def rowCount(self, parent):
+        if not parent.isValid():
+           return len(self.nodes)
+        node = parent.internalPointer()
+        return len(node.children)
+
+    def data(self, index, role):
+        if not index.isValid():
+            return QVariant()
+        node = index.internalPointer()
+        if role == Qt.DisplayRole:
+            return QVariant(node.text)
+        return QVariant()
+
+
+app = QApplication(sys.argv)
+treemodel = TreeModel()
+treemodel.nodes.append(TreeNode(None, 3, unicode(3)))
+
+treeview = QTreeView()
+treeview.setSelectionMode(QTreeView.ExtendedSelection)
+treeview.setSelectionBehavior(QTreeView.SelectRows)
+treeview.setModel(treemodel)
+#treeview.expandAll()
+treeview.show()
+cProfile.run('app.exec_()', 'profdata')
+p = pstats.Stats('profdata')
+p.sort_stats('time').print_stats()
+

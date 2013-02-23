@@ -14,3 +14,72 @@ Q: What is a tree?
 A C-struct with X children pointers.
 Are sorted
 Lookups are slower that with hash table ie log(n) with n = number of element in a tree
+
+#----------------------------------------------------------------------
+# IPC
+
+Q: What is an IPC?
+Interprocess communication, i.e ways for processes to communicate
+
+Q: What are the 10 main IPC methods?
+File
+Signal
+socket
+Message queue
+Pipe                    - POSIX
+Named pipe              - POSIX
+Semaphore (and mutex)   - POSIX
+Shared memory           - POSIX
+Message passing         - aka shared nothing
+Memory-mapped file      - POSIX
+
+Q: File ?
+
+Q: Socket?
+Q: Message queue?
+Q: Pipe ?
+Q: Named pipe ?
+Q: Semaphore (and mutex) ?
+Mutex           = binary semaphore
+Reentrant mutex = Mutex with a count, where owner of lock can relock and increase count (recursive locking!)
+Semaphore       = Restaurant analogy
+
+Q: Shared memory ?
+Q: Message passing ?
+Q: Memory-mapped file ?
+
+#----------------------------------------------------------------------
+# Remote procedure calls (RPC)
+
+Q: What are RPCs?
+There implementation use sockets
+= Call a remote procedure/program
+Input parameters are well defined
+Ouput as well
+
+Q: In layman's term?
+You use Outlook 2002 to look at your e-mail, right? The
+contents of your Inbox, Sent Items, Deleted Items,
+Contacts, Calendar, et al do not actually reside on the
+hard drive of your LOCAL computer, though. Right? They
+actually reside on the hard drives of the Exchange Server,
+a REMOTE computer.
+
+RPC allows you to use an application ( like Outlook ) to
+look at something located at a remote location as if it
+were local.
+
+Same can be said for looking at your "home directory". It
+is located on the File Server, right. Yet you can look at
+it AS IF it were on your local computer.
+
+Q: Program using RPC?
+NFS ;-)
+
+Q: RPC standard?
+RPC is a method. There is no RPC standard.
+As a result, several RPC (protocol) have been imlpemented and are incompatible.
+
+
+#----------------------------------------------------------------------
+# 

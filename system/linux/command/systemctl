@@ -1,0 +1,36 @@
+#!/bin/sh
+
+sudo systemctl enable httpd.service
+# ln -s '/lib/systemd/system/httpd.service' '/etc/systemd/system/multi-user.target.wants/httpd.service'
+
+sudo systemctl start  httpd.service
+
+systemctl status httpd.service
+# httpd.service - The Apache HTTP Server (prefork MPM)
+#          Loaded: loaded (/lib/systemd/system/httpd.service; disabled)
+#          Active: active (running) since Thu, 14 Feb 2013 11:29:56 -0800; 5s ago
+#         Process: 31725 ExecStart=/usr/sbin/httpd $OPTIONS -k start (code=exited, status=0/SUCCESS)
+#        Main PID: 31726 (httpd)
+#          CGroup: name=systemd:/system/httpd.service
+#                  ├ 31726 /usr/sbin/httpd -k start
+#                  ├ 31727 /usr/sbin/httpd -k start
+#                  ├ 31728 /usr/sbin/httpd -k start
+#                  ├ 31729 /usr/sbin/httpd -k start
+#                  ├ 31730 /usr/sbin/httpd -k start
+#                  ├ 31731 /usr/sbin/httpd -k start
+#                  ├ 31732 /usr/sbin/httpd -k start
+#                  ├ 31733 /usr/sbin/httpd -k start
+#                  └ 31734 /usr/sbin/httpd -k start
+
+systemctl is-active httpd.service
+# active
+
+systemctl list-units --type=service                 # <-- list only active services (use --all for all services)
+systemctl list-units --type=automount 
+systemctl list-units --type=socket 
+systemctl list-units --type=target 
+systemctl list-units --type=timer
+systemctl list-units --type=swap
+systemctl list-units --type=mount
+systemctl list-units --type=path 
+

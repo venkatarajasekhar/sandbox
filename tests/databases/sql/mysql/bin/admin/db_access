@@ -1,0 +1,18 @@
+mysql> grant select,insert,update on documents.mo to 'ablack'@'localhost';
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> show grants for 'ablack'@'localhost';
++---------------------------------------------------------------------------------------+
+| Grants for ablack@localhost                                                           |
++---------------------------------------------------------------------------------------+
+| GRANT SELECT ON *.* TO 'ablack'@'localhost' IDENTIFIED BY PASSWORD '1e9897ff1717f2f2' |
+| GRANT SELECT, INSERT, UPDATE ON `documents`.`mo` TO 'ablack'@'localhost'              |
++---------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from tables_priv;
++-----------+-----------+-----------+------------+----------------+----------------+----------------------+-------------+
+| Host      | Db        | User      | Table_name | Grantor        | Timestamp      | Table_priv           | Column_priv |
++-----------+-----------+-----------+------------+----------------+----------------+----------------------+-------------+
+| localhost | documents | ablack    | mo         | root@localhost | 20050829172739 | Select,Insert,Update |             |
+

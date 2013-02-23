@@ -47,10 +47,100 @@ ssh -i ~/.ssh/id_rsa git@54.243.245.108
 
 
 
+Q: Simple tunnel setup ?
+First the syntax:
+ssh -p 22 user@ssh_server -L host:port1:dest_server:port2 -N
+where
+* -N Do not execute a command on the remote system
+* -p ssh_server port (default is 22 )
+* user@ssh_server are the username used to connect and the SSH server to connect to
+* host:port1 are the local ip or hostname and port in which the ssh will listen to. If you leave an empty host like port1:server2:port2 it will take all the hosts on the local machine.
+* dest_server:port2 are the destination server (pop, etc) and port where the packet will be forwarded.
+
+Beware the connection from the ssh_server to the dest_server is out of the tunnel and not encrypted,
+except if the dest_server is the same machine as the ssh_server, that is, localhost or 127.0.0.1
 
 
 
+Q: What is a reverse tunnel?
+
+A reverse tunnel is when you are behind a firewall that has no SSH server, 
+but need to access it at a later date (be it minutes/hours/days later) 
+but don't want or have the ability to VPN in. 
+
+The idea: You establish the ssh tunnel by connecting to your remote ssh server.
+Later, from that remote ssh server, you can log back in.
+
+You would connect to your SSH server from that machine, 
+then reverse the tunnel by connecting to that open connection. 
+What do I use it for? 
+From time to time against a server, or even with friends and family with reverse 
+VNC sessions via SSH tunnels. 
+In this case they execute a putty saved session that logs into my ssh server as a certain user with no rights. 
+Once the tunnel is established, I can vnc to their machine in order to remote to them. i
+No more having them setup their firewall, or figure out log-me-in, or any of those other websites.
+
+So the steps to create a reverse SSH tunnel are as follows:
+
+From client machine: ssh -R remoteport:localhost:22 username@servername
+ex: ssh -R 2048:localhost:22 bob@mylinuxserver.xxx
+From server side (to re-establish the tunnel): ssh -p 2048 localhost
 
 
+Q: X Tunneling and DISPLAY envvar?
+A special case of SSH tunneling is the protocol’s capacity to tunnel X connections. 
+In this case, the X server runs on the SSH client computer, 
+and the X clients (that is, the X programs you want to run) reside on the SSH server computer. 
+In this case, the SSH server does double duty as an SSH server and an X proxy server, 
+while the SSH client functions as an SSH client and an X proxy client. 
+To make this configuration work, X programs must know to connect to the SSH server’s X server instance 
+rather than the X server running on the local system. 
+The SSH server therefore connects to an appropriate X port and 
+sets the DISPLAY environment variable to point clients at this port.
 
+To work in this way, you must set appropriate options in the X server and X client configuration files. 
+In particular, check your /etc/ssh/ssh_config file for the following line:
+
+ForwardX11 yes
+
+If this line is set to no, change it to yes. 
+Alternatively, you can pass the -X parameter to ssh when you call it to enable X forwarding. 
+(That’s an uppercase -X; the lowercase -x option disables X forwarding!) 
+On the SSH server, check the /etc/ssh/sshd_config file for the following line:
+
+X11Forwarding yes
+
+As with the equivalent client option, be sure this server option is set to yes. 
+Also, be sure to check the correct files — ssh_config for the client and sshd_config for the server. 
+The one-character difference in filenames can be easy to miss.
+
+Once configured in this way, you should be able to connect to a remote Linux system via SSH 
+and immediately launch X programs from the command line. They’ll run on your local desktop 
+but be tunneled through SSH.
+
+
+#----------------------------------------------------------------------
+# DYNAMIC PORT FORWARDING
+
+Q: What is dynamic port forwarding?
+What if i want to redirect (a lot) more than one port, there's another option.
+You can redirect ALL the ports that you will use with Dynamic Port Forwarding!
+ What really happens here is that ssh does a standard port forwarding but only for SOCKS traffic, 
+and starts a SOCKS proxy at the given port to forward all the connections through the ssh connection. 
+
+Q: What if application doesn't support SOCKS?
+If our application does not support SOCKS to get your connection through,
+you need to use a "SOCKS filter", for example tsocks.
+
+Q: The syntax?
+ssh -D host:port user@server
+host:port host or ip and port where the SOCKS proxy will listen
+user@server username and server to establish the ssh connection
+For example, if you want to get all your ftp (passive mode) traffic through the port 80 (you need one ssh server listening at home) your command line should look like this one:
+ ~$ ssh -p 80 -D 1234 cascara@ssh_server 
+and then launch your favorite ftp client with tsocks:
+ ~$ tsocks ftp
+
+Q: How to configure tsocks?
+http://wiki.shellium.org/w/How_to_ssh_tunnel#Configuring_your_browser_for_a_Socks_Proxy
 

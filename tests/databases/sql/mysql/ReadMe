@@ -1,0 +1,11 @@
+yum install mysql
+yum install mysql-server
+
+load dumps
+
++ 
+
+check from web server
+
+Note: mysql on fedora core 8 can import mysql db
+Not sure later versions are compatible!

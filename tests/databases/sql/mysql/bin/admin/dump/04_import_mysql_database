@@ -1,0 +1,7 @@
+mysql -p  <<EOT
+drop database mysql;
+create database mysql;
+use mysql;
+source mysql.sql.daily.dump;
+EOT
+mysqladmin -p flush-privileges

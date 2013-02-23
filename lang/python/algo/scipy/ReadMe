@@ -1,0 +1,2 @@
+yum install scipy python-paida python-matplotlib wxPython wxPython-devel 
+etc is required

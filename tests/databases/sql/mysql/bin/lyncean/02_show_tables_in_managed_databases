@@ -1,0 +1,27 @@
+/usr/bin/mysql -p <<EOT
+#-------------------
+SHOW DATABASES;
+#-------------------
+SHOW TABLES FROM mysql;
+#-------------------
+SHOW TABLES FROM documents;
+#-------------------
+SHOW TABLES FROM parts;
+#-------------------
+SHOW TABLES FROM test;
+#-------------------
+EOT
+
+/usr/bin/mysqlshow -p documents;
+/usr/bin/mysqlshow -p documents bd;
+/usr/bin/mysqlshow -p documents es;
+/usr/bin/mysqlshow -p documents fm;
+/usr/bin/mysqlshow -p documents mm;
+/usr/bin/mysqlshow -p documents mo;
+/usr/bin/mysqlshow -p documents pr;
+/usr/bin/mysqlshow -p documents ps;
+/usr/bin/mysqlshow -p documents si;
+/usr/bin/mysqlshow -p documents sp;
+/usr/bin/mysqlshow -p documents tn;
+/usr/bin/mysqlshow -p documents tp;
+/usr/bin/mysqlshow -p documents wi;

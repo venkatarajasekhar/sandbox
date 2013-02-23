@@ -1,55 +1,136 @@
+# Every variable set are accessible with $variable
 #----------------------------------------------------------------------
-## Global
-#----------------------------------------------------------------------
-#set print_command = "a2ps -1 --font-size=12.0 --output=- | lpr -Pnetprinter1"
-set print_command = "a2ps -1 --font-size=12.0 --output=- | lpr -PHP-LaserJet-5100-Dtn-48"
-set print=ask-yes			# p to print
+# Global
 
-set editor=vi
+# Check default printer name with: lpstat -p -d
+# Current printer is HP_LaserJet_M5035_MFP
+#set print_command = "a2ps -1 --font-size=12.0 --output=- | lpr -PHP-LaserJet-5100-Dtn-48"
+set print_command = "a2ps -1 --font-size=12.0 --output=- | lpr "
+set print=ask-yes			            # Ask confirmation for prints (p to print)
+
+# Use vim  as editor
+# but tweak the ~/.vimrc configuration for mutt
+set editor="vim -c 'set nohlsearch noshowmatch modelines=0 tw=75 et noai spell nonumber'"
 
 # Spell checking with F6 in vi
 # Require in .vimrc
 # map <F6> :!ispell %<CR>:e %<CR>
 # yum install aspell-en  (Dictionary)
 set ispell="/usr/bin/ispell"
-set postponed="$HOME/Mail/postponed"
-set signature="~/.mutt_signature"
+set signature="~/.mutt/signature"       # Signature
 
+set folder = $HOME/Mail                 # Directory where mutt is started + top folder for other mailboxes
+set postponed="$HOME/Mail/postponed"    # Mailbox for postponed emails
+# Spoolfile = which folder to open when mutt is called
+# Spoolfile contains unread and newly pop'ed emails delivered by procmail
+# Note that spoolfile is not backed up and is on local machine only!
+# set spoolfile=/var/spool/mail/emayssat
+set spoolfile=+inbox       # Copy all pop'ed emails in spool file
+
+#set mail_check=5		    # Check mail/spool file every 5 sec
+set mbox="~/Mail/inbox"     # Where read emails are moved
+set mbox_type=mbox          # All messages are stored in a single fileA (<> Maildir, MH)
+set move=ask-no			    # Move message from spoolfile to mbox (if different) @ exit? (yes, ask-yes, ask-no, no)
+
+#---------------------------------------------------------------------- 
+# Keyboard macros
+
+# macro menu key sequence [description]
+# menu in 
+# * generic, 
+# * index, 
+# * pager, 
+# * alias, 
+# * query, 
+# * attach,                     When you view the list of attachments 
+# * compose,                    After writing the email where you see attachment + header
+# * postpone, 
+# * browser, 
+# * editor,
+# * pgp, 
+# key in 
+# * \cx for ctrl-x              !!! case is ignored for Ctrl key binding !!!
+# * a-z, A-Z
+# * \t, \r, \n, \e or <tab>, <return>?, <enter>, <esc> 
+# * <up>, <backspace>, <pagedown>, <delete>, <insert>, <home>, <end>, <f1>, <f10>, ...
+# sequence can include: 
+# * generic functions                     More @ http://www.mutt.org/doc/manual/manual-6.html#functions
+# * functions for that menu 
+# * shell function !<shell-command> or <shell-escape><shell-command>
+# * existing key bindings (e.g. b for bounce) List @
+
+macro index,pager <f1> "<shell-escape>less /usr/local/doc/mutt-1.5.21/manual.txt<enter>" "Show Mutt documentation"
+#macro pager \cu |urlview\n              #Ctrl-u to view url
+macro index,pager \cu <pipe-entry>'urlview'<enter>  'Follow links with urlview'              #Ctrl-u to extract and view message's url
+#macro pager H "unignore *\r" 'Show headers'
+macro index G "<shell-escape>fetchmail\r" 'Run fetchmail'
+macro pager G "!fetchmail\r" 'Run fetchmail'
+macro compose v "<edit-from><kill-line>identity_<tab>" "Select from" 
+
+#---------------------------------------------------------------------- 
+# Hooks
+#
+# Hooks allows you to execute arbitrary commands before performing some operation. 
+# For example, you may wish to tailor your configuration based upon which mailbox 
+# you are reading, or to whom you are sending mail.
+#
+# Available hooks:
+# * account-hook
+# * folder-hook
+# * message-hook        executed before viewing or formatinng a message based on info in message
+# * reply-hook
+# * send-hook           executed just before sending an email
+# * save-hook           overrider default filename when saving messages
+# * mbox-hook           used to move read messages from a specified to another mailbox automatically when you quit or change folders
+# * fcc-hook            save outgoing mail in mailbox other than $record
+# * fcc-save-hook       equivalent to both save-hook and fcc-hook
+# * pgp-hook            choosing the pgp key of the recipeitn
+#
+# Format:
+# <Name of hook>  <matching pattern> <what-to-do>
+#
+unhook *                                                                        # Delete all existing hooks
+message-hook ~A                     'set pager=builtin'                         # All messages use the builtin pager
+message-hook '~f freshmeat-news'    'set pager="less \"+/^  subject: .*\""'     # Message from freshmeat use less as a pager
+#folder-hook ubuntu-users 'push <tag-pattern>~r>1w!~F<enter>'
+#send-hook '~t ^me@cs\.hmc\.edu$' 'my_hdr From: Mutt User <user@host>'
+#save-hook me@(turing\\.)?cs\\.hmc\\.edu$ +elkins
+#save-hook aol\\.com$ +spam
 
 #----------------------------------------------------------------------
 # Index
-#----------------------------------------------------------------------
+
 set status_format=" %r %b %f %n      Del %d      Msgs %m %l %> (%P)"
 set date_format="!%H:%M %a %d %b     "
 set index_format="%4C %Z %[%b%d] %-15.15F %s"
 set folder_format="%2C %t %8s %d %N %f"
 
-set sort=threads                        #sort by message threads in index
+set sort=threads                        # sort by message threads in index
+set sort_aux=last-date-received         # order threads based on last email rec'd in that thread
+
 set arrow_cursor=yes
-#set status_on_top                       #put status line at top
+#set status_on_top                      # put status line at top
 set pager_context=3
 set menu_scroll
-set pgp_verify_sig=no                   #dont show pgp in pager
-set record="$HOME/Mail/sent"        	#sent mail is saved here
-set delete=yes                          #delete without prompting
-set include=yes                         #quote msg in reply
-#set fast_reply=yes                      #no prompting on reply
-set beep=no                             #no noise
-set markers=no                          #no + on wrapped lines
-set confirmappend=no                    #no prompt for save to =keep
-set to_chars=" +TCF"                    #no L for mail_list
+set pgp_verify_sig=no                   # dont show pgp in pager
+set record="$HOME/Mail/sent"        	# sent mail are saved here
+set delete=yes                          # delete without prompting
+set include=yes                         # quote msg in reply
+#set fast_reply=yes                     # no prompting on reply
+set beep=no                             # no noise
+set markers=no                          # no + on wrapped lines
+set confirmappend=no                    # no prompt for save to =keep
+set to_chars=" +TCF"                    # no L for mail_list
 
-#--- macros
-macro pager \cu |urlview\n
 
 #--- Colors
 color normal		white		blue
-color indicator		blue            green
-color tree		yellow          blue
+color indicator		blue        green
+color tree		    yellow      blue
 color status		black		cyan
-color error		red		black
+color error		    red		    black
 
-mono    status          bold
+mono  status        bold
 
 #--- Mailing list
 lists tech-talk mplayer svlug
@@ -64,14 +145,26 @@ set pager_format="%-10.10i %[!%a %b %d %R]"
 #----------------------------------------------------------------------
 # Email display
 #----------------------------------------------------------------------
-message-hook ~A 'set pager=builtin'
-message-hook '~f freshmeat-news' 'set pager="less \"+/^  subject: .*\""'
 
 
-#--- Header
+#--- Headers to display ( h to toggle full header)
 # Too many email headers make reading a message difficult
-ignore *
-unignore From: To: Cc: Subject: Date: #Only these are shown in the header
+ignore x-                               # Ignore custom headers?
+ignore *                                # ignore all headers, but the following ones ...
+unignore From: To: Cc: Date: Subject:   # 
+#unignore Message-Id:                    # Thread
+#unignore Content-Type:                  # Mime type
+#unignore organization organisation 
+#unignore x-mailer:                      # Email client used
+#unignore x-newsreader: 
+#unignore x-mailing-list:                # Mailing list
+#unignore posted-to: reply-to:
+
+#--- Header order   
+unhdr_order *                           # Erase default order
+hdr_order From: To: Cc: Date: Subject: 
+
+#--- Headers' color
 color hdrdefault	brightcyan	blue
 color header		brightwhite	blue		"^from:"
 color header		brightwhite	blue		"^subject:"
@@ -104,61 +197,85 @@ color   attachment      brightgreen     blue
 #mono    body            bold				"^Good signature"
 #mono    body            bold				"^Bad signature from.*"
 
-#----------------------------------------------------------------------
-# Procmail / Mail folders
-#----------------------------------------------------------------------
-#Where procmail put stuff and mutt check for new stuff
-set folder = $HOME/Mail
-
-#For change mailbox
-#Beware the order important!
-mailboxes =lists/epics
-mailboxes =lists/pyqt
-mailboxes =lists/qt
-mailboxes =lists/ts7000
-#mailboxes =lists/svlug
-#mailboxes =lists/comedi
-#mailboxes =lists/mplayer
-
-set mbox="~/Mail/inbox"
-#set spoolfile=+inbox
-set mbox_type=mbox
-#set mail_check=5		#Check mail/spool file every 5 sec
-set move=ask-no			#Move message from spool to mbox @ exit
-set move=no			#Move message from spool to mbox @ exit
-#----------------------------------------------------------------------
-# Interface to Fetchmail
-#----------------------------------------------------------------------
-# Check ~/.fetchmailrc for fetchmail configuration
-macro index G "!fetchmail\r" 'Run fetchmail'
-macro pager G "!fetchmail\r" 'Run fetchmail'
+# we want to see some MIME types inline, see below this code listing for explanation
+# Check ~/.mailcap for text conversion
+# Require the installation of pdftotext and antiword
+auto_view application/msword
+auto_view application/pdf
 
 #----------------------------------------------------------------------
-# Built-in POP3 support
-#----------------------------------------------------------------------
+# POP'ing of emails
+
+#--- Built-in POP3 support
 #set pop_host=in-pop-master
 #set pop_user="emmanuel_mayssat@lynceantech.com"
 #set pop_pass="XXXXX"
 #set pop_delete=ask-yes
-#set pop_checkinterval=60
+#set pop_checkinterval=60   # Pop emails every 60 sec
 #set pop_auth_try_all yes
 #set pop_reconnect=ask-yes
 
+#--- Interface to Fetchmail
+# Check ~/.fetchmailrc for fetchmail configuration
+
+#----------------------------------------------------------------------
+# Procmail / Mail folders
+#
+#  Fetchmail -> procmail -> mutt
+
+
+# Mutt lets you define certain mailboxes as "active"
+# —that is, mailboxes which are likely to receive new mail on an ongoing basis. 
+# When any of these active mailboxes receives a new message, 
+# Mutt will alert you with a status bar notification. 
+mailboxes "=inbox"
+mailboxes "=lists/epics"
+mailboxes "=lists/pyqt"
+mailboxes "=lists/qt"
+mailboxes "=lists/ts7000"
+#mailboxes "=lists/svlug"
+#mailboxes "=lists/comedi"
+#mailboxes "=lists/mplayer"
+
 #----------------------------------------------------------------------
 # Sending mail
-#----------------------------------------------------------------------
-#after a yum mstmp!
-#Check .msmtprc file for config
-set sendmail="/usr/bin/msmtp"
-#To ensure that mutt does not put
-#'username@localhost.localdomain in From
+ 
+#To ensure that mutt does not put 'username@localhost.localdomain in From
 set from="emmanuel_mayssat@lynceantech.com"
 set use_from=yes
-set envelope_from="yes"
-set edit_headers = yes
+set edit_headers = yes                  # Show From: header during composition
 
-set alias_file=~/.mutt_aliases
-source ~/.mutt_aliases
+#--- Multiple identities (From:)
+alias identity_O         President Obama    <president@whitehouse.gov>
+alias identity_1         Jeff Rifkin        <jeff_rifkin@lynceantech.com>
+alias identity_2         Kenneth Kase       <kenneth_kase@lynceantech.com>
+
+#--- Custom headers
+#my_hdr Company: Lyncean Technologies, Inc
+#my_hdr X-URL: http://www.lynceantech.com/
+
+#--- Aliases
+set alias_file=~/.mutt/aliases
+source ~/.mutt/aliases
+
+#--- SMTP server
+# yum mstmp and refer to .msmtprc configuration file
+set sendmail="/usr/bin/msmtp"
+set envelope_from="yes"                 # Use the from address when communicating with the SMTP server
+#set use_envelope_from="yes"
+
+#----------------------------------------------------------------------
+# Forwarding emails
+
+set mime_forward=yes                    # Forward emails with their attachments
+set mime_forward_rest=yes
+unset forward_decode                    # Forward emails with all of their headers
+
+#----------------------------------------------------------------------
+# Miscellaneous
+
+# source '~/bin/detectgui.sh|'          # detectgui.sh is a script that output mutt conf command !
+ 
 #----------------------------------------------------------------------
 #----------------------------------------------------------------------
 #----------------------------------------------------------------------

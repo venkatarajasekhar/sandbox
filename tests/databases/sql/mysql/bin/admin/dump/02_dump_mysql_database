@@ -1,0 +1,1 @@
+mysqldump -p mysql > ./mysql.sql.daily.dump

@@ -14,7 +14,52 @@
 "
 "input mapping (shortcuts) BEWARE: wait for completion
 "im #-       #----------------------------------------------------------------------
+"
+" More @ http://vimdoc.sourceforge.net/htmldoc/options.html
 
+
+"""""""""""""""""""""
+" Vundle
+"""""""""""""""""""""
+" Vundle = easy installation of vim pluggin from github !
+" To install Vundle: 
+" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+set nocompatible                    " be iMproved (vim ok, but not vi !)
+filetype off                        " required
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+" Project at https://github.com/gmarik/vundle URL
+" (same as) Bundle  'http://github.com/gmarik/vundle.git'
+Bundle 'gmarik/vundle'              
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'tpope/vim-rails.git'
+" vim-scripts repos
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+" non github repos
+" (no access) Bundle 'git://git.wincent.com/command-t.git'
+
+"
+" Brief help
+" :BundleInstall unite.vim      - installation by name
+" :BundleInstall!               - install or updates configured scripts
+" :BundleSearch foo             - 
+" :BundleList                   - list all installed bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+" let g:vundle_default_git_proto = 'git'    - use git proto instead of https
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
 
 """""""""""""""""""""
 " Keyboard shortcuts
@@ -62,6 +107,12 @@
 "In operator pending mode
 "omap
 
+"
+" By File type
+"
+" :set filetype?            - to see the current filetype
+" :set filetype=python      - to manually set the current filetype
+" Note that the filetype is set automatically by vim 
 
 """""""""""""""
 " PYTHON FILES
@@ -76,7 +127,7 @@ autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,
 "remove final spaces
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
 
-" insert mode abraviations
+" insert mode abraviations (in insert mode only)
 autocmd FileType python inoremap <buffer> $r return
 autocmd FileType python inoremap <buffer> $i import
 autocmd FileType python inoremap <buffer> $p print
@@ -111,6 +162,7 @@ autocmd FileType python map <buffer> <leader>D ?def
 " abbreviations
 " corrections
 """""""""""""""
+" If you type the lhs + <space>, vim insert the rhs (right hand side)
 ab sefl     self
 ab w/       with
 ab #-       #----------------------------------------------------------------------
@@ -130,18 +182,21 @@ set shiftwidth=4        " Typing >> indent 4 spaces (<< does opposite)
 
 "set automated spell checking in English
 :setlocal spell spelllang=en
-set spell
+set spell               " activate spell check by default
+
+" Toggle spell check with <F7>
+nn <F7> :setlocal spell! spell?<CR>
 
 "Pressing ,ss will toggle and un-toggle spell checking
 "<leader> has been configured above as the , char
 ""map <leader>ss :setlocal spell!<cr>
-""map <leader>sn ]s
-""map <leader>sp [s
+""map <leader>sn ]s         " Go to next misspelled word
+""map <leader>sp [s         " Go to previous misspelled word
 " make suggestion
-""map <leader>s? z=
-" add in dictionary spellfile
+""map <leader>s? z=         " Make suggestion for misspelled word
 ""map <leader>sa zg
-""set spellfile=~/.vim/spellfile.add
+" add in dictionary spellfile
+set spellfile=~/.vim/spellfile.add
 
 " Meta up down for jump to next correction
 ""map <M-Down> ]s
@@ -157,12 +212,12 @@ syntax on               "use color
 highlight LineNr        ctermfg=blue
 "highlight LineNr       ctermfg=white ctermbg=blue cterm=reverse
 "highlight link Define          LineNr
-"set bg=light           "char backgroun is white: adjust colors
-"set bg=dark            "term background is dark: adjust colors 
+"set bg=light           "char background is white: adjust FONT colors (darken them)
+set bg=dark            "term background is dark: adjust FONT colors (lighten them)
 
 ""set cursorline          "display an annoying line under cursor
 
-set scrolloff=3         "3 lines offset when scrolling up/down
+set scrolloff=3         "3 lines offset at top and bottom when scrolling up/down
 
 set number              "line numbering on 
 "set nonumber           "line numbering off
@@ -173,7 +228,7 @@ set wrap!               "turn off word wrapping
 
 ""set mouse=a             "allow mouse in term (may not work!)
 
-set showmatch           "show closing bracket when on oen bracket, etc
+set showmatch           "show closing bracket when on a bracket, etc
 set vb t_vb=            "visual bell
 
 ""set lines=80            "reset terminal size

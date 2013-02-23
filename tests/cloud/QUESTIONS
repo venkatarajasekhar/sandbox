@@ -2,6 +2,8 @@ Q: Account?
 emayssat@gmail
 Tom...
 
+#---------------------------------------------------------------------- 
+# CLOUD 
 
 Q: What is IAAS ?
 Infrastructure as a service (hardware virtualization)
@@ -15,11 +17,15 @@ Q: What is SAAS?
 Software as a service
 gmail is SAAS (freemium + business model)
 
-Q: Amazon offering?
+#---------------------------------------------------------------------- 
+# AMAZON OFFERING
+
+Q: What do all those acronym mean?
 EC2         - Amazon Elastic Cloud Compute
 S3          - Amazon Simple Storage Service
 EBS         - Amazon Elastic Block Store
 SNS         - Amazon Simple Notification Service
+Route53     - Authoritative DNS
 ...
 CloudFront  - 1 static repository is mirrored at severael geographical locations (closer to end user)
 
@@ -60,6 +66,17 @@ over clients’ protocol of choice (i.e. HTTP, email, SMS, etc.).
 Amazon SNS delivers notifications to clients using a “push” mechanism that eliminates 
 the need to periodically check or “poll” for new information and updates.
 
+Q: What is Route 53?
+Amazon Route 53 is an authoritative Domain Name System (DNS) service. 
+DNS is the system that translates human-readable domain names (example.com) into IP addresses (192.0.2.0). 
+With authoritative name servers in data centers all over the world, Route 53 is reliable, scalable, and fast.
+You can use Amazon Route 53 for any domain or subdomain that you own. 
+Creating a domain that uses Route 53 requires only a few easy steps:
+1. Register your domain name with a domain name registrar. For a list of the registrars that you can use to register your domain name, go to ICANN.org.
+2. In the Route 53 console, create a hosted zone.
+3. Using the tools provided by your domain name registrar, update the registrar's name server (NS) records with the four name servers that we assigned to your Route 53 hosted zone. Name servers are listed in the Route 53 console.
+4. In the Route 53 console, add record sets to your hosted zone.
+
 Q: What is Amazon CloudFront?
 In Amazon CloudFront, your content is organized into distributions. 
 A distribution specifies the location or locations of the original version of your files. 
@@ -68,4 +85,81 @@ that you can use to reference your objects through the global network of edge lo
 If you wish, you can also map your own domain name (e.g. www.example.com) to your distribution. 
 You can create distributions to either download your content using the HTTP or HTTPS protocols, 
 or stream your content using the RTMP protocol.
+
+Q: What is Glacier?
+Amazon Glacier is a low-cost, secure and easy-to-use archiving storage service.
+To start using Amazon Glacier, create a vault. Vaults allow you to organize your data, configure access controls and set notification policies.
+More @ https://aws.amazon.com/glacier/faqs/#What_is_Amazon_Glacier
+
+#----------------------------------------------------------------------
+# ACCOUNT IDENTIFIER
+
+Q: What is are the available account identifiers?
+Acccount identifiers are used to share resources between accounts.
+There are 2 types:
+(1) canonical user ID
+44cc967c503ea6ce75c824855df23fd52b80e5e67c3015210790745a73dd3109 
+(2) AWS account ID  
+7701-9467-1265
+The AWS account ID can be used for all AWS service resources except Amazon S3. 
+These resources include Amazon EC2 AMIs, Amazon EBS snapshots, Amazon SQS queues, etc.
+More @ https://portal.aws.amazon.com/gp/aws/securityCredentials?
+
+#---------------------------------------------------------------------- 
+# ACCESS CREDENTIALS
+
+Q: Types of access credentials?
+There are three types of access credentials used to authenticate your requests to AWS services: i
+(a) access keys, 
+(b) X.509 certificates, 
+(c) key pairs. Each access credential type is explained below.
+
+Q: What are access keys used for?
+Use access keys to make secure REST or Query protocol requests to any AWS service API. 
+AWS create one for you when your account was created.
+More @ http://docs.aws.amazon.com/AWSSecurityCredentials/1.0/AboutAWSCredentials.html#AccessKeys
+
+Q: What are X.509 credentials?
+X.509 certificates are based on the idea of public key cryptography.
+They are used with the SOAP API
+More @ http://docs.aws.amazon.com/AWSSecurityCredentials/1.0/AboutAWSCredentials.html#X509Credentials
+
+Q: Amazon EC2 Key Pairs?
+You use an Amazon EC2 key pair each time you launch an EC2 Linux/UNIX or Windows instance. 
+The key pair ensures that only you have access to the instance.
+Their purpose : Launching and connecting to Amazon EC2 instances
+More @ http://docs.aws.amazon.com/AWSSecurityCredentials/1.0/AboutAWSCredentials.html#EC2KeyPairs
+
+#---------------------------------------------------------------------- 
+# SIGN-IN CREDENTIAL
+
+Q: what is the difference with acccess credentials?
+To sign in to AWS web sites and applications, AWS requires your Amazon e-mail address and password.
+Additionally, it supports the AWS Multi-Factor Authentication option
+Amazon Web Services Multi-Factor Authentication needs to be enabled for a particular account. 
+
+Q: What is Amazon Web Services Multi-Factor Authentication?
+This is an optional credential that allows you to increase the level of your account security. 
+To add this security option to your account, you will need to purchase a compatible authentication device from Gemalto, a third-party provider. 
+To purchase a device go to the Gemalto website.
+http://onlinenoram.gemalto.com/
+
+
+#---------------------------------------------------------------------- 
+# IAM ?
+
+Q: What are AWS Identity and Access Management, or IAM?
+IAM enables you to securely control access to AWS services and resources for your users. 
+Using IAM you can create and manage AWS users and groups and use permissions to allow and deny their permissions to AWS resources.
+
+Q: What are IAM best practice?
+Do not use your AWS root account credentals (access key and secret key). Instead create an IAM for yourself!
+More @ http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html
+
+Q: Where can the administrator manage the IAM?
+https://console.aws.amazon.com/iam/home
+
+Q: Where can the user log in?
+https://770194671265.signin.aws.amazon.com/console
+Note that 770194671265 is the AWS account ID (see account identifier)
 

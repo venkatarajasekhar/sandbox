@@ -26,6 +26,11 @@ To Setup user name and email (required), password caching (optional), and comman
     git config --global core.excludesfile ~/.gitignore_global
     git config -l				                            # show ~/.gitconfig and repo/.git/config contents
 
+To set the editor:
+    export GIT_EDITOR=vim
+or
+    export EDITOR=vim
+
 Iteract with a remote GIT repository
 ------------------------------------   
 
@@ -94,7 +99,7 @@ Ignoring files
 
 Git ignore
     cd <repo>
-    cd <dir_where_files_should not be checked>
+    cd <top_of_subdir_where_files_should not be checked>
     touch .gitignore
     echo '*.pyc' >> .gitignore 
 Global gitignore
@@ -105,4 +110,5 @@ Repo level exclude (Not checking in the repo)
     touch .git/info/exclude
     echo '*.pyc' >> .git/info/exclude
 
-!!! Files you don't want to monitor and that have ALREADY been checked in need to be removed with 'git rm <file>'
+!!! To stop tracking a file and delete it: 'git rm <filename>'
+!!! To stop tracking a file without deleting it: 'git rm --cached <filename>'

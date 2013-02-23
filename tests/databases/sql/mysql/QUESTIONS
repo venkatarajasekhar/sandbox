@@ -1,0 +1,18 @@
+Before you read this, make sure to read parent Q&A !
+
+Q: What is the default username/password for mysql?
+user: root
+password: <none>
+
+Q: Mysql configuration file?
+This file, entitled my.cnf, stores default startup options for both the server and for clients. 
+Correct configuration of this file can go a long way towards optimizing MySQL, 
+as various memory buffer settings and other valuable options can be set here.
+/etc/my.cnf         - global config
+~/.my.cnf           - user specific config
+/usr/local/mysql/data - for a binary installed database
+/usr/local/var      - for a source installed database
+ Keep in mind that even if MySQL does locate a my.cnf file in /etc/my.cnf (global to all MySQL servers on that machine), 
+it will continue its search for a server-specific file, and then a user-specific file. 
+You can think of the final configuration settings as being the result of the /etc/my.cnf, mysql-data-dir/my.cnf, and ~/.my.cnf files.
+

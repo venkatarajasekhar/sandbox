@@ -1,0 +1,3 @@
+With need to run 
+../mkpyqt.py 
+in the current directory to generate all the import files (resource + ui )
