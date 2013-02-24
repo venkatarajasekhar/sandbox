@@ -1,6 +1,7 @@
 #!/bin/sh
 
 sudo yum -y install s3cmd
+sudo yum -y install fuse-s3fs          # fuse-s3fs-0.9-1.fc16.noarch
 
 s3cmd  --configure
 
