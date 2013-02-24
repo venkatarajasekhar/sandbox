@@ -13,8 +13,8 @@ yum install fuse-s3             # <-- installs the boto version , not the C++ ve
 # I'm mentioning here that the fuse-s3fs rpm undergoing review for inclusion in fedora is 
 # the rpm generated from the project at this site. 
 
-export AWS_ACCESS_KEY_ID="AKIAISKUD2QLRV4LV25A"
-export AWS_SECRET_ACCESS_KEY="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"
+export AWS_ACCESS_KEY_ID="XXXXXXXXXXXXXXXXXXXX"
+export AWS_SECRET_ACCESS_KEY="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
 S3FS_OPTIONS="-p ${AWS_ACCESS_KEY_ID} -s ${AWS_SECRET_ACCESS_KEY}"
 s3fs -C $S3FS_OPTIONS -c test.lynceantech.com                   # Create a bucket
