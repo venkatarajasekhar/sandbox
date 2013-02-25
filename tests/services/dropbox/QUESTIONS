@@ -1,0 +1,18 @@
+Q: Dropbox versus sbox?
+http://www.smallnetbuilder.com/cloud/cloud-storage/414-dropbox-vs-boxnet    i
+                Dropbox Box.net
+Features                X
+Ease of Setup   X   
+Performance             X
+Sharing                 X
+Accessibility   X    
+Security        X   X
+Price           X    
+Total           4   4
+
+Q: Dropbox and S3?
+Because Dropbox uses Amazon S3 as its back end, 
+it encrypts files with AES-256 before transfer over an SSL-secured link. 
+And Dropbox says that its admins "are prohibited from viewing the content 
+of files you store in your Dropbox account, and are only permitted to view file metadata".
+
