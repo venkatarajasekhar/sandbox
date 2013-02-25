@@ -42,8 +42,8 @@ More @ https://forums.aws.amazon.com/message.jspa?messageID=106354
 Q: S3 tools?
 http://www.aboutonlinetips.com/amazon-s3-tools/
 
-Q: S3 clients?
-(firefox plugin) S3Fox - http://www.s3fox.net/
+Q: S3 FTP-like clients?
+(firefox plugin) S3Fox - http://www.s3fox.net/  - excellent
 NET S3 Client - http://sourceforge.net/projects/nets3client/
 Amazon S3 GUI client CrossFTP Pro - http://www.crossftp.com/amazons3client.htm
 (mac osx only)S3Hub - http://s3hub.com/
@@ -51,10 +51,16 @@ Amazon S3 GUI client CrossFTP Pro - http://www.crossftp.com/amazons3client.htm
 (windows only) CloudBerry Explorer for Amazon S3
 (not packaged source) S3e - http://code.google.com/p/s3e/
 
+Q: S3 Drive-mount-like client?
+http://tntdrive.com/  - 
+http://www.webdrive.com/products/webdrive/index.html
+http://www.cloudberrylab.com/virtual-drive-amazon-s3-azure.aspx
+
 Q: Services on top of S3?
 https://www.jungledisk.com          : mount s3 buckets as drives
 (linux/windows?) http://www.elasticdrive.com/
 (limited linux support) http://www.gladinet.com/    : drive
+http://dropbox.com !
 
 #----------------------------------------------------------------------
 # FROM OS
