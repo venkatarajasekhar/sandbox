@@ -51,9 +51,10 @@ Q: Configuration parameters?
 http://moinmo.in/HelpOnConfiguration#pages
 
 Q: Change logo?
-sitename = u'Untiled Wiki'  # Name your wiki
-logo_string = u'<img src="/htdocs/common/moinmoin.png" alt="MoinMoin Logo">'
 In /etc/moin/mywiki.py
+sitename = u'Untiled Wiki'  # Name your wiki
+logo_string = u'<img src="/htdocs/common/lynceantech.png" alt="MoinMoin Logo">'
+#/usr/share/moin/htdocs/common/lynceantech.png
 
 #----------------------------------------------------------------------
 # ACL
