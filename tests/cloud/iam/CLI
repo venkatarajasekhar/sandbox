@@ -1,0 +1,8 @@
+Q: Test CLI ?
+iam-usercreate -h
+
+Q: Command doc?
+http://docs.aws.amazon.com/IAM/latest/CLIReference/Commands.html 
+
+
+More @ http://docs.aws.amazon.com/IAM/latest/CLIReference/Setup.html

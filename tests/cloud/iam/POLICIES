@@ -42,13 +42,54 @@ Q: Allow everything on a specific bucket?
   ]
 }
 
+#---------------------------------------------------------------------- 
+# ARN
+
+Q: 
+http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs
+
 Q: Group ARN ?
 arn:aws:s3:
+
+Q: Principal ARN?
+arn:aws:<vendor>:<region>:<namespace>:<relative-id>
+* vendor identifies the AWS product (e.g., Amazon SNS) using a namespace.
+* region is the region the resource resides in (e.g., us-east-1), if any. (IAM users, groups, and roles do not include a region.)
+* namespace is an AWS account ID with no hyphens (e.g., 111122223333).
+* relative-id is the portion that identifies the user, group, role, etc.
+
+Q: Principal ARN?
+<!-- Everyone (anonymous users) -->
+"Principal":"AWS":"*.*" 
+<!-- Specific account or accounts -->
+"Principal":{"AWS":"arn:aws:iam::123456789012:root" }
+"Principal":{"AWS":"123456789012"}
+"Principal":{"AWS":["arn:aws:iam::123456789012:root","arn:aws:iam::999999999999:root"]}  
+<!-- Individual user -->
+"Principal":"AWS":"arn:aws:iam::123456789012:user/Username"  
+<!-- Specific role -->
+"Principal":{"AWS":["arn:aws:iam::123456789012:role/MyRole"]}
+<!-- Specific service -->
+"Principal":{"Service":["ec2.amazonaws.com"]}
+<!-- Individual user in S3 -->
+"Principal":{"CanonicalUser":"79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be"}
 
 #---------------------------------------------------------------------- 
 # POLICIES
 
-Sid     - Statement identifier?
+Sid         - Statement identifier?
+Version     - The Version element specifies the access policy language version
+id          - The Id element specifies an optional identifier for the policy. The ID is used differently in different services.
+Statement   - The Statement element is the main element for a policy. It can include multiple elements.
+Effect      - The Effect element is required and specifies whether you want the statement to result in an allow or an explicit deny. Valid values for Effect are Allow and Deny.
+Principal   - The Principal element specifies the user, account, service, or other entity that is allowed or denied access to a resource.
+NotPrincipal- The NotPrincipal element lets you specify an exception to a list of principals. For example, you can use this to prevent all AWS accounts except a specific account from accessing a resource.
+Action      - The Action element describes the type of access that should be allowed or denied (for example, read, write, list, delete, and so on).
+NotAction   - The NotAction element lets you specify an exception to a list of actions. 
+Resource    - The Resource element specifies the object or objects that the policy covers.
+NotResource - The NotResource element lets you specify an exception to a list of resources.
+Condition   - The Condition element lets you specify conditions for when a policy is in effect.
+
 
 
 
