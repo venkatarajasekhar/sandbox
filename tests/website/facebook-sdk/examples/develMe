@@ -1,7 +1,0 @@
-#!/bin/sh
-
-#../../../../google_appengine/dev_appserver.py --port 8082 appengine/
-#../../../../google_appengine/dev_appserver.py --port 8082 tornado/
-../../../../google_appengine/dev_appserver.py --port 8082 oauth/
-#../../../../google_appengine/dev_appserver.py --port 8082 newsfeed/
-

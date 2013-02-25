@@ -1,0 +1,54 @@
+#---------------------------------------------------------------------- 
+# GROUP POLICY
+
+Q: Group policy to access everything in S3?
+{
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": "*"
+    }
+  ]
+}
+
+Q: Group policy to everything in S3 with read only mode?
+{
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:Get*",
+        "s3:List*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+
+Q: Allow everything on a specific bucket?
+{
+  "Statement": [
+    {
+      "Sid": "Stmt1361595623860",
+      "Action": [
+        "s3:*"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws:s3:::mucls.lynceantech.com"
+      ]
+    }
+  ]
+}
+
+Q: Group ARN ?
+arn:aws:s3:
+
+#---------------------------------------------------------------------- 
+# POLICIES
+
+Sid     - Statement identifier?
+
+
+

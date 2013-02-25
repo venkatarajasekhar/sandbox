@@ -6,6 +6,8 @@ You can
 * setup a password policy
 * create roles
 
+!!! IAM is not to be confused with AMI, or Amazon Machine Image 
+
 Q: Where is the IAM console?
 https://console.aws.amazon.com/iam/home?#
 
@@ -32,3 +34,14 @@ Roles allow AWS services and IAM users to act on your behalf.
 
 Q: Amazon Resource Name?
 arn:aws:s3:::example_bucket/developers/design_info.doc
+
+#---------------------------------------------------------------------- 
+# CREDENTIALS
+
+Q: Access credentials vs sing-in credentials?
+Sign-in credentials are used to log on the AWS website.
+Access credentials is used by 3rd party applications to work as the user.
+
+Q: How many access credentials can a user account have?
+Many!
+Each can be made active or inactive, or simply deleted.
