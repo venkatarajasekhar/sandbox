@@ -255,8 +255,10 @@ alias identity_2         Kenneth Kase       <kenneth_kase@lynceantech.com>
 #my_hdr X-URL: http://www.lynceantech.com/
 
 #--- Aliases
-set alias_file=~/.mutt/aliases
-source ~/.mutt/aliases
+set alias_file=~/.mutt/address_book
+set sort_alias = alias                  # How to sort the aliases ( alias, address, nickname, unsorted)
+#set reverse_alias=yes
+source ~/.mutt/address_book
 
 #--- SMTP server
 # yum mstmp and refer to .msmtprc configuration file
