@@ -35,11 +35,14 @@ set move=ask-no			    # Move message from spoolfile to mbox (if different) @ exi
 #---------------------------------------------------------------------- 
 # Keyboard macros
 
+# You can view the action of a keypress by typing ?
+# If it is a macro, the action is prefixed with 'M' as in:
+# `             M <previous-page>               Scroll up
 # macro menu key sequence [description]
 # menu in 
 # * generic, 
-# * index, 
-# * pager, 
+# * index,                      With the list of email, 1 email per line
+# * pager,                      When you view the content of an email
 # * alias, 
 # * query, 
 # * attach,                     When you view the list of attachments 
@@ -66,6 +69,7 @@ macro index,pager \cu <pipe-entry>'urlview'<enter>  'Follow links with urlview' 
 macro index G "<shell-escape>fetchmail\r" 'Run fetchmail'
 macro pager G "!fetchmail\r" 'Run fetchmail'
 macro compose v "<edit-from><kill-line>identity_<tab>" "Select from" 
+macro pager \140 <previous-page> "Scroll up"
 
 #---------------------------------------------------------------------- 
 # Hooks
@@ -100,7 +104,7 @@ message-hook '~f freshmeat-news'    'set pager="less \"+/^  subject: .*\""'     
 #----------------------------------------------------------------------
 # Index
 
-set status_format=" %r %b %f %n      Del %d      Msgs %m %l %> (%P)"
+set status_format=" %r %b %f %n      Del %d      Msgs %m %l %> (%P)" # Displayed information in the status bar
 set date_format="!%H:%M %a %d %b     "
 set index_format="%4C %Z %[%b%d] %-15.15F %s"
 set folder_format="%2C %t %8s %d %N %f"
