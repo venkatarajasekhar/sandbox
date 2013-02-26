@@ -245,11 +245,6 @@ set from="emmanuel_mayssat@lynceantech.com"
 set use_from=yes
 set edit_headers = yes                  # Show From: header during composition
 
-#--- Multiple identities (From:)
-alias identity_O         President Obama    <president@whitehouse.gov>
-alias identity_1         Jeff Rifkin        <jeff_rifkin@lynceantech.com>
-alias identity_2         Kenneth Kase       <kenneth_kase@lynceantech.com>
-
 #--- Custom headers
 #my_hdr Company: Lyncean Technologies, Inc
 #my_hdr X-URL: http://www.lynceantech.com/
@@ -259,6 +254,7 @@ set alias_file=~/.mutt/address_book
 set sort_alias = alias                  # How to sort the aliases ( alias, address, nickname, unsorted)
 #set reverse_alias=yes
 source ~/.mutt/address_book
+source ~/.mutt/identities
 
 #--- SMTP server
 # yum mstmp and refer to .msmtprc configuration file
