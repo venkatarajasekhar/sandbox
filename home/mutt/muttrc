@@ -257,7 +257,8 @@ set include=yes                         # quote msg in reply
 set alias_file=~/.mutt/address_book
 set sort_alias = alias                  # How to sort the aliases ( alias, address, nickname, unsorted)
 #set reverse_alias=yes
-source ~/.mutt/address_book
+source ~/.mutt/friends.aliases
+source ~/.mutt/work.aliases
 source ~/.mutt/identities
 
 #--- SMTP server
