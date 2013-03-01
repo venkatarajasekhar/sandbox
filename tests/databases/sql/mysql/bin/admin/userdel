@@ -6,3 +6,7 @@ delete from user where User='emayssat' and Host='localhost';
 flush privileges;
 quit;
 EOT
+
+../../bin/mysql -u root -p <<EOT
+drop user emayssat;
+EOT

@@ -1,1 +1,6 @@
 mysqlshow -p
+
+mysql -u root -p <<EOT
+show databases;
+EOT
+
