@@ -36,6 +36,8 @@ Memory-mapped file      - POSIX
 Q: File ?
 
 Q: Socket?
+Q: What is the difference between a INET and a UNIX socket?
+AF_INET uses the TCP/IP protocol. AF_UNIX creates filesystem objects and it only works between processes on the same host. AF_UNIX is much faster than AF_INET.
 Q: Message queue?
 Q: Pipe ?
 Q: Named pipe ?
