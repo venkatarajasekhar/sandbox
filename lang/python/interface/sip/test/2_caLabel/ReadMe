@@ -1,0 +1,11 @@
+#generate .pro file
+qmake-qt4 -project 
+
+# Build Makefile
+qmake-qt4
+
+# Build Qt program
+make
+
+#----------------------------------------------------------------------
+The python version: just execute hello.py
