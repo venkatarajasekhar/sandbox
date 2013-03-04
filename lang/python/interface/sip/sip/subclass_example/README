@@ -1,0 +1,6 @@
+
+This is a simple example of how to subclass QWidget using sip. The resulting
+python object appears as a subclass of qt.QWidget in python. The tricky part 
+of this is invoking sip in the right way, and finding the sipQtFeatures.h file
+(which is created in the PyQt build, but often omitted from prepackaged 
+ binaries)

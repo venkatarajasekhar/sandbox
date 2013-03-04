@@ -1,0 +1,8 @@
+#!/bin/bash 
+
+rm -rf sipcode
+mkdir sipcode
+#OK#sip -I /usr/share/sip -t Qt_3_3_6 -t WS_X11 -d /tmp/toto -s ".cc" -c sipcode /usr/share/sip/qtui/qtuimod.sip
+#NOK#sip -I /usr/share/sip -t Qt_3_3_6 -t WS_X11 -d /tmp/toto -s ".cc" -c sipcode /usr/share/sip/qt/qlabel.sip
+#NOK#sip -I /usr/share/sip -t Qt_2_0_0 -t WS_X11 -d /tmp/toto -s ".cc" -c sipcode /usr/share/sip/qt/qframe.sip
+sip -I /usr/share/sip -t Qt_3_3_6 -t WS_X11 -d /tmp/toto -s ".cc" -c sipcode /usr/share/sip/qt/qtmod.sip
