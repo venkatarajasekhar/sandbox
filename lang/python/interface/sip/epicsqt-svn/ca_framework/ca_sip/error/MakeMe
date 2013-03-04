@@ -1,0 +1,5 @@
+
+
+
+#gcc -I /usr/include/c++/3.4.6/backward -L /usr/lib64 -o toto test.cpp
+g++ -I /usr/include/c++/3.4.6/backward -L /usr/lib64 -o toto test.cpp

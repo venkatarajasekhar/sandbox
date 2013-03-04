@@ -1,0 +1,4 @@
+1/Build the ca_framework plugin (QCaPlugin library)
+2/Check paths in configure.py
+3/Check RunMe script and run it
+4/As root, install the sip wrapper run make -C sipcode install
