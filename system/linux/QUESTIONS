@@ -3,7 +3,7 @@
 
 
 #---------------------------------------------------------------------- 
-# STORAGEi (RAM / DISK )
+# STORAGE (RAM / DISK )
 
 Q: What is virtual memory?
 virtual memory = hardware RAM + swap space
@@ -72,4 +72,16 @@ wodim
 
 Q: What 
 
+#---------------------------------------------------------------------- 
+# SOCKET
+
+Q: What is the difference between INET and UNIX socket?
+AF_INET uses the TCP/IP protocol. AF_UNIX creates filesystem objects and it only works between processes on the same host. AF_UNIX is much faster than AF_INET.
+
+Q: What is DBUS?
+DBUS is a framework around UNIX socket used initially by KDE (and now other free desktop environments)
+DBUs is middleware
+Both one-to-one messaging and publish/subscribe communication are supported.
+D-Bus is aware of user identities and does support flexible authentication mechanisms and access controls. The system bus may see traffic from and to any number of user identities.
+More @ http://www.freedesktop.org/wiki/IntroductionToDBus
 

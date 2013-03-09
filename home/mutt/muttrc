@@ -254,12 +254,12 @@ set include=yes                         # quote msg in reply
 #my_hdr X-URL: http://www.lynceantech.com/
 
 #--- Aliases
-set alias_file=~/.mutt/address_book
+set alias_file=~/.mutt/work.aliases     # Default file to save aliases
 set sort_alias = alias                  # How to sort the aliases ( alias, address, nickname, unsorted)
 #set reverse_alias=yes
-source ~/.mutt/friends.aliases
-source ~/.mutt/work.aliases
-source ~/.mutt/identities
+source ~/.mutt/work.aliases             # include this alias file
+source ~/.mutt/friends.aliases          # include this alias file
+source ~/.mutt/identities               # include this alias file
 
 #--- SMTP server
 # yum mstmp and refer to .msmtprc configuration file
