@@ -66,6 +66,13 @@ logo_string = u'<img src="/htdocs/common/lynceantech.png" alt="MoinMoin Logo">'
 #/usr/share/moin/htdocs/common/lynceantech.png
 
 Q: How to add email capabilities?
+Check connection to server is ok
+telnet smtpauth.earthlink.net 25
+in /etc/moin/mywiki.py configuration
+mail_from = u'Wiki Notifier <noreply@lynceantech.com>'
+mail_login = "lynceantech@earthlink.net yasux72d"
+mail_smarthost = "smtpauth.earthlink.net:25"
+
 
 #----------------------------------------------------------------------
 # ACL
