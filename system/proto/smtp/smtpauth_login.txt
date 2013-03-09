@@ -1,0 +1,25 @@
+AUTH (Authentication)
+The AUTH command is used to authenticate the client to the server. 
+The AUTH command sends the clients username and password to the e-mail server. 
+AUTH can be combined with some other keywords as PLAIN, LOGIN and CRAM-MD5 (e.g. AUTH LOGIN) to use different login methods and different levels of security. 
+ 
+The example below shows how AUTH LOGIN can be used to make an authenticated login:
+ 
+S: 220 smtp.server.com Simple Mail Transfer Service Ready
+C: EHLO client.example.com
+S: 250-smtp.server.com Hello client.example.com
+S: 250-SIZE 1000000
+S: 250 AUTH LOGIN PLAIN CRAM-MD5
+C: AUTH LOGIN
+S: 334 VXNlcm5hbWU6
+C: adlxdkej
+S: 334 UGFzc3dvcmQ6
+C: lkujsefxlj
+S: 235 2.7.0 Authentication successful
+ 
+After that the AUTH LOGIN command has been sent to the server, the server asks for username and password by sending BASE64 encoded text (questions) to the client. 
+“VXNlcm5hbWU6” is the BASE64 encoded text for the word "Username" and “UGFzc3dvcmQ6” is the BASE64 encoded text for the word "Password" in the example above. 
+The client sends username and password also using BASE64 encoding. 
+"adlxdkej", in the example above, is a BASE64 encoded username and "lkujsefxlj" is a BASE64 encoded password.
+To encode in base64, user
+$ echo toto | base64

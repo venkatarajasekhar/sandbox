@@ -1,0 +1,14 @@
+$ telnet smtpauth.earthlink.net 25
+Trying 207.69.189.209...
+Connected to smtpauth.earthlink.net.
+Escape character is '^]'.
+220-elasmtp-curtail.atl.sa.earthlink.net ESMTP Exim 4.67 #1 Fri, 08 Mar 2013 20:31:53 -0500
+220-NO UCE.  EarthLink does not authorize the use of its computers or network
+220 equipment to accept, transmit, or distribute unsolicited e-mail.
+mail from: jon@frogbog
+250 OK
+rcpt to: emayssat@lynceantech.com
+550 Please configure your mail client to use authentication.
+421 elasmtp-curtail.atl.sa.earthlink.net: SMTP command timeout - closing connection
+Connection closed by foreign host.
+

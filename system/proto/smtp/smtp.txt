@@ -1,0 +1,12 @@
+
+ehlo computer.lyceantech.com
+mail from: sender@contoso.com
+rcpt to: recipient@contoso.com
+data
+To: recipient@contoso.com
+From: sender@contoso.com
+Subject: Test Message
+ 
+This a test message.
+.
+quit

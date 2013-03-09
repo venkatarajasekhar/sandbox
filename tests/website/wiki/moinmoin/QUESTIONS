@@ -1,5 +1,11 @@
+#---------------------------------------------------------------------- 
+# ACCESS
+
+Q: How to access moinmoin?
+ssh -i ~/ssh/moinmoin_awskey.pem ubuntu@moinmoin
+
 #----------------------------------------------------------------------
-# INSTALLATION AND CONFIGURATION
+# INSTALLATION 
 
 Q: How to install on ubuntu?
 
@@ -32,10 +38,13 @@ sudo /etc/init.d/apache2 restart
 Verification:
 http://localhost/mywiki
 
-Q: How to ad the help and search engine page ?
+Q: How to add the help and search engine page ?
 Got to the LanguagePage, select your language and click on the download all_page link.
 The installation is automatic !
 Files are installed in .../mywiki/underlay directory as expected 
+
+#---------------------------------------------------------------------- 
+# CONFIGURATION
 
 Q: what are the important files ?
 /etc/moin/farmconfig.py  - global configuration files (for all wikis running on this machine )
@@ -55,6 +64,8 @@ In /etc/moin/mywiki.py
 sitename = u'Untiled Wiki'  # Name your wiki
 logo_string = u'<img src="/htdocs/common/lynceantech.png" alt="MoinMoin Logo">'
 #/usr/share/moin/htdocs/common/lynceantech.png
+
+Q: How to add email capabilities?
 
 #----------------------------------------------------------------------
 # ACL
@@ -150,6 +161,23 @@ Q: How to show comments directly without having to click on 'comments' ?
 Q: How to add a comment to a page commit?
 Before clicking on save, enter a comment on the same page.
 Note that comments on that page are checking commments
+
+#---------------------------------------------------------------------- 
+# USER ACCOUNTS
+
+Q: Where are user accounts saved?
+In the /usr/share/moin/wiki/data/user directory
+In that directory each file represents a user.
+In a file are stored all users settings and credentials.
+The pasword is hashed with SHA1.
+If the password is lost, you can overwrite it manually!
+
+Q: does the admin user have a file in /usr/share/moin/wiki/data/user too?
+Yes!
+
+Q: What is the purpose of creating an account?
+To authenticate against the ACL.
+If there is no ACL for a particular page, everyone can edit it!
 
 #----------------------------------------------------------------------
 # USER CUSTOMIZATION
