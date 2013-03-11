@@ -73,40 +73,38 @@ mail_from = u'Wiki Notifier <noreply@lynceantech.com>'
 mail_login = "lynceantech@earthlink.net yasux72d"
 mail_smarthost = "smtpauth.earthlink.net:25"
 
+#---------------------------------------------------------------------- 
+# USER ACCOUNTS
 
-#----------------------------------------------------------------------
-# ACL
+Q: Where are user accounts saved?
+In the /usr/share/moin/wiki/data/user directory
+In that directory each file represents a user.
+In a file are stored all users settings and credentials.
+The pasword is hashed with SHA1.
+If the password is lost, you can overwrite it manually!
 
-Q: Access control right ?
-In the mywiki.py configuration page, configure a super user as follow:
-acl_rights_before = u"EmmanuelMayssat:read,write,delete,revert,admin"
-This means that the user EmmanuelMayssat (login) has all the priviledge including admin  on the site (on every page of the site)
-That is EmmanuelMayssat cannot be locked out!
+Q: does the admin user have a file in /usr/share/moin/wiki/data/user too?
+Yes!
 
-!!! What is the superuser configuration entry ?
+Q: What is the purpose of creating an account?
+To authenticate against the ACL.
+If there is no ACL for a particular page, everyone can edit it!
 
-Now to add acl to a specific page, when editing the page (with admin rights),
-you can add 
-#acl All:read
-and save the page.
-
-Thereafter the page is read only if you are not logged in.
-
-!!! Beware that 'All' start with uppercase A !!!
-
-Q: what are logged in accounts?
-Once logged in, you can 
-    AUTHENTICATION
-    * authenticate against acl.
-    PREFERENCE
-    * receive email notification
-    * change the default theme
-    USER EXPERIENCE
-    * path tracking (Like the back button in the browser, but this time through the application)
-    * quicklinks
+Q: How to create a personal page, aka WikiHomePage?
+Once logged in, click on your name at the very top of the page.
+http://wikifarm/wiki/EmmanuelMayssat
+!!! When creating a WikiHomePage, place a link to CategoryHomepage on the bottom of the page. (It is done in the HomePageTemplate)!!!
 
 #----------------------------------------------------------------------
 # EDIT HELP
+
+Q: How to add a page?
+(1) Go to the non-existing page URL ex: http://wikifarm/wiki/Toto to create the page Toto
+(2) On an existing page, create a link to that page ex: /MySibling or MyNewPage
+
+Q: How to delete a page?
+Go on the page, click on [Action] and select 'Delete Page'
+
 
 Q: How to add an image to a wiki page?
 Add the page as an attachment to the corresponding page
@@ -147,14 +145,6 @@ Table of contents (up to 2nd level headings only):
 == heading 2nd level ==
 === heading 3rd level ===
 
-Q: what are macros ?
-More @ http://moinmo.in/HelpOnMacros
-<<Anchor(anchorname)>> inserts a link anchor anchorname
-<<BR>> inserts a hard line break
-<<FootNote(Note)>> inserts a footnote saying Note
-<<Include(HelpOnMacros/Include)>> inserts the contents of the page HelpOnMacros/Include inline
-<<MailTo(user AT example DOT com)>> obfuscates the email address user@example.com to users not logged in
-
 
 Q: How to add comments to a wiki page?
 {{{#!wiki comment/dotted
@@ -169,27 +159,97 @@ Q: How to add a comment to a page commit?
 Before clicking on save, enter a comment on the same page.
 Note that comments on that page are checking commments
 
+Q: How to create a table and style the cells?
+||<style="background-color:green;">'''CLS On'''||||<style="background-color:blue;">'''CLS Off'''||<style="background-color:red;">'''Install'''||<style="background-color:yellow;">'''Test'''||
+
+Q: Font styling?
+'' italics '' 
+
+#----------------------------------------------------------------------
+# ACL
+
+Q: Access control right ?
+In the mywiki.py configuration page, configure a super user as follow:
+acl_rights_before = u"EmmanuelMayssat:read,write,delete,revert,admin"
+This means that the user EmmanuelMayssat (login) has all the priviledge including admin  on the site (on every page of the site)
+That is EmmanuelMayssat cannot be locked out!
+
+!!! What is the superuser configuration entry ?
+
+Now to add acl to a specific page, when editing the page (with admin rights),
+you can add 
+#acl All:read
+and save the page.
+
+Thereafter the page is read only if you are not logged in.
+
+!!! Beware that 'All' start with uppercase A !!!
+
+Q: what are logged in accounts?
+Once logged in, you can 
+    AUTHENTICATION
+    * authenticate against acl.
+    PREFERENCE
+    * receive email notification
+    * change the default theme
+    USER EXPERIENCE
+    * path tracking (Like the back button in the browser, but this time through the application)
+    * quicklinks
+
 #---------------------------------------------------------------------- 
-# USER ACCOUNTS
+# MACROS
 
-Q: Where are user accounts saved?
-In the /usr/share/moin/wiki/data/user directory
-In that directory each file represents a user.
-In a file are stored all users settings and credentials.
-The pasword is hashed with SHA1.
-If the password is lost, you can overwrite it manually!
+Q: what are macros ?
+Automated generated content, like a table of content
+There are currently 4 types of macros:
+- search macros
+- navigation macros
+- system information macros
+- othes
 
-Q: does the admin user have a file in /usr/share/moin/wiki/data/user too?
-Yes!
+Q: What are examples of macros?
+<<Anchor(anchorname)>>                  - inserts a link anchor anchorname
+<<BR>>                                  - inserts a hard line break
+<<FootNote(Note)>>                      - inserts a footnote saying Note
+<<Include(HelpOnMacros/Include)>>       - inserts the contents of the page HelpOnMacros/Include inline
+<<MailTo(user AT example DOT com)>>     - obfuscates the email address user@example.com to users not logged in
+<<FullSearch(ForEmmanuel -ForName)>>    - list of pages with ForEmmanuel in them
+<<FullSearchCached(category:CategoryCategory)>>
+<<TableOfContents(2)>>                  - Table of content of depth 2
+More @ http://wikifarm/wiki/HelpOnMacros
 
-Q: What is the purpose of creating an account?
-To authenticate against the ACL.
-If there is no ACL for a particular page, everyone can edit it!
+Q: How to create a macro?
+
+#---------------------------------------------------------------------- 
+# TEMPLATE
+
+Q: What are template?
+Templates make it easier for users to add new pages. 
+Instead of requiring that each bit of new information be added by hand, templates have some text and structure already filled in.
+The key is that Variables can be used to insert date, time, creator, pagename, and the like.
+
+Q: How to create template?
+A template page is a MoinMoin page which must be named with an ending fitting the standard template name ending 
+(which defaults to some non-blank characters followed by "Template")
+
+Q: What are variables?
+@PAGE@
+@EMAIL@
+@DATE@
+http://wikifarm/wiki/HelpOnVariables
+!!! You can also create your own variables !!!
+
+Q: How to use a template?
+When creating an empty page, you can create an empty page or select a template to use
+
+Q: CategoryTemplate?
+
 
 #----------------------------------------------------------------------
 # USER CUSTOMIZATION
 
 Q: How to setup email notification?
+Make sure it is enabled by checking the configuration.
 
 Q: How to change the theme?
 Check  
@@ -200,6 +260,13 @@ It is a page that is created in a subdirectory.
 The only particular thing about subpage is how they are accessible 
 
 !!! Several subpage can have the same name (as long as they don't have the same parent !!!
+
+Q: How to (un)subscribe to a page?
+2 ways:
+(1) Go on the page and hit (un)subscribe
+(2) or [Actions] and select (un)subscribe
+!!! Beware the page needs to be edited for a notification to be sent
+!!! Changes of returned values by a macros (i.e. FullSearch macro) do not sent notifications
 
 
 #----------------------------------------------------------------------
@@ -218,11 +285,12 @@ Creating a quick link for the page means that a tab is created and will stay in 
 To create a quicklink for AnotherPage:
 http://moinmoin/wiki/AnotherPage?action=quicklink
 
-Q: Sarch engine ?
+Q: Search engine ?
 http://moinmo.in/HelpOnConfiguration#xapian
 
+
 #----------------------------------------------------------------------
-# CMS
+# DOCUMENT CONTROL
 
 Q: How to revert a page to a previous version?
 Go to page. Click on Info. Select 2 version to diff.
@@ -231,4 +299,14 @@ There is a revert button.
 Q: How to delete/rename a page ?
 Check the More action button!
 
+Q: How to force people to login to edit a page?
+Create an ACL on a template page
+
+Q: What are Category page?
+Example of category pages are: CategoryHomePage, CategoryTemplate
+A category is a WikiName that exploits WikiWiki's reverse linking: 
+If you click on the title of a category page, you'll get a list of pages belonging to that category. 
+To get a list of all categories, click the CategoryCategory title in the navigation area.
+
+Q: How to put a page in a category?
 
