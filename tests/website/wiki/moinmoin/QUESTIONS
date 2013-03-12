@@ -19,14 +19,25 @@ sudo chown -R www-data.www-data mywiki
 sudo chmod -R ug+rwX mywiki
 sudo chmod -R o-rwx mywiki
 
-In /etc/moin/mywiki.py
-* data_dir = '/usr/share/moin/mywiki/data'
-* data_underlay_dir='/usr/share/moin/mywiki/underlay'
+Master configuration file: /etc/moin/farmconfig.py
+Check wikis configuration. The "manuals" entrie points to /etc/moint/manuals.py wiki config file
+!!! URL Match determine configuration file to be used on moin.cgi 
+!!! moin.cgi is found thanks to script alias config in apache2 config
+wikis = [
+    ("mucls", r"http://mucls.lynceantech.com/.*"),   
+    ("mucls", r"http://mucls/.*"),   
+    ("manuals", r"http://manuals.lynceantech.com/.*$"), 
+    ("manuals", r"http://manuals/.*$"),   
+]
+
+In wiki configuration, i.e /etc/moin/manuals.py, we have
+* data_dir = '/usr/share/moin/wikis/manuals/data'
+* data_underlay_dir='/usr/share/moin/wikis/manuals/underlay'
 
 apt-get install apache2
 vi /etc/apache2/sites-available/default
 ### moin
-  ScriptAlias /mywiki "/usr/share/moin/mywiki/moin.cgi"
+  ScriptAlias /wiki "/usr/share/moin/wikis/moin.cgi"        # <-- where to find the script (can be shared between all wikis!)
   alias /moin_static184 "/usr/share/moin/htdocs"
   <Directory /usr/share/moin/htdocs>
   Order allow,deny
@@ -36,23 +47,26 @@ vi /etc/apache2/sites-available/default
 sudo /etc/init.d/apache2 restart
 
 Verification:
-http://localhost/mywiki
+http://localhost/wiki
+http://manuals/wiki
+http://manuals.lynceantech.com/wiki
 
 Q: How to add the help and search engine page ?
-Got to the LanguagePage, select your language and click on the download all_page link.
+Got to the LanguageSetup, select your language and click on the download all_page link.
 The installation is automatic !
-Files are installed in .../mywiki/underlay directory as expected 
+Files are installed in .../wikis/manuals/underlay directory as expected 
+!!! FindPage is created in .../wikis/manuals/data/page
 
 #---------------------------------------------------------------------- 
 # CONFIGURATION
 
 Q: what are the important files ?
 /etc/moin/farmconfig.py  - global configuration files (for all wikis running on this machine )
-/etc/moin/mywiki.py     - wiki specific configuration file (delta from farmconfig.py)
-Note that mywiki.py is read because of the wikis list of tuples in farmconfig.py
+/etc/moin/<mywiki>.py     - wiki specific configuration file (delta from farmconfig.py)
+Note that <mywiki>.py is read because of the wikis list of tuples in farmconfig.py
 
 /usr/share/moin
-    - data      :   directory with wiki content
+    - data      :   content of data directory of a virgin wiki
     - underlay  :   static files that can be overwritten based on the content of data
     - server    :   pick the server type (i.e moin.cgi in our case
 
@@ -66,6 +80,7 @@ logo_string = u'<img src="/htdocs/common/lynceantech.png" alt="MoinMoin Logo">'
 #/usr/share/moin/htdocs/common/lynceantech.png
 
 Q: How to add email capabilities?
+In farmconfig.py or <mywiki>.py config file
 Check connection to server is ok
 telnet smtpauth.earthlink.net 25
 in /etc/moin/mywiki.py configuration
@@ -77,14 +92,17 @@ mail_smarthost = "smtpauth.earthlink.net:25"
 # USER ACCOUNTS
 
 Q: Where are user accounts saved?
-In the /usr/share/moin/wiki/data/user directory
+In the /usr/share/moin/wikis/manuals/data/user directory
 In that directory each file represents a user.
 In a file are stored all users settings and credentials.
 The pasword is hashed with SHA1.
 If the password is lost, you can overwrite it manually!
 
-Q: does the admin user have a file in /usr/share/moin/wiki/data/user too?
+Q: does the admin user have a file in /usr/share/moin/wikis/manuals/data/user too?
 Yes!
+
+Q: Are credentials shared between wikis on the same machine?
+No! You need to create one account per wiki.
 
 Q: What is the purpose of creating an account?
 To authenticate against the ACL.
@@ -94,6 +112,10 @@ Q: How to create a personal page, aka WikiHomePage?
 Once logged in, click on your name at the very top of the page.
 http://wikifarm/wiki/EmmanuelMayssat
 !!! When creating a WikiHomePage, place a link to CategoryHomepage on the bottom of the page. (It is done in the HomePageTemplate)!!!
+
+Q: What are the privileges of superusers?
+* bypass ACL
+* can switch user
 
 #----------------------------------------------------------------------
 # EDIT HELP
@@ -239,6 +261,14 @@ Q: What are variables?
 http://wikifarm/wiki/HelpOnVariables
 !!! You can also create your own variables !!!
 
+Q: Who to create your own variables?
+Create a wiki page Wiki/EmmanuelMayssat/MyDict
+Insert in that page 
+B:: <style="background-color:blue;">
+Now every pages with 
+|| @B@ ||
+will display a blue cell!
+
 Q: How to use a template?
 When creating an empty page, you can create an empty page or select a template to use
 
@@ -284,9 +314,13 @@ Q: What are quicklink?
 Creating a quick link for the page means that a tab is created and will stay in the tab bar until the quick link is disabled.
 To create a quicklink for AnotherPage:
 http://moinmoin/wiki/AnotherPage?action=quicklink
+or when on the page click on [add link]
 
 Q: Search engine ?
 http://moinmo.in/HelpOnConfiguration#xapian
+
+Q: How to find pages that links to a specific page?
+Search: linkto:"MuSchedule"
 
 
 #----------------------------------------------------------------------
