@@ -117,6 +117,17 @@ Q: What are the privileges of superusers?
 * bypass ACL
 * can switch user
 
+Q: what are logged in accounts?
+Once logged in, you can 
+    AUTHENTICATION
+    * authenticate against acl.
+    PREFERENCE
+    * receive email notification
+    * change the default theme
+    USER EXPERIENCE
+    * path tracking (Like the back button in the browser, but this time through the application)
+    * quicklinks
+
 #----------------------------------------------------------------------
 # EDIT HELP
 
@@ -188,35 +199,66 @@ Q: Font styling?
 '' italics '' 
 
 #----------------------------------------------------------------------
-# ACL
+# ACCESS CONTROL RIGHTS (ACL)
 
-Q: Access control right ?
-In the mywiki.py configuration page, configure a super user as follow:
+Q: Access control right and superuser?
+In the /etc/moin/<wiki>.py configuration page, configure a super user as follow:
 acl_rights_before = u"EmmanuelMayssat:read,write,delete,revert,admin"
 This means that the user EmmanuelMayssat (login) has all the priviledge including admin  on the site (on every page of the site)
 That is EmmanuelMayssat cannot be locked out!
+!!! Note that the User account needs to exist and be used
 
-!!! What is the superuser configuration entry ?
-
-Now to add acl to a specific page, when editing the page (with admin rights),
-you can add 
+Q: How to add ACL to a page?
+To add acl to a specific page, when editing the page, you can add 
 #acl All:read
 and save the page.
+Thereafter the page is read only for everyone except the superuser.
+!!! The ACL command should be the top-most line on your wiki page
+!!! Beware that 'All' start with uppercase A
+!!! Attachments are protected by the ACLs of the page they are attached to.
 
-Thereafter the page is read only if you are not logged in.
+Q: What are the rights?
+read    - users will be able to read a page, and download its attachments.
+write   - users will be able to edit (write) a page, and upload attachments.
+delete  - users will be able to delete a page and it's attachments.
+revert  - users will be able to 'revert' a page back to an older revision.
+admin   - users will be able to change the "#acl" line on a page, as well as grant and/or revoke "admin" privileges from others.
 
-!!! Beware that 'All' start with uppercase A !!!
+Q: ACL group?
+User    - where User matches a specific username and triggers only if it matches exactly (including case-sensitivity).
+SomeGroup - where SomeGroup matches a specific group name, which you define (see HelpOnGroups).
+Trusted - a special group containing all authenticated users of a trusted authentication method.
+Known   - a special group containing all logged in users.
+All     - a special group that means "everyone" (both logged in (i.e. Known) and anonymous users).
 
-Q: what are logged in accounts?
-Once logged in, you can 
-    AUTHENTICATION
-    * authenticate against acl.
-    PREFERENCE
-    * receive email notification
-    * change the default theme
-    USER EXPERIENCE
-    * path tracking (Like the back button in the browser, but this time through the application)
-    * quicklinks
+Q: Complex page ACL?
+#acl [+-]User[,SomeGroup,...]:[right[,right,...]] [[+-]OtherUser:...] [[+-]Trusted:...] [[+-]Known:...] [[+-]All:...] [Default]
+!!! +- are filters who add or remove rights but do not stop processing (Additional rights may be granted later)
+!!! Default is a special entry which inserts at the given place the entries from acl_rights_default
+!!! Normally [Default] is read at the end of the ACL defined on the page
+
+Q: Example of ACL filter?
+#acl SomeUser:read,write SomeGroup:read,write,admin All:read
+#acl -SomeUser:admin SomeGroup:read,write,admin All:read
+are equivalent when SomeUser is in SomeGroup
+
+Q: How does ACL processing work?
+The system tries to find the first match for the user and the right.
+First look at the configuration parameter
+* acl_rights_before            - check configuration file (used for administrators)
+* acl defined on the page
+* acl_rights_default           - check configuration file (default ACL on every page)
+* acl_rights_after             - check configuration file (make sure those rights are not foggotten, i.e. read!)
+!!! DEFAULT FOR acl_rights_default = u'Known:read,write,delete,revert All:read,write'
+
+Q: How to create a ACL group?
+A group must end with the prefix Group
+Create a page called AdminGroup, TrustedGroup, ...
+and add an undordered list of users
+More @ http://moinmo.in/HelpOnGroups
+
+
+
 
 #---------------------------------------------------------------------- 
 # MACROS
@@ -264,7 +306,7 @@ http://wikifarm/wiki/HelpOnVariables
 Q: Who to create your own variables?
 Create a wiki page Wiki/EmmanuelMayssat/MyDict
 Insert in that page 
-B:: <style="background-color:blue;">
+ B:: <style="background-color:blue;">               # <-- Don't forget the heading space!
 Now every pages with 
 || @B@ ||
 will display a blue cell!
@@ -297,6 +339,13 @@ Q: How to (un)subscribe to a page?
 (2) or [Actions] and select (un)subscribe
 !!! Beware the page needs to be edited for a notification to be sent
 !!! Changes of returned values by a macros (i.e. FullSearch macro) do not sent notifications
+
+Q: Preferences ?
+Show top/bottom links in heading        - show arrows in page headers to jump up and down !
+Open editor on double click             - double click on page and the editor opens!
+
+Quick links                             - The quick links for this account
+
 
 
 #----------------------------------------------------------------------
