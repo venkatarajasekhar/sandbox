@@ -1,6 +1,18 @@
-Q: Account?
-emayssat@gmail
-Tom...
+Q: Login Credentials for superuser?
+email: emayssat@gmail.com
+passd: Tom...
+!!! This info is accessible from the "Sign In or Create an AWS account" page
+
+Q: Account number?
+770194671265
+!!! This info is acccessible from the "Sign in using our secure server" page
+
+Q: Identity Access Management, IAM log in page?
+username: emmanuel_mayssat
+passd: <Must have been enabled for this account!> Tom...
+https://770194671265.signin.aws.amazon.com/console
+
+
 
 #---------------------------------------------------------------------- 
 # CLOUD 
