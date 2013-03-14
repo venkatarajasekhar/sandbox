@@ -37,6 +37,7 @@ Iteract with a remote GIT repository
 To create a local copy of a remote GIT repository (with history, etc), you need to clone it.
 Function of the open port and GIT server configuration, you can use https or ssh to do so.
 
+    git clone ssh://git@git_aws/home/git/helpedite.git
     git clone ssh://git@github.com:emayssat/sandbox.git     
     git clone https://github.com/emayssat/sandbox.git       
 
