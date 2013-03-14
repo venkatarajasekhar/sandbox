@@ -8,12 +8,24 @@ public key is ~/.ssh/id_rsa.pub
 
 Transfer that public key to remote host
 
-scp -i ~/ssh/git_awskey.pem id_rsa.pub ubuntu@54.243.245.108:~/id_rsa.pub
+scp -i ~/ssh/git_awskey.pem ~/.ssh/id_rsa.pub ubuntu@54.243.245.108:~/id_rsa.pub
 
 REMOTE HOST
 ----------
 
-cp ~/id_rsa.pub >> ~/.ssh/authorized_keys
-chmod 0600 ~/.ssh/authorized_keys
-chmod 0700 ~/.ssh
+ubuntu$ sudo cat ~/id_rsa.pub >> ~git/.ssh/authorized_keys
+ubuntu$ sudo chmod 0600 ~git/.ssh/authorized_keys
+ubuntu$ sudo chmod 0700 ~git/.ssh
+
+CHECK
+----
+git@ip-10-29-206-244:~/.ssh$ ls -la
+total 16
+drwx------ 2 git git 4096 Mar 14 19:18 .
+drwxr-xr-x 6 git git 4096 Dec 28 00:34 ..
+-rw------- 1 git git  414 Mar 14 19:18 authorized_keys
+-rw-r--r-- 1 git git  222 Nov  5 21:05 known_hosts
+
+clseng10$ ssh git@git_aws
+should work without a password!
 
