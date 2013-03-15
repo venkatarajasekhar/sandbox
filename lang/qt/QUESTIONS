@@ -1,0 +1,6 @@
+Q: How to set a stylesheet in designer for q QWIdget?
+background-color:black;
+in the QWidget.stylesheet property
+!!! The designer display should update accordingly
+!!! You can also use a filename
+
