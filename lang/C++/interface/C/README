@@ -1,0 +1,8 @@
+Calling C++ objects from C, even with non-trivial constructors is
+trivial, once you know the trick. The deal is that you need to write a C
+wrapper for your C++ class library which handles the initialization of
+your classes. This wrapper needs to be compiled with extern "C" {} with
+your C++ compiler. your project can then be compiled against the wrapper
+(but not LINKED!). To link, you then run your C++ linker with both your
+C & C++ code, and voila, a runnable program .
+
