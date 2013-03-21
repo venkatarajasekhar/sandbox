@@ -4,3 +4,9 @@ in the QWidget.stylesheet property
 !!! The designer display should update accordingly
 !!! You can also use a filename
 
+Q: Can any property of the widget be altered?
+Yes, by using the 'qproperty' keyword. As such, setting the stylesheet property to
+qproperty-geometry; rect(10 10 100 100);
+would move the widget to position 10,10 and give it a size of 100,100
+
+

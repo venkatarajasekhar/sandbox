@@ -1,1 +1,36 @@
 remove the const-ness !!! 
+
+#---------------------------------------------------------------------- 
+# The mutable Storage Class Specifier
+
+The mutable specifier on a class data member nullifies a const specifier applied 
+to the containing class object and permits modification of the mutable class member 
+even though the rest of the object is const. 
+In other words, a mutable member is always modifiable even if it's a member of a const object:
+
+struct S
+{
+ mutable int x;
+ int y;
+};
+const S s;
+s.x=0; //OK, mutable member in a const object
+s.y=0; //error, y is a member of a const object
+
+The mutable specifier can be applied only to names of class data members 
+and cannot be applied to names declared const or static, 
+neither can it be applied to reference members. For example
+
+class C 
+{
+ mutable const int* p;      // OK, the pointer is mutable, int is const
+ mutable int* const q;      // ill-formed
+ mutable int &r;            // error, references cannot be mutable 
+
+};
+
+In the declaration of the member p, the mutable specifier applies to the pointer, 
+whereas const applies to the int to which the pointer is bound. 
+By contrast, the declaration of q is invalid because the pointer itself is declared const and mutable. 
+
+Similarly, the declaration of the reference variable r is invalid because a reference variable cannot be mutable.
