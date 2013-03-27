@@ -63,7 +63,7 @@ When the main exits.
 !!! A call to exit runs only the static and global destructor (not the automatic variable)
 
 Q: What are initializers?
-Initializers used in constructors
+Initializers used in constructors (and copy constructors)
 MyClass::MyClass(int c, int i)
     : count (c), increment (i)
 {
@@ -102,6 +102,7 @@ In a constant member function (where the object cannot be modified)
 
 Q: How do you implement cascaded function calls?
 Each function call should return a reference to this (return *this)
+ex: obj->f1()->f2()->f3()
 
 Q: What is a virtual function?
 A virtual function or virtual method is a function or method whose behavior can be 
@@ -130,7 +131,7 @@ That private data would normally appear in the include file (even so it is not i
 Q: What is operator overloading?
 C++ does NOT allow new operators to be created, 
 but it does allow most existing operators to be overloaded so that,
-when they are used with objects, they have a meaning appropriate to those objecs.
+when they are used with objects, they have a meaning appropriate to those objects.
 ==> use a non-static member function
 
 Q: What is function overloading?
@@ -200,7 +201,7 @@ When the name of the data member can change (but the mutator and accessor won't!
 
 Q: In a class interface, can a function be protected?
 Private functions are utility/helper function.
-If you want that fucntion to be accessible from the derived class, then ...
+If you want that function to be accessible from the derived class, then ...
 ??? IS THAT TRUE ???
 ==> no getter or setter possible for private function!
 
@@ -263,7 +264,7 @@ we need to be more specific before we can think of instantiating objects
 (Are used as base-class in inheritance hierarchy)
 They are the opposite of concrete classes!
 ex: 2-d shape class
-if draw is called, which shape should you draw? round? quare? triangle? You can't!
+if draw is called, which shape should you draw? a round, a square, a triangle? You can't!
 
 Abstract classes, although optional, are found  at the top of the class hierarchy.
 A class is abstract if one of this member function is pure virtual (see below)
@@ -284,7 +285,7 @@ The "=0" is a pure specifier!
 It means the function has no implementation, but the code can still call it and compile!
 
 Q: What is the difference between a virtual and pure virtual function?
-pure virtual: the base class doesn't provide an implementation, the CONCRETE derived class MUST override all the virtual function of the abstract class
+Pure virtual: the base class doesn't provide an implementation, the CONCRETE derived class MUST override all the virtual function of the abstract class
 ex: class 2dShape: virtual void draw() const =0
 virtual: the base class provide an implementation
 ex: class 2dshape: virtual void getName() const
@@ -297,15 +298,15 @@ Three levels of Pointers to implement polymorphism.
 3/ vtable has a pointer on the function
 
 Q: What is a virtual destructor?
-A desctructor that can be used when polymorphism is used.
+A destructor that can be used when polymorphism is used.
 !!! Note that the base-class destructor and derived-class destructor do not have the same name !!!
-Detruction is done explicitly with the 'delete' command
+Destruction is done explicitly with the 'delete' command
 
 Q: If destructor can be virtual, can constructor be virtual?
 No!
 
 Q: Can a function template be overloaded by providing a nontemplate functions?
-Yes! the pre-compiler looks for an explicit function, then try to build it with the available templates
+Yes! The pre-compiler looks for an explicit function, then try to build it with the available templates
 
 Q: What are template class?
 ex: vector<int> myvector(4)         <-- vector of 4 * int
