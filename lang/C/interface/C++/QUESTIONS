@@ -1,3 +1,4 @@
+Q; High level view of the interface?
 Calling C++ objects from C, even with non-trivial constructors is
 trivial, once you know the trick. The deal is that you need to write a C
 wrapper for your C++ class library which handles the initialization of
@@ -5,4 +6,44 @@ your classes. This wrapper needs to be compiled with extern "C" {} with
 your C++ compiler. your project can then be compiled against the wrapper
 (but not LINKED!). To link, you then run your C++ linker with both your
 C & C++ code, and voila, a runnable program .
+
+Q: How to do that cleanly in the code?
+1/ In practice, there should be a 'non-mangled function' header file (ex iocshFunc.h) with:
+#ifndef IOCSH_FUNC_H
+#define IOCSH_FUNC_H
+
+#ifdef __cplusplus
+extern "C"                                                              <-- Make C++ wrapper accessible from C
+{
+#endif
+int asynPortDriverDevice_asynPortConfiguration(const char *portName, int maxPoints);
+#ifdef __cplusplus
+}
+#endif
+
+#endif
+
+2/ where the wrapper function is defined in a C++/cpp file                      <-- Define C++ wrapper function
+#include "iocshFunc.h"
+extern "C"
+int asynPortDriverDevice_asynPortConfiguration(const char *portName, int maxPoints)
+{
+    <C++ code goes here !>
+}
+is defined
+
+3/ Finally, the C code refers to:
+#include <stddef.h>
+#include <stdlib.h>
+#include <stddef.h>
+#include <string.h>
+#include <stdio.h>
+#include "iocshFunc.h"
+int main(int argc, char *argv[])
+{
+    asynPortDriverDevice_asynPortConfiguration("ASYN_PORT", 1000);      <-- use C++ wrapper in C code!
+    return(0);
+}
+
+
 

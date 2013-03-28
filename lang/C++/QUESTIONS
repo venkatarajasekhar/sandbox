@@ -188,6 +188,7 @@ It comes into play with inheritance.
 Indeed, a derived class cannot access private members of its base class!    <-- WHAOO !!!
 To allow a derived class to access non-public members, that member needs to be declared as protected!
 An alternative is to use getters and setters (mutator and accessor) for every private data. (but beware of overhead due to function calls)
+!!! Function are either private or public, but not protected. Is that true?
 
 Q: when is protected data member an issue? What is the purpose of mutators and accessor (getter and setter)?
 VALIDATION !
