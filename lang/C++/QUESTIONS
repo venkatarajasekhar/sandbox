@@ -93,9 +93,14 @@ Q: What is 'this'?
 Every object has access to its own address through a pointer called this!
 'this' is a pointer, but is not part of the object itself!
 'this' is a const pointer on a non-constant object (itself!)
+ex: 
+this->privateDataArray[i]
+!!! 'this' is not used to access other member functions in a member function, 
+!!! WRONG In member function, this->setTime(h,m,s) wiht setTime another member function is WRONG !!!
 
 Q: Who provides the value for 'this'?
 The compiler does. The compiles pass the pointer this as a parameter to every member function, except STATIC ones.
+!!! this doesn't need to be listed as a parameter (as is the case for self in python!)
 
 Q: In which case is 'this' a 'const Object * const' ?
 In a constant member function (where the object cannot be modified)
