@@ -1,3 +1,8 @@
+Q: What is using the extern command?
+extern "C" <function_protype> are C wrapper for C++ 
+
+!!! I believe you can have extern "C++" function. If so what is there purpose?
+
 Name mangling is not desirable when linking C modules with libraries or object files compiled with a C++ compiler. 
 To prevent the C++ compiler from mangling the name of a function, 
 you can apply the extern "C" linkage specifier to the declaration or declarations, 
