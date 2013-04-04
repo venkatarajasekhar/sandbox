@@ -1,0 +1,12 @@
+Q: ntpdate?
+ntpdate is used to set the date of the locale computer using ntp
+ntpdate does not use ntp.conf -- that file is used by ntpd.
+
+ntpdate 0.us.pool.ntp.org
+
+If it says the ntp socket is already in use then turn off ntpd before running ntpdate.
+
+Q: ntpd?
+use ntp.conf
+service ntpd status
+chkconfig ntpd on
