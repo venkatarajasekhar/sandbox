@@ -283,12 +283,21 @@ Q: What are pure virtual function?
 A class is made abstract by declaring one or more of its virtual functions to be "pure"
 A pure virtual function is specified by placing "=0" in its declaration, as in
 virtual void draw() const =0;       // pure virtual function
+Typically pure virtual functions are declared in 'interfaces'
+!!! An object can ONLY be instantiated from a class with no pure virtual functions
+!!! Pure virtual functions MUST to be overwritten in a sub class before it can be instantiated
 !!! Pure virtual functions can be called ever so there is no implementation
 !!! Pure virtual functions compile even so there is no code.
 
 Q: What is a pure specifier?
 The "=0" is a pure specifier!
 It means the function has no implementation, but the code can still call it and compile!
+
+Q: What is the difference between a stub function and a pure virtual function?
+A stub function is a function with minimum implementation (i.e return an error code)
+Stub functions can be inherited and do not need to be reimplemented before the sub class can be instantiated.
+(Often this is because it is not used in our case)
+A pure virtual function MUST be implemented in the sub class regardless whether it is used or not.
 
 Q: What is the difference between a virtual and pure virtual function?
 Pure virtual: the base class doesn't provide an implementation, the CONCRETE derived class MUST override all the virtual function of the abstract class
