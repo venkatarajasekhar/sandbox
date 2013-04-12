@@ -21,6 +21,9 @@ zw                      - remove word from dictionary
 ]s                      - go to next misspelled word
 [s                      - go to previous misspelled word
 
+set nospell             - disable spell check (and colors)
+syntax off              - disable code coloring
+
 
 #----------------------------------------------------------------------
 # MULTI WINDOWS
