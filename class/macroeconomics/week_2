@@ -1,0 +1,68 @@
+price ~ social value (equality valid in short term)
+nominal GDP = quantities * price
+
+Q: If nominal GDP drops is it because price drops or quantities drops?
+==> Use real GDP
+
+!!! A real GDP requires a base period for base prices
+--> prices are inflation adjusted
+--> remove the effect of price changes
+
+A CHANGE IN REAL GDP REFLECT A CHANGE IN QUANTITY
+!!! The base period used should be 'close' to all the years that are included in the real GDP
+!!! It is so because price ~ social value (in short, medium term)
+
+PRODUCTION = EXPENDITURE = INCOME = GDP
+
+#---------------------------------------------------------------------- 
+# GDP and HAPPINESS
+
+Q: Does GDP tell us about social welfare?
+Q: is growing the output of a country making people happier?
+!!! Rising income doesn't lead to rising income !!!
+--> economists are focusing on the wrong thing
+
+Quality of healthcare is higher in countries with higher GDP
+
+Feel good = money + do what is right !
+Happiness and pyramid of maslow --> redistribution to the poorest increase happiness
+
+#---------------------------------------------------------------------- 
+# LONG-RUN ECONOMIC GROWTH
+
+real GDP / capita between 1870 and 2010 
+==> exponential growth !
+
+Yt = Yo.(1+alpha)^t         <-- Yo = GDP at base year, t is # of years since base year
+                            <-- alpha ~ 0.02 for USA
+
+!!! Long Run forces : deep structural aspect of the economy affect growth (i.e. technology, demographics, etc)
+
+real GDP / capita 
+    = Y / population
+    = Y / labor force       *   labor force / population
+    = real GDP / worker     *   proportion of population working
+    = average productivity  *   participation rate
+        
+
+
+Firm =
+    = labour + capital                                                      <-- primary factors of production
+    + technology (level of technology) + skills of workers + climate ....   <-- secondary factor of production
+    + level of corruption + access to capital + number of computers per office ... <-- more secondary factors
+
+!!! capital = plant and equipment (must be tangible)
+!!! secondary factor of production = anything that affect production, but the primary factors of production
+
+= PRODUCTION FUNCTION =
+CRS =   Constant Returns to Scale
+    =   If you scale capital (K) and labor (L) by same factor you * output per same factor
+                <-- secondary factors of production are kept constant
+
+Diminishing return on marginal of capital or labor
+
+y = A.f(k,l)    
+    - real variables are lowercase (macroeconomics convention)
+    - A represents secondary factors of production (anything that affect production outside of k and l)
+    !!! 2 firms with same k and l different in amount of output due to A
+

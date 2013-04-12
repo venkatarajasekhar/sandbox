@@ -1,0 +1,3 @@
+To make a variable only accessible from the file
+use 
+static
