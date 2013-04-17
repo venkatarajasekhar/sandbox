@@ -45,13 +45,13 @@ real GDP / capita
     = average productivity  *   participation rate
         
 
-
+FIRM = exist to bring together factors of production to generate an output (black box model!)
 Firm =
     = labour + capital                                                      <-- primary factors of production
     + technology (level of technology) + skills of workers + climate ....   <-- secondary factor of production
     + level of corruption + access to capital + number of computers per office ... <-- more secondary factors
 
-!!! capital = plant and equipment (must be tangible)
+!!! capital = plant and equipment (must be tangible infrastructure)    
 !!! secondary factor of production = anything that affect production, but the primary factors of production
 
 = PRODUCTION FUNCTION =
@@ -65,4 +65,5 @@ y = A.f(k,l)
     - real variables are lowercase (macroeconomics convention)
     - A represents secondary factors of production (anything that affect production outside of k and l)
     !!! 2 firms with same k and l different in amount of output due to A
+
 

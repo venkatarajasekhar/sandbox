@@ -69,9 +69,9 @@ FLOW variables explain changes in STOCK variables
 
 Q: What does economic activity mean?
 One of the following representation
-(A) Production: flow of goofs and services produced in an economy over a period
-(B) Expenditure: the flow of spending undertaken in the economy over a period
-(C) Income: The flow of income earned in an economy over a period
+(A) Production:     The flow of goods and services produced in an economy over a period
+(B) Expenditure:    The flow of spending undertaken in the economy over a period
+(C) Income:         The flow of income earned in an economy over a period
 !!! They are all the same and will lead to the same results
 
 Q: How to measure economic activity as a flow of production?
@@ -79,14 +79,19 @@ raw material
 --(firm1: labour, capital)--> intermediate good 
 --(firm2: labor + capital)--> final good                    <-- final good is bought by consumer
 with
-!!! capital: plant, equipment, computer, ... physical tangible asset
+!!! Capital: plant, equipment, computer, ... ~ physical tangible assets
 ==> only look at the final goods value of sale to compute GDP (otherwise double counting)
 OR look at VALUE ADDED from each stage
 GDP = SUM OF VALUE ADDED (ie expected price of sale)
 !!! Need to be SOLD, not just built ? No, unsold inventory must be included!
+!!! Unsold inventory is expected to be sold at a later date !
 
 Q: What about expenditure?
-expenditure 
+GDP can be considered a measure of expenditure on goods and services in a home economy.
+!!! Simplification of model, assume:
+        - FIRMS = the only sector that engages in investment
+        - HOUSEHOLDS = the only sector that purchases imports 
+Expenditure 
     = Expenditure on final goods and services to meet IMMEDIATE needs (i.e consumption)
         =
         + households (consumption expenditure on non durable goods) [domestics and imports]
@@ -103,18 +108,16 @@ expenditure
 GDP = expenditure on final goods or services(ie price bought)
  
 Y =                                         <-- EXPENDITURE FORMULA
-    + sold domestically 
-        + Cd                                <-- household consumption (domestic)
+    + sold domestically                     <-- domestic sources of expenditure
+        + Cd                                <-- household consumption (on domestic goods and services)
         + G                                 <-- government expenditure
-        + I                                 <-- firm investment
-    + sold to other country as exports
+        + I                                 <-- firm investment/expenditure (inventory, ...)
+    + sold to other country as exports      <-- other country expenditure
         + X                                 <-- net exports? No EXPORTS
 
-!!! Simplification of model, assume:
-        - FIRMS = the only sector that engages in investment
-        - HOUSEHOLDS = the only sector that purchases imports 
 
-Q: GDP a measure of income?
+#--- GDP as a measure of income?
+
 Firm produce and sell its production
     + sale receipts of firm 
         + wages
@@ -135,7 +138,7 @@ Government
     - govenment expenditure 
     + government saving
 Y = business saving + household income + business tax payments
-!!! view as FIRMS is the source of income (which is distributed to households and government)
+!!! view FIRMS as the source of income which is partially distributed to households and government
 
 Y =                                             <-- income equation
     + Sb            <-- retained earnings
@@ -145,12 +148,9 @@ Y =                                             <-- income equation
     + T             <-- total households + firms taxes
 !!! Household interest payments?
 
+#--- National Accounting
 
-Q: If I buy a house and resell it with a plus value, is this additional plus value added to GDP?
-(assume nothing in the house has changed as I sell it the next day )
-
-
-Y = value of production over a perdio or GDP
+Y = value of production over a period or GDP
 
 
 Q: What isn't an expenditure included in the national income accounting identity?
@@ -163,15 +163,35 @@ so there is no direct exchange of goods and services.
 
 I =                     <-- investment undertaken by firms
     + ( T - G)          <-- budget surplus/deficit, i.e government saving
-    + S                 <-- total saving
-    + ( M -X )
+    + S                 <-- total saving (Sb + Sc )
+    + ( M -X )          <-- IMPORT - EXPORT
 
 !!! National Saving NS = (T -G ) + S            <-- saving of private (Sh + Sb) and public sectors
 ==> I - NS = ( M - X) 
 
 
 Gap between imports and exports
-=> goods manufactured by USA are not attractive to the world?   
+==> goods manufactured by USA are not attractive to the world?   
 ==> Why is there such a difference between NS and I ?
+
+#-----------------------------------------------------------------------
+# Q&A 
+
+Q: Why isn't transfer payment not included in the national income accounting identity?
+Transfer payments relate to the re-distribution of income in an economy (ie, social welfare) 
+so there is no direct exchange of goods and services. ==> simple REDISTRIBUTION
+
+
+
+Q: If I buy a house and resell it with a plus value, is this additional plus value added to GDP?
+(assume nothing in the house has changed as I sell it the next day)
+No! There is no value creation. This is just a transfer of money!
+
+Q: If a newly built house is sold does it add to GDP?
+Yes!
+
+Q: If the house is built and ... never sold?
+Yes, added to GDP!                          <-- Chinese economy circa 20113 !
+But may need to be written down later       <-- GDP correction 
 
 
