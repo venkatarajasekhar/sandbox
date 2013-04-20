@@ -54,16 +54,36 @@ Firm =
 !!! capital = plant and equipment (must be tangible infrastructure)    
 !!! secondary factor of production = anything that affect production, but the primary factors of production
 
-= PRODUCTION FUNCTION =
+== PRODUCTION FUNCTION ==
+
 CRS =   Constant Returns to Scale
     =   If you scale capital (K) and labor (L) by same factor you * output per same factor
+        (i.e if you double amount of capital and labor, output doubles)
                 <-- secondary factors of production are kept constant
+!!! Look at diagonal, should increase linearily
+    
+Diminishing marginal productivity of capital (k) 
+    = smaller and smaller increase in the output as we increase k (holding labor and everything else constant)
 
-Diminishing return on marginal of capital or labor
+Diminishing marginal productivity of labor (l) 
+    = smaller and smaller increase in the output as we increase l (holding capital and everything else constant)
 
-y = A.f(k,l)    
+y = A.f(k,l)                <-- k is capital, l is labor 
     - real variables are lowercase (macroeconomics convention)
+    - A is called the TFP or Total Factor Productivity
     - A represents secondary factors of production (anything that affect production outside of k and l)
+        ( A includes available technology, managerial nous, level of corruption, etc)
     !!! 2 firms with same k and l different in amount of output due to A
+    !!! The higher output for the same k and l, the higher the A
+    !!! A doesn't include 'number of computers per office' as is a capital factor of production.
+
+(Last video on production function)
+Model: 3d surface A.f(k,l) is simplified by 2d-projection: 
+
+y=f(k) With labor (l) and A fixed 
+    - starts at (0,0)
+    - derivative at 0 is large (+oo?)
+    - clearly shows diminishing marginal productivity (derivative drops to 0)
+    ==> curved shape 
 
 
