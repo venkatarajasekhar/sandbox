@@ -1,0 +1,149 @@
+Long-Run Economic Growth
+
+Path to economic growth is different for different economies
+
+!!! Energing countries growth due to capital is not sustainable long term, 
+!!! while TFP can  !!!
+
+= Evidence - Growth accounting =
+Look at the growth history
+
+Y = A*K^alpha*L^(1-alpha)       <-- very special equation (Cobb-Douglas production function)
+                                <-- K is capital, L is labor, A is total factor of production
+                                <-- alpha is just a number with value between 0 and 1 (eg alpha = 0.25) 
+!!! alpha to replicate what we see in the real world
+
+!!! They are a lot of others production function that can be used, but this one is very practical as we will see later!
+
+1/ Consistent with diminishing marginal productivity (will trend to a plateau)
+2/ Consistent with return to scale, CRS
+    - K = 1 , L = 1 ==> output = X
+    - K = 2 , L = 2 ==> output = 2 * X
+    - K = 3 , L = 3 ==> output = 3 * X
+
+
+#-----------------------------------------------------------------------
+LONG-RUN ECONOMIC GROWTH
+--> Different path to increase GDP/capita
+1/ Increase capital 
+2/ Increase A
+
+= Solow-Swan neo-classical growth model =
+Remarkable because of simplicity
+Build on previous concept
+Lead to a surprising prediction:
+    - unless there is ongoing growth in TFP, growth in real per capita income will come to a stop
+    - short term effect of capital/labor
+==> put the focus on total factor of productivity (A)
+
+!!! Confirm what has happened in the last 100 year of macro economics data
+
+y/l = A f(k/l)
+    - y/l is real per capita income
+    - k/l is capital -labor ratio
+
+Model 
+    - For simplicity assume that everyone works   ==> y/l = average productivity (l is entire population)
+    - Diminishing marginal productivity
+    - 
+
+Q: What happens overtime to the capital-labor ratio?
+If population growth ==> l increases => k/l falls (all else being constant)
+Depreciation (capital wear out because of use) => k falls => k/l fall
+i.e
+Over time, population growth increases the labor force, 
+whilst depreciation decreases the capital stock, 
+causing the capital-labor ratio to have a natural tendency to fall
+
+= Investments =
+Replacement investment (RI): 
+    - keeps capital-labor ratio constant by exactly offsetting the effects of population growth and depreciation
+    example
+    If n = 0.01 or 1% and d = 0.05 or 5%
+    => k/l becomes at the next time period  94% original k/l 
+    => RI/l ~ (d+n)*k/l                                                 <-- can be plotted on the solow swan diagram
+    !!! The higher d or n, the higher is the replacement investment
+    !!! for a given d and n, the higher the RI, the higher the k/l
+
+Net investment (NI): 
+    - any investment that is > to RI
+
+Total gross investment
+    = net investment + replacement investment
+
+
+
+Saving rate
+s / l = theta * y/l                                                             <-- savinf ratio * income per capita
+    - can be plotted on the same plot as y/l = A.f(k/l), the production function 
+    - theta = proportion of income that is saved                                <-- saving ratio !
+    - saving is the source of money for investments
+    - saving frees up resources that can then be used for investment
+    - saving frees up resources that are not immediately used
+    !!! Saving = resource available for investment
+
+i / l = s / l  = theta * y/l = ( d + n) * k/l + delta * k/l = ri / l + ni / l
+    - i is (real) total gross investment
+    - delta is % change in the capital-labor ratio (k/l) over the period
+
+
+( Next video ) 
+
+= STEADING STATE = 
+
+On the solow swan diagram, you can plot
+    - y/l   =   A.f(k/l)                    <-- convex curve due to DMP
+    - ri/l  =   (n+d).k/l                   <-- line that starts at (0,0)
+    - s/l   =   ...                         <-- convex curve as based on y/l
+
+Steady state is 
+    - when there is no change in the k/l ratio, i.e
+    - or again s/l = ri/l                   <-- no net investment
+    - or there is no economic growth
+
+If economy is not at steady state,
+    - k/l >> k/l steady state ==> we can't offset ri/l with saving  ==> k/l ratio falls
+    - k/l << k/l steady state ==> net investment is > 0 ==> net investment growths the k/l ratio           <-- economic growth scenario
+    ==> either way the economy goes to steady state
+
+!!! economics growth = economy moves toward steady state                        <-- important message here !
+
+Q: Why isn't the US reaching their steady state?
+This model shows that if nothing changes then there is a steady state (with no growth)
+reasons:
+    - what if increase in saving ratio (theta) ?
+    - what about creativity?
+    - what about debt level? (decrease in saving rate?)
+
+Q: If you increase the saving rate, then per capita income (y/l) increases?
+Yes, but does not increase forever
+!!! There are limits to the saving rate (you need to fulfill current needs and cannot be > to y/l)
+*** !!! But if saving increases, doesn't consumption decrease? ie economics crisis instead of increase?     <-- saving is INVESTED not just seating in a bank account!
+
+( Next video )
+
+Steady state point ( k/l*, y*)
+    - acts as an attractor
+    - no growth in per capita income (y/l) in the steady state
+    - growth in y/l ==> growing to steady-state
+
+
+Q: How can we explain continuous growth in the US?
+Look for forces that are shifting A* to the right
+--> growth towards a moving target ?
+Possibly due to total factor of productivity (A) growth ( y/l = A.f(k/l) ) 
+--> If production function increase, so does the saving curve (since theta * y/l) 
+==> INCREASE IN TOTAL FACTOR OF PRODUCTIVITY (A) LEADS TO CONTINUOUS AND SUSTAINED LONG RUN ECONOMIC GROWTH
+
+Growth in TFP leads to an outward shift of the production function by definition. 
+Since the savings function is proportional to output, it also shifts outward. 
+This creates a new higher steady-state point, and a situation of excess saving and investment above the replacement level required. 
+The additional investment increases the capital-labour ratio, resulting in increasing output per capita and hence economic growth.
+
+Q: What is TFP (A)?
+Economists often equate total factor productivity to technology. This can be somewhat misleading. Total factor productivity cannot be measured directly. It may change when tangible technology, such as computers, develops or improves but also changes when new ideas, such as a new manufacturing processes or managerial systems, are conceived. A more accurate way of describing total factor productivity is as the Solow residual. The Solow residual refers to the growth that is not accounted for by known factors, namely increases in labor and capital. In a word, total factor productivity represents growth that occurs due to factors that are not precisely known.
+Therefore, most of economic growth is caused by increases in total factor productivity, and increases in total factor productivity cannot be measured or precisely explained. The implication is clear and broadly pessimistic. Economist theorists do not really know what causes economies to grow at the rates they do, and economic policy makers do not really know how to make economies grow faster.
+Various economists have attempted to expand on the Solow model. For example, the Romer model explains total factor productivity growth endogenously as a function of the fraction of the population devoted to research and development, and the productivity of research and development (which is essentially the productivity of productivity) and the size of the population. All of these appendages, however, produce anomalies and are not particularly compelling.
+Considering the tremendous importance of growth rates, it is perturbing that there exist few satisfactory and conclusive answers. It is worth noting that the rampant economic growth enjoyed by the United States and much of the world in the past half-century is the exception rather the rule relative to historic growth rates. There is nothing to guarantee that the American economy will continue to grow faster or even as fast as it has in the past. Whether the economy grows two or three percent this year may seem trivial. Whether it grows two or thee percent next year may also seem trivial. But so does a grain of rice. Even two grains of rice.
+
+*** Q: Is there not a maximum (or a slow down) for the growth of TFP (A) ???

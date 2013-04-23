@@ -2,6 +2,8 @@ price ~ social value (equality valid in short term)
 nominal GDP = quantities * price
 
 Q: If nominal GDP drops is it because price drops or quantities drops?
+The problem with nominal GDP is that it disguises which variable, price or quantity, 
+the driving factor behind the change in GDP.
 ==> Use real GDP
 
 !!! A real GDP requires a base period for base prices
@@ -29,6 +31,8 @@ Happiness and pyramid of maslow --> redistribution to the poorest increase happi
 
 #---------------------------------------------------------------------- 
 # LONG-RUN ECONOMIC GROWTH
+
+!!! Long-run economic growth refers to any period of time from decades, to 40-50 years, 100 y, all the above!
 
 real GDP / capita between 1870 and 2010 
 ==> exponential growth !
@@ -61,6 +65,12 @@ CRS =   Constant Returns to Scale
         (i.e if you double amount of capital and labor, output doubles)
                 <-- secondary factors of production are kept constant
 !!! Look at diagonal, should increase linearily
+    - k = 1 , l = 1 ==> output = x 
+    - k = 2 , l = 2 ==> output = 2 * x 
+    - k = 3 , l = 3 ==> output = 3 * x 
+
+
+!!! If an economy is characterised with INCREASING Returns to Scale; then if both capital and labour increase by a factor of 3, what do we expect output to increase by?  A factor of more than 3
     
 Diminishing marginal productivity of capital (k) 
     = smaller and smaller increase in the output as we increase k (holding labor and everything else constant)
@@ -68,7 +78,12 @@ Diminishing marginal productivity of capital (k)
 Diminishing marginal productivity of labor (l) 
     = smaller and smaller increase in the output as we increase l (holding capital and everything else constant)
 
+!!! CRS and Diminishing marginal productivity are not mutually exclusive
+!!! In CRS, you change both the capital and labor, while in DMP you change only one of them.
+
+
 y = A.f(k,l)                <-- k is capital, l is labor 
+    - this function is the production function
     - real variables are lowercase (macroeconomics convention)
     - A is called the TFP or Total Factor Productivity
     - A represents secondary factors of production (anything that affect production outside of k and l)
@@ -80,10 +95,33 @@ y = A.f(k,l)                <-- k is capital, l is labor
 (Last video on production function)
 Model: 3d surface A.f(k,l) is simplified by 2d-projection: 
 
-y=f(k) With labor (l) and A fixed 
+y=f(k) With labor (l) and total factor productivity (A) fixed 
     - starts at (0,0)
     - derivative at 0 is large (+oo?)
     - clearly shows diminishing marginal productivity (derivative drops to 0)
     ==> curved shape 
+    !!! If total factor productivity (A) improve, output increase (final plateau increase)
 
+Same plot but with per capita. Eg y/l = f(k/l)
+    - assume everybody in the population works
+    - y/l is output per worker/capita       <-- per capita income, average productivity
+    - k/l is capital labor ratio            <-- capital available for people when show up for work
+    ==> increases in  k/l results in increases of y/l
+    !!! If total factor productivity (A) improve, output increase (final plateau increase)
 
+!!! Close to (0,0), this is an emerging country
+!!! Close to (+oo, plateau), this is a mature economy
+==> Diminishing marginal productivity of capital tell us that more capital for a developed economy doesn't help that much 
+==> Improving the total factor of productivity (A), leads to a larger increase for DEVELOPED ECONOMIES compared to emerging ones
+==> What needs to be done to fix an economy is function of its development stage
+
+1/ boost access to capital, increase capital stocks ( increase capital / labor ratio )
+2/ improvement of infrastructure and secondary factors of production 
+
+Emerging economies with shorter histories of economic growth tend to be located closer to the origin in a model of two-dimensional per capita production. 
+At these points, the gradient of the production function curve is relatively steep, 
+and changes to the capital-labour ratio result in relatively large changes to per capita output.
+
+!!! You cannot say anything about the Constant Return of Scale (CRS) but looking at the 2d projection ?
+!!! For CRS, you need to change capital and labor at the same time but the same factor
+!!! ??? For K/L = 1, ... ??? 
