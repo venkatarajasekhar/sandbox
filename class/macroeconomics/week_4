@@ -1,0 +1,65 @@
+== BUSINESS CYCLE ==
+
+projection < 5 years                <-- Not like Long Run
+
+Why do we get recession?
+Recession = Fall of GDP             <-- change from long run trajectory
+Unemployment rate increase RAPIDLY during recession
+
+Q: Link between GDP, inflation, and unemployment in the short run?
+
+#-----------------------------------------------------------------------
+CLASSICAL BUSINESS CYCLE
+
+CLASSICAL ==> regular sequence of events
+    - Peak                          <-- maximum in the short run
+    - Trough                        <-- (Trouf)
+    - Peak
+
+    Contraction = period between Peak and Trough
+    Expansion   = period between Trough and Peak
+
+!!! Expansion length > Contraction length?
+!!! Continuous growth --> growth in GDP during expansion > losses in GDP during contraction
+
+= Okun's Law = 
+How costly is an economic contraction?
+Could contraction be shortened or even eliminated?
+
+RECESSION + EXPANSION are variations around the (growing) GDP trends 
+Growth economics 
+    - expansion? = GDP trends above real and observed GDP growth
+    - contraction? = 
+
+POTENTIAL GDP
+    = y *
+    - The flow of output (GDP) produced over a particular time period when productive resources (labor and capital) are being used at their "normal rates"
+    - !!! GDP when there is no under-utilisation of resources AND no over-utilisation of resources 
+
+UNEMPLOYMENT
+    - different types of unemployment have different implication for the economy
+        - frictional unemployment                       <-- always there
+            - new graduate entry in labor force
+            - switch between job
+        - structural unemployment                       <-- always there
+            - mismatch between skills of unemployed and skills required by companies
+        - cyclical unemployment
+            - due to business cycle
+    !!! Natural rate of unemployment u* = frictional + structural unemployment + 0
+    !!! Natural rate of unemployment u* = unemployment when cyclical unemployment = 0
+    If u > u* ==> cyclical unemployment >0 
+    If u < u* ==> cyclical unemployment <0          <-- overheating economy (lots of overtime, work on weekend, company hire people who do not fit exactly but who can contribute)
+
+
+OUTPUT GAP
+    = 100 . (y -y*)/ y*
+    - If the output gap < 0 ==(GDP below potential GDP)==> contractionary output gap
+    - If the output gap > 0 ==(GDP above potential GDP)==> contractionary output gap
+
+OKUN's LAW                                                  <-- Empirical relationship
+    Output GAP = - Beta . (u - u*)                  
+        - Note the minus sign before Beta
+        - (u - u*) is cyclical unemployment
+        - Beta is function of the country (most often 1.5))
+        - Beta for the same country can change overtime 
+    
