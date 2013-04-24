@@ -34,7 +34,8 @@ Growth economics
 POTENTIAL GDP
     = y *
     - The flow of output (GDP) produced over a particular time period when productive resources (labor and capital) are being used at their "normal rates"
-    - !!! GDP when there is no under-utilisation of resources AND no over-utilisation of resources 
+    !!! GDP when there is no under-utilisation of resources AND no over-utilisation of resources 
+    !!! Potential gap is difficult to measure because not observable
 
 UNEMPLOYMENT
     - different types of unemployment have different implication for the economy
@@ -50,16 +51,23 @@ UNEMPLOYMENT
     If u > u* ==> cyclical unemployment >0 
     If u < u* ==> cyclical unemployment <0          <-- overheating economy (lots of overtime, work on weekend, company hire people who do not fit exactly but who can contribute)
 
+    !!! Natural rate of unemployment is difficult to measure, because is not observable!
+    !!! Use 4.5% for the US                         <-- May change overtime ?
+
 
 OUTPUT GAP
     = 100 . (y -y*)/ y*
     - If the output gap < 0 ==(GDP below potential GDP)==> contractionary output gap
     - If the output gap > 0 ==(GDP above potential GDP)==> contractionary output gap
+    !!! Output gap is function of the potential GDP, which is difficult to measure
 
 OKUN's LAW                                                  <-- Empirical relationship
     Output GAP = - Beta . (u - u*)                  
         - Note the minus sign before Beta
-        - (u - u*) is cyclical unemployment
-        - Beta is function of the country (most often 1.5))
+        - Note output gap is a %
+        - (u - u*) is cyclical unemployment (as a percentage)
+        - Beta is function of the country (close to 1.5 for the USi, 1.47)
         - Beta for the same country can change overtime 
+
+    Economic cost of a contraction                          <-- How much income is lost as a result of a contraction
     
