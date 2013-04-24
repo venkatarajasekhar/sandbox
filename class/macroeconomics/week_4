@@ -70,6 +70,7 @@ OKUN's LAW                                                  <-- Empirical relati
         - Beta for the same country can change overtime 
 
     Economic cost of a contraction                          <-- How much income is lost as a result of a contraction
+    Y* - Y  / pop                                           <-- Income loss PER person over the considered period (Flow variable)
 
 (Next Video)
 Short run
@@ -166,11 +167,34 @@ PAE =?= Cd +Ip +G +X = Cd +Jd                       <-- By model simplification 
     ex: purchase of production line
         - it takes time to take output to market (building + training + ... )
 
-    Jd1 --> Jd2
+    Jd1 --> Jd2                                     <-- Jd is Horizontal line on PAE = Cd + Jd plot
         - With Jd2 > Jd2, 
             Funds become more easily obtained to finance investment
         - With Jd2 < Jd2
             Funds more difficult to obtain
+
+(New Video - Lecture 7 )
+THE CONSUMPTION FUNCTION
+    Cd = <C> + c(Y-T)                       
+        - Cd household expenditure on domestic expenditure
+        - 2 types of consumption expenditure
+            1/ c(Y-T)
+                - disposable income = income left after paying taxes, or after tax income     
+                !!! Not spare income households have to spend on leisurely activities !!!
+                - Endogeneous variable by assumption
+                - c is marginal propensity to consume   <-- Between 0 and 1 (ex: 0.75)
+                    - if you give $1, then c * $1 or 0.75 is consumed, the rest is saved or used for purchase of imports
+                - T taxes = T = <T> + tY
+                    - t is tax rate (ex t=0.2)
+                    - <T> is exogenous
+                    - endogenous  
+            2/ <C> is 
+                - exogenous component
+
+    Cd = <C> - c<T> + c(1-t)Y   = f(Y)              <-- linear plot with offset = ... and slope c(1-t)
+
+
+        
             
 
 
