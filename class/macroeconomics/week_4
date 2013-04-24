@@ -146,6 +146,7 @@ Model: 2d plot PAE=f(Y)
 
 !!! Exogenous variable = a variable determined from outside of the model
     ex: Potential GDP, Y*, determined by forces outside of the short run model
+    <-- Exogenous doesn't mean that they don't change !!! Rather it means they are possible lever arm to get the desired short term output/effect
 !!! An endogenous Variable = a variable determined from within the model (built in the model)
     ==> Model explain the variable
     ex: PAE=f(Y) equilibrium is endogenous
@@ -156,6 +157,21 @@ One of Keynes’ insight into the economy was that the endogenous forces that de
 MODEL is about to explain when the Output GAP comes from
 
 
+PAE =?= Cd +Ip +G +X = Cd +Jd                       <-- By model simplification only Cd is endogenous 
+                                                    <-- G, or government expenditure, is exogenous because choice variable of government (a decision of the government)
+                                                    <-- X, or Foreign expenditure, is  exogenous because purchase is motivated by what happens in OTHER economies
+                                                    <-- Ip, or Investment planned expenditure, is exogenous because is motivated in large part with expectation about the future
+                                                    <-- Jd, or PLANNED injection, is exogenous because is sum of exogenous variable
+    !!! Investment = expenditure undertaken in the current period but with expected benefits in the future
+    ex: purchase of production line
+        - it takes time to take output to market (building + training + ... )
+
+    Jd1 --> Jd2
+        - With Jd2 > Jd2, 
+            Funds become more easily obtained to finance investment
+        - With Jd2 < Jd2
+            Funds more difficult to obtain
+            
 
 
 
