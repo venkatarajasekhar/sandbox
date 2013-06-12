@@ -28,8 +28,8 @@ systemctl status tomcat.service
 server.xml is the tomcat server configuration file
 
 Q: HOw to start the server ?
-.../catalina.sh run
-.../catalina.sh start
+.../catalina.sh run             # Run in the background
+.../catalina.sh start           # Run in the foreground
 
 Q: Important tomcat environment variables?
 CATALINA_HOME   May point at your Catalina "build" directory.
@@ -65,5 +65,7 @@ To install:
 3/ cd <tomcat>/bin/commons-daemon-1.0.10-native-src/unix;
    ./configure --with-java=/home/clsfs/epics/2/git/epics-opis/cls1/opis/archiver/normalstart/jdk1.7.0_17
    make
+4/ jsvc is created
+5/ cp jsvc <tomcat>/bin
 !!! JDK is the Java development kit and is used only for compilation
 

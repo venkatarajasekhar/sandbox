@@ -7,11 +7,20 @@ As such if you edit your war, jar files, you will find the compiled version and 
 While the .class files are binary, the  manifest files are xml (i.e disassembled).
 In the class file, you may also be able to edit text strings.
 
-Q: What are jar files?
-Jar files are gzipped java archive
+Q: What are JAR files?
+JAR files are gzipped java archive
 unzip <file.jar>
 !!! Beware, the files are extrated directly in the current corwking directory !!!
 !!! You can edit jar files with vim !!!
+
+Q: Where to find JAVA?
+Oracle 
+
+Q: What are JVM, JDK, and JRE?
+JVM = Java Virtual Machine
+JRE = Java Runtime Environment, which is an implementation of the JVM. It is required to RUN Java programs, but not develop them. 
+JDK = Java Development Kit. It is used to develop Java applications.  The JDK includes the JRE, so you do not have to download both separately. 
+Source:http://docs.oracle.com/javase/7/docs/webnotes/install/
 
 Q: How to run a file?
 To run SyncStaticContentHeadersFooters using /tmp/master_template.html as the master template like so
@@ -22,6 +31,8 @@ java -cp ${TOMCAT_HOME}/webapps/mgmt/WEB-INF/classes \
   ${TOMCAT_HOME}/webapps/mgmt/ui
 
 Q: How to run a jar file?
+java -jar archiveviewer.jar -u http://cr1dev1.lynceantech.com:17668/retrieval
+Note how the command line parameters ( -u ... ) are passed
 
 Q: How to edit a .class file?
 
@@ -32,7 +43,8 @@ Q: What is JDK?
 Java (Standard Edition) Development Kit
 The JDK is a development environment for building applications, applets, and components using the Java programming language.
 It is used to compile Java programs
-Java is used to run programs
+JDK includes a JRE, which in turn is used to run Java programs
+!!! The 'java' command line is used to run java programs
 
 Q: Where to find JDK?
 http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
