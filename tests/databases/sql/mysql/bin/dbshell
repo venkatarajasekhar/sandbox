@@ -1,6 +1,0 @@
-../bin/mysql -p <<EOT
-help
-status
-SELECT user();                              /* Show current user ex: roooot@localhost */
-show databases;                             /* This function returns the perspective of the current user */
-EOT

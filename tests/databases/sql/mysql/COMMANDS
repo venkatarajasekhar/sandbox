@@ -1,0 +1,66 @@
+#----------------------------------------------------------------------
+# COMMANDS TO RUN IN TERMINAL
+#----------------------------------------------------------------------
+Q: Sample shell command for mysql 
+mysql -u root -p                            - How to connect to mysql server as root with password?
+mysqladmin -u root -p ping                  - check mysql process is running
+mysqladmin -u root -p status                - return status of mysqld process
+mysqladmin -u root -p processlist           - list all the processes used by mysqld
+mysqladmin -u root -p version               - get version of mysql
+mysqladmin -p -u toto password "newpasswd"  - change the password of the user toto
+mysqladmin -p -u toto -h localhost password "newpasswd"
+                                            - change the password of the user toto when accessing from localhost
+mysqladmin -p shutdown                      - shutdown mysql daemon
+service mysqld stop                         - shutdown mysql daemon (linux)
+service mysqld start                        - start mysql daemon (linux)
+/usr/bin/safe_mysqld &                      - start mysql daemon
+mysqlshow mydatabase -p                     - show tables of specified database 
+mysqladmin -p drop bugs                     - delete a database
++--                                         - execute sql statement from the command line
+| ../../bin/mysql -u root -p <<EOT
+| use mydatabase;
+| select * from mytable where id=3;
+| EOT
++--
+
+
+#----------------------------------------------------------------------
+# COMMANDS TO RUN IN MYSQL CLI
+#----------------------------------------------------------------------
+# mysql -u username -p                      - to start the mysql CLI
+help                                        - print summary help
+status                                      - show status of process
+SELECT user();                              - show current logged'in user?
+quit                                        - quit mysql
+show databases;                             - show databases
+use mysql;                                  - use the mysql database
+connect mysql;                              - use the mysql database
+show tables;                                - show database tables once using/connected to a db
+desc mytable;                               - show description of the specified table
+select * from tables_priv;                  - select statement
+delete from mo;                             - delete entire content of a table
+delete from mo where id=toto;               - delete table's machine entries
+drop user emayssat;                         - delete a existing user
++--                                         - delete a existing user
+| connect mysql;
+| delete from user where User='emayssat' and Host='localhost';
+| flush privileges;
++--
+GRANT ALL PRIVILEGES ON *.* TO 'barnold'@'localhost' IDENTIFIED BY 'passwd' WITH GRANT OPTION;
+                                            - create a user
+set password for scott@localhost=password('tiger')
+                                            - change password
++-- 
+| use mysql;                                - change a user's password
+| update user set password=PASSWORD("NEWPASSWORD") where User='vivek';
+| flush privileges;
++--
+grant select,insert,update on documents.mo to 'ablack'@'localhost';
+                                            - grant priviledge
+show grants for 'ablack'@'localhost';       - show granted priviledges
+create database toto;                       - create a database
+drop database toto;                         - delete a database
+
+
+
+
