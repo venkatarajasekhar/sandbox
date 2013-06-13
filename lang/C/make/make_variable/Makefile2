@@ -1,0 +1,19 @@
+#target: prerequisite
+force: empty.txt empty.c empty.txt
+	# $@ is the target
+	echo $@
+	# $< is the first prerequisite 
+	echo $<
+	# $^ is the list of all prerequisite (no repetition)
+	echo $^
+	# $+ is the list of all prerequisite (with repetition)
+	echo $+
+
+%.txt: 
+	echo $@
+
+%.c:
+	echo $@
+
+#  ‘make force’ will run the recipe regardless of whether there is a file named force
+.PHONY : force	

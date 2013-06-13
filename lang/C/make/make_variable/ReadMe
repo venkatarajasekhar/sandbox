@@ -1,0 +1,2 @@
+To run the correct makefile
+    make -f Makefile2 -C .
