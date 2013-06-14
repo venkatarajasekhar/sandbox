@@ -9,18 +9,26 @@ Q: What is JSP?
 JSP = implementation by Sun of a Java web framework called Java Server Page
 JSP use the MVC (model, view, controller design)
 
+Q: What is the main configuration file for tomcat?
+TOMCAT_TOP/conf/server.xml
+In that file, you configure on which port the tomcat server/process is running
+
 Q: What are war files?
 A WAR file (or Web application ARchive[1]) is a JAR file used to distribute a collection of 
 JavaServer Pages, Java Servlets, Java classes, XML files, tag libraries, static Web pages 
 (HTML and related files) and other resources that together constitute a Web application.
 War files are jar file with the structure to be used as webapp in JSP (Java Server Page)
 unzip <file.war>
+or
+jar xf <file.war>
 !!! Beware, the files are extracted directly in the current working directory !!!
 !!! You can edit war files with vim !!!
 
-WAR files placed in ${TOMCAT_VERSION_FOLDER}/webapps
+WAR files placed in ${TOMCAT_VERSION_FOLDER}/webapps  (or TOMCAT_INSTANCE/webapps)
 To modify them, (1) extract them, (2) modify, (3) zip'em 
 jar xf .../mgmt.war
+also possible
+unzip .../mgmt.war 
 <modification>
 
 Q: Where is the tomcat management interface?
@@ -37,8 +45,8 @@ CATALINA_BASE   (Optional) Base directory for resolving dynamic portions of a Ca
 CATALINA_OUT    (Optional) Full path to a file where stdout and stderr will be redirected. Default is $CATALINA_BASE/logs/catalina.out
 CATALINA_OPTS   (Optional) Java runtime options used when the "start", "run" or "debug" command is executed. Include here and not in JAVA_OPTS all options, that should only be used by Tomcat itself, not by the stop process, the version command etc. Examples are heap size, GC logging, JMX ports etc.
 CATALINA_TMPDIR (Optional) Directory path location of temporary directory the JVM should use (java.io.tmpdir).  Defaults to $CATALINA_BASE/temp.
-JAVA_HOME       Must point at your Java Development Kit installation. Required to run the with the "debug" argument.
-JRE_HOME        Must point at your Java Runtime installation. Defaults to JAVA_HOME if empty. If JRE_HOME and JAVA_HOME are both set, JRE_HOME is used.
+JAVA_HOME       Must point at your Java Development Kit (JDK) installation. Required to run the with the "debug" argument.
+JRE_HOME        Must point at your Java Runtime (JRE) installation. Defaults to JAVA_HOME if empty. If JRE_HOME and JAVA_HOME are both set, JRE_HOME is used.
 JAVA_OPTS       (Optional) Java runtime options used when any command is executed. Include here and not in CATALINA_OPTS all options, that should be used by Tomcat and also by the stop process, the version command etc. Most options should go into CATALINA_OPTS.
 JAVA_ENDORSED_DIRS (Optional) Lists of of colon separated directories containing some jars in order to allow replacement of APIs created outside of the JCP (i.e. DOM and SAX from W3C). It can also be used to update the XML parser implementation. Defaults to $CATALINA_HOME/endorsed.
 JPDA_TRANSPORT  (Optional) JPDA transport used when the "jpda start" command is executed. The default is "dt_socket".
