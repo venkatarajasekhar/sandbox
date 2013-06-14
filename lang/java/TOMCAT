@@ -1,5 +1,5 @@
 #---------------------------------------------------------------------- 
-# TOMCAT
+# THE BASICS
 
 Q: What is Tomcat?
 Tomcat is the open source implementation of JSP.
@@ -8,6 +8,23 @@ Like JSP, it uses WAR files.
 Q: What is JSP?
 JSP = implementation by Sun of a Java web framework called Java Server Page
 JSP use the MVC (model, view, controller design)
+
+Q: What is Catalina?
+Catalina is the Java Engine (JRE / JVM) that's built into
+Tomcat and provides an environment in which Servlets can be run 
+
+Q: What are Servlets?
+Most programmers will be familiar with the concept of server-side programming. 
+Content can be created at the client end, through JavaScript, Dynamic HTML, or applets 
+but it can also be created at the server end through CGI scripts, server side applications, and now servlets!
+
+Servlets are pieces of Java code that work at the server end. 
+Servlets have all the access to resources on the server that a CGI script do, 
+and aren't normally limited by the restrictions on file and network access 
+that Java applets have traditionally been held back by. 
+
+#-----------------------------------------------------------------------
+# TOMCAT 
 
 Q: What is the main configuration file for tomcat?
 TOMCAT_TOP/conf/server.xml
@@ -76,4 +93,37 @@ To install:
 4/ jsvc is created
 5/ cp jsvc <tomcat>/bin
 !!! JDK is the Java development kit and is used only for compilation
+
+#-----------------------------------------------------------------------
+# SERVLETS
+
+Q: Give me an example of servlet!
+For this example, the servlet outputs the obligatory 'Hello World!' message.
+
+import java.io.*;
+
+// Import servlet packages (requires JDK1.2 or servlet toolkit)
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+
+public class MyFirstServlet extends HttpServlet 
+{
+    // We override the doGet method, from HttpServlet, to
+    // provide a custom GET method handler
+    public void doGet (HttpServletRequest req, HttpServletResponse res)
+        throws ServletException, IOException
+    {
+            res.setContentType("text/plain");
+            ServletOutputStream out = res.getOutputStream();
+
+            out.println ("Hello World!");
+            out.flush();
+    }
+
+    public String getServletInfo() {
+        return "MyFirstServlet";
+    }
+}
+
 
