@@ -7,7 +7,12 @@ As such if you edit your war, jar files, you will find the compiled version and 
 While the .class files are binary, the  manifest files are xml (i.e disassembled).
 In the class file, you may also be able to edit text strings.
 
-Q: What are JAR files?
+Q: What are all those extensions?
+.java       - a source file
+.class      - a compiler class
+.jar        - a gzipped archive of java files
+
+Q: What are JAR files again?
 JAR files are gzipped java archive
 unzip <file.jar>
 !!! Beware, the files are extrated directly in the current corwking directory !!!

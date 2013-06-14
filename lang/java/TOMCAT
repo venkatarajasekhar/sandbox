@@ -95,6 +95,18 @@ To install:
 !!! JDK is the Java development kit and is used only for compilation
 
 #-----------------------------------------------------------------------
+# WAR FILES
+
+Q: WAR files and structure of a web application?
+A web application is a directory which includes several subdirectories with standard names. 
+images, which contains .gif and .jpg files used by the servlets. See the "ice cream shop with graphics" example here to see how to use an image in a servlet.
+WEB-INF, which contains: subdirectory classes for all java classes used in the application. 
+They include all the servlet classes and other Java classes used by the servlets. 
+For instance, the web application *.class even though you may put .java files in this directory, they don't have to be there. You will copy your servlet classes into this directory
+subdirectory lib for all .jar files used in the application. Your application has mckoidb.jar file in its lib directory. Once a .jar file is placed in this directory, all servlets can automatically access it.
+a file web.xml: the file that describes your web application. In this assignment we don't need to do anything with this file, but we might need to modify it in the future.
+
+#-----------------------------------------------------------------------
 # SERVLETS
 
 Q: Give me an example of servlet!
@@ -107,7 +119,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 
-public class MyFirstServlet extends HttpServlet 
+public class HelloWorld extends HttpServlet 
 {
     // We override the doGet method, from HttpServlet, to
     // provide a custom GET method handler
@@ -121,9 +133,40 @@ public class MyFirstServlet extends HttpServlet
             out.flush();
     }
 
+    // May not be required !?!??!
     public String getServletInfo() {
-        return "MyFirstServlet";
+        return "HelloWorld";
     }
 }
+
+Q: How to compile a servlet?
+Suppose you are writing a servlet MyGreatServlet. 
+You write the Java code for the servlet in the file MyGreatServlet.java in a terminal. 
+If it's using other java classes, write each public class in its own file, for instance MyHelperClass.java.
+To compile the Servlet:
+javac MyGreatServlet.java
+If it uses other classes, you can compile them separately or all together as
+javac MyGreatServlet.java MyHelperClass.java
+Files MyGreatServlet.class and MyHelperClass.class will be created if the compilation is successful.
+
+Q: How to run a compiled servlet?
+cp MyGreatServlet.class /etc/tomcat3/conf/jakarta-tomcat-3.3a/webapps/myproj/WEB-INF/classes/
+
+Q: How to access the servlet?
+Configure the web.xml in the webapp directory?
+<servlet>
+    <servlet-name>HelloWorld</servlet-name>
+    <servlet-class>HelloWorld</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>HelloWorld</servlet-name>
+    <url-pattern>/HelloWorld</url-pattern>
+</servlet-mapping>
+http://birch.wellesley.edu:8080/myproj/servlet/MyGreatServlet
+
+Q: Can you deconstruct this URL?
+http://birch.wellesley.edu:8080     - location of tomcat server
+/myproj                             - name of the web application (same as dir under tomcat/webapps)
+/HelloWorld                         - name of the servlet
 
 
