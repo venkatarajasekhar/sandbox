@@ -99,12 +99,21 @@ To install:
 
 Q: WAR files and structure of a web application?
 A web application is a directory which includes several subdirectories with standard names. 
-images, which contains .gif and .jpg files used by the servlets. See the "ice cream shop with graphics" example here to see how to use an image in a servlet.
-WEB-INF, which contains: subdirectory classes for all java classes used in the application. 
-They include all the servlet classes and other Java classes used by the servlets. 
-For instance, the web application *.class even though you may put .java files in this directory, they don't have to be there. You will copy your servlet classes into this directory
-subdirectory lib for all .jar files used in the application. Your application has mckoidb.jar file in its lib directory. Once a .jar file is placed in this directory, all servlets can automatically access it.
-a file web.xml: the file that describes your web application. In this assignment we don't need to do anything with this file, but we might need to modify it in the future.
+ui                          - the web site
+    <html pages>
+    css                     - css files
+    img                     - image files
+    js                      - javascript files
+WEB-INF                     - the java code !
+    classes
+        <misc files>
+        <path to lib>       - as referenced in servlet-class in web.xml
+    lib
+        jar files
+    web.xml                 - describes the web application
+META-INF
+    MANIFEST.MF
+
 
 #-----------------------------------------------------------------------
 # SERVLETS
@@ -168,5 +177,21 @@ Q: Can you deconstruct this URL?
 http://birch.wellesley.edu:8080     - location of tomcat server
 /myproj                             - name of the web application (same as dir under tomcat/webapps)
 /HelloWorld                         - name of the servlet
+
+Q: More complicated web.xml ?
+<web-app>
+    <servlet>
+        <servlet-name>EngineBPLServlet</servlet-name>
+        <servlet-class>org.epics.archiverappliance.engine.BPLServlet</servlet-class>
+                <load-on-startup>1</load-on-startup>
+    </servlet>  
+    <servlet-mapping>
+        <servlet-name>EngineBPLServlet</servlet-name>
+        <url-pattern>/bpl/*</url-pattern>
+    </servlet-mapping>
+        <listener>
+                <listener-class>org.epics.archiverappliance.config.ArchServletContextListener</listener-class>
+        </listener> 
+</web-app>
 
 
