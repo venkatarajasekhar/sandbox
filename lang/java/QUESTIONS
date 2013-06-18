@@ -39,7 +39,13 @@ Q: How to run a jar file?
 java -jar archiveviewer.jar -u http://cr1dev1.lynceantech.com:17668/retrieval
 Note how the command line parameters ( -u ... ) are passed
 
+Q: How to see the content of a JAR file?
+jar tf /usr/local/share/tomcat6/bin/commons-daemon.jar | grep 'DaemonLoader' 
+Here we are looking for a particular library
+
 Q: How to edit a .class file?
+Those are java compiled files.
+You may still be able to edit strings in it.
 
 #---------------------------------------------------------------------- 
 # JDK

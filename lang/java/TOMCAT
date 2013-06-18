@@ -94,6 +94,10 @@ To install:
 5/ cp jsvc <tomcat>/bin
 !!! JDK is the Java development kit and is used only for compilation
 
+Q: How to run the control daemon?
+The new jsvc you compiled needs the  port to commons-daemon.jar to run properly
+ jar tf /usr/local/share/tomcat6/bin/commons-daemon.jar | grep 'DaemonLoader' 
+
 #-----------------------------------------------------------------------
 # WAR FILES
 
