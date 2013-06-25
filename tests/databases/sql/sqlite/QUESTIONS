@@ -1,0 +1,144 @@
+$ sqlite3 ex1
+SQLite version 3.6.11
+Enter ".help" for instructions
+Enter SQL statements terminated with a ";"
+sqlite> create table tbl1(one varchar(10), two smallint);
+sqlite> insert into tbl1 values('hello!',10);
+sqlite> insert into tbl1 values('goodbye', 20);
+sqlite> select * from tbl1;
+hello!|10
+goodbye|20
+sqlite>
+
+sqlite> CREATE TABLE tbl2 (
+   ...>   f1 varchar(30) primary key,
+   ...>   f2 text,
+   ...>   f3 real
+   ...> );
+sqlite>
+
+#-----------------------------------------------------------------------
+# SCHEMA
+
+The database schema in an SQLite database is stored in a special table named "sqlite_master". 
+You can execute "SELECT" statements against the special sqlite_master table just like any other table in an SQLite database. 
+
+$ sqlite3 ex1
+SQLite version 3.6.11
+Enter ".help" for instructions
+sqlite> select * from sqlite_master;
+    type = table
+    name = tbl1
+tbl_name = tbl1
+rootpage = 3
+     sql = create table tbl1(one varchar(10), two smallint)
+sqlite> .tables                     # List of tables
+tbl1
+tbl2
+sqlite> .schema
+sqlite> .schema tbl2
+sqlite> .schema %abc%
+
+sqlite> .databases
+
+#-----------------------------------------------------------------------
+# OUTPUT
+
+sqlite> .mode list
+sqlite> select * from tbl1;
+hello|10
+goodbye|20
+sqlite> .separator ", "
+sqlite> select * from tbl1;
+hello, 10
+goodbye, 20
+sqlite> .mode line
+sqlite> select * from tbl1;
+one = hello
+two = 10
+sqlite> .mode column
+sqlite> select * from tbl1;
+one         two       
+----------  ----------
+hello       10        
+goodbye     20   
+sqlite> .width 12 6
+sqlite> select * from tbl1;
+one           two   
+------------  ------
+hello         10    
+goodbye       20  
+sqlite> .header off
+sqlite> select * from tbl1;
+hello         10    
+goodbye       20    
+sqlite> .mode insert new_table
+sqlite> select * from tbl1;
+INSERT INTO 'new_table' VALUES('hello',10);
+INSERT INTO 'new_table' VALUES('goodbye',20);
+sqlite> .output test_file_1.txt                         # <-- write into a file
+sqlite> select * from tbl1;                         
+sqlite> .exit                                           # Exit sqlite shell
+
+
+#-----------------------------------------------------------------------
+# SQLITE in SHELL SCRIPTS
+
+$ echo '.dump' | sqlite3 ex1 | gzip -c >ex1.dump.gz     # Database dump
+$ zcat ex1.dump.gz | sqlite3 ex2                        # Reload of dumped database
+$ createdb ex2
+$ sqlite3 ex1 .dump | psql ex2                          # Reloaded dumped data into ANOTHER database !
+$ sqlite3 ex1 'select * from tbl1' |
+>  awk '{printf "<tr><td>%s<td>%s\n",$1,$2 }'
+<tr><td>hello<td>10
+<tr><td>goodbye<td>20
+
+
+
+
+#-----------------------------------------------------------------------
+# OTHER COMMANDS
+
+sqlite> .help
+.backup ?DB? FILE      Backup DB (default "main") to FILE
+.bail ON|OFF           Stop after hitting an error.  Default OFF
+.databases             List names and files of attached databases
+.dump ?TABLE? ...      Dump the database in an SQL text format
+.echo ON|OFF           Turn command echo on or off
+.exit                  Exit this program
+.explain ON|OFF        Turn output mode suitable for EXPLAIN on or off.
+.genfkey ?OPTIONS?     Options are:
+                         --no-drop: Do not drop old fkey triggers.
+                         --ignore-errors: Ignore tables with fkey errors
+                         --exec: Execute generated SQL immediately
+                       See file tool/genfkey.README in the source 
+                       distribution for further information.
+.header(s) ON|OFF      Turn display of headers on or off
+.help                  Show this message
+.import FILE TABLE     Import data from FILE into TABLE
+.indices TABLE         Show names of all indices on TABLE
+.iotrace FILE          Enable I/O diagnostic logging to FILE
+.load FILE ?ENTRY?     Load an extension library
+.mode MODE ?TABLE?     Set output mode where MODE is one of:
+                         csv      Comma-separated values
+                         column   Left-aligned columns.  (See .width)
+                         html     HTML <table> code
+                         insert   SQL insert statements for TABLE
+                         line     One value per line
+                         list     Values delimited by .separator string
+                         tabs     Tab-separated values
+                         tcl      TCL list elements
+.nullvalue STRING      Print STRING in place of NULL values
+.output FILENAME       Send output to FILENAME
+.output stdout         Send output to the screen
+.prompt MAIN CONTINUE  Replace the standard prompts
+.quit                  Exit this program
+.read FILENAME         Execute SQL in FILENAME
+.restore ?DB? FILE     Restore content of DB (default "main") from FILE
+.schema ?TABLE?        Show the CREATE statements
+.separator STRING      Change separator used by output mode and .import
+.show                  Show the current values for various settings
+.tables ?PATTERN?      List names of tables matching a LIKE pattern
+.timeout MS            Try opening locked tables for MS milliseconds
+.timer ON|OFF          Turn the CPU timer measurement on or off
+.width NUM NUM ...     Set column widths for "column" mode
