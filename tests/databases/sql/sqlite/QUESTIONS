@@ -1,3 +1,19 @@
+
+#-----------------------------------------------------------------------
+# SQLITE in SHELL SCRIPTS
+
+$ echo '.dump' | sqlite3 ex1 | gzip -c >ex1.dump.gz     # Database dump
+$ zcat ex1.dump.gz | sqlite3 ex2                        # Reload of dumped database
+$ createdb ex2
+$ sqlite3 ex1 .dump | psql ex2                          # Reloaded dumped data into ANOTHER database !
+$ sqlite3 ex1 'select * from tbl1' |
+>  awk '{printf "<tr><td>%s<td>%s\n",$1,$2 }'
+<tr><td>hello<td>10
+<tr><td>goodbye<td>20
+
+#-----------------------------------------------------------------------
+# INTERACTIVE SESSIONS
+
 $ sqlite3 ex1
 SQLite version 3.6.11
 Enter ".help" for instructions
@@ -17,8 +33,8 @@ sqlite> CREATE TABLE tbl2 (
    ...> );
 sqlite>
 
-#-----------------------------------------------------------------------
-# SCHEMA
+
+Q: Database schema ?
 
 The database schema in an SQLite database is stored in a special table named "sqlite_master". 
 You can execute "SELECT" statements against the special sqlite_master table just like any other table in an SQLite database. 
@@ -38,6 +54,8 @@ tbl2
 sqlite> .schema
 sqlite> .schema tbl2
 sqlite> .schema %abc%
+
+Q: Databases?
 
 sqlite> .databases
 
@@ -82,22 +100,7 @@ sqlite> .exit                                           # Exit sqlite shell
 
 
 #-----------------------------------------------------------------------
-# SQLITE in SHELL SCRIPTS
-
-$ echo '.dump' | sqlite3 ex1 | gzip -c >ex1.dump.gz     # Database dump
-$ zcat ex1.dump.gz | sqlite3 ex2                        # Reload of dumped database
-$ createdb ex2
-$ sqlite3 ex1 .dump | psql ex2                          # Reloaded dumped data into ANOTHER database !
-$ sqlite3 ex1 'select * from tbl1' |
->  awk '{printf "<tr><td>%s<td>%s\n",$1,$2 }'
-<tr><td>hello<td>10
-<tr><td>goodbye<td>20
-
-
-
-
-#-----------------------------------------------------------------------
-# OTHER COMMANDS
+# OTHER SQLITE COMMANDS
 
 sqlite> .help
 .backup ?DB? FILE      Backup DB (default "main") to FILE

@@ -20,10 +20,10 @@ sudo chmod -R ug+rwX mywiki
 sudo chmod -R o-rwx mywiki
 
 Master configuration file: /etc/moin/farmconfig.py
-Check wikis configuration. The "manuals" entrie points to /etc/moint/manuals.py wiki config file
+Check wikis configuration. The "manuals" entry points to /etc/moint/manuals.py wiki config file
 !!! URL Match determine configuration file to be used on moin.cgi 
 !!! moin.cgi is found thanks to script alias config in apache2 config
-wikis = [
+wikis = [                                                   # <-- One installation of moinmoin can handle several wikis
     ("mucls", r"http://mucls.lynceantech.com/.*"),   
     ("mucls", r"http://mucls/.*"),   
     ("manuals", r"http://manuals.lynceantech.com/.*$"), 
@@ -50,12 +50,38 @@ Verification:
 http://localhost/wiki
 http://manuals/wiki
 http://manuals.lynceantech.com/wiki
+!!! You need to install the FCKeditor to have a GUI editor!!!
+
+Q: How to install the FCK editor?
+MoinMoin supplied by Ubuntu (python-moinmoin), the fckeditor is not by default included -- its 
+package is listed as a "recommends". This requires a few extra steps
+sudo -i
+apt-get install fckeditor
+rm -r /usr/share/moin/htdocs/applets/FCKeditor
+ln -s /usr/share/fckeditor/ /usr/share/moin/htdocs/applets/FCKeditor        # <-- where moinmoin expect FCKEditor
+service apache2 restart
+!!! Now Edit links should display Edit(Text) and Edit(GUI)                  # Not EDIt GUI !!!!
 
 Q: How to add the help and search engine page ?
 Got to the LanguageSetup, select your language and click on the download all_page link.
 The installation is automatic !
 Files are installed in .../wikis/manuals/underlay directory as expected 
 !!! FindPage is created in .../wikis/manuals/data/page
+
+Q: How to get the list of files installed with python-moinmoin?
+apt-get install apt-file
+apt-file update
+apt-file list python-moinmoin           # <-- same as dpkg -L python-moinmoin
+!!! Administrator files are installed in /usr/share/moin
+!!! Python files are installed in /usr/share/pyshared/MoinMoin and other places
+                                        # <-- This last one will be useful when writing macros (e.g. look at formatter class, etc)
+Q: How to find the name of the moinmoin package after installation?
+apt-file search /usr/share/pyshared/MoinMoin
+
+Q: Can moinmoin be used offline?
+Yes, download moinmoin Desktop 
+This application sync the files from the moinmoin-server to the locale desktop using iFolders
+http://www.novell.com/coolsolutions/tip/18291.html
 
 #---------------------------------------------------------------------- 
 # CONFIGURATION
@@ -263,13 +289,16 @@ More @ http://moinmo.in/HelpOnGroups
 #---------------------------------------------------------------------- 
 # MACROS
 
-Q: what are macros ?
-Automated generated content, like a table of content
+Q: What are macros ?
+Macros are python scripts that extend the functionality of moinmoin
+Macros are called with the following syntax
+<<MyMacro(parameters...)>>
+Macros generate automated content, like a table of content
 There are currently 4 types of macros:
 - search macros
 - navigation macros
 - system information macros
-- othes
+- others
 
 Q: What are examples of macros?
 <<Anchor(anchorname)>>                  - inserts a link anchor anchorname
@@ -282,8 +311,58 @@ Q: What are examples of macros?
 <<TableOfContents(2)>>                  - Table of content of depth 2
 More @ http://wikifarm/wiki/HelpOnMacros
 
-Q: How to create a macro?
+Q: what are non standard macros?
+<<ShowTweets(twitteruser>>              - show the tweets of a particular user
+<<CategoryCloud>>                       - generate a tag cloud of category pages
+<<Vimeo(25340759))>>                    - to include embedded vimeo videos
+<<EmbedContent(url=u"")>>               - include external content
+<</QR>>                                 - generate QR code for the current page
+A market for macro is available at 
+http://moinmo.in/MacroMarket#Offers
 
+Q: Where are standard macro installed?
+/usr/share/pyshared/MoinMoin/macro      # <-- not in the wiki directory (/usr/share/moin/ )
+
+Q: Where to install non-standard macros?
+The best location for macros is to copy them into the /path_to_wiki_instance/data/plugin/macro directory. 
+In our case, //usr/share/moin/data/plugin/macro/
+This method would be guaranteed to survive MoinMoin and Python upgrades. 
+!!! when you install a macro, remove its version number
+!!! Download MiniPage-1.7.1-5.py but install it as MiniPage.py
+!!! Installed macros are accessible by all the wikis running on this moinmoin instance
+
+Q: How to use non-standard macros?
+Once installed in the correct plugin/macro directory,
+restart the wiki
+put in a page the macro
+!!! Some macros need to appear several times in a page to work!
+ex: For a checklist to work, in the same page must appear:
+<<CheckList(js=True)>>                                          # Include javascript code (REQUIRED!)
+<<CheckList(clear_button=True)>>                                # Include button to clear checklist (Optional but nice)
+<<CheckList(dom_id=check1, heading=1, text=Top Level Item)>>    # Checklist item
+<<CheckList(dom_id=check2, heading=2, text=Something To do)>>   # Another checklist item
+
+Q: How to create a macro?
+from MoinMoin import wikiutil
+from MoinMoin.macro import Include          # <-- Import standard macros
+from MoinMoin.parser.text_moin_wiki import Parser as WikiParser
+def macro_CheckList(macro, dom_id=None, heading=2, text=None, js=None, clear_button=None):
+    ret = []
+    f = macro.request.formatter
+    text_h = wikiutil.escape(text)          # <-- escape input parameter
+    text_h = text_h.strip()
+    text_id = wikiutil.escape(text)
+    text_id = text_id.replace(' ', '_')
+    text_id = text_id.strip()
+
+    ret.extend([f.heading(1,heading,id=text_id)])   
+                                            # <-- extend extends a list with an arbitrary iterable (e.g another list, etc)
+    ret.extend([f.rawHTML("<input type='checkbox' class='checklist' name='name_%s' id='id_%s'><label for='id_%s'>" % (dom_id, dom_id, dom_id))])
+    ret.extend([f.text(text_h)])
+    ret.extend([f.rawHTML("</label>")])
+    ret.extend([f.heading(0,heading)])
+
+    return ''.join(ret)                     # <-- Must return HTML code
 #---------------------------------------------------------------------- 
 # TEMPLATE
 
