@@ -1,0 +1,5 @@
+yum install python-pip
+pip install py2app
+pip uninstall py2app            # <-- you can uninstall
+
+easy_install py2app             # Install only
