@@ -1,5 +1,24 @@
 yum install python-pip
 pip install py2app
-pip uninstall py2app            # <-- you can uninstall
+pip uninstall py2app                # <-- you can uninstall
 
-easy_install py2app             # Install only
+curl -O http://python-distribute.org/distribute_setup.py
+python2.7 distribute_setup.py       # Install easy_install module
+python2.7 -m easy_install py2app    # <-- for python 2.7
+python2.6 distribute_setup.py       # install easy_install module
+python2.6 -m easy_install py2app    # <-- for python 2.6
+
+easy_install py2app                 # Install only to LAST distribute_setup.py version !!
+
+To uninstall an .egg you need to 
+rm -rf the egg (it might be a directory) 
+and remove the matching line from site-packages/easy-install.pth
+
+Q: How to fnd the site-package in use?
+$ python 
+Python 2.7.5 (default, Jun 27 2013, 13:23:57) 
+[GCC 4.4.1 20090725 (Red Hat 4.4.1-2)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import site; site.getsitepackages()
+['/usr/local/lib/python2.7/site-packages', '/usr/local/lib/site-python']
+
