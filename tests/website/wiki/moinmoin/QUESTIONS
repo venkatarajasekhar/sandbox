@@ -154,6 +154,16 @@ Once logged in, you can
     * path tracking (Like the back button in the browser, but this time through the application)
     * quicklinks
 
+Q: How to create an new user account?
+1/ Create a login account 
+    - go to login page and select create accoutn
+2/ Put that user in the TrustedGroup (and/or AdminGroup)
+    - Our template specify that only the TrustedGroup can edit the content of our wiki
+    - To add the user to that group, edit the TrustedGroup page
+        http://mucls.lynceantech.com/wiki/TrustedGroup
+3/ Login as the user and check that the user can edit
+    
+
 #----------------------------------------------------------------------
 # EDIT HELP
 
