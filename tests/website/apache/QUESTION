@@ -1,0 +1,19 @@
+
+Q: On which port is apache working?
+Default port is 80
+
+Q: How to restart apache?
+sudo apachectl restart
+
+Q: What is a virtual host?
+Two websites have different server names, but whose files are hosted on the same machine.
+ex: host.domain.com and www.other_domain.org
+1/ The hostname should route to the machine
+2/ On the server, hostname should resolve as localhost
+3/ Apache needs to have a VirtualHost directive on desired port
+    <VirtualHost *:80>
+        DocumentRoot "/path/to/doc/root"
+        ServerName host.domain.com
+    </VirtualHost>
+!!! The VirtualHost directive can contain configuration directives which are specific to that virtual host.
+
