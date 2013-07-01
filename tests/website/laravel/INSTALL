@@ -9,6 +9,46 @@ ON UBUNTU 12.04
     Composer successfully installed to: /home/cls1fs/clseng/10/workspace/sandbox/tests/website/laravel/composer.phar
     Use it: php composer.phar
 1/  Download Laravel
+    php composer.phar create-project laravel/laravel
+    ---
+php composer.phar create-project laravel/laravel
+Installing laravel/laravel (v4.0.5)
+  - Installing laravel/laravel (v4.0.5)
+    Downloading: 100%         
+
+Created project in /home/cls1fs/clseng/10/workspace/sandbox/tests/website/laravel/laravel
+Loading composer repositories with package information
+Installing dependencies (including require-dev)
+  - Installing doctrine/lexer (dev-master bc0e1f0)
+    Cloning bc0e1f0cc285127a38c6c8ea88bc5dba2fd53e94
+
+  - Installing doctrine/annotations (v1.1.2)
+    Downloading: 100%         
+
+  - Installing doctrine/collections (dev-master 3db3ab8)
+    Cloning 3db3ab843ff76774bee4679d4cb3a10cffb0a935
+
+  - Installing doctrine/cache (dev-master 89493d2)
+    Cloning 89493d2c6e1362f581f9de1c1871cc52eb29c030
+
+  - Installing doctrine/inflector (dev-master 8b4b3cc)
+    Cloning 8b4b3ccec7aafc596e2fc1e593c9f2e78f939c8c
+
+  - Installing doctrine/common (dev-master 2.4.0-RC4)
+    Cloning 2.4.0-RC4
+
+  - Installing doctrine/dbal (dev-master 2.4.0-RC2)
+    Cloning 2.4.0-RC2
+
+
+                                                          
+  [Symfony\Component\Process\Exception\RuntimeException]  
+  The process timed-out.                                  
+                                                          
+
+
+create-project [-s|--stability="..."] [--prefer-source] [--prefer-dist] [--repository-url="..."] [--dev] [--no-dev] [--no-custom-installers] [--no-scripts] [--no-progress] [--keep-vcs] [package] [directory] [version]
+
 2/  Extract the Laravel archive and upload the contents to your web server.
 3/  Set the value of the key option in the config/application.php file to a random, 32 character string.
 4/  Verify that the storage/views directory is writable.
