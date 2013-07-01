@@ -1,5 +1,6 @@
 ON UBUNTU 12.04
 
+sudo apt-get install unzip
 sudo apt-get install apache2
 sudo apt-get install php5
 sudo apt-get install libapache2-mod-php5
@@ -19,15 +20,34 @@ EOT
 
 http://localhost
 
+#-----------------------------------------------------------------------
+# HARDWARE REQUIREMENT
+#-----------------------------------------------------------------------
+
+Q: Composer issue during installation ?
+https://github.com/composer/composer/issues/945
+Had the same issue when trying to do a deployment to an Amazon AWS EC2 Micro instance. 
+These instances have only 613MB of memory in total so composer fails to allocate enough memory for an update to run. 
+Upgrading to a Small instance with 1.7GB of total memory got rid of the issue.
+
+Q: Laravel requires the Mcrypt PHP extension. ?
+php -m
+the PHP module is not found/installed.
 
 #-----------------------------------------------------------------------
 # FROM DOWNLOAD
 #-----------------------------------------------------------------------
 
 1/  Download Laravel
-    c
-rl -S https://codeload.github.com/laravel/laravel/zip/master -o laravel-master.zip
+    sudo curl -S https://codeload.github.com/laravel/laravel/zip/master -o /usr/local/src/laravel-master.zip
 2/  Extract the Laravel archive and upload the contents to your web server.
+    cd /var/www; unzip /usr/local/src/laravel-master.zip
+    firefox http://localhost/laravel-master             # <-- you should see the files
+3/ Install dependencies
+    sudo sh -c "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/src
+    sudo cp /usr/local/src/composer.phar /usr/local/bin/composer                                        # <-- PHAR files are PHP ARCHIVES
+    sudo /usr/local/bin/composer install 
+    
 3/  Set the value of the key option in the config/application.php file to a random, 32 character string.
 4/  Verify that the storage/views directory is writable.
         You can use chmod option like this
@@ -38,16 +58,12 @@ rl -S https://codeload.github.com/laravel/laravel/zip/master -o laravel-master.z
 # USING COMPOSER
 #-----------------------------------------------------------------------
 
-0/  Download composer (used to install laravel)
-    curl -sS https://getcomposer.org/installer | php
-    ---
-    #!/usr/bin/env php
-    All settings correct for using Composer
-    Downloading...
-    Composer successfully installed to: /home/cls1fs/clseng/10/workspace/sandbox/tests/website/laravel/composer.phar
-    Use it: php composer.phar
-1/  Download Laravel
-    php composer.phar create-project laravel/laravel
+1/  Download composer (used to install laravel)
+    sudo sh -c "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/src"
+    sudo cp /usr/local/src/composer.phar /usr/local/bin/composer
+    
+2/  Download Laravel
+    composer create-project laravel/laravel
     ---
 php composer.phar create-project laravel/laravel
 Installing laravel/laravel (v4.0.5)

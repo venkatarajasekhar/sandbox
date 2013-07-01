@@ -1,25 +1,42 @@
-WEB INTERFACE LOGIN
--------------------
-
+Q: Login credentials?
 Username ema...@gmail.com
-passmnemo Jennifer
+passmnemo Jennifer / T0m0
 
+Q: Usefule acronyms?
+IAM     -   Identity and Access Management
+AMI     -   Amazon Image (or preconfigure virtual appliance/system !)
+
+Q: How to see the running instances?
 Go to the AWS Management console > EC2
 https://console.aws.amazon.com/ec2/home?region=us-east-1&#
 Look at the running instances
 
-STATIC IP
----------
+Q: What are elastic IPs?
 There is an elastic IP (static IP) reserved
 50.17.252.189
 To attach the IP to the instance, on the Web interface right click on it and associate.
 Select the correct instance.
 
+Q: How to log onto an elastic IP?
+ssh -i <my_identify_pem_file> ubuntu@<elastic_ip>
 
-
-
-DOCUMENTATION
--------------
-
+Q: where is documentation located?
 http://aws.amazon.com/documentation/
 http://docs.amazonwebservices.com/IAM/latest/UserGuide/IAM_Overview.html
+
+
+
+Q: How to upgrade a machine from micro to ... large?
+micro specs
+    - small memory 600MB
+    - free
+...
+1/ Stop the running micro-instance
+2/ Change its type (right click on it + select correct option)
+3/ Re-start the instance
+4/ RE-ATTACH THE ELASTIC IP
+!!! The ssh identify file and IP stay the same. The ssh command stays the same!
+!!! This is called changing the type of the machine
+!!! This can be done without losing any data!
+!!! To check the memory of an instance use: free -m ( or cat /proc/meminfo )
+
