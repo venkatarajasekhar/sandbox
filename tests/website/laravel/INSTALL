@@ -1,0 +1,17 @@
+ON UBUNTU 12.04
+
+0/  Download composer (used to install laravel)
+    curl -sS https://getcomposer.org/installer | php
+    ---
+    #!/usr/bin/env php
+    All settings correct for using Composer
+    Downloading...
+    Composer successfully installed to: /home/cls1fs/clseng/10/workspace/sandbox/tests/website/laravel/composer.phar
+    Use it: php composer.phar
+1/  Download Laravel
+2/  Extract the Laravel archive and upload the contents to your web server.
+3/  Set the value of the key option in the config/application.php file to a random, 32 character string.
+4/  Verify that the storage/views directory is writable.
+        You can use chmod option like this
+        #chmod a+w your_path/storage/views  -R
+5/    Navigate to your application in a web browser. http://localhost/laravel/public
