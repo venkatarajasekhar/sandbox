@@ -1,5 +1,23 @@
 ON UBUNTU 12.04
 
+
+#-----------------------------------------------------------------------
+# FROM DOWNLOAD
+#-----------------------------------------------------------------------
+
+1/  Download Laravel
+    curl -S https://codeload.github.com/laravel/laravel/zip/master -o laravel-master.zip
+2/  Extract the Laravel archive and upload the contents to your web server.
+3/  Set the value of the key option in the config/application.php file to a random, 32 character string.
+4/  Verify that the storage/views directory is writable.
+        You can use chmod option like this
+        #chmod a+w your_path/storage/views  -R
+5/    Navigate to your application in a web browser. http://localhost/laravel/public
+
+#-----------------------------------------------------------------------
+# USING COMPOSER
+#-----------------------------------------------------------------------
+
 0/  Download composer (used to install laravel)
     curl -sS https://getcomposer.org/installer | php
     ---
