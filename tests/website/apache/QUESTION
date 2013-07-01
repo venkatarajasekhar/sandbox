@@ -17,3 +17,17 @@ ex: host.domain.com and www.other_domain.org
     </VirtualHost>
 !!! The VirtualHost directive can contain configuration directives which are specific to that virtual host.
 
+Q: Location of www files?
+/var/www on ubuntu 12.04 LTS
+
+Q: Home page for user account?
+Directory /home/*/public_html
+
+Q: File to open first?
+If several files are present, starts with index.html, then try index.cgi. then ...
+<IfModule mod_dir.c>
+          DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
+</IfModule>
+!!! To enable a php page, move the index.html to index.htm
+
+
