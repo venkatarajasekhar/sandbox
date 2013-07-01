@@ -1,2 +1,48 @@
 Q: Laravel and PHP?
 Laravel is a framework for PHP 5+
+
+Q: PHP online Documentation ?
+http://php.net/mcrypt-module-open
+
+Q: PHP configuration file?
+php --ini                                                   # <-- reread the configuration files
+Configuration File (php.ini) Path: /etc/php5/cli            # <-- CLI = Command Line Interface
+Loaded Configuration File:         /etc/php5/cli/php.ini
+Scan for additional .ini files in: /etc/php5/cli/conf.d
+Additional .ini files parsed:      /etc/php5/cli/conf.d/pdo.ini
+
+Q: How many version of PHP are installed?
+$ sudo updatedb
+$ locate --regex .*/php$
+/etc/alternatives/php
+/usr/bin/php
+/var/lib/dpkg/alternatives/php
+
+Q: What are PHAR files?
+PHAR files are PHP archives
+Composer.phar can be executed as 
+php composer.phar
+or
+mv composer.phar composer
+./composer
+
+Q: Which PHP modules are installed?
+* From a terminal: php -m (or php -i)
+* From a index.php
+cat > /var/www/index.php <<EOT
+<?php
+
+print_r (phpinfo());
+
+?>
+EOT
+!!! In the latter case, installed modules and their configurations are listed after the HTTP Headers Information section
+
+Q: Laravel requires the Mcrypt PHP extension. ?
+Mcrypt php module is not installed !
+Modules are configured in php.ini
+php -v
+php --ini
+php -i | grep "mcrypt support"
+
+
