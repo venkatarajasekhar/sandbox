@@ -1,12 +1,32 @@
 ON UBUNTU 12.04
 
+sudo apt-get install apache2
+sudo apt-get install php5
+sudo apt-get install libapache2-mod-php5
+sudo /etc/init.d/apache2 restart
+Note that if apache is already installed you can omit the first line. Your web files will now be found in /var/www/
+
+Q: First php page?
+rm -rf /var/www/index.html
+
+cat > /var/www/index.php <<EOT
+<?php
+
+print_r (phpinfo());
+
+?>
+EOT
+
+http://localhost
+
 
 #-----------------------------------------------------------------------
 # FROM DOWNLOAD
 #-----------------------------------------------------------------------
 
 1/  Download Laravel
-    curl -S https://codeload.github.com/laravel/laravel/zip/master -o laravel-master.zip
+    c
+rl -S https://codeload.github.com/laravel/laravel/zip/master -o laravel-master.zip
 2/  Extract the Laravel archive and upload the contents to your web server.
 3/  Set the value of the key option in the config/application.php file to a random, 32 character string.
 4/  Verify that the storage/views directory is writable.
