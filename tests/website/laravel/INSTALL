@@ -21,10 +21,15 @@ EOT
 http://localhost
 
 #-----------------------------------------------------------------------
-# HARDWARE REQUIREMENT
+# SYSTEM REQUIREMENT
 #-----------------------------------------------------------------------
 
-Q: Composer issue during installation ?
+Q: SOFTWARE requirement?
+    PHP >= 5.3.7
+    MCrypt PHP Extension
+
+
+Q: HARDWARE requirement => Composer issue during installation ?
 https://github.com/composer/composer/issues/945
 Had the same issue when trying to do a deployment to an Amazon AWS EC2 Micro instance. 
 These instances have only 613MB of memory in total so composer fails to allocate enough memory for an update to run. 
