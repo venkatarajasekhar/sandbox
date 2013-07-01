@@ -26,7 +26,7 @@ http://docs.amazonwebservices.com/IAM/latest/UserGuide/IAM_Overview.html
 
 
 
-Q: How to upgrade a machine from micro to ... large?
+Q: How to upgrade a machine from micro to ... large with short downtime?
 micro specs
     - small memory 600MB
     - free
@@ -39,4 +39,12 @@ micro specs
 !!! This is called changing the type of the machine
 !!! This can be done without losing any data!
 !!! To check the memory of an instance use: free -m ( or cat /proc/meminfo )
+
+Q: How to upgrade a machine from micro to large WITHOUT ANY DOWNTIME?
+http://stackoverflow.com/questions/5898308/how-to-safely-upgrade-an-amazon-ec2-instance-from-t1-micro-to-large
+* Go to "Volumes" and create a Snapshot of your instance's volume.
+* Go to "Snapshots" and select "Create Image from Snapshot".
+* Go to "AMIs" and select "Launch Instance" and choose your "Instance Type" etc.
+!!! Once the instance is up, you just need to redirect the elastic IP to the new instantiated machine
+ 
 
