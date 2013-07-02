@@ -9,6 +9,9 @@ sudo apt-get install php5-mcrypt
 sudo /etc/init.d/apache2 restart
 Note that if apache is already installed you can omit the first line. Your web files will now be found in /var/www/
 
+sudo apt-get install mysql-server           # For php, mysql
+sudo apt-get install mysql-client
+
 Q: First php page?
 rm -rf /var/www/index.html
 
@@ -154,3 +157,26 @@ create-project [-s|--stability="..."] [--prefer-source] [--prefer-dist] [--repos
         You can use chmod option like this
         #chmod a+w your_path/storage/views  -R
 5/    Navigate to your application in a web browser. http://localhost/laravel/public
+
+#-----------------------------------------------------------------------
+# CONNECTION TO DATABASE
+
+Q: Laravel app config file for database?
+.../laravel-master/app/config/database.php
+'default' => points to the database in use
+'connections' => points to the configuration for the database connection (i.e. username, password, db name, etc)
+is
+
+
+Q: Install mysql ?
+sudo apt-get install mysql-client
+sudo apt-get install mysql-server-5.5
+set mysql root password to (check laravel config for root) 
+!!! To change password: mysqladmin -u root -p'oldpassword' password newpass
+
+mysql -u root -p 
+mysql> create database crowdsets_db
+mysql> show databases;                  # <-- Should show the database
+
+
+
