@@ -18,11 +18,14 @@ If several files are present, starts with index.html, then try index.cgi. then .
 </IfModule>
 !!! To enable a php page, move the index.html to index.htm
 
+Q: How to see how configuration file is parsed? 
+/usr/local/apache2/bin/httpd -S 
+
 #-----------------------------------------------------------------------
 # VIRTUAL HOST
 
-Q: What is a virtual host?
-Two websites have different server names, but whose files are hosted on the SAME machine and served on the SAME port.
+Q: What is a name-based virtual host?
+Two websites have different server names, but whose files are hosted on the SAME machine, i.e. SAME IP and SAME port.
 ex: host.domain.com and www.other_domain.org
 1/ The hostname should route to the machine ( So the GET http requests get routed correctly !)
 2/ On the server, hostname should resolve as localhost (to make apache happy)
@@ -56,6 +59,12 @@ To activate the new configuration, you need to run:
   service apache2 reload
 $ sudo service apache2 reload
  * Reloading web server config apache2  
+
+Q: IP-based vitual hosts?
+An IP address for each website
+
+Q: More info?
+More @ http://httpd.apache.org/docs/trunk/vhosts/
 
 #-----------------------------------------------------------------------
 # HTACCESS
