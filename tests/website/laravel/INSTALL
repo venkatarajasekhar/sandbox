@@ -4,6 +4,8 @@ sudo apt-get install unzip
 sudo apt-get install apache2
 sudo apt-get install php5
 sudo apt-get install libapache2-mod-php5
+sudo apt-get install php5-mcrypt
+
 sudo /etc/init.d/apache2 restart
 Note that if apache is already installed you can omit the first line. Your web files will now be found in /var/www/
 
@@ -20,6 +22,7 @@ EOT
 
 http://localhost
 
+
 #-----------------------------------------------------------------------
 # SYSTEM REQUIREMENT
 #-----------------------------------------------------------------------
@@ -28,6 +31,10 @@ Q: SOFTWARE requirement?
     PHP >= 5.3.7
     MCrypt PHP Extension
 
+
+#-----------------------------------------------------------------------
+# TROUBLESHOOTING
+#-----------------------------------------------------------------------
 
 Q: HARDWARE requirement => Composer issue during installation ?
 https://github.com/composer/composer/issues/945
@@ -38,6 +45,39 @@ Upgrading to a Small instance with 1.7GB of total memory got rid of the issue.
 Q: Laravel requires the Mcrypt PHP extension. ?
 php -m
 the PHP module is not found/installed.
+sudo apt-get install php5-mcrypt
+
+Q: file_put_contents(/var/www/laravel-master/app/storage/meta/services.json): failed to open stream: Permission denied Error ? 
+sudo chmod -R o+w .../laravel-master/app/storage/
+
+Q: URL path fix?
+http://laravel.aws/laravel-master/public/ --> http://laravel.aws/laravel-master ?
+you need to create an apache2 virtual-host
+cd /etc/apache2/sites-available/
+cp default crowdset.com
+vi crowdset.com
+[...]
+<VirtualHost *:80>
+        ServerName crowdset.com                         # <--- If this is the host on the URL, then this is this virtual host configuration
+        ServerAdmin webmaster@crowdset.com
+        ServerAlias www.crowdset.com
+        DocumentRoot /var/www/crowdset/public
+[...]
+cat >> /etc/hosts <<EOT
+127.0.0.1       www.crowdset.com crowdset.com
+EOT
+
+$ sudo a2ensite crowdsets
+Enabling site crowdsets.
+To activate the new configuration, you need to run:
+  service apache2 reload
+$ sudo service apache2 reload
+ * Reloading web server config apache2       
+
+
+
+
+
 
 #-----------------------------------------------------------------------
 # FROM DOWNLOAD

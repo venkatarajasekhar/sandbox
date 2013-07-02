@@ -1,3 +1,18 @@
+Q: What is MAMP php?
+MAMP stands for Macintosh, Apache, MySQL, and PHP 
+It cannot be used for linux!
+More @ http://www.mamp.info/en/mamp-pro/
+
+Q: What is XAMPP?
+XAMPP's name is an acronym for:
+    X (to be read as "cross", meaning cross-platform)
+    Apache HTTP Server
+    MySQL
+    PHP 
+    Perl
+    Tomcat
+More @ http://en.wikipedia.org/wiki/XAMPP
+
 Q: Laravel and PHP?
 Laravel is a framework for PHP 5+
 
