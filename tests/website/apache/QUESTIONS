@@ -1,0 +1,58 @@
+
+Q: On which port is apache working?
+Default port is 80
+
+Q: How to restart apache?
+sudo apachectl restart
+
+Q: What is a virtual host?
+Two websites have different server names, but whose files are hosted on the SAME machine and served on the SAME port.
+ex: host.domain.com and www.other_domain.org
+1/ The hostname should route to the machine ( So the GET http requests get routed correctly !)
+2/ On the server, hostname should resolve as localhost (to make apache happy)
+3/ Apache needs to have a VirtualHost directive on desired port
+    <VirtualHost *:80>
+        ServerAdmin webmaster@domain.com
+        DocumentRoot "/var/www/domain.com"
+        ServerName domain.com
+        ServerAlias www.domain.com
+    </VirtualHost>
+!!! The VirtualHost directive can contain configuration directives which are specific to that virtual host.
+
+Q: Location of www files?
+/var/www on ubuntu 12.04 LTS
+
+Q: Home page for user account?
+Directory /home/*/public_html
+
+Q: File to open first?
+If several files are present, starts with index.html, then try index.cgi. then ...
+<IfModule mod_dir.c>
+          DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
+</IfModule>
+!!! To enable a php page, move the index.html to index.htm
+
+Q: How to create a virtual host?
+cd /etc/apache2/sites-available/
+cp default crowdsets.com
+vi crowdsets.com
+[...]
+<VirtualHost *:80>
+        ServerAdmin webmaster@crowdsets.com
+        ServerName crowdsets.com
+        ServerAlias www.crowdsets.com
+        DocumentRoot /var/www/crowdsets/public
+[...]
+cat >> /etc/hosts <<EOT
+127.0.0.1       www.crowdsets.com crowdsets.com
+EOT
+
+$ sudo a2ensite crowdsets
+Enabling site crowdsets.
+To activate the new configuration, you need to run:
+  service apache2 reload
+$ sudo service apache2 reload
+ * Reloading web server config apache2  
+
+
+
