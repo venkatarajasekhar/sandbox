@@ -74,11 +74,6 @@ To activate the new configuration, you need to run:
 $ sudo service apache2 reload
  * Reloading web server config apache2       
 
-
-
-
-
-
 #-----------------------------------------------------------------------
 # FROM DOWNLOAD
 #-----------------------------------------------------------------------
@@ -92,12 +87,16 @@ $ sudo service apache2 reload
     sudo sh -c "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/src
     sudo cp /usr/local/src/composer.phar /usr/local/bin/composer                                        # <-- PHAR files are PHP ARCHIVES
     sudo /usr/local/bin/composer install 
-    
-3/  Set the value of the key option in the config/application.php file to a random, 32 character string.
 4/  Verify that the storage/views directory is writable.
         You can use chmod option like this
         #chmod a+w your_path/storage/views  -R
-5/    Navigate to your application in a web browser. http://localhost/laravel/public
+5/  Set the value of the key option in the .../laravel-master/app/config/app.php file to a random, 32 character string.
+    cd .../laravel-master
+    sudo grep key  app/config/app.php
+    sudo php artisan key:generate
+    sudo grep key  app/config/app.php
+    !!! This command automatically update the aforementioned configuration file
+6/  Navigate to your application in a web browser. http://localhost/laravel/public
 
 #-----------------------------------------------------------------------
 # USING COMPOSER
