@@ -31,7 +31,7 @@ To set the editor:
 or
     export EDITOR=vim
 
-Iteract with a remote GIT repository
+Interact with a remote GIT repository
 ------------------------------------   
 
 To create a local copy of a remote GIT repository (with history, etc), you need to clone it.
@@ -113,3 +113,8 @@ Repo level exclude (Not checking in the repo)
 
 !!! To stop tracking a file and delete it: 'git rm <filename>'
 !!! To stop tracking a file without deleting it: 'git rm --cached <filename>'
+
+Tag versions
+------------
+
+    git tag -a 1.0.0 -m 'First version.'
