@@ -1,0 +1,58 @@
+Q: Find the Ip using only the DNS?
+Do a whois and use the returned DNS server to dig the domain
+
+Q: Whois sample output?
+whois crowdsets.com
+
+   Registered through: GoDaddy.com, LLC (http://www.godaddy.com)
+   Domain Name: CROWDSETS.COM
+      Created on: 27-Dec-12
+      Expires on: 27-Dec-13
+      Last Updated on: 27-Dec-12
+
+   Registrant:
+   Michael Sutyak
+   1196 Vacation Drive
+   Lafayette, California 94549
+   United States
+
+   Administrative Contact:
+      Sutyak, Michael  msutyak@gmail.com
+      1196 Vacation Drive
+      Lafayette, California 94549
+      United States
+      925-550-1430
+
+   Technical Contact:
+      Sutyak, Michael  msutyak@gmail.com
+      1196 Vacation Drive
+      Lafayette, California 94549
+      United States
+      925-550-1430
+
+   Domain servers in listed order:
+      NS1.MEDIATEMPLE.NET
+      NS2.MEDIATEMPLE.NET
+
+Q: DIG the domain?
+dig @NS1.MEDIATEMPLE.NET www.crowdsets.com
+
+; <<>> DiG 9.8.4-P1-RedHat-9.8.4-3.P1.fc16 <<>> @NS2.MEDIATEMPLE.NET www.crowdsets.com
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 2236
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+;; WARNING: recursion requested but not available
+
+;; QUESTION SECTION:
+;www.crowdsets.com.             IN      A
+
+;; ANSWER SECTION:
+www.crowdsets.com.      43200   IN      A       205.186.175.89
+
+;; Query time: 87 msec
+;; SERVER: 70.32.65.137#53(70.32.65.137)
+;; WHEN: Mon Jul  1 23:42:44 2013
+;; MSG SIZE  rcvd: 51
+
