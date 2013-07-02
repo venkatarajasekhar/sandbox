@@ -1,0 +1,33 @@
+Q: How to install?
+apt-get install samba
+
+Q: Configuration file ?
+/etc/samba/snb.conf
+
+Q: Configure a share?
+Let's assume that
+sudo mkdir -p /srv/samba/share
+sudo chown nobody.nogroup /srv/samba/share/         # <-- Check ownership !
+In configuration file in [global] section
+workgroup = LYNCEAN
+...
+security = user                         # Users to to have an account on the server (same UID, same password)
+[share]                                 # Name of share (is share!)
+    comment = Ubuntu File Server Share  # Comment in windows explorer
+    path = /srv/samba/share             # Path to share on server
+    browsable = yes                     # Can be navigated in windows explorer
+    guest ok = no                       # Guest access not ok (login is required!)
+    read only = no                      # Read only share?
+    create mask = 0755                  # Mask for creation of files
+
+Restart daemon to enable
+sudo restart smbd
+sudo restart nmbd
+
+Q: How to access the newly created share?
+useradd -M emayssat -u 516 -g 100       # <-- NO! You need a smbpasswd not a syste, password!
+passwd emayssat                         
+On the windows machine, go to IP and enter username and password
+You should be able to browse the share
+Run --> control userpasswords2
+

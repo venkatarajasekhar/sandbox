@@ -5,6 +5,22 @@ Default port is 80
 Q: How to restart apache?
 sudo apachectl restart
 
+Q: Location of www files?
+/var/www on ubuntu 12.04 LTS
+
+Q: Home page for user account?
+Directory /home/*/public_html
+
+Q: File to open first?
+If several files are present, starts with index.html, then try index.cgi. then ...
+<IfModule mod_dir.c>
+          DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
+</IfModule>
+!!! To enable a php page, move the index.html to index.htm
+
+#-----------------------------------------------------------------------
+# VIRTUAL HOST
+
 Q: What is a virtual host?
 Two websites have different server names, but whose files are hosted on the SAME machine and served on the SAME port.
 ex: host.domain.com and www.other_domain.org
@@ -18,19 +34,6 @@ ex: host.domain.com and www.other_domain.org
         ServerAlias www.domain.com
     </VirtualHost>
 !!! The VirtualHost directive can contain configuration directives which are specific to that virtual host.
-
-Q: Location of www files?
-/var/www on ubuntu 12.04 LTS
-
-Q: Home page for user account?
-Directory /home/*/public_html
-
-Q: File to open first?
-If several files are present, starts with index.html, then try index.cgi. then ...
-<IfModule mod_dir.c>
-          DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
-</IfModule>
-!!! To enable a php page, move the index.html to index.htm
 
 Q: How to create a virtual host?
 cd /etc/apache2/sites-available/
@@ -53,6 +56,49 @@ To activate the new configuration, you need to run:
   service apache2 reload
 $ sudo service apache2 reload
  * Reloading web server config apache2  
+
+#-----------------------------------------------------------------------
+# HTACCESS
+
+Q: What are .htaccess files?
+Located in the html directory, those files are used to set the configuration on a directory basis.
+But the master configuration file should allow for this server / virtual host
+For example, in a virtual host directive
+        <Directory /var/www/crowdsets>                          # <-- Directory in question
+                Options Indexes FollowSymLinks MultiViews       # <-- Default option for this directory
+                AllowOverride All                               # <-- What can be done in .htaccess files
+                Order allow,deny
+                allow from all
+        </Directory>
+
+Q: What are Options?
+Options configure what features are available in a particular directory
+They can be seen in the server config, virtual host, directory, .htaccess
+Most common options are:
+ExecCGI             - executinon of CGI scripts using mod_cgi is permitted
+Includes            - server side includes are permitted
+Indexes             - turn on directory listing whenever a DirectoryIndex (index.html, etc) is not present
+FollowSymLinks      - follow symbolic links
+MultiViews          - allow substitutions of file extensions (i.e /mypage.php is also accessible with /mypage )
+More @ http://httpd.apache.org/docs/trunk/mod/core.html#options
+
+Q: + and - options?
+When using + or - in front of options, it means that you are setting a delta
+(options are inherited from parent directories) and not the absolute options.
+<Directory "/web/docs">
+  Options Indexes FollowSymLinks
+</Directory>
+<Directory "/web/docs/spec">
+  Options +Includes -Indexes
+</Directory>
+
+
+#-----------------------------------------------------------------------
+# ISSUES
+
+Q: Google bots and Multiviews?
+http://www.gerd-riesselmann.net/archives/2005/04/beware-of-apaches-multiviews
+
 
 
 
