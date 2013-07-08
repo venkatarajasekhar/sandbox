@@ -17,4 +17,19 @@ Q: Laravel on google app engine?
 http://blog.neoxia.com/laravel-4-on-google-appengine-for-php/
 Yes, but as of today with a few tweeks
 
+#-----------------------------------------------------------------------
+# HOW DOES IT WORK?
+
+Q: What happens when I request the / URL ?
+1/ route.php is processed
+    Route::get('/', function()
+    {
+        return View::make('hello');         # <-- make static method is processing view/hello.php with no parameters
+    });
+2/ view/hello.php is processed
+
+!!! The make static function is defined in 
+grep -R make * | grep function | grep public | grep view
+vendor/laravel/framework/src/Illuminate/View/Environment.php:
+
 
