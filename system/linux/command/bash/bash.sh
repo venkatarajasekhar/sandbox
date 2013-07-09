@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "number of argument is $#"
+echo "first argument is $1"
 
 . ./include.sh
 
@@ -12,6 +14,9 @@ echo $DATE
 
 DATE=`date +%Y%m%d`
 echo $DATE
+
+STR="il etait une fois..."
+echo "substring: ${STR:3:7}"
 
 ARR=(zero one two three)
 echo "${ARR[1]}"

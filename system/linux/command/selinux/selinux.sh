@@ -1,0 +1,5 @@
+getsebool
+
+setsebool 
+
+booleans
