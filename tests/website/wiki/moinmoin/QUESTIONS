@@ -173,6 +173,7 @@ Check /usr/share/moin/wikis/manuals/data/user
 Q: How to add a page?
 (1) Go to the non-existing page URL ex: http://wikifarm/wiki/Toto to create the page Toto
 (2) On an existing page, create a link to that page ex: /MySibling or MyNewPage
+More @ http://moinmo.in/HelpOnPageCreation
 
 Q: How to delete a page?
 Go on the page, click on [Action] and select 'Delete Page'
@@ -248,6 +249,22 @@ Q: How to include a subpage?
 <<Include(^FooBar/.*, , items=3)>> -- include maximal three pages
 <<Include(^BlogBase/.*,, to="^----$", sort=descending, items=7)>>                           <-- show at most a week of a blog
 <<Include(^BlogBase/.*,, to="^----$", sort=descending, items=7, skipitems=7, titlesonly)>>  <-- show the previous week with titles only
+
+Q: How to use admonitions?
+{{{#!wiki caution                       # <-- warning , important, note, tip
+'''Don't overuse admonitions'''
+
+Admonitions should be used with care. A page riddled with admonitions ...
+}}}
+
+Q: How to insert smileys?
+{X}     - X mark, forbidden
+/!\     - triangular warning
+<!>     - round warning
+{i}     - information
+(./)    - check listed
+(!)     - tip
+
 
 
 #----------------------------------------------------------------------
