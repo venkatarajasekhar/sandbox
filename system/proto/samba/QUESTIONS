@@ -31,3 +31,19 @@ On the windows machine, go to IP and enter username and password
 You should be able to browse the share
 Run --> control userpasswords2
 
+Q: How to create a smbuser?
+
+Q: How to set a smbuser password?
+../bin/smbpasswd -a emayssat    -> to change and set passwd
+smbpasswd -e emayssat           -> to enable user
+
+smbpasswd will change the passwd file that is specified in the samba configuration.
+!!! it may not be the one you think it is.
+
+Q: Content of smbpassword file?
+root@footee:/export/it/samba/etc# more smbpasswd 
+root:0:CD8D9541439194FEE72C57EF50F76A05:96F5F0FB3FD850C908BB7DB90388FA1F:[U          ]:LCT-40131C98:
+jrifkin:504:2E925C53E05183A9F500944B53168930:4B9FBD71B431F252E6F7E9FD654DCCE4:[U          ]:LCT-4511738C:
+
+
+
