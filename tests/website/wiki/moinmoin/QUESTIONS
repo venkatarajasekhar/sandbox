@@ -162,6 +162,9 @@ Q: How to create an new user account?
     - To add the user to that group, edit the TrustedGroup page
         http://mucls.lynceantech.com/wiki/TrustedGroup
 3/ Login as the user and check that the user can edit
+
+Q: How to change a user's password?
+Check /usr/share/moin/wikis/manuals/data/user
     
 
 #----------------------------------------------------------------------
@@ -215,24 +218,37 @@ Table of contents (up to 2nd level headings only):
 === heading 3rd level ===
 
 
-Q: How to add comments to a wiki page?
-{{{#!wiki comment/dotted
-This is a wiki parser section with class "comment dotted" (see HelpOnParsers).
-
-Its visibility gets toggled the same way.
-}}}
-
-Q: How to show comments directly without having to click on 'comments' ?
-
-Q: How to add a comment to a page commit?
-Before clicking on save, enter a comment on the same page.
-Note that comments on that page are checking commments
-
 Q: How to create a table and style the cells?
 ||<style="background-color:green;">'''CLS On'''||||<style="background-color:blue;">'''CLS Off'''||<style="background-color:red;">'''Install'''||<style="background-color:yellow;">'''Test'''||
+!!! If you use the same style everywhere, you may be able to use variables
 
 Q: Font styling?
 '' italics '' 
+''' bold '''
+~+larger+~
+--(stroke)--
+~-smaller-~
+__underline__
+^super^script
+,,sub,,script
+`monospace`
+{{{code}}}
+
+Q: What is a subpage?
+/SubPage or [[/sub page]]
+It is a page that is created in a subdirectory.
+The only particular thing about subpage is how they are accessible 
+!!! Several subpage can have the same name (as long as they don't have the same parent !!!
+
+Q: How to include a subpage?
+<<Include(FooBar, 'All about Foo Bar', 2)>>     <-- add a H2 of 'All about Foo Bar'
+<<Include(FooBar, , from="^----$")>>            <-- only include content after first horizontal rule
+<<Include(FooBar, , to="^----$")>>              <-- only include content until first horizontal rule
+<<Include(^FooBar/.*, , sort=descending)>>      <-- sort the page list in descending order
+<<Include(^FooBar/.*, , items=3)>> -- include maximal three pages
+<<Include(^BlogBase/.*,, to="^----$", sort=descending, items=7)>>                           <-- show at most a week of a blog
+<<Include(^BlogBase/.*,, to="^----$", sort=descending, items=7, skipitems=7, titlesonly)>>  <-- show the previous week with titles only
+
 
 #----------------------------------------------------------------------
 # ACCESS CONTROL RIGHTS (ACL)
@@ -386,19 +402,26 @@ A template page is a MoinMoin page which must be named with an ending fitting th
 (which defaults to some non-blank characters followed by "Template")
 
 Q: What are variables?
-@PAGE@
-@EMAIL@
-@DATE@
+@PAGE@                  - Name of the page (useful for template pages)
+@EMAIL@                 - <<MailTo()>> Just the user's email address, obfuscation can be extended
+@DATE@                  - Current date in the system's format
 http://wikifarm/wiki/HelpOnVariables
 !!! You can also create your own variables !!!
 
 Q: Who to create your own variables?
 Create a wiki page Wiki/EmmanuelMayssat/MyDict
 Insert in that page 
- B:: <style="background-color:blue;">               # <-- Don't forget the heading space!
+ B:: <style="background-color:blue;">               # <-- Don't forget the heading space and space after :: !
 Now every pages with 
 || @B@ ||
 will display a blue cell!
+!!! The variable is replaced when edit is saved
+!!! If you change the variable later, the page is not updated
+
+Q; How to get variables at every refresh?
+<<GetVal(WikiDict,var1)>> will get the value of var1
+from the WikiDict page.
+!!! You need to create a page ending with .*Dict
 
 Q: How to use a template?
 When creating an empty page, you can create an empty page or select a template to use
@@ -409,18 +432,21 @@ Q: CategoryTemplate?
 #----------------------------------------------------------------------
 # USER CUSTOMIZATION
 
+Q: where is the preference page?
+Next to the logged in user, there is a link called settings.
+From that page you will be able to
+* Change your password
+* change your notification
+* Set your preferences
+
 Q: How to setup email notification?
 Make sure it is enabled by checking the configuration.
 
 Q: How to change the theme?
-Check  
-
-Q: What is a subpage?
-/SubPage or [[/sub page]]
-It is a page that is created in a subdirectory.
-The only particular thing about subpage is how they are accessible 
-
-!!! Several subpage can have the same name (as long as they don't have the same parent !!!
+Check the global configuration file.
+The user also can select a different theme than the configured one,
+and pick any one of the theme that has been installed.
+Check the user's preference. 
 
 Q: How to (un)subscribe to a page?
 2 ways:
@@ -428,12 +454,39 @@ Q: How to (un)subscribe to a page?
 (2) or [Actions] and select (un)subscribe
 !!! Beware the page needs to be edited for a notification to be sent
 !!! Changes of returned values by a macros (i.e. FullSearch macro) do not sent notifications
+!!! You need to make sure that you receive notification for the right events
+==> Check notification configuration in the user's settings
 
 Q: Preferences ?
 Show top/bottom links in heading        - show arrows in page headers to jump up and down !
 Open editor on double click             - double click on page and the editor opens!
+Show comment section                    - needs to be enabled for comments to show!
 
 Quick links                             - The quick links for this account
+
+#-----------------------------------------------------------------------
+# COMMENTS
+#
+
+Q: I don't see the comments. What's wrong?
+Check the user's preference and make sure that comments are shown
+
+Q: What are comments?
+To include a comment in a page, in the corresponding page enter 
+{{{#!wiki comment
+This is a comment's content
+}}}
+That comment will be visible if the user's preference allow for it!
+!!! By default, comments are disabled!
+
+Q: How to add comments to a wiki page?
+{{{#!wiki comment/dotted
+This is a wiki parser section with class "comment dotted" (see HelpOnParsers).
+
+Its visibility gets toggled the same way.
+}}}
+
+Q: How to show comments directly without having to click on 'comments' ?
 
 
 
@@ -460,6 +513,14 @@ http://moinmo.in/HelpOnConfiguration#xapian
 Q: How to find pages that links to a specific page?
 Search: linkto:"MuSchedule"
 
+Q: What are Category page?
+Example of category pages are: CategoryHomePage, CategoryTemplate
+A category is a WikiName that exploits WikiWiki's reverse linking: 
+If you click on the title of a category page, you'll get a list of pages belonging to that category. 
+To get a list of all categories, click the CategoryCategory title in the navigation area.
+
+Q: How to put a page in a category?
+
 
 #----------------------------------------------------------------------
 # DOCUMENT CONTROL
@@ -474,11 +535,8 @@ Check the More action button!
 Q: How to force people to login to edit a page?
 Create an ACL on a template page
 
-Q: What are Category page?
-Example of category pages are: CategoryHomePage, CategoryTemplate
-A category is a WikiName that exploits WikiWiki's reverse linking: 
-If you click on the title of a category page, you'll get a list of pages belonging to that category. 
-To get a list of all categories, click the CategoryCategory title in the navigation area.
-
-Q: How to put a page in a category?
+Q: How to add a comment to a page commit?
+Before clicking on save, enter a comment on the same page.
+Note that comments on that page are checking commments
+!!! We are not talking about comment on the page, but comment on the commit
 
