@@ -2,7 +2,7 @@ Q: How to install?
 apt-get install samba
 
 Q: Configuration file ?
-/etc/samba/snb.conf
+/etc/samba/smb.conf
 
 Q: what is SMB and CIFS?
 Microsoft has also contributed by offering its definition of the SMB protocol 
@@ -33,8 +33,8 @@ security = user                         # Users to to have an account on the ser
     create mask = 0755                  # Mask for creation of files
 
 Restart daemon to enable
-sudo restart smbd
-sudo restart nmbd
+sudo service smbd restart               # Required each time /etc/samba/smd.conf is changed
+sudo service nmbd restart 
 
 Q: How to access the newly created share?
 useradd -M emayssat -u 516 -g 100       # <-- NO! You need a smbpasswd not a syste, password!
@@ -75,8 +75,8 @@ the password in /etc/passwd is used for ssh, etc
 # CONFIGURATION 
 
 Q: Sample directives?
-admin users         - string (list of usernames) = Users who can perform operations as root
-valid users         - string (list of usernames) = Users who can connect to a share
+admin users         - string (list of usernames) = Users who can perform operations as root (id root on server)
+valid users         - string (list of usernames) = Users who can connect to a share (also @group is ok)
 invalid users       - string (list of usernames) = Users who will be denied access to a share
 read list           - string (list of usernames) = Users who have read-only access to a writable share
 write list          - string (list of usernames) = Users who have read/write access to a read-only share
@@ -138,6 +138,7 @@ writable = yes
 
 Q: How to make the home directory appear?
 The home directory appears AUTOMATICALLY when you browse the CIFS server
+!!! If you don't want to be prompted for a password, the smbpasswd and the windows password need to be the same
 
 #-----------------------------------------------------------------------
 # TROUBLESHOOT
