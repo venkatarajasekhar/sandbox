@@ -1,0 +1,13 @@
+Q: what is the equivalent of /etc/hosts on XP?
+Windows\system32\drivers\etc\hosts
+edit the file with notepad!
+
+Q: How to get read of cached password used for mounting shares?
+Control Panel > Users > Select user > 
+look in left pane, for related tasks
+select: Manage my network pasword
+More @ how to get ride of cached passwords windows
+
+Q: How to set the CIFS password for a particular user?
+Start > Run > control userpasswords2
+
