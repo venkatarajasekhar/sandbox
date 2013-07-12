@@ -4,6 +4,31 @@
 Q: How to access moinmoin?
 ssh -i ~/ssh/moinmoin_awskey.pem ubuntu@moinmoin
 
+Q: How to check moinmoin version?
+Go to the SystemInfo page
+e.g
+http://support.lynceantech.com/wiki/SystemInfo
+Python Version
+2.7.3 (default, Aug 1 2012, 05:14:39) [GCC 4.6.3]
+MoinMoin Version
+Release 1.9.3 [Revision release]
+Global extension macros
+AbandonedPages, Action, AdvancedSearch, AttachInfo, AttachList, BR, EditTemplates, EditedSystemPages, EmbedObject, FootNote, FullSearch, FullSearchCached, GetText, GetText2, HighlighterList, Hits, Include, InterWiki, LikePages, MonthCalendar, Navigation, NewPage, OrphanedPages, PageCount, PageHits, PageList, PageSize, RandomPage, RandomQuote, RecentChanges, ShowSmileys, StatsChart, SystemAdmin, SystemInfo, TableOfContents, TeudView, Verbatim, WantedPages, WikiConfig, WikiConfigHelp
+Local extension macros
+NONE
+Global extension actions
+AttachFile, DeletePage, Despam, LikePages, Load, LocalSiteMap, PackagePages, RenamePage, Save, SlideShow, SpellCheck, SubscribeUser, SyncPages, anywikidraw, backup, bookmark, cache, chart, diff, edit, fckdialog, fullsearch, info, language_setup, links, login, logout, newaccount, newpage, pollsistersites, quicklink, quickunlink, recoverpass, refresh, revert, rss_rc, serveopenid, showtags, sisterpages, sitemap, subscribe, supplementation, thread_monitor, titleindex, twikidraw, unsubscribe, userprefs, userprofile
+Local extension actions
+NONE
+Global parsers
+highlight, text, text_cplusplus, text_creole, text_csv, text_diff, text_docbook, text_html, text_irssi, text_java, text_moin_wiki, text_pascal, text_python, text_rst, text_xslt
+Local extension parsers
+NONE
+Xapian search
+Disabled, Xapian 1.2.8
+Active threads
+1
+
 #----------------------------------------------------------------------
 # INSTALLATION 
 
@@ -57,10 +82,13 @@ MoinMoin supplied by Ubuntu (python-moinmoin), the fckeditor is not by default i
 package is listed as a "recommends". This requires a few extra steps
 sudo -i
 apt-get install fckeditor
-rm -r /usr/share/moin/htdocs/applets/FCKeditor
-ln -s /usr/share/fckeditor/ /usr/share/moin/htdocs/applets/FCKeditor        # <-- where moinmoin expect FCKEditor
-service apache2 restart
-!!! Now Edit links should display Edit(Text) and Edit(GUI)                  # Not EDIt GUI !!!!
+cd /usr/share/moin/htdocs/applets/
+sudo rm -rf FCKeditor                                                       # <-- remove the entire directory
+sudo ln -s /usr/share/fckeditor/ FCKeditor                                  # <-- where moinmoin expect FCKEditor
+sudo service apache2 restart                                                # <-- If not restarted will not show up !
+!!! Now Edit links should display Edit(Text) and Edit(GUI)
+Source @ http://moinmo.in/MoinMoinQuestions/Installing#GUI_Editor_not_installed.2Fconfigured.3F.3F
+!!! Still no Edit (GUI) !!!
 
 Q: How to add the help and search engine page ?
 Got to the LanguageSetup, select your language and click on the download all_page link.
