@@ -1,0 +1,10 @@
+Q: nfs4 over nfs3 ?
+nfs4  has the possibility of changing UID/GID
+That is if a user doesn't exist on a client nfs, the UID/GID is changed to nobody/nobody
+If that username exists, but with a different UID, then the UID is remapped at the server 
+through idmapd
+If username and UID exists and are the same, well they appear as the same!
+!!! Don't like nfs4? Force nfs3 in the mount
+
+foote:/exports/projects         /mnt/foote/projects     nfs     ro,nolock,auto,nouser,vers=3 0 0
+
