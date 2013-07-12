@@ -1,0 +1,30 @@
+Q: ipython equivalent?
+irb
+
+Q: Class and methods?
+25.0.class
+25.0.methods        # list methods
+
+Q: Add a method?
+def add_and_power a,b
+    (a+b)**(a+b)
+    end
+
+add_and_power(2,3)
+3135
+
+
+
+!!! Functions are added to self object (in irb it is main!)
+
+self.methods
+
+
+Q: Symbols?
+:foo 
+
+!!! There is only 1 symbol in a program
+Each variable that are equal to the symbole are the same
+s1 = :foo
+s2 = :foo
+s1.equal? s2                # returns true
