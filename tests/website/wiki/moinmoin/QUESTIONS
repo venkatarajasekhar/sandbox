@@ -388,7 +388,7 @@ Q: What are examples of macros?
 <<Include(HelpOnMacros/Include)>>       - inserts the contents of the page HelpOnMacros/Include inline
 <<MailTo(user AT example DOT com)>>     - obfuscates the email address user@example.com to users not logged in
 <<FullSearch(ForEmmanuel -ForName)>>    - list of pages with ForEmmanuel in them
-<<FullSearchCached(category:CategoryCategory)>>
+<<FullSearchCached(category:CategoryCategory)>> - list all the pages in the CategoryCategory  # <-- search wiki site content
 <<TableOfContents(2)>>                  - Table of content of depth 2
 More @ http://wikifarm/wiki/HelpOnMacros
 
@@ -423,6 +423,12 @@ ex: For a checklist to work, in the same page must appear:
 <<CheckList(dom_id=check1, heading=1, text=Top Level Item)>>    # Checklist item
 <<CheckList(dom_id=check2, heading=2, text=Something To do)>>   # Another checklist item
 
+Q: Sample macro installation?
+sudo sh -c "curl http://moinmo.in/MacroMarket/MiniPage\?action=AttachFile\&do=get\&target=MiniPage-1.8.4-6.py > /usr/share/moin/data/plugin/macro/MiniPage.py"
+!!! sudo and redirection do not work as redirection is done in current shell.
+!!! So sudo sh -c ... is required
+
+
 Q: How to create a macro?
 from MoinMoin import wikiutil
 from MoinMoin.macro import Include          # <-- Import standard macros
@@ -455,6 +461,9 @@ fckdialog, fullsearch, info, language_setup, links, login, logout, newaccount, n
 pollsistersites, quicklink, quickunlink, recoverpass, refresh, revert, rss_rc, serveopenid, 
 showtags, sisterpages, sitemap, subscribe, supplementation, thread_monitor, titleindex, 
 twikidraw, unsubscribe, userprefs, userprofile
+
+Q: Where are the actions located?
+/usr/share/pyshared/MoinMoin/action
 
 #---------------------------------------------------------------------- 
 # TEMPLATE
@@ -493,7 +502,26 @@ from the WikiDict page.
 Q: How to use a template?
 When creating an empty page, you can create an empty page or select a template to use
 
-Q: CategoryTemplate?
+#-----------------------------------------------------------------------
+# CATEGORIES
+
+Q: What is the purpose of CategoryTemplate?
+Template used to create a category
+On a recipe wiki, you could create categories such as:
+CategorySauce
+CategoryCake
+etc.
+
+Q: What does the content of a Category page look like?
+Describe the pages in this category... 
+To add a page to this category, add a link to this page on the last line of the page. You can add multiple categories to a page.
+'''List of pages in this category:'''
+<<FullSearchCached(category:@PAGE@)>>               # <-- list all the pages in that category
+----
+CategoryCategory                                    # <-- this page is listed in the page where all the categories are listed
+
+Q: Where is FullSearchCached macro?
+
 
 
 #----------------------------------------------------------------------
