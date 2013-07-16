@@ -1,0 +1,708 @@
+#---------------------------------------------------------------------- 
+# ACCESS
+
+Q: How to access moinmoin?
+ssh -i ~/ssh/moinmoin_awskey.pem ubuntu@moinmoin
+
+Q: Where to report moinmoin bugs?
+http://moinmo.in/MoinMoinBugs
+
+Q: How to check moinmoin version?
+1/ From terminal: moin --version
+2/ From Wiki
+Go to the SystemInfo page
+
+Q: Current Version?
+http://support.lynceantech.com/wiki/SystemInfo
+Python Version
+2.7.3 (default, Aug 1 2012, 05:14:39) [GCC 4.6.3]
+MoinMoin Version
+Release 1.9.3 [Revision release]
+Global extension macros
+AbandonedPages, Action, AdvancedSearch, AttachInfo, AttachList, BR, EditTemplates, EditedSystemPages, EmbedObject, FootNote, FullSearch, FullSearchCached, GetText, GetText2, HighlighterList, Hits, Include, InterWiki, LikePages, MonthCalendar, Navigation, NewPage, OrphanedPages, PageCount, PageHits, PageList, PageSize, RandomPage, RandomQuote, RecentChanges, ShowSmileys, StatsChart, SystemAdmin, SystemInfo, TableOfContents, TeudView, Verbatim, WantedPages, WikiConfig, WikiConfigHelp
+Local extension macros
+NONE
+Global extension actions
+AttachFile, DeletePage, Despam, LikePages, Load, LocalSiteMap, PackagePages, RenamePage, Save, SlideShow, SpellCheck, SubscribeUser, SyncPages, anywikidraw, backup, bookmark, cache, chart, diff, edit, fckdialog, fullsearch, info, language_setup, links, login, logout, newaccount, newpage, pollsistersites, quicklink, quickunlink, recoverpass, refresh, revert, rss_rc, serveopenid, showtags, sisterpages, sitemap, subscribe, supplementation, thread_monitor, titleindex, twikidraw, unsubscribe, userprefs, userprofile
+Local extension actions
+NONE
+Global parsers
+highlight, text, text_cplusplus, text_creole, text_csv, text_diff, text_docbook, text_html, text_irssi, text_java, text_moin_wiki, text_pascal, text_python, text_rst, text_xslt
+Local extension parsers
+NONE
+Xapian search
+Disabled, Xapian 1.2.8
+Active threads
+1
+
+#----------------------------------------------------------------------
+# INSTALLATION 
+
+Q: How to install on ubuntu?
+
+apt-get install python-moinmoin
+cd /usr/share/moin
+sudo mkdir mywiki
+sudo cp -R data mywiki
+sudo cp -R underlay mywiki
+sudo cp server/moin.cgi mywiki
+sudo chown -R www-data.www-data mywiki
+sudo chmod -R ug+rwX mywiki
+sudo chmod -R o-rwx mywiki
+
+Master configuration file: /etc/moin/farmconfig.py
+Check wikis configuration. The "manuals" entry points to /etc/moint/manuals.py wiki config file
+!!! URL Match determine configuration file to be used on moin.cgi 
+!!! moin.cgi is found thanks to script alias config in apache2 config
+wikis = [                                                   # <-- One installation of moinmoin can handle several wikis
+    ("mucls", r"http://mucls.lynceantech.com/.*"),   
+    ("mucls", r"http://mucls/.*"),   
+    ("manuals", r"http://manuals.lynceantech.com/.*$"), 
+    ("manuals", r"http://manuals/.*$"),   
+]
+
+In wiki configuration, i.e /etc/moin/manuals.py, we have
+* data_dir = '/usr/share/moin/wikis/manuals/data'
+* data_underlay_dir='/usr/share/moin/wikis/manuals/underlay'
+
+apt-get install apache2
+vi /etc/apache2/sites-available/default
+### moin
+  ScriptAlias /wiki "/usr/share/moin/wikis/moin.cgi"        # <-- where to find the script (can be shared between all wikis!)
+  alias /moin_static184 "/usr/share/moin/htdocs"
+  <Directory /usr/share/moin/htdocs>
+  Order allow,deny
+  allow from all
+  </Directory>
+### end moin
+sudo /etc/init.d/apache2 restart
+
+Verification:
+http://localhost/wiki
+http://manuals/wiki
+http://manuals.lynceantech.com/wiki
+
+Q: How to have a GUI editor?
+MoinMoin supplied by Ubuntu (python-moinmoin), the fckeditor is not by default included -- its 
+package is listed as a "recommends". This requires a few extra steps
+sudo -i
+apt-get install fckeditor
+cd /usr/share/moin/htdocs/applets/
+sudo rm -rf FCKeditor                                                       # <-- remove the entire directory
+sudo ln -s /usr/share/fckeditor/ FCKeditor                                  # <-- where moinmoin expect FCKEditor
+sudo service apache2 restart                                                # <-- If not restarted will not show up !
+!!! Now Edit links should display Edit(Text) and Edit(GUI)
+Source @ http://moinmo.in/MoinMoinQuestions/Installing#GUI_Editor_not_installed.2Fconfigured.3F.3F
+
+Q:Still no Edit (GUI)! What's going on?
+The GUI editor doesn't work on web-kit based broser, ie chrome or safari
+http://moinmo.in/MoinMoinBugs/1.9.3GUIEditorInWebKit
+
+Q: How to add the help and search engine page ?
+Got to the LanguageSetup, select your language and click on the download all_page link.
+The installation is automatic !
+Files are installed in .../wikis/manuals/underlay directory as expected 
+!!! FindPage is created in .../wikis/manuals/data/page
+
+Q: How to get the list of files installed with python-moinmoin?
+apt-get install apt-file
+apt-file update
+apt-file list python-moinmoin           # <-- same as dpkg -L python-moinmoin
+!!! Administrator files are installed in /usr/share/moin
+!!! Python files are installed in /usr/share/pyshared/MoinMoin and other places
+                                        # <-- This last one will be useful when writing macros (e.g. look at formatter class, etc)
+Q: How to find the name of the moinmoin package after installation?
+apt-file search /usr/share/pyshared/MoinMoin
+
+Q: Can moinmoin be used offline?
+Yes, download moinmoin Desktop 
+This application sync the files from the moinmoin-server to the locale desktop using iFolders
+http://www.novell.com/coolsolutions/tip/18291.html
+
+#-----------------------------------------------------------------------
+# MACRO INSTALL
+
+Q: QR code?
+sudo apt-get install qrencode
+
+
+#---------------------------------------------------------------------- 
+# CONFIGURATION
+
+Q: what are the important files ?
+/etc/moin/farmconfig.py  - global configuration files (for all wikis running on this machine )
+/etc/moin/<mywiki>.py     - wiki specific configuration file (delta from farmconfig.py)
+Note that <mywiki>.py is read because of the wikis list of tuples in farmconfig.py
+
+/usr/share/moin
+    - data      :   content of data directory of a virgin wiki
+    - underlay  :   static files that can be overwritten based on the content of data
+    - server    :   pick the server type (i.e moin.cgi in our case
+
+Q: Configuration parameters?
+http://moinmo.in/HelpOnConfiguration#pages
+
+Q: Change logo?
+In /etc/moin/mywiki.py
+sitename = u'Untiled Wiki'  # Name your wiki
+logo_string = u'<img src="/htdocs/common/lynceantech.png" alt="MoinMoin Logo">'
+#/usr/share/moin/htdocs/common/lynceantech.png
+
+Q: How to add email capabilities?
+In farmconfig.py or <mywiki>.py config file
+Check connection to server is ok
+telnet smtpauth.earthlink.net 25
+in /etc/moin/mywiki.py configuration
+mail_from = u'Wiki Notifier <noreply@lynceantech.com>'
+mail_login = "lynceantech@earthlink.net yasux72d"
+mail_smarthost = "smtpauth.earthlink.net:25"
+
+#---------------------------------------------------------------------- 
+# USER ACCOUNTS
+
+Q: Where are user accounts saved?
+In the /usr/share/moin/wikis/manuals/data/user directory
+In that directory each file represents a user.
+In a file are stored all users settings and credentials.
+The pasword is hashed with SHA1.
+If the password is lost, you can overwrite it manually!
+
+Q: does the admin user have a file in /usr/share/moin/wikis/manuals/data/user too?
+Yes!
+
+Q: Are credentials shared between wikis on the same machine?
+No! You need to create one account per wiki.
+
+Q: What is the purpose of creating an account?
+To authenticate against the ACL.
+If there is no ACL for a particular page, everyone can edit it!
+
+Q: How to create a personal page, aka WikiHomePage?
+Once logged in, click on your name at the very top of the page.
+http://wikifarm/wiki/EmmanuelMayssat
+!!! When creating a WikiHomePage, place a link to CategoryHomepage on the bottom of the page. (It is done in the HomePageTemplate)!!!
+
+Q: What are the privileges of superusers?
+* bypass ACL
+* can switch user
+
+Q: what are logged in accounts?
+Once logged in, you can 
+    AUTHENTICATION
+    * authenticate against acl.
+    PREFERENCE
+    * receive email notification
+    * change the default theme
+    USER EXPERIENCE
+    * path tracking (Like the back button in the browser, but this time through the application)
+    * quicklinks
+
+Q: How to create an new user account?
+1/ Create a login account 
+    - go to login page and select create accoutn
+2/ Put that user in the TrustedGroup (and/or AdminGroup)
+    - Our template specify that only the TrustedGroup can edit the content of our wiki
+    - To add the user to that group, edit the TrustedGroup page
+        http://mucls.lynceantech.com/wiki/TrustedGroup
+3/ Login as the user and check that the user can edit
+
+Q: How to change a user's password?
+Check /usr/share/moin/wikis/manuals/data/user
+    
+
+#----------------------------------------------------------------------
+# EDIT HELP
+
+Q: How to add a page?
+(1) Go to the non-existing page URL ex: http://wikifarm/wiki/Toto to create the page Toto
+(2) On an existing page, create a link to that page ex: /MySibling or MyNewPage
+More @ http://moinmo.in/HelpOnPageCreation
+
+Q: How to delete a page?
+Go on the page, click on [Action] and select 'Delete Page'
+
+
+Q: How to add an image to a wiki page?
+Add the page as an attachment to the corresponding page
+When editing the page:
+{{attachment:image.png}}        <-- inline
+[[attachment:image.png]]        <-- link to image
+
+
+Q: How to link 2 wiki pages together?
+Check Linking @ http://moinmo.in/HelpOnLinking
+The easiest way is to use a WikiName (CamelCase page name)
+FrontPage                                               - automated link (To avoid internal link: !FrontPage)
+/Subpage                                                - link to subpage
+[[attachment:image.png]]                                - link to attached image from local page
+[[attachment:SomePage/image.png]]                       - link to attached image from another wiki page
+[[http://example.net/|example site|target="_blank"]]    - external link
+[[#anchorname| anchor description]]                     - link to anchor
+
+Q: How to create and link to an anchor?
+<<Anchor(anchorname)>> inserts a link anchor anchorname
+[[#anchorname| anchor description]] 
+
+Q: How to include raw HTML in a page?
+Check MacroMarket at http://moinmo.in/MacroMarket/HTML
+[[HTML(<iframe src="http://petrolera.xarxa.net/inscrits.php?classe=N" _fcksavedurl=""http://petrolera.xarxa.net/inscrits.php?classe=N"" width="100%" height="600"></iframe>)]]
+<<HTML(<b>bold</b>)>>
+
+Q: How to create a download link for an attachment? (not tested!)
+With {{attachment:myfile.png|alias description|&do=get}} you can create a download link to an attachment.
+
+Q: How to create a table of content?
+Table of contents (up to 2nd level headings only):
+<<TableOfContents(2)>>      <-- 2 is depth of TOC
+= heading 1st level =
+== heading 2nd level ==
+=== heading 3rd level ===
+= heading 1st level =
+== heading 2nd level ==
+=== heading 3rd level ===
+
+
+Q: How to create a table and style the cells?
+||<style="background-color:green;">'''CLS On'''||||<style="background-color:blue;">'''CLS Off'''||<style="background-color:red;">'''Install'''||<style="background-color:yellow;">'''Test'''||
+!!! If you use the same style everywhere, you may be able to use variables
+
+Q: Font styling?
+'' italics '' 
+''' bold '''
+~+larger+~
+--(stroke)--
+~-smaller-~
+__underline__
+^super^script
+,,sub,,script
+`monospace`
+{{{code}}}
+
+Q: What is a subpage?
+/SubPage or [[/sub page]]
+It is a page that is created in a subdirectory.
+The only particular thing about subpage is how they are accessible 
+!!! Several subpage can have the same name (as long as they don't have the same parent !!!
+
+Q: How to include a subpage?
+<<Include(FooBar, 'All about Foo Bar', 2)>>     <-- add a H2 of 'All about Foo Bar'
+<<Include(FooBar, , from="^----$")>>            <-- only include content after first horizontal rule
+<<Include(FooBar, , to="^----$")>>              <-- only include content until first horizontal rule
+<<Include(^FooBar/.*, , sort=descending)>>      <-- sort the page list in descending order
+<<Include(^FooBar/.*, , items=3)>> -- include maximal three pages
+<<Include(^BlogBase/.*,, to="^----$", sort=descending, items=7)>>                           <-- show at most a week of a blog
+<<Include(^BlogBase/.*,, to="^----$", sort=descending, items=7, skipitems=7, titlesonly)>>  <-- show the previous week with titles only
+
+Q: How to use admonitions?
+{{{#!wiki caution                       # <-- warning , important, note, tip
+'''Don't overuse admonitions'''
+
+Admonitions should be used with care. A page riddled with admonitions ...
+}}}
+
+Q: How to insert smileys?
+{X}     - X mark, forbidden
+/!\     - triangular warning
+<!>     - round warning
+{i}     - information
+(./)    - check listed
+(!)     - tip
+
+
+
+#----------------------------------------------------------------------
+# ACCESS CONTROL RIGHTS (ACL)
+
+Q: Access control right and superuser?
+In the /etc/moin/<wiki>.py configuration page, configure a super user as follow:
+acl_rights_before = u"EmmanuelMayssat:read,write,delete,revert,admin"
+This means that the user EmmanuelMayssat (login) has all the priviledge including admin  on the site (on every page of the site)
+That is EmmanuelMayssat cannot be locked out!
+!!! Note that the User account needs to exist and be used
+
+Q: How to add ACL to a page?
+To add acl to a specific page, when editing the page, you can add 
+#acl All:read
+and save the page.
+Thereafter the page is read only for everyone except the superuser.
+!!! The ACL command should be the top-most line on your wiki page
+!!! Beware that 'All' start with uppercase A
+!!! Attachments are protected by the ACLs of the page they are attached to.
+
+Q: What are the rights?
+read    - users will be able to read a page, and download its attachments.
+write   - users will be able to edit (write) a page, and upload attachments.
+delete  - users will be able to delete a page and it's attachments.
+revert  - users will be able to 'revert' a page back to an older revision.
+admin   - users will be able to change the "#acl" line on a page, as well as grant and/or revoke "admin" privileges from others.
+
+Q: ACL group?
+User    - where User matches a specific username and triggers only if it matches exactly (including case-sensitivity).
+SomeGroup - where SomeGroup matches a specific group name, which you define (see HelpOnGroups).
+Trusted - a special group containing all authenticated users of a trusted authentication method.
+Known   - a special group containing all logged in users.
+All     - a special group that means "everyone" (both logged in (i.e. Known) and anonymous users).
+
+Q: Complex page ACL?
+#acl [+-]User[,SomeGroup,...]:[right[,right,...]] [[+-]OtherUser:...] [[+-]Trusted:...] [[+-]Known:...] [[+-]All:...] [Default]
+!!! +- are filters who add or remove rights but do not stop processing (Additional rights may be granted later)
+!!! Default is a special entry which inserts at the given place the entries from acl_rights_default
+!!! Normally [Default] is read at the end of the ACL defined on the page
+
+Q: Example of ACL filter?
+#acl SomeUser:read,write SomeGroup:read,write,admin All:read
+#acl -SomeUser:admin SomeGroup:read,write,admin All:read
+are equivalent when SomeUser is in SomeGroup
+
+Q: How does ACL processing work?
+The system tries to find the first match for the user and the right.
+First look at the configuration parameter
+* acl_rights_before            - check configuration file (used for administrators)
+* acl defined on the page
+* acl_rights_default           - check configuration file (default ACL on every page)
+* acl_rights_after             - check configuration file (make sure those rights are not foggotten, i.e. read!)
+!!! DEFAULT FOR acl_rights_default = u'Known:read,write,delete,revert All:read,write'
+
+Q: How to create a ACL group?
+A group must end with the prefix Group
+Create a page called AdminGroup, TrustedGroup, ...
+and add an undordered list of users
+More @ http://moinmo.in/HelpOnGroups
+
+#-----------------------------------------------------------------------
+# PLUGINS
+
+Q: How to install or modify plugins?
+If you install a new plugin or change existing plugin code, it will be activated 
+only after moin code is restarted. 
+For CGI, it will be active on the next request. 
+For the standalone or twisted servers, after restarting the MoinMoin server. 
+For FastCGI and mod_python, you will have to restart Apache. 
+
+ON ubuntu:
+sudo service apache2 restart
+
+Q: How to overwrite a plugin?
+Put it in //usr/share/moin/data/plugins
+to overwrite
+/usr/share/pyshared/MoinMoin/
+
+
+
+
+#---------------------------------------------------------------------- 
+# MACROS
+
+Q: What are macros ?
+Macros are python scripts that extend the functionality of moinmoin
+Macros are called with the following syntax
+<<MyMacro(parameters...)>>
+Macros generate automated content, like a table of content
+There are currently 4 types of macros:
+- search macros
+- navigation macros
+- system information macros
+- others
+
+Q: What are examples of macros?
+<<Anchor(anchorname)>>                  - inserts a link anchor anchorname
+<<BR>>                                  - inserts a hard line break
+<<FootNote(Note)>>                      - inserts a footnote saying Note
+<<Include(HelpOnMacros/Include)>>       - inserts the contents of the page HelpOnMacros/Include inline
+<<MailTo(user AT example DOT com)>>     - obfuscates the email address user@example.com to users not logged in
+<<FullSearch(ForEmmanuel -ForName)>>    - list of pages with ForEmmanuel in them
+<<FullSearchCached(category:CategoryCategory)>>
+<<TableOfContents(2)>>                  - Table of content of depth 2
+More @ http://wikifarm/wiki/HelpOnMacros
+
+Q: what are non standard macros?
+<<ShowTweets(twitteruser>>              - show the tweets of a particular user
+<<CategoryCloud>>                       - generate a tag cloud of category pages
+<<Vimeo(25340759))>>                    - to include embedded vimeo videos
+<<EmbedContent(url=u"")>>               - include external content
+<</QR>>                                 - generate QR code for the current page
+A market for macro is available at 
+http://moinmo.in/MacroMarket#Offers
+
+Q: Where are standard macro installed?
+/usr/share/pyshared/MoinMoin/macro      # <-- not in the wiki directory (/usr/share/moin/ )
+
+Q: Where to install non-standard macros?
+The best location for macros is to copy them into the /path_to_wiki_instance/data/plugin/macro directory. 
+In our case, //usr/share/moin/data/plugin/macro/
+This method would be guaranteed to survive MoinMoin and Python upgrades. 
+!!! when you install a macro, remove its version number
+!!! Download MiniPage-1.7.1-5.py but install it as MiniPage.py
+!!! Installed macros are accessible by all the wikis running on this moinmoin instance
+
+Q: How to use non-standard macros?
+Once installed in the correct plugin/macro directory,
+restart the wiki
+put in a page the macro
+!!! Some macros need to appear several times in a page to work!
+ex: For a checklist to work, in the same page must appear:
+<<CheckList(js=True)>>                                          # Include javascript code (REQUIRED!)
+<<CheckList(clear_button=True)>>                                # Include button to clear checklist (Optional but nice)
+<<CheckList(dom_id=check1, heading=1, text=Top Level Item)>>    # Checklist item
+<<CheckList(dom_id=check2, heading=2, text=Something To do)>>   # Another checklist item
+
+Q: How to create a macro?
+from MoinMoin import wikiutil
+from MoinMoin.macro import Include          # <-- Import standard macros
+from MoinMoin.parser.text_moin_wiki import Parser as WikiParser
+def macro_CheckList(macro, dom_id=None, heading=2, text=None, js=None, clear_button=None):
+    ret = []
+    f = macro.request.formatter
+    text_h = wikiutil.escape(text)          # <-- escape input parameter
+    text_h = text_h.strip()
+    text_id = wikiutil.escape(text)
+    text_id = text_id.replace(' ', '_')
+    text_id = text_id.strip()
+
+    ret.extend([f.heading(1,heading,id=text_id)])   
+                                            # <-- extend extends a list with an arbitrary iterable (e.g another list, etc)
+    ret.extend([f.rawHTML("<input type='checkbox' class='checklist' name='name_%s' id='id_%s'><label for='id_%s'>" % (dom_id, dom_id, dom_id))])
+    ret.extend([f.text(text_h)])
+    ret.extend([f.rawHTML("</label>")])
+    ret.extend([f.heading(0,heading)])
+
+    return ''.join(ret)                     # <-- Must return HTML code
+
+#-----------------------------------------------------------------------
+# PARSER
+
+Q: Macro vs parser?
+Macros allow you to use dynamic elements in a page (eg TableOfContents)
+Parsers process/transform the data that is given to them (between the curly braces)
+
+Q: What are parsers?
+{{{#!HelloWorld 1 2 3                       # <-- parser program + kw
+rabbit                                      # Parser raw
+}}}
+
+Q: How to trigger parsers?
+AS described above with {{{# or with a #format processing instruction 
+(for whole page processing.)
+
+Q: Code highlighter parser to print highlighted code?
+{{{#!highlight python
+class FooBar:
+   """ doc string """
+}}}
+
+Q: Where are located parsers?
+data/plugins/parser                         # Custom location
+python\Lib\site-packages\MoinMoin\parser  # Standard location
+
+Q: ParserMarket?
+http://moinmo.in/ParserMarket
+
+Q: Sample code?
+class Parser:
+    """ Hello World parser for MoinMoin wiki """
+    
+    def __init__(self, raw, request, **kw):
+        self.raw = raw
+        self.request = request
+        self.kw=kw
+        
+    def format(self, formatter):
+        self.request.write(formatter.text("hello world begin"))
+        self.request.write(formatter.paragraph(1))
+        self.request.write(formatter.text('raw: ' + self.raw))
+        self.request.write(formatter.paragraph(0))
+        self.request.write(formatter.paragraph(1))
+        self.request.write(formatter.text('kw:' + str(self.kw)))
+        self.request.write(formatter.paragraph(0))
+        self.request.write(formatter.text("hello world end"))
+        self.request.write(formatter.paragraph(1))
+        self.request.write(formatter.paragraph(0))
+
+#-----------------------------------------------------------------------
+# ACTIONS
+
+Q: What are actions?
+The action is what the MoinMoin code does with the client request (and the requested page). 
+The default action is to parse the page as wiki text and output HTML. 
+However other actions can be defined to allow arbitrary processing. 
+Actions are the moral equivalent of CGI scripts, but inside a MoinMoin context.
+
+Essentially, by writing an action you can extend MoinMoin to perform any processing you wish. 
+This is most often done to perform processing on a page 
+(a page is given as the argument to the action), but any processing is allowed. 
+
+Q: What are builtin page actions?
+* "show" to show the page (which is the default action)
+* "edit" to edit the page
+* "diff" to compare versions of the page
+* "highlight" to see certain words on the page highlighted 
+
+There are also some add-on actions provided with standard MoinMoin, like SpellCheck, 
+to check the spelling of words on a page. 
+
+
+
+#---------------------------------------------------------------------- 
+# TEMPLATE
+
+Q: What are template?
+Templates make it easier for users to add new pages. 
+Instead of requiring that each bit of new information be added by hand, templates have some text and structure already filled in.
+The key is that Variables can be used to insert date, time, creator, pagename, and the like.
+
+Q: How to create template?
+A template page is a MoinMoin page which must be named with an ending fitting the standard template name ending 
+(which defaults to some non-blank characters followed by "Template")
+
+Q: What are variables?
+@PAGE@                  - Name of the page (useful for template pages)
+@EMAIL@                 - <<MailTo()>> Just the user's email address, obfuscation can be extended
+@DATE@                  - Current date in the system's format
+http://wikifarm/wiki/HelpOnVariables
+!!! You can also create your own variables !!!
+
+Q: Who to create your own variables?
+Create a wiki page Wiki/EmmanuelMayssat/MyDict
+Insert in that page 
+ B:: <style="background-color:blue;">               # <-- Don't forget the heading space and space after :: !
+Now every pages with 
+|| @B@ ||
+will display a blue cell!
+!!! The variable is replaced when edit is saved
+!!! If you change the variable later, the page is not updated
+
+Q; How to get variables at every refresh?
+<<GetVal(WikiDict,var1)>> will get the value of var1
+from the WikiDict page.
+!!! You need to create a page ending with .*Dict
+
+Q: How to use a template?
+When creating an empty page, you can create an empty page or select a template to use
+
+Q: CategoryTemplate?
+
+
+#----------------------------------------------------------------------
+# USER CUSTOMIZATION
+
+Q: where is the preference page?
+Next to the logged in user, there is a link called settings.
+From that page you will be able to
+* Change your password
+* change your notification
+* Set your preferences
+
+Q: How to setup email notification?
+Make sure it is enabled by checking the configuration.
+
+Q: How to change the theme?
+Check the global configuration file.
+The user also can select a different theme than the configured one,
+and pick any one of the theme that has been installed.
+Check the user's preference. 
+
+Q: How to (un)subscribe to a page?
+2 ways:
+(1) Go on the page and hit (un)subscribe
+(2) or [Actions] and select (un)subscribe
+!!! Beware the page needs to be edited for a notification to be sent
+!!! Changes of returned values by a macros (i.e. FullSearch macro) do not sent notifications
+!!! You need to make sure that you receive notification for the right events
+==> Check notification configuration in the user's settings
+
+Q: Preferences ?
+Show top/bottom links in heading        - show arrows in page headers to jump up and down !
+Open editor on double click             - double click on page and the editor opens!
+Show comment section                    - needs to be enabled for comments to show!
+
+Quick links                             - The quick links for this account
+
+#-----------------------------------------------------------------------
+# COMMENTS
+#
+
+Q: I don't see the comments. What's wrong?
+Check the user's preference and make sure that comments are shown
+
+Q: What are comments?
+To include a comment in a page, in the corresponding page enter 
+{{{#!wiki comment
+This is a comment's content
+}}}
+That comment will be visible if the user's preference allow for it!
+!!! By default, comments are disabled!
+
+Q: How to add comments to a wiki page?
+{{{#!wiki comment/dotted
+This is a wiki parser section with class "comment dotted" (see HelpOnParsers).
+
+Its visibility gets toggled the same way.
+}}}
+
+Q: How to show comments directly without having to click on 'comments' ?
+
+
+
+#----------------------------------------------------------------------
+# NAVIGATION
+
+Q: How to find pages that link to a particlar page?
+http://moinmoin/wiki/AnotherPage?action=fullsearch&context=180&value=linkto%3A%22AnotherPage%22
+http://moinmoin/wiki/AnotherPage?action=fullsearch&context=180&value=linkto%3A%22AnotherPage%22&fullsearch=Text     <-- search content of articles (and display matching)
+http://moinmoin/wiki/AnotherPage?action=fullsearch&context=180&value=linkto%3A%22AnotherPage%22&titlesearch=Titles  <-- search (and display) titles only
+
+If there is only one, then when you click on the Title, it goes to it.
+Otherwise, it displays a list of pages and you can select one
+
+Q: What are quicklink?
+Creating a quick link for the page means that a tab is created and will stay in the tab bar until the quick link is disabled.
+To create a quicklink for AnotherPage:
+http://moinmoin/wiki/AnotherPage?action=quicklink
+or when on the page click on [add link]
+
+Q: Search engine ?
+http://moinmo.in/HelpOnConfiguration#xapian
+
+Q: How to find pages that links to a specific page?
+Search: linkto:"MuSchedule"
+
+Q: What are Category page?
+Example of category pages are: CategoryHomePage, CategoryTemplate
+A category is a WikiName that exploits WikiWiki's reverse linking: 
+If you click on the title of a category page, you'll get a list of pages belonging to that category. 
+To get a list of all categories, click the CategoryCategory title in the navigation area.
+
+Q: How to put a page in a category?
+
+
+#----------------------------------------------------------------------
+# DOCUMENT CONTROL
+
+Q: How to revert a page to a previous version?
+Go to page. Click on Info. Select 2 version to diff.
+There is a revert button.
+
+Q: How to delete/rename a page ?
+Check the More action button!
+
+Q: How to force people to login to edit a page?
+Create an ACL on a template page
+
+Q: How to add a comment to a page commit?
+Before clicking on save, enter a comment on the same page.
+Note that comments on that page are checking commments
+!!! We are not talking about comment on the page, but comment on the commit
+
+#-----------------------------------------------------------------------
+# MOIN CLI
+
+Q: Sample Moin Command? 
+moin --version
+moin server standalone --help
+moin --config-dir=/etc/moin --wiki-url=http://support.lynceantech.com/wiki  index build --mode=update
+More @ http://moinmo.in/HelpOnMoinCommand
+
+Q: Where are moin commands located?
+/usr/share/pyshared/MoinMoin/script
+
+
