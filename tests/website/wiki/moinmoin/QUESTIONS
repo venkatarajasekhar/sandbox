@@ -437,9 +437,23 @@ def macro_CheckList(macro, dom_id=None, heading=2, text=None, js=None, clear_but
 #-----------------------------------------------------------------------
 # PARSER
 
+Q: Macro vs parser?
+Macros allow you to use dynamic elements in a page (eg TableOfContents)
+Parsers process/transform the data that is given to them (between the curly braces)
+
 Q: What are parsers?
 {{{#!HelloWorld 1 2 3                       # <-- parser program + kw
 rabbit                                      # Parser raw
+}}}
+
+Q: How to trigger parsers?
+AS described above with {{{# or with a #format processing instruction 
+(for whole page processing.)
+
+Q: Code highlighter parser to print highlighted code?
+{{{#!highlight python
+class FooBar:
+   """ doc string """
 }}}
 
 Q: Where are located parsers?
