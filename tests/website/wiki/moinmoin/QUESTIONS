@@ -353,6 +353,24 @@ Create a page called AdminGroup, TrustedGroup, ...
 and add an undordered list of users
 More @ http://moinmo.in/HelpOnGroups
 
+#-----------------------------------------------------------------------
+# PLUGINS
+
+Q: How to install or modify plugins?
+If you install a new plugin or change existing plugin code, it will be activated 
+only after moin code is restarted. 
+For CGI, it will be active on the next request. 
+For the standalone or twisted servers, after restarting the MoinMoin server. 
+For FastCGI and mod_python, you will have to restart Apache. 
+
+ON ubuntu:
+sudo service apache2 restart
+
+Q: How to overwrite a plugin?
+Put it in //usr/share/moin/data/plugins
+to overwrite
+/usr/share/pyshared/MoinMoin/
+
 
 
 
@@ -469,41 +487,10 @@ class Parser:
     
     def __init__(self, raw, request, **kw):
         self.raw = raw
-        # raw is the text inbetween the {{{ and }}} thingies. 
-        # most parsers generally save it for use in the 'format'
-        # method. 
-        
         self.request = request
-        # request is the HTTPRequest object
-        # parsers generally save this during '__init__' for use later
-        # on in 'format'. They have to write to it in fact to get
-        # any results. 
-        
         self.kw=kw
-        # kw is is a dictionary with 'arguments' to the !# command.
-        # for example: {{{!# HelloWorld a b c }}}
-        # would give the following value for kw:
-        # {'format_args': 'a b c '}
         
     def format(self, formatter):
-        # format is also called for each !# command. its called after __init__
-        # is called. this is where parsers do most of their work.
-        # they write their results into the Httprequest object
-        # which is usually stored from __init__ in self.request. 
-        
-        # print "formatter",dir(formatter)
-        # formatter is a special object in MoinMoin that
-        # is supposed to help people who write extensions to have
-        # sort of a uniform looking thing going on.
-        # see http://moinmoin.wikiwikiweb.de/ApplyingFormatters?highlight=%28formatter%29
-        
-        # but formatter is not documented well. you have to look at
-        # moinmoin/formatter/base.py. And if you do, you will see that half of
-        # the methods raise a 'not implemented' error.
-        # formatter is also being refactored alot so dont get used to it. 
-        # if all else fails just use formatter.rawHTML which will
-        # screw up XML output but at least it will work. 
-        
         self.request.write(formatter.text("hello world begin"))
         self.request.write(formatter.paragraph(1))
         self.request.write(formatter.text('raw: ' + self.raw))
@@ -514,6 +501,28 @@ class Parser:
         self.request.write(formatter.text("hello world end"))
         self.request.write(formatter.paragraph(1))
         self.request.write(formatter.paragraph(0))
+
+#-----------------------------------------------------------------------
+# ACTIONS
+
+Q: What are actions?
+The action is what the MoinMoin code does with the client request (and the requested page). 
+The default action is to parse the page as wiki text and output HTML. 
+However other actions can be defined to allow arbitrary processing. 
+Actions are the moral equivalent of CGI scripts, but inside a MoinMoin context.
+
+Essentially, by writing an action you can extend MoinMoin to perform any processing you wish. 
+This is most often done to perform processing on a page 
+(a page is given as the argument to the action), but any processing is allowed. 
+
+Q: What are builtin page actions?
+* "show" to show the page (which is the default action)
+* "edit" to edit the page
+* "diff" to compare versions of the page
+* "highlight" to see certain words on the page highlighted 
+
+There are also some add-on actions provided with standard MoinMoin, like SpellCheck, 
+to check the spelling of words on a page. 
 
 
 
@@ -667,4 +676,16 @@ Q: How to add a comment to a page commit?
 Before clicking on save, enter a comment on the same page.
 Note that comments on that page are checking commments
 !!! We are not talking about comment on the page, but comment on the commit
+
+#-----------------------------------------------------------------------
+# MOIN CLI
+
+Q: Sample Moin Command? 
+moin --version
+moin server standalone --help
+moin --config-dir=/etc/moin --wiki-url=http://support.lynceantech.com/wiki  index build --mode=update
+More @ http://moinmo.in/HelpOnMoinCommand
+
+Q: Where are moin commands located?
+/usr/share/pyshared/MoinMoin/script
 
