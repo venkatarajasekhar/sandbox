@@ -383,10 +383,29 @@ ON ubuntu:
 sudo service apache2 restart
 
 Q: How to overwrite a plugin?
-Put it in //usr/share/moin/data/plugins
+Put it in /usr/share/moin/data/plugins
 to overwrite
 /usr/share/pyshared/MoinMoin/
 
+
+Q: Where are the Global extension plugins (actions, parsers, macros) located?
+/usr/lib/python2.7/dist-packages/MoinMoin/macro
+/usr/lib/python2.7/dist-packages/MoinMoin/action
+/usr/lib/python2.7/dist-packages/MoinMoin/parser
+
+!!! For some reason, the content of those folders links to /usr/share/pyshared/MoinMoin/<plugin>/<filename>
+i.e /usr/share/pyshared/MoinMoin/macro/IncludeFile.py
+!!! It is so maybe so that moinmoin is python version independent.
+
+Q: Where to install the local extension plugin?
+/usr/share/moin/wikis/manuals/data/plugin/macro for the support manual
+/usr/share/moin/wikis/mucls/data/plugin/macro for the support manual
+!!! Not in /usr/share/moin/data/plugin/macro if that's not your wiki path (those are template wikis!)
+!!! Plugins are enabled on a wiki basis not for the whole wiki-farm
+
+Q: How to verify which plugins (actions, parsers, macros) are enabled?
+Go to the SystemInfo page of the wiki
+!!! no need to restart apache2
 
 
 
@@ -394,7 +413,7 @@ to overwrite
 # MACROS
 
 Q: What are macros ?
-Macros are python scripts that extend the functionality of moinmoin
+ acros are python scripts that extend the functionality of moinmoin
 Macros are called with the following syntax
 <<MyMacro(parameters...)>>
 Macros generate automated content, like a table of content
@@ -467,6 +486,21 @@ def macro_CheckList(macro, dom_id=None, heading=2, text=None, js=None, clear_but
     ret.extend([f.heading(0,heading)])
 
     return ''.join(ret)                     # <-- Must return HTML code
+
+#----------------------------------------------------------------------
+# ACTIONS
+
+Q: What are actions?
+AttachFile, DeletePage, Despam, LikePages, Load, LocalSiteMap, PackagePages, RenamePage, Save, SlideShow,
+SpellCheck, SubscribeUser, SyncPages, anywikidraw, backup, bookmark, cache, chart, diff, edit,
+fckdialog, fullsearch, info, language_setup, links, login, logout, newaccount, newpage,
+pollsistersites, quicklink, quickunlink, recoverpass, refresh, revert, rss_rc, serveopenid,
+showtags, sisterpages, sitemap, subscribe, supplementation, thread_monitor, titleindex,
+twikidraw, unsubscribe, userprefs, userprofile
+
+Q: Where are the actions located?
+/usr/share/pyshared/MoinMoin/action
+
 
 #-----------------------------------------------------------------------
 # PARSER
