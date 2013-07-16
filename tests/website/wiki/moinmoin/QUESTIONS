@@ -92,6 +92,13 @@ Yes, download moinmoin Desktop
 This application sync the files from the moinmoin-server to the locale desktop using iFolders
 http://www.novell.com/coolsolutions/tip/18291.html
 
+#-----------------------------------------------------------------------
+# MACRO INSTALL
+
+Q: QR code?
+sudo apt-get install qrencode
+
+
 #---------------------------------------------------------------------- 
 # CONFIGURATION
 
