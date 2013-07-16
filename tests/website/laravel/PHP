@@ -41,6 +41,15 @@ or
 mv composer.phar composer
 ./composer
 
+Q: Laravel requires the Mcrypt PHP extension. ?
+Mcrypt php module is not installed !
+Modules are configured in php.ini
+php -v
+php --ini
+php -i | grep "mcrypt support"
+!!! To install apt-get install php-mcrypt?
+
+
 Q: Which PHP modules are installed?
 * From a terminal: php -m (or php -i)
 * From a index.php
@@ -53,11 +62,14 @@ print_r (phpinfo());
 EOT
 !!! In the latter case, installed modules and their configurations are listed after the HTTP Headers Information section
 
-Q: Laravel requires the Mcrypt PHP extension. ?
-Mcrypt php module is not installed !
-Modules are configured in php.ini
-php -v
-php --ini
-php -i | grep "mcrypt support"
+#-----------------------------------------------------------------------
+# PHP FILES
 
+Q: html + php code?
 
+<html>
+<header></header>
+<body>
+<?= $hello . ' ' . $world =>
+</body>
+</html>
