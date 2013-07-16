@@ -111,3 +111,126 @@ http://www.gerd-riesselmann.net/archives/2005/04/beware-of-apaches-multiviews
 
 
 
+Q: log files?
+/var/log/apache
+- access.log
+- other_vhost_access.log    - GET requests and replies
+- error.log                 - error (i.e file not found, which file was being looked at, etc)
+
+Q: Is mod_rewrite working?
+
+Q: Is my .htaccess accessed?
+Did you change the AllowOverride directive ?
+did you reload the apache conf?
+Put a typo in the htaccess, reload THE PAGE, check the error.log
+[Wed Jul 03 18:58:32 2013] [alert] [client 98.248.37.253] /var/www/crowdsets/public/.htaccess: Invalid command 'RewriteEngine', perhaps misspelled or defined by a module not included in the server configuration
+!!! Because .htaccess files are read on every request, changes made in them take effect immeditely
+
+i
+
+#-----------------------------------------------------------------------
+# APACHE MODULES
+
+Q: What are modules?
+Apache2 web server boasts of extensible features which are realized by the 
+notion of pluggable modules. When building Apache2, you compile a set of 
+modules you think are necessary, into it. 
+
+Q: Default module list?
+actions.load
+alias.load
+asis.load
+auth_basic.load
+auth_digest.load
+authn_alias.load
+authn_anon.load
+authn_dbd.load
+authn_dbm.load
+authn_default.load
+authn_file.load
+authnz_ldap.load
+authz_dbm.load
+authz_default.load
+authz_groupfile.load
+authz_host.load
+authz_owner.load
+authz_user.load
+autoindex.load
+cache.load
+cern_meta.load
+cgid.load
+cgi.load
+charset_lite.load
+dav_fs.load
+dav.load
+dav_lock.load
+dbd.load
+deflate.load
+dir.load
+disk_cache.load
+dump_io.load
+env.load
+expires.load
+ext_filter.load
+file_cache.load
+filter.load
+headers.load
+ident.load
+imagemap.load
+include.load
+info.load
+ldap.load
+log_forensic.load
+mem_cache.load
+mime.load
+mime_magic.load
+negotiation.load
+php5.load
+proxy_ajp.load
+proxy_balancer.load
+proxy_connect.load
+proxy_ftp.load
+reqtimeout.load
+rewrite.load
+setenvif.load
+speling.load
+ssl.load
+status.load
+substitute.load
+suexec.load
+unique_id.load
+userdir.load
+usertrack.load
+version.load
+vhost_alias.load
+
+
+#-----------------------------------------------------------------------
+# MOD-WRITE
+
+Q: What is mod-write?
+One such module is called mod_rewrite which is responsible for rewriting 
+website URLs at the server side. For example, when user asks for 
+http://myserver.com/my_category/my_post.html, the requested URL 
+is translated by mod_rewrite to 
+http://myserver.com/post.php?category=100&post=200, 
+which is then handled (processed) by the web server.
+
+Q: Why use mod-rewrite?
+Webmasters generally use mod_rewrite to improve user-friendliness 
+and search engine friendliness of web sites by letting mod_rewrite 
+expose more memorable and crawlable URLs to the world. 
+Also, it can help hide any sensitive information such as query strings 
+from URL requests, and hence can enhance website safety.
+
+Q: How to check if mod_rewrite is enabled?
+ls -al /etc/apache/mods-enabled/*
+You should see
+lrwxrwxrwx 1 root root 30 Dec  9 23:10   /etc/apache2/mods-enabled/rewrite.load -> ../mods-available/rewrite.load
+
+Q: How to enable mod_write?
+* cat /etc/apache2/mods-available/rewrite.load
+* sudo a2enmod rewrite
+    This command create a symbolic link in /etc/pache2/mods-enabled
+* sudo service apache2 restart
+!!! On ubunbu, mod-write is installed but not enabled by default
