@@ -92,8 +92,9 @@ Creating a domain that uses Route 53 requires only a few easy steps:
 
 Q: What is VPC?
 Virtual Private Network
-supports Hardware VPNs
+supports Hardware VPNs (using IPSec)
 public and private subnet
+and static or BGP routine
 !!! public subnet is accessible by everyone on the web
 !!! private network can be accessed by public subnet? or through VPN
 
