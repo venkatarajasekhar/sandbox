@@ -7,33 +7,13 @@ ssh -i ~/ssh/moinmoin_awskey.pem ubuntu@moinmoin
 Q: Where to report moinmoin bugs?
 http://moinmo.in/MoinMoinBugs
 
+Q: MoinMoin mailing list?
+http://moinmo.in/MoinMoinMailingLists
+
 Q: How to check moinmoin version?
 1/ From terminal: moin --version
 2/ From Wiki
 Go to the SystemInfo page
-
-Q: Current Version?
-http://support.lynceantech.com/wiki/SystemInfo
-Python Version
-2.7.3 (default, Aug 1 2012, 05:14:39) [GCC 4.6.3]
-MoinMoin Version
-Release 1.9.3 [Revision release]
-Global extension macros
-AbandonedPages, Action, AdvancedSearch, AttachInfo, AttachList, BR, EditTemplates, EditedSystemPages, EmbedObject, FootNote, FullSearch, FullSearchCached, GetText, GetText2, HighlighterList, Hits, Include, InterWiki, LikePages, MonthCalendar, Navigation, NewPage, OrphanedPages, PageCount, PageHits, PageList, PageSize, RandomPage, RandomQuote, RecentChanges, ShowSmileys, StatsChart, SystemAdmin, SystemInfo, TableOfContents, TeudView, Verbatim, WantedPages, WikiConfig, WikiConfigHelp
-Local extension macros
-NONE
-Global extension actions
-AttachFile, DeletePage, Despam, LikePages, Load, LocalSiteMap, PackagePages, RenamePage, Save, SlideShow, SpellCheck, SubscribeUser, SyncPages, anywikidraw, backup, bookmark, cache, chart, diff, edit, fckdialog, fullsearch, info, language_setup, links, login, logout, newaccount, newpage, pollsistersites, quicklink, quickunlink, recoverpass, refresh, revert, rss_rc, serveopenid, showtags, sisterpages, sitemap, subscribe, supplementation, thread_monitor, titleindex, twikidraw, unsubscribe, userprefs, userprofile
-Local extension actions
-NONE
-Global parsers
-highlight, text, text_cplusplus, text_creole, text_csv, text_diff, text_docbook, text_html, text_irssi, text_java, text_moin_wiki, text_pascal, text_python, text_rst, text_xslt
-Local extension parsers
-NONE
-Xapian search
-Disabled, Xapian 1.2.8
-Active threads
-1
 
 #----------------------------------------------------------------------
 # INSTALLATION 
@@ -114,10 +94,54 @@ apt-file list python-moinmoin           # <-- same as dpkg -L python-moinmoin
 Q: How to find the name of the moinmoin package after installation?
 apt-file search /usr/share/pyshared/MoinMoin
 
+Q: Current Version?
+* check the SystemInfo page
+* frmo a terminal on the server: moin --version
+
+Q: Output of SystemInfo?
+http://support.lynceantech.com/wiki/SystemInfo
+Python Version
+2.7.3 (default, Aug 1 2012, 05:14:39) [GCC 4.6.3]
+MoinMoin Version
+Release 1.9.3 [Revision release]
+Global extension macros
+AbandonedPages, Action, AdvancedSearch, AttachInfo, AttachList, BR, EditTemplates, EditedSystemPages, EmbedObject, FootNote, FullSearch, FullSearchCached, GetText, GetText2, HighlighterList, Hits, Include, InterWiki, LikePages, MonthCalendar, Navigation, NewPage, OrphanedPages, PageCount, PageHits, PageList, PageSize, RandomPage, RandomQuote, RecentChanges, ShowSmileys, StatsChart, SystemAdmin, SystemInfo, TableOfContents, TeudView, Verbatim, WantedPages, WikiConfig, WikiConfigHelp
+Local extension macros
+NONE
+Global extension actions
+AttachFile, DeletePage, Despam, LikePages, Load, LocalSiteMap, PackagePages, RenamePage, Save, SlideShow, SpellCheck, SubscribeUser, SyncPages, anywikidraw, backup, bookmark, cache, chart, diff, edit, fckdialog, fullsearch, info, language_setup, links, login, logout, newaccount, newpage, pollsistersites, quicklink, quickunlink, recoverpass, refresh, revert, rss_rc, serveopenid, showtags, sisterpages, sitemap, subscribe, supplementation, thread_monitor, titleindex, twikidraw, unsubscribe, userprefs, userprofile
+Local extension actions
+NONE
+Global parsers
+highlight, text, text_cplusplus, text_creole, text_csv, text_diff, text_docbook, text_html, text_irssi, text_java, text_moin_wiki, text_pascal, text_python, text_rst, text_xslt
+Local extension parsers
+NONE
+Xapian search
+Disabled, Xapian 1.2.8
+Active threads
+1
+
+#-----------------------------------------------------------------------
+# MOIN DESKTOP ?
+
 Q: Can moinmoin be used offline?
 Yes, download moinmoin Desktop 
 This application sync the files from the moinmoin-server to the locale desktop using iFolders
 http://www.novell.com/coolsolutions/tip/18291.html
+!!! iFolders is available only for openSUSE 11.2 as a tar gz
+Other links
+http://moinmo.in/DesktopEdition
+http://sourceforge.net/projects/moin/files/moin-desktop/
+
+Q: MoinMoin running from dropbox, a google drive, amazon cloud drive, ubuntu one drive, skydrive?
+BEware linux support is spotty!
+https://www.dropbox.com/install?os=lnx
+http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000796931
+https://drive.google.com/#my-drive
+skydrive for linux
+!!! Dropbox may be the best solution. It stores files on amazon S3 and as good linux support.
+
+
 
 #-----------------------------------------------------------------------
 # MACRO INSTALL
