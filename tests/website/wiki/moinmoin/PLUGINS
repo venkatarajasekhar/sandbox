@@ -1,6 +1,9 @@
 #-----------------------------------------------------------------------
 # PLUGINS
 
+What are plugins?
+Those are python scripts that extend the functionality of moinmoin
+
 Q: How to install or modify plugins?
 If you install a new plugin or change existing plugin code, it will be activated 
 only after moin code is restarted. 
@@ -40,15 +43,21 @@ Go to the SystemInfo page of the wiki
 # MACROS
 
 Q: What are macros ?
- acros are python scripts that extend the functionality of moinmoin
-Macros are called with the following syntax
-<<MyMacro(parameters...)>>
-Macros generate automated content, like a table of content
+A macro is a mechanism for incorporating dynamic content in the middle of 
+page output. A macro definition usually includes a small number of parameters, 
+and is used to output information which is processed and/or formatted when 
+the page is accessed.
+These are used to cause extra data or controls to appear as part of the page. 
+For example, the TableOfContents macros generate a table of content
+
 There are currently 4 types of macros:
 - search macros
 - navigation macros
 - system information macros
 - others
+
+Q: Macros syntax?
+<<MyMacro(parameters...)>>
 
 Q: What are examples of macros?
 <<Anchor(anchorname)>>                  - inserts a link anchor anchorname
@@ -114,29 +123,22 @@ def macro_CheckList(macro, dom_id=None, heading=2, text=None, js=None, clear_but
 
     return ''.join(ret)                     # <-- Must return HTML code
 
-#----------------------------------------------------------------------
-# ACTIONS
-
-Q: What are actions?
-AttachFile, DeletePage, Despam, LikePages, Load, LocalSiteMap, PackagePages, RenamePage, Save, SlideShow,
-SpellCheck, SubscribeUser, SyncPages, anywikidraw, backup, bookmark, cache, chart, diff, edit,
-fckdialog, fullsearch, info, language_setup, links, login, logout, newaccount, newpage,
-pollsistersites, quicklink, quickunlink, recoverpass, refresh, revert, rss_rc, serveopenid,
-showtags, sisterpages, sitemap, subscribe, supplementation, thread_monitor, titleindex,
-twikidraw, unsubscribe, userprefs, userprofile
-
-Q: Where are the actions located?
-/usr/share/pyshared/MoinMoin/action
-
-
 #-----------------------------------------------------------------------
 # PARSER
+
+Q: What are parsers?
+A parser reads the page contents, and calls the formatter to output the page.
+Parsers allow MoinMoin to have flexibility of input format. The default input 
+format is the wiki format, which is the text format that pages are normally 
+saved in. However, other input formats are possible, such as python code 
+fragments, plain text, or others.
+So by writing your own parser, you can extend MoinMoin to support additional document formats. 
 
 Q: Macro vs parser?
 Macros allow you to use dynamic elements in a page (eg TableOfContents)
 Parsers process/transform the data that is given to them (between the curly braces)
 
-Q: What are parsers?
+Q: Syntax for parsers?
 {{{#!HelloWorld 1 2 3                       # <-- parser program + kw
 rabbit                                      # Parser raw
 }}}
@@ -201,3 +203,26 @@ Q: What are builtin page actions?
 There are also some add-on actions provided with standard MoinMoin, like SpellCheck, 
 to check the spelling of words on a page. 
 
+Q: What are actions?
+AttachFile, DeletePage, Despam, LikePages, Load, LocalSiteMap, PackagePages, RenamePage, Save, SlideShow,
+SpellCheck, SubscribeUser, SyncPages, anywikidraw, backup, bookmark, cache, chart, diff, edit,
+fckdialog, fullsearch, info, language_setup, links, login, logout, newaccount, newpage,
+pollsistersites, quicklink, quickunlink, recoverpass, refresh, revert, rss_rc, serveopenid,
+showtags, sisterpages, sitemap, subscribe, supplementation, thread_monitor, titleindex,
+twikidraw, unsubscribe, userprefs, userprofile
+
+Q: Where are the actions located?
+/usr/share/pyshared/MoinMoin/action
+
+
+#-----------------------------------------------------------------------
+# FORMATTER
+
+Q: What is a formatter?
+A formatter is used to output the page in a particular format. 
+The default output format is HTML, but the page results may also be delivered 
+in XML or some other format.
+A formatter provides to MoinMoin an interface for outputting standard document 
+elements. Parsers, macros and processors should use this interface, rather 
+than directly outputting HTML, so that the document can be delivered to the 
+client in any supported output format.
