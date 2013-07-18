@@ -123,7 +123,18 @@ http://www.novell.com/coolsolutions/tip/18291.html
 # MACRO INSTALL
 
 Q: QR code?
-sudo apt-get install qrencode
+* sudo apt-get install qrencode
+* install the macro in the wiki's macro directory
+    /usr/share/moin.wikis/intranet/data/plugin/macro/QR.py
+* change the Qr.py code wo reflect current filesystem
+    png_path => return "/usr/share/moin/wikis/intranet/plugin-data/qr" ...
+    png_url => return "/plugin-data/qr/" + ...
+* create the directories
+    mkdir -p /usr/share//moin/wikis/intranet/plugin-data/qr
+    cd /var/www/; ln -s /usr/share//moin/wikis/intranet/plugin-data
+* check SystemInfo to confirm the macro is found
+* insert <QR> in a page a QR image should appear in place
+
 
 
 #---------------------------------------------------------------------- 
@@ -368,213 +379,6 @@ A group must end with the prefix Group
 Create a page called AdminGroup, TrustedGroup, ...
 and add an undordered list of users
 More @ http://moinmo.in/HelpOnGroups
-
-#-----------------------------------------------------------------------
-# PLUGINS
-
-Q: How to install or modify plugins?
-If you install a new plugin or change existing plugin code, it will be activated 
-only after moin code is restarted. 
-For CGI, it will be active on the next request. 
-For the standalone or twisted servers, after restarting the MoinMoin server. 
-For FastCGI and mod_python, you will have to restart Apache. 
-
-ON ubuntu:
-sudo service apache2 restart
-
-Q: How to overwrite a plugin?
-Put it in /usr/share/moin/data/plugins
-to overwrite
-/usr/share/pyshared/MoinMoin/
-
-
-Q: Where are the Global extension plugins (actions, parsers, macros) located?
-/usr/lib/python2.7/dist-packages/MoinMoin/macro
-/usr/lib/python2.7/dist-packages/MoinMoin/action
-/usr/lib/python2.7/dist-packages/MoinMoin/parser
-
-!!! For some reason, the content of those folders links to /usr/share/pyshared/MoinMoin/<plugin>/<filename>
-i.e /usr/share/pyshared/MoinMoin/macro/IncludeFile.py
-!!! It is so maybe so that moinmoin is python version independent.
-
-Q: Where to install the local extension plugin?
-/usr/share/moin/wikis/manuals/data/plugin/macro for the support manual
-/usr/share/moin/wikis/mucls/data/plugin/macro for the support manual
-!!! Not in /usr/share/moin/data/plugin/macro if that's not your wiki path (those are template wikis!)
-!!! Plugins are enabled on a wiki basis not for the whole wiki-farm
-
-Q: How to verify which plugins (actions, parsers, macros) are enabled?
-Go to the SystemInfo page of the wiki
-!!! no need to restart apache2
-
-
-
-#---------------------------------------------------------------------- 
-# MACROS
-
-Q: What are macros ?
- acros are python scripts that extend the functionality of moinmoin
-Macros are called with the following syntax
-<<MyMacro(parameters...)>>
-Macros generate automated content, like a table of content
-There are currently 4 types of macros:
-- search macros
-- navigation macros
-- system information macros
-- others
-
-Q: What are examples of macros?
-<<Anchor(anchorname)>>                  - inserts a link anchor anchorname
-<<BR>>                                  - inserts a hard line break
-<<FootNote(Note)>>                      - inserts a footnote saying Note
-<<Include(HelpOnMacros/Include)>>       - inserts the contents of the page HelpOnMacros/Include inline
-<<MailTo(user AT example DOT com)>>     - obfuscates the email address user@example.com to users not logged in
-<<FullSearch(ForEmmanuel -ForName)>>    - list of pages with ForEmmanuel in them
-<<FullSearchCached(category:CategoryCategory)>>
-<<TableOfContents(2)>>                  - Table of content of depth 2
-More @ http://wikifarm/wiki/HelpOnMacros
-
-Q: what are non standard macros?
-<<ShowTweets(twitteruser>>              - show the tweets of a particular user
-<<CategoryCloud>>                       - generate a tag cloud of category pages
-<<Vimeo(25340759))>>                    - to include embedded vimeo videos
-<<EmbedContent(url=u"")>>               - include external content
-<</QR>>                                 - generate QR code for the current page
-A market for macro is available at 
-http://moinmo.in/MacroMarket#Offers
-
-Q: Where are standard macro installed?
-/usr/share/pyshared/MoinMoin/macro      # <-- not in the wiki directory (/usr/share/moin/ )
-
-Q: Where to install non-standard macros?
-The best location for macros is to copy them into the /path_to_wiki_instance/data/plugin/macro directory. 
-In our case, //usr/share/moin/data/plugin/macro/
-This method would be guaranteed to survive MoinMoin and Python upgrades. 
-!!! when you install a macro, remove its version number
-!!! Download MiniPage-1.7.1-5.py but install it as MiniPage.py
-!!! Installed macros are accessible by all the wikis running on this moinmoin instance
-
-Q: How to use non-standard macros?
-Once installed in the correct plugin/macro directory,
-restart the wiki
-put in a page the macro
-!!! Some macros need to appear several times in a page to work!
-ex: For a checklist to work, in the same page must appear:
-<<CheckList(js=True)>>                                          # Include javascript code (REQUIRED!)
-<<CheckList(clear_button=True)>>                                # Include button to clear checklist (Optional but nice)
-<<CheckList(dom_id=check1, heading=1, text=Top Level Item)>>    # Checklist item
-<<CheckList(dom_id=check2, heading=2, text=Something To do)>>   # Another checklist item
-
-Q: How to create a macro?
-from MoinMoin import wikiutil
-from MoinMoin.macro import Include          # <-- Import standard macros
-from MoinMoin.parser.text_moin_wiki import Parser as WikiParser
-def macro_CheckList(macro, dom_id=None, heading=2, text=None, js=None, clear_button=None):
-    ret = []
-    f = macro.request.formatter
-    text_h = wikiutil.escape(text)          # <-- escape input parameter
-    text_h = text_h.strip()
-    text_id = wikiutil.escape(text)
-    text_id = text_id.replace(' ', '_')
-    text_id = text_id.strip()
-
-    ret.extend([f.heading(1,heading,id=text_id)])   
-                                            # <-- extend extends a list with an arbitrary iterable (e.g another list, etc)
-    ret.extend([f.rawHTML("<input type='checkbox' class='checklist' name='name_%s' id='id_%s'><label for='id_%s'>" % (dom_id, dom_id, dom_id))])
-    ret.extend([f.text(text_h)])
-    ret.extend([f.rawHTML("</label>")])
-    ret.extend([f.heading(0,heading)])
-
-    return ''.join(ret)                     # <-- Must return HTML code
-
-#----------------------------------------------------------------------
-# ACTIONS
-
-Q: What are actions?
-AttachFile, DeletePage, Despam, LikePages, Load, LocalSiteMap, PackagePages, RenamePage, Save, SlideShow,
-SpellCheck, SubscribeUser, SyncPages, anywikidraw, backup, bookmark, cache, chart, diff, edit,
-fckdialog, fullsearch, info, language_setup, links, login, logout, newaccount, newpage,
-pollsistersites, quicklink, quickunlink, recoverpass, refresh, revert, rss_rc, serveopenid,
-showtags, sisterpages, sitemap, subscribe, supplementation, thread_monitor, titleindex,
-twikidraw, unsubscribe, userprefs, userprofile
-
-Q: Where are the actions located?
-/usr/share/pyshared/MoinMoin/action
-
-
-#-----------------------------------------------------------------------
-# PARSER
-
-Q: Macro vs parser?
-Macros allow you to use dynamic elements in a page (eg TableOfContents)
-Parsers process/transform the data that is given to them (between the curly braces)
-
-Q: What are parsers?
-{{{#!HelloWorld 1 2 3                       # <-- parser program + kw
-rabbit                                      # Parser raw
-}}}
-
-Q: How to trigger parsers?
-AS described above with {{{# or with a #format processing instruction 
-(for whole page processing.)
-
-Q: Code highlighter parser to print highlighted code?
-{{{#!highlight python
-class FooBar:
-   """ doc string """
-}}}
-
-Q: Where are located parsers?
-data/plugins/parser                         # Custom location
-python\Lib\site-packages\MoinMoin\parser  # Standard location
-
-Q: ParserMarket?
-http://moinmo.in/ParserMarket
-
-Q: Sample code?
-class Parser:
-    """ Hello World parser for MoinMoin wiki """
-    
-    def __init__(self, raw, request, **kw):
-        self.raw = raw
-        self.request = request
-        self.kw=kw
-        
-    def format(self, formatter):
-        self.request.write(formatter.text("hello world begin"))
-        self.request.write(formatter.paragraph(1))
-        self.request.write(formatter.text('raw: ' + self.raw))
-        self.request.write(formatter.paragraph(0))
-        self.request.write(formatter.paragraph(1))
-        self.request.write(formatter.text('kw:' + str(self.kw)))
-        self.request.write(formatter.paragraph(0))
-        self.request.write(formatter.text("hello world end"))
-        self.request.write(formatter.paragraph(1))
-        self.request.write(formatter.paragraph(0))
-
-#-----------------------------------------------------------------------
-# ACTIONS
-
-Q: What are actions?
-The action is what the MoinMoin code does with the client request (and the requested page). 
-The default action is to parse the page as wiki text and output HTML. 
-However other actions can be defined to allow arbitrary processing. 
-Actions are the moral equivalent of CGI scripts, but inside a MoinMoin context.
-
-Essentially, by writing an action you can extend MoinMoin to perform any processing you wish. 
-This is most often done to perform processing on a page 
-(a page is given as the argument to the action), but any processing is allowed. 
-
-Q: What are builtin page actions?
-* "show" to show the page (which is the default action)
-* "edit" to edit the page
-* "diff" to compare versions of the page
-* "highlight" to see certain words on the page highlighted 
-
-There are also some add-on actions provided with standard MoinMoin, like SpellCheck, 
-to check the spelling of words on a page. 
-
-
 
 #---------------------------------------------------------------------- 
 # TEMPLATE
