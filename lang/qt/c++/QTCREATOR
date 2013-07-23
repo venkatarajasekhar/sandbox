@@ -1,0 +1,35 @@
+Q: What is Qt creator?
+An IDE for C++ and other programming languages.
+
+Q: How does it works?
+qtcreator
+File > New file or project > Other project > Empty Qt project       # Create a project (.pro) file
+cat hello_world.pro <<EOT
+TEMPLATE = app
+TARGET = hello_world
+QT = core gui
+EOT
+File > New file or project > C++ > C++ source file                  # Create a hello_world.cpp file with correct entries in .pro file
+this operation add in project file
+HEADERS += \
+           hello_world.h
+SOURCES += \
+           hello_world.cpp
+In hello_wold.cpp add main
+cat hello_world.cpp <<EOT
+#include <QApplication>
+#include <QPushButton>
+ 
+int main(int argc, char **argv)
+{
+    QApplication app (argc, argv);
+ 
+    QPushButton button ("Hello world !");
+    button.show();
+ 
+    return app.exec();
+} 
+EOT
+
+
+

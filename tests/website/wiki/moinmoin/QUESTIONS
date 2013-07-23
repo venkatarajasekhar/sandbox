@@ -141,7 +141,29 @@ https://drive.google.com/#my-drive
 skydrive for linux
 !!! Dropbox may be the best solution. It stores files on amazon S3 and as good linux support.
 
+Q: From monmoin mailing list?
+> I have a public wiki which I would like to access off-line. How can
+> this be done?
+  
+make a fork by e.g.https://pypi.python.org/pypi/wiki-xmlrpc-extensions
+ForkWikiContent -w http://public_wiki/ -f http://localhost:8080/ -u UserName -a
 
+Q: Synchronisation 
+> Ultimately I would like to synchronization of the 2 sites once they
+> are both online, (Not sure this is really possible beyond sync'ing
+> of files)
+  
+look at wikisync
+ 
+> I read a bit about MoinMoin desktop. Is it a viable alternative? 
+> How can this be installed/configured on linux (fedora)?
+ 
+just look in to the docs/INSTALL.html
+it take 1 minute to setup a desktop wiki
+
+Q: 1 minute install of monimoin desktop?
+http://master19.moinmo.in/InstallDocs
+ 
 
 #-----------------------------------------------------------------------
 # MACRO INSTALL
@@ -256,13 +278,11 @@ More @ http://moinmo.in/HelpOnPageCreation
 Q: How to delete a page?
 Go on the page, click on [Action] and select 'Delete Page'
 
-
 Q: How to add an image to a wiki page?
 Add the page as an attachment to the corresponding page
 When editing the page:
 {{attachment:image.png}}        <-- inline
 [[attachment:image.png]]        <-- link to image
-
 
 Q: How to link 2 wiki pages together?
 Check Linking @ http://moinmo.in/HelpOnLinking
@@ -295,7 +315,6 @@ Table of contents (up to 2nd level headings only):
 = heading 1st level =
 == heading 2nd level ==
 === heading 3rd level ===
-
 
 Q: How to create a table and style the cells?
 ||<style="background-color:green;">'''CLS On'''||||<style="background-color:blue;">'''CLS Off'''||<style="background-color:red;">'''Install'''||<style="background-color:yellow;">'''Test'''||

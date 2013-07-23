@@ -1,0 +1,5 @@
+Q: Compiled?
+So, Qt apps are compiled in a 3 steps operations
+A .pro file is written to describe the project to compile
+A makefile is generated using qmake
+The program is build using make (or nmake or jom on windows)
