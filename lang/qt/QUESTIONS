@@ -1,3 +1,19 @@
+Q: QOBJECT? What is that?
+QObject is the most basic class in Qt. Most of classes in Qt inherit from this class. 
+QObject provides some very powerful capabilities like :
+
+* object name : you can set a name, as a string, to an object, and search for objects by names.
+* parenting system (described in the following section)
+* signals and slots 
+* event management
+
+Q: QWidget? what is that?
+Widgets are able to respond to events, use parenting system and signals and slots mechanism, 
+all inherit from QObject. The most basic widget is the QWidget. 
+QWidget contains most properties that are used to describe a window, or a widget, 
+like position and size, mouse cursor, tooltips etc.
+
+
 Q: How to set a stylesheet in designer for q QWIdget?
 background-color:black;
 in the QWidget.stylesheet property
