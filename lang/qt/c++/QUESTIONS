@@ -10,3 +10,45 @@ Q: Sample qmake command?
 Q: what is moc?
 metaobject compiler.
 
+#-----------------------------------------------------------------------
+# MACROS
+
+Q: The most important macro?
+The most important macro is Q_OBJECT. 
+Signal – Slot connections and their syntax cannot be intepreted by regular C++ compiler. 
+The moc is provided to translate the QT syntax like “connect”, “signals”, “slots”, etc into regular C++ syntax. 
+This is done by specifying the Q_OBJECT macro in the header containing class definitions that use such syntax.
+
+mywidget.h
+class MyWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    MyWidget(QWidget *parent = 0);
+...
+}
+
+Q: Others marker macros for moc? 
+* signals
+* public / protected / private slots
+that mark the different methods that need to be extended.
+example:
+#ifndef WINDOW_H
+#define WINDOW_H
+ 
+#include <QWidget>
+ 
+class QPushButton;
+class Window : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit Window(QWidget *parent = 0);
+private slots:
+    void slotButtonClicked(bool checked);
+private:
+    QPushButton *m_button;
+};
+ 
+#endif // WINDOW_H
+
