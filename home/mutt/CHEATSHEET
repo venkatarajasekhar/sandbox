@@ -2,7 +2,7 @@
 
 
 #----------------------------------------------------------------------
-# INDEX MODE
+# INDEX MODE (LIST OF EMAILS)
 
 ?           : help
 F1          : manual to get started
@@ -111,4 +111,9 @@ Where PATTERN, USER, ID, and SUBJECT are regular expressions.
 
 ex: ~d 20/1/95-31/10 !(~t mutt|~c mutt) ~f emayssat
 ex: ~d <1m                                                              # No space between < and 1m
+
+#-----------------------------------------------------------------------
+# COMPOSER (WHILE COMPOSING EMAILS)\
+
+v               (macro) select a new identity, i.e. from address
 
