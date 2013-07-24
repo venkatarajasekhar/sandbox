@@ -3,3 +3,10 @@ So, Qt apps are compiled in a 3 steps operations
 A .pro file is written to describe the project to compile
 A makefile is generated using qmake
 The program is build using make (or nmake or jom on windows)
+
+Q: Sample qmake command?
+/usr/bin/qmake-qt4 -spec /usr/lib64/qt4/mkspecs/linux-g++-64 -o Makefile ../01_hello_world_button/01_hello_world_button.pro
+
+Q: what is moc?
+metaobject compiler.
+

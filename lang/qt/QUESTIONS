@@ -1,3 +1,6 @@
+#-----------------------------------------------------------------------
+# Qt Fundammentals
+
 Q: QOBJECT? What is that?
 QObject is the most basic class in Qt. Most of classes in Qt inherit from this class. 
 QObject provides some very powerful capabilities like :
@@ -13,8 +16,21 @@ all inherit from QObject. The most basic widget is the QWidget.
 QWidget contains most properties that are used to describe a window, or a widget, 
 like position and size, mouse cursor, tooltips etc.
 
+#-----------------------------------------------------------------------
+# Signal and slots
 
-Q: How to set a stylesheet in designer for q QWIdget?
+Q: Use signals and slots to Transmitting information?
+The signals and slots mechanism is useful to respond to buttons clicks, but it can do much more than that. 
+For example, It can also be used communicate information. 
+Lets say while playing a song, a progress bar is needed to show how much time remains before the song is over. 
+A media player might have a class that is used to check the progress of the media. 
+An instance of this class might periodically send a tick signal, with the progress. 
+This signal can be connected to a QProgressBar, that can be used to display the progress.
+
+#-----------------------------------------------------------------------
+# QWidgets
+
+Q: How to set a stylesheet in designer for QWIdget?
 background-color:black;
 in the QWidget.stylesheet property
 !!! The designer display should update accordingly
