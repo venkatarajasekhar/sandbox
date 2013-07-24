@@ -65,7 +65,7 @@ When the main exits.
 Q: What are initializers?
 Initializers used in constructors (and copy constructors)
 MyClass::MyClass(int c, int i)
-    : count (c), increment (i)
+    : count (c), increment (i)      # <-- intializers
 {
 }
 
@@ -91,8 +91,8 @@ No, they are not class members!
 
 Q: What is 'this'?
 Every object has access to its own address through a pointer called this!
-'this' is a pointer, but is not part of the object itself!
-'this' is a const pointer on a non-constant object (itself!)
+'this' is a pointer, but is not part of the object itself!          <-- no need to have &this
+'this' is a const pointer on a non-constant object (itself!)        <-- this points to the same memory address, but the content it points to can change!
 ex: 
 this->privateDataArray[i]
 !!! 'this' is not used to access other member functions in a member function, 
@@ -103,7 +103,7 @@ The compiler does. The compiles pass the pointer this as a parameter to every me
 !!! this doesn't need to be listed as a parameter (as is the case for self in python!)
 
 Q: In which case is 'this' a 'const Object * const' ?
-In a constant member function (where the object cannot be modified)
+In a constant member function (where the object cannot be modified)     # <-- the member function cannot change the content of 
 
 Q: How do you implement cascaded function calls?
 Each function call should return a reference to this (return *this)
@@ -126,12 +126,13 @@ The keywords static only appears in the interface (include h), not in the class 
 
 Q: What is particularity of a static data member or static function member?
 They can be accessed without an instance
-eg: MyClass::MyStaticFunction()
+eg: MyClass::GetNumberOfInstances()
 !!! static functions DO NOT HAVE 'this' pointer !
 
 Q: What is a proxy class?
 A class used as an interface to hide the private data of another class.
 That private data would normally appear in the include file (even so it is not in use)
+The proxy class header file doesn't need to show the private parameters
 
 Q: What is operator overloading?
 C++ does NOT allow new operators to be created, 
@@ -154,7 +155,7 @@ The preprocessor change the function name based on its arguments to allow for ov
 Q: What is function overridding?
 Redefining a function (same prototype) in the derived class
 
-Q: WHat is the difference between overloading and overwriting?
+Q: What is the difference between overloading and overwriting?
 overwriting relates to the inheritance of member functions
 overloading means repurposing
 
@@ -179,13 +180,14 @@ Q: What are base class, derived class, inheritance?
 base class = super class
 derived class = subclass
 inheritance is a way to use code reuse
-the code only appears in the base class and is automatically inserted in subclass as we go.
+the code only appears in the base class and is automatically inserted in its derived classes as we go.
 ==> easier to maintain, debug, modify, etc... because the source code exists only in 2 files (h and cpp of base class)
 
-Q: In a class interface, what is public vs private?
+Q: In a class interface, what is public vs private vs protected?
 An object expose all its public data members and function member to the world!
 The private data/function members are only accessible by the object itself
 (in the code of its member functions)
+protected data/function members are are only accessible to the class instances and derived class instances
 
 Q: In a class interface, what does protected means?
 Protected is an intermediary access right between public and private.
@@ -195,21 +197,24 @@ To allow a derived class to access non-public members, that member needs to be d
 An alternative is to use getters and setters (mutator and accessor) for every private data. (but beware of overhead due to function calls)
 !!! Function are either private or public, but not protected. Is that true?
 
-Q: when is protected data member an issue? What is the purpose of mutators and accessor (getter and setter)?
+Q: When is protected data member an issue? What is the purpose of mutators and accessor (getter and setter)?
 VALIDATION !
 + access of private data?
-If you change the name of the var, you need to go through the code of all the derived classes.
+!!! If you change the name of the var (and did not use mutators/accessors), you need to go through the code of all the derived classes.
 
 Q: When to use private over protected?
 when validation is required!
 When the name of the data member can change (but the mutator and accessor won't!)
-==> If base class is also heavily developed!
+==> If base class is also heavily developed and changes to the base class are frequent!
 
 Q: In a class interface, can a function be protected?
 Private functions are utility/helper function.
 If you want that function to be accessible from the derived class, then ...
 ??? IS THAT TRUE ???
 ==> no getter or setter possible for private function!
+
+Q: Are private function, etc, inherited?
+No
 
 Q: What is an overridden function?
 A function declared in a subclass (interface+definition) that overwrites a function with the same name + same argument + same return value as in the base class
@@ -353,3 +358,70 @@ See command example
 Q: What is multiple inheritance?
 Q: what is a virtual base?
 Diamond double inheritance without confusion
+
+#-----------------------------------------------------------------------
+# STACK AND HEAP
+
+Q: What is the 'heap'?
+Objects that are created using 'new' are them referenced with a pointer into the heap.
+The heap (also known as the “free store”) is a large pool of memory used for dynamic allocation.
+In C++, when you use the new operator to allocate memory, this memory is assigned from the heap.
+ex:
+int *pValue = new int;      // pValue is assigned 4 bytes from the heap
+int *pArray = new int[10];  // pArray is assigned 40 bytes from the heap
+Because the precise location of the memory allocated is not known in advance, 
+the memory allocated has to be accessed indirectly — which is why new returns a pointer. 
+You do not have to worry about the mechanics behind the process of how free memory is located and allocated to the user. 
+However, it is worth knowing that sequential memory requests may not result in sequential memory addresses being allocated!
+ex:
+int *pValue1 = new int;
+int *pValue2 = new int;     // pValue1 and pValue2 may not have sequential addresses
+When a dynamically allocated variable is deleted, the memory is “returned” to the heap 
+and can then be reassigned as future allocation requests are received.
+
+The heap has advantages and disadvantages:
+1) Allocated memory stays allocated until it is specifically deallocated (beware memory leaks).
+2) Dynamically allocated memory must be accessed through a pointer.
+3) Because the heap is a big pool of memory, large arrays, structures, or classes should be allocated here.
+
+Q: What is the stack?
+The call stack (usually referred to as “the stack”) has a much more interesting role to play. 
+Before we talk about the call stack, which refers to a particular portion of memory, let’s talk about what a stack is.
+Consider a stack of plates in a cafeteria. Because each plate is heavy and they are stacked, you can really only do one of three things:
+1) Look at the surface of the top plate
+2) Take the top plate off the stack
+3) Put a new plate on top of the stack
+In computer programming, a stack is a container that holds other variables (much like an array). 
+However, whereas an array lets you access and modify elements in any order you wish, a stack is more limited. 
+The operations that can be performed on a stack are identical to the ones above:
+1) Look at the top item on the stack (usually done via a function called top())
+2) Take the top item off of the stack (done via a function called pop())
+3) Put a new item on top of the stack (done via a function called push())
+A stack is a last-in, first-out (LIFO) structure. The last item pushed onto the stack will be the first item popped off. 
+If you put a new plate on top of the stack, anybody who takes a plate from the stack will take the plate you just pushed on first. 
+Last on, first off. As items are pushed onto a stack, the stack grows larger — as items are popped off, the stack grows smaller.
+
+The plate analogy is a pretty good analogy as to how the call stack works, but we can actually make an even better analogy. 
+Consider a bunch of mailboxes, all stacked on top of each other. 
+Each mailbox can only hold one item, and all mailboxes start out empty. 
+Furthermore, each mailbox is nailed to the mailbox below it, so the number of mailboxes can not be changed. 
+If we can’t change the number of mailboxes, how do we get a stack-like behavior?
+
+First, we use a marker (like a post-it note) to keep track of where the bottom-most empty mailbox is. 
+In the beginning, this will be the lowest mailbox. When we push an item onto our mailbox stack, 
+we put it in the mailbox that is marked (which is the first empty mailbox), and move the marker up one mailbox. 
+When we pop an item off the stack, we move the marker down one mailbox and remove the item from that mailbox. 
+Anything below the marker is considered “on the stack”. Anything at the marker or above the marker is not on the stack.
+
+This is almost exactly analogous to how the call stack works. 
+The call stack is a fixed-size chunk of sequential memory addresses. 
+The mailboxes are memory addresses, and the “items” are pieces of data (typically either variables or addreses). 
+The “marker” is a register (a small piece of memory) in the CPU known as the stack pointer. 
+The stack pointer keeps track of where the top of the stack currently is.
+
+The only difference between our hypothetical mailbox stack and the call stack is that when we pop an item off the call stack, 
+we don’t have to erase the memory (the equivalent of emptying the mailbox). 
+We can just leave it to be overwritten by the next item pushed to that piece of memory. 
+Because the stack pointer will be below that memory location, we know that memory location is not on the stack.
+
+So what do we push onto our call stack? Parameters, local variables, and... function calls.
