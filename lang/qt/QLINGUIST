@@ -1,0 +1,4 @@
+Q: Hello world?
+QLabel label("Hello, world!")
+becomes
+QLabel label(Qapplication::translate("MyLabel","Heelo, world!")

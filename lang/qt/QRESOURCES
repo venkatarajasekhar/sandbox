@@ -1,0 +1,11 @@
+Q: Resource file?
+A series of image or attachment that can be used by the application
+
+Q: Example of resource file?
+<RCC>
+    <qresources>
+        <file>pics/symbols/stop.png</file>
+        <file>pics/symbols/start.png</file>
+        <file>pics/symbols/pause.png</file>
+    </qresource>
+</RCC>

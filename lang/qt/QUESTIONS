@@ -1,23 +1,70 @@
 #-----------------------------------------------------------------------
 # Qt Fundammentals
 
+Q: Qt libraries?
+QtCore      - base classes that do not generate any GUI output      # Includes QCoreApplication (Qt application without GUI)
+QtGui       - base GUI classes                                      # Include QApplication
+QtNetwork   - network classes
+QtOpenGL    - OpenGL support
+QtSql       - SQL database classes
+QtXMl       - XMl and DOM classes
+QtAssistantClient   - to use QtAssistant as a documentation browser in your application
+Qt3Support  - used for compatibility with Qt3
+QtSvg       - support for SVG vector graphics
+QtTest      - framework for unit tests
+QtDBus      - Qt bindings for the message bus system from Freedesktop.org
+
+Q: Qt tools and utilites?
+QtLinguist  - Translation tool
+QtAssistant - Use for documentation
+QtDesigner  - For GUI interface design
+
 Q: QOBJECT? What is that?
 QObject is the most basic class in Qt. Most of classes in Qt inherit from this class. 
 QObject provides some very powerful capabilities like :
-
 * object name : you can set a name, as a string, to an object, and search for objects by names.
 * parenting system (described in the following section)
 * signals and slots 
 * event management
+!!! Most classes in Qt are derived from QObject (QWidget, QThread, QLayout), but not all, e.g. QString, QColor, QImage
+!!! QString doesn't use parenting, signal/slots, name, event!
 
 Q: QWidget? what is that?
 Widgets are able to respond to events, use parenting system and signals and slots mechanism, 
 all inherit from QObject. The most basic widget is the QWidget. 
 QWidget contains most properties that are used to describe a window, or a widget, 
 like position and size, mouse cursor, tooltips etc.
+!!! If you want to implement your own widget, you will usually do so with a class derived from QWidget
+
+Q: Abstract classes?
+QFrame, QAbstractButton, QLayout, QBoxLayout are used directly in only a very few cases
+Those classes merely summarize common properties and functions of their "children" in a base class.
+
+#-----------------------------------------------------------------------
+# QT COMPILERS
+
+Q: QMake?
+Used only with C++ code and a project file!
+
+Q: rcc?
+Resource compiler.
+Resources are EXTERNAL images or graphics/icons
+File ends with qrc extension.
+
+
 
 #-----------------------------------------------------------------------
 # Signal and slots
+
+Q: Can every member function be a slot?
+No. Qt needs to know which of its member functions are slow.
+In C++, it needs to be declared in the 'public slots:' macro (or private/protected slots)
+In python, you need to use the pyqtSlot directive.
+
+Q: How to declare a signal?
+C++ a signal doesn't need to be associated to any function. 
+It just need to be defined in the 'signals:' macro and then emitted (emit counterReached();).
+In python, use pyqtSignal and <signal>.emit !
 
 Q: Use signals and slots to Transmitting information?
 The signals and slots mechanism is useful to respond to buttons clicks, but it can do much more than that. 
@@ -41,4 +88,9 @@ Yes, by using the 'qproperty' keyword. As such, setting the stylesheet property 
 qproperty-geometry; rect(10 10 100 100);
 would move the widget to position 10,10 and give it a size of 100,100
 
+#-----------------------------------------------------------------------
+# QString
 
+QString str1 = "Hello worlds";
+QString str2 = str1;
+str2.replace("world", "Qt");

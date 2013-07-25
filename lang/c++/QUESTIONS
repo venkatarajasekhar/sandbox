@@ -332,6 +332,35 @@ Q: What are template class?
 ex: vector<int> myvector(4)         <-- vector of 4 * int
 A class whose member function are class templates!
 
+Q: What are forward class declaration?
+In windows.h
+#ifndef WINDOW_H                    // Include guard
+#define WINDOW_H
+
+#include <QWidget>
+class QPushButton;                  // QPushButton is a class defined someother place! This is a FORWARD CLASS DECLARATION
+class Window : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit Window(QWidget *parent = 0);
+private:
+    QPushButton *a_button;
+signals:
+    void counterReached();
+public slots:
+
+private slots:
+    void slotButtonClicked(bool checked);
+};
+#endif // WINDOW_H
+
+Q: What are include guards?
+#ifndef WINDOW_H                    // Include guard
+#define WINDOW_H
+.... (header file code goes here) ...
+#endif // WINDOW_H
+
 Q: What are exception?
 Exception handling is designed to process synchromous errors, which occur when a statment executes
 eg dividion by zero
