@@ -15,3 +15,12 @@ Q: Difference between include with <> or with "" ?
 <>  - standard location (or command line specified location)
 ""  - current directory (non-standard directory)
 
+Q: What are include guard?
+#ifndef BYTECONVERTERDIALOG_H
+#defint BYTECONVERTERDIALOG_H
+
+.....(c++/c code here) ....
+
+#endif BYTECONVERTERDIALOG_H
+This prevent the file to be included several time in case several source files include this file
+

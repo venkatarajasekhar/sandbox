@@ -3,9 +3,15 @@ A series of image or attachment that can be used by the application
 
 Q: Example of resource file?
 <RCC>
-    <qresources>
+    <qresources>                                # <-- default resources
         <file>pics/symbols/stop.png</file>
         <file>pics/symbols/start.png</file>
         <file>pics/symbols/pause.png</file>
     </qresource>
+    <qresources lang="de">                      # <-- Use language attribute
+        <file>pics/symbols/de/stop.png</file>
+    </qresources>
 </RCC>
+
+Q: How to use a resource?
+C++ myLabel->setPixmap(QPixmap(":/pics/symbols/stop.png"));

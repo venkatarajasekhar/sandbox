@@ -11,4 +11,6 @@ QT -= network                                   # Remove QtNetwork library requi
 TRANSLATIONS =  application_fr.ts \             # Translation files to be used by QtLinguist (see lupdate, lrelease commands)
                 application_nl.ts
 
+RESOURCES - symbols.qrc                         # Resource file
+
 
