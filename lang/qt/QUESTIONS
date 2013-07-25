@@ -92,6 +92,12 @@ Q: What is the difference between QWindow and a QDialog?
 By default the program (event loop) doesn't end when the dialog is closed.
 To change that behavior look at setAttribute(Qt::WA_QuitOnClose)
 
+Q: How to work with layout?
+QVBoxLayout* mainLayout = new QVBoxLayout(this);
+mainLayour->addLayout(editLayout);                  // Add content of first layout
+mainLayout->addStrech();                            // Add VERTICAL space as vertical layout
+mainLayout->addLayout(buttonLayout);                // Add content of other layout
+
 
 #-----------------------------------------------------------------------
 # QString
