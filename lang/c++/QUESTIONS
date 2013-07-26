@@ -1,7 +1,9 @@
 Q: What are the storage class specifiers?
-* mutable
-* automatic, register
-* static
+* mutable                   - variable/object is always mutable even if a part of a const object
+* register                  - store the variable in a register (if possible) for super fast access
+* static                    - can be accessed without an instance
+* automatici (auto)         - A variable that has automatic storage is deleted when the block in which it was was declared exits (default)
+* extern                    - The declaration is used to describe the variable that is externally defined.
 
 Q: Can object be globals?
 Yes. In which case, they are instantiated BEFORE the main is executed!
@@ -57,16 +59,47 @@ Exception handling is not designed to process errors associated with asynchronou
 eg disk IO completions, network message arrival, mouse click, leystrokes
 
 Q: When to use exception?
+
+#-----------------------------------------------------------------------
+# NAMESPACES
+
+Q: Why use namespace?
+To avoid clash of functions names in libraries?
+
+Q: How to declare a namespace?
+namespace net_connect
+{
+  int make_connection();
+  int test_connection();
+  //so forth...
+}
+then refer to functions that are part of a namespace like
+net_connect::make_connection()
+
+Q: How to prevent using namespace identifiers?
+using  namespace namespace_name; 
+
 #-----------------------------------------------------------------------
 # TERMINOLOGY
 
 Q: What is a signature?
+static const int & Foo::Run(World& W, PrioQ& pq) const; 
+which is the same as 
 class Foo { 
     public: 
       static const int & Run(World& W, PrioQ & pq) const; 
 };
-which is the same as 
-static const int & Foo::Run(World& W, PrioQ& pq) const; 
+static  -- this function can only be seen in this file?  No, this means that this function can be called without an instantiated object, as normally member functions (methods) must be called using an instantiation of the class, though with this keyword, you don't need it.
+const   -- the int that this function returns cannot be changed, because this function returns a reference to an int, you could normally change it, but this particular function does not allow that.
+int &   -- This is the return type of the function.  This particular function returns an int, but not only that, but it is a reference to an int, so it is not really an int, but behaves as one.
+Foo::   -- This function is really a function declared in the scope Foo, which is a class.
+Run     -- The name of the function.
+World&  -- The type of the first argument.  This is typical for large objects, as, if they are passed by value, then the entire object (which can be huge) must be copied (if the object is huge, copying it can take a long time) and the reference allows one to modify the object being passed in.
+W       -- This is the name of the first parameter that the function will use to refer to it.
+PrioQ & -- This is the type of the second argument.  This is typical for large objects, as, if they are passed by value, then the entire object (which can be huge) must be copied (if the object is huge, copying it can take a long time) and the reference allows one to modify the object being passed in.
+pq      -- This is the name of the second parameter, that the function will use to refer to it.
+const   -- Though this looks like the const on the front of this function, it is not the same.  The const on the end of the function is not the same as the const at the beginning.  This const prevents this function from changing the member variables of the class to which it belongs (in this case Foo).
+
 
 Q: What is a vtable?
 A object contains its data. Additionally, there is a pointer on a vtable.
@@ -82,7 +115,7 @@ when they are used with objects, they have a meaning appropriate to those object
 ==> use a non-static member function
 
 Q: What is function overloading?
-Overloading is having multiple methods in a single class where the method has the same name. 
+Overloading is having multiple methods in a single class where the method has the same name but different signature. 
 However, the return value is not seen as part of the signature of the method. 
 Thus, you cannot overload a method by changing only the return value. 
 See also: name mangling
@@ -117,6 +150,7 @@ A function declared in a subclass (interface+definition) that overwrites a funct
 See also Virtual functions
 
 Q: What is the difference between overwriting and overriding?
+overwriting is not a C++ keyword, even so it is often used in place of overriding.
 
 
 #-----------------------------------------------------------------------
