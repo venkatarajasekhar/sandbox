@@ -3,6 +3,125 @@ Q: What are the storage class specifiers?
 * automatic, register
 * static
 
+Q: Can object be globals?
+Yes. In which case, they are instantiated BEFORE the main is executed!
+The are Destructed at the very end of the program (after the main exit)
+
+Q: What is a composition?
+A class can contain instance of other classes.
+This instances can also use initializer in the for of copy constructor!
+
+Q: what is the size of an empty object?
+1 byte !
+Quoting Bjarne Stroustrup's C++ Style and Technique FAQ, the reason the size is non-zero is "To ensure that the addresses of two different objects will be different." 
+And the size can be 1 because alignment doesn't matter here, as there is nothing to actually look at.
+
+Q: What is a size of an object with NO data member (and only member functions)?
+1 byte!
+The size of the object is proportional to its data members!
+
+
+Q: Can a derived-class pointer points to a base class object?
+No, compilation error
+
+Q: What is DYNAMIC/LATE binding and STATIC binding?
+static binding = the function invocation is resolved at compile time
+dynamic binding (with virtual function)= occurs only off pointer (and reference) handles
+
+Q: Can a base-class pointer points to a derived class?
+Yes, but only base-class functions can be called by default.
+??? What about overridden functions ??? They cannot be accessed unless the function is declared as virtual!
+If you want to call derived-class member functions, you need to use DOWNCASTING
+
+Q: What are abstract classes?
+classes which will never instantiate any object
+Abstract base classes are too generic to define real objects.
+We need to be more specific before we can think of instantiating objects
+(Are used as intermediary base-class in inheritance hierarchy)
+They are the opposite of concrete classes!
+ex: 2-d shape class
+if draw is called, which shape should you draw? a round, a square, a triangle? You can't!
+!!! An abstract class often contains pure virtual functions
+
+Abstract classes, although optional, are found  at the top of the class hierarchy.
+A class is abstract if one of this member function is pure virtual (see below)
+ABSTRACT CLASSES ARE USED TO DEFINE AN INTERFACE (ex: read/write of a driver!)
+
+Q: Can abstract class pointer be created?
+YES! This is used with polymorphism!
+
+Q: What are exception?
+Exception handling is designed to process synchromous errors, which occur when a statment executes
+eg dividion by zero
+Exception handling is not designed to process errors associated with asynchronous events 
+eg disk IO completions, network message arrival, mouse click, leystrokes
+
+Q: When to use exception?
+#-----------------------------------------------------------------------
+# TERMINOLOGY
+
+Q: What is a signature?
+class Foo { 
+    public: 
+      static const int & Run(World& W, PrioQ & pq) const; 
+};
+which is the same as 
+static const int & Foo::Run(World& W, PrioQ& pq) const; 
+
+Q: What is a vtable?
+A object contains its data. Additionally, there is a pointer on a vtable.
+A vtable is a structure of pointers on functions. Those functions are the functions to be run when a member function is called.
+ex: The salariedEmployee object contains a pointer to the SalariedEmployee vtable; the object also contains the values John Smith, 111-11-1111 an $800.00.
+
+Q: What is operator overloading?
+One of the nice features of C++ is that you can give special meanings to operators, 
+when they are used with user-defined classes.
+C++ does NOT allow new operators to be created, 
+but it does allow most existing operators to be overloaded so that,
+when they are used with objects, they have a meaning appropriate to those objects.
+==> use a non-static member function
+
+Q: What is function overloading?
+Overloading is having multiple methods in a single class where the method has the same name. 
+However, the return value is not seen as part of the signature of the method. 
+Thus, you cannot overload a method by changing only the return value. 
+See also: name mangling
+
+Q: overloading and return value?
+You cannot have the following code, from your example:
+public void setValue() {
+   this.value = 0;
+}
+
+public int setValue() {
+   return this.value;
+}
+This will fail to compile.
+
+Q: overloading and default parameter values?
+For example, doTask() and doTask(object O) are overloaded methods. 
+To call the latter, an object must be passed as a parameter, 
+whereas the former does not require a parameter, and is called with an empty parameter field. 
+A common error would be to assign a default value to the object in the second method, 
+which would result in an ambiguous call error, as the compiler wouldn't know which of the two methods to use.
+
+Q: What is name mangling?
+The preprocessor change the function name based on its arguments to allow for overloading
+
+Q: What is function overridding?
+Redefining a function with same signature in the derived class
+
+Q: What is an overridden function?
+A function declared in a subclass (interface+definition) that overwrites a function with the same name + same argument + same return value as in the base class
+??? if you do not use the same arguments type, the member function is not overridden, it is a different one! ??? check name mangling
+See also Virtual functions
+
+Q: What is the difference between overwriting and overriding?
+
+
+#-----------------------------------------------------------------------
+# REFERENCES, POINTERS
+
 Q: Call by value vs call by reference?
 In a call by value, a copy of the parameter is made. (not efficient)
 In call by reference, a memory area (from the heap) is passed.
@@ -23,17 +142,47 @@ void func2(unsigned long* val) {
 }
 func2(&x);                                  # <-- C pointer
 
-Q: Can object be globals?
-Yes. In which case, they are instantiated BEFORE the main is executed!
-The are Destructed at the very end of the program (after the main exit)
-
-Q: What is a composition?
-A class can contain instance of other classes.
-This instances can also use initializer in the for of copy constructor!
-
 Q: How do you implement cascaded function calls?
 Each function call should return a reference to this (return *this)
 ex: obj->f1()->f2()->f3()
+
+Q: Can abstract class pointer be created?
+YES! This is used with polymorphism!
+
+#-----------------------------------------------------------------------
+# TEMPLATE
+
+Q: What are template class?
+ex: vector<int> myvector(4)         <-- vector of 4 * int
+A class whose member function are class templates!
+
+Q: Can a function template be overloaded by providing a nontemplate functions?
+Yes! The pre-compiler looks for an explicit function, then try to build it with the available templates
+
+Q: What is the Standard template library (STL)?
+template library part of the C++ standard which are use for commonly used object (eg vector, list, queue, set, map, etc)
+
+Q: How to implement and use a function template?
+template <typename Type>
+Type max(Type a, Type b) {
+    return a > b ? a : b;
+}
+int main()
+{
+  // This will call max <int> (by argument deduction)
+  std::cout << max(3, 7) << std::endl;
+  // This will call max<double> (by argument deduction)
+  std::cout << max(3.0, 7.0) << std::endl;
+  // This type is ambiguous, so explicitly instantiate max<double>
+  std::cout << max<double>(3, 7.0) << std::endl;
+  return 0;
+}
+
+Q: When are template expanded?
+At compile time!
+
+#-----------------------------------------------------------------------
+# VIRTUAL, PURE VIRTUAL, STUB, DOWNCASTING, OVERRIDE
 
 Q: What is a virtual function?
 A virtual function or virtual method is a function or method whose behavior can be 
@@ -44,105 +193,27 @@ This concept is a very important part of the polymorphism
 !!! Pure virtual functions are used for interface definition
 More @ http://en.wikipedia.org/wiki/Virtual_function
 
-Q: What is a proxy class?
-A class used as an interface to hide the private data of another class.
-That private data would normally appear in the include file (even so it is not in use)
-The proxy class header file doesn't need to show the private parameters
-
-Q: What is operator overloading?
-C++ does NOT allow new operators to be created, 
-but it does allow most existing operators to be overloaded so that,
-when they are used with objects, they have a meaning appropriate to those objects.
-==> use a non-static member function
-
-Q: What is function overloading?
-For example, doTask() and doTask(object O) are overloaded methods. 
-To call the latter, an object must be passed as a parameter, 
-whereas the former does not require a parameter, 
-and is called with an empty parameter field. 
-A common error would be to assign a default value to the object in the second method, 
-which would result in an ambiguous call error, as the compiler wouldn't know which of the two methods to use.
-==> name mangling
-
-Q: What is name mangling?
-The preprocessor change the function name based on its arguments to allow for overloading
-
-Q: What is function overridding?
-Redefining a function (same prototype) in the derived class
-
-Q: What is the difference between overloading and overwriting?
-overwriting relates to the inheritance of member functions
-overloading means repurposing
-
-Q: What are base class, derived class, inheritance?
-base class = super class
-derived class = subclass
-inheritance is a way to use code reuse
-the code only appears in the base class and is automatically inserted in its derived classes as we go.
-==> easier to maintain, debug, modify, etc... because the source code exists only in 2 files (h and cpp of base class)
-
-Q: What is an overridden function?
-A function declared in a subclass (interface+definition) that overwrites a function with the same name + same argument + same return value as in the base class
-??? if you do not use the same arguments type, the member function is not overridden, it is a different one! ??? check name mangling
-See also Virtual functions
-
-Q: what is the size of an empty object?
-1 byte !
-Quoting Bjarne Stroustrup's C++ Style and Technique FAQ, the reason the size is non-zero is "To ensure that the addresses of two different objects will be different." 
-And the size can be 1 because alignment doesn't matter here, as there is nothing to actually look at.
-
-Q: What is a size of an object with NO data member (and only member functions)?
-1 byte!
-The size of the object is proportional to its data members!
-
-Q: What is a vtable?
-A object contains its data. Additionally, there is a pointer on a vtable.
-A vtable is a structure of pointers on functions. Those functions are the functions to be run when a member function is called.
-ex: The salariedEmployee object contains a pointer to the SalariedEmployee vtable; the object also contains the values John Smith, 111-11-1111 an $800.00.
-
-Q: Can a derived-class pointer points to a base class object?
-No, compilation error
-
-Q: Can a base-class pointer points to a derived class?
-Yes, but only base-class functions can be called by default.
-??? What about overridden functions ??? They cannot be accessed unless the function is declared as virtual!
-If you want to call derived-class member functions, you need to use DOWNCASTING
-
-Q: What is downcasting?
-Read answer to above question.
-But beware, downcasting is dangerous!
-The preferred method is to use virtual functions
-
-Q: Why would a function be declared as virtual in a base-class?
-To avoid downcasting ! In otherwords, a base-class pointer that points to a derived-class object
-CAN call derived-class functions.
-==> The program determine at runtime which class member function to call  ( = LATE BINDING, DYNAMIC BINDING!)
-==> The called functions are not from the class of the pointer, but from the class of the object
-
 Q: What is the scope of the virtual keyword?
 Once a function is declared virtual, it remains virtual all the way down the inheritance hierarchy 
 from that point, even if that function is not explicitly declared virtual when a derived class overrides it.
 ==> specify virtual at every level for program clarity!
 
-Q: What is DYNAMIC/LATE binding and STATIC binding?
-static dbinding = the function invocation is resolved at compile time
-dynamic binding (with virtual function)= occurs only off pointer (and reference) handles
+Q: What is a pure specifier?
+The "=0" is a pure specifier!
+It means the function has no implementation, but the code can still call it and compile!
 
-Q: What are abstract classes?
-classes which will never instantiate any object
-Abstract base classes are too generic to define real objects.
-We need to be more specific before we can think of instantiating objects
-(Are used as intermediary base-class in inheritance hierarchy)
-They are the opposite of concrete classes!
-ex: 2-d shape class
-if draw is called, which shape should you draw? a round, a square, a triangle? You can't!
+Q: What is the difference between a stub function and a pure virtual function?
+A stub function is a function with minimum implementation (i.e return an error code)
+Stub functions can be inherited and do not need to be reimplemented before the sub class can be instantiated.
+(Often this is because it is not used in our case)
+A pure virtual function MUST be implemented in the derived class regardless whether it is used or not.
 
-Abstract classes, although optional, are found  at the top of the class hierarchy.
-A class is abstract if one of this member function is pure virtual (see below)
-ABSTRACT CLASSES ARE USED TO DEFINE AN INTERFACE (ex: read/write of a driver!)
-
-Q: Can abstract class pointer be created?
-YES! This is used with polymorphism!
+Q: What is the difference between a virtual and pure virtual function?
+Pure virtual: the base class doesn't provide an implementation, the CONCRETE derived class MUST override all the virtual function of the abstract class
+ex: class 2dShape: virtual void draw() const =0
+virtual: the base class provide an implementation
+ex: class 2dshape: virtual void getName() const
+Here virtual because base class implementation is default
 
 Q: What are pure virtual function?
 A class is made abstract by declaring one or more of its virtual functions to be "pure"
@@ -154,44 +225,46 @@ Typically pure virtual functions are declared in 'interfaces'
 !!! Pure virtual functions can be called ever so there is no implementation
 !!! Pure virtual functions compile even so there is no code.
 
-Q: What is a pure specifier?
-The "=0" is a pure specifier!
-It means the function has no implementation, but the code can still call it and compile!
+Q: What is downcasting?
+Read answer to above question.
+But beware, downcasting is dangerous!
+The preferred method is to use virtual functions
 
-Q: What is the difference between a stub function and a pure virtual function?
-A stub function is a function with minimum implementation (i.e return an error code)
-Stub functions can be inherited and do not need to be reimplemented before the sub class can be instantiated.
-(Often this is because it is not used in our case)
-A pure virtual function MUST be implemented in the sub class regardless whether it is used or not.
+Q: Why would a function be declared as virtual in a base-class?
+To avoid downcasting ! In other words, a base-class pointer that points to a derived-class object
+CAN call derived-class functions.
+==> The program determine at runtime which class member function to call  ( = LATE BINDING, DYNAMIC BINDING!)
+==> The called functions are not from the class of the pointer, but from the class of the object
 
-Q: What is the difference between a virtual and pure virtual function?
-Pure virtual: the base class doesn't provide an implementation, the CONCRETE derived class MUST override all the virtual function of the abstract class
-ex: class 2dShape: virtual void draw() const =0
-virtual: the base class provide an implementation
-ex: class 2dshape: virtual void getName() const
-Here virtual because base class implementation is default
-
-Q: Can a function template be overloaded by providing a nontemplate functions?
-Yes! The pre-compiler looks for an explicit function, then try to build it with the available templates
-
-Q: What are template class?
-ex: vector<int> myvector(4)         <-- vector of 4 * int
-A class whose member function are class templates!
-
-Q: What are exception?
-Exception handling is designed to process synchromous errors, which occur when a statment executes
-eg dividion by zero
-Exception handling is not designed to process errors associated with asynchronous events 
-eg disk IO completions, network message arrival, mouse click, leystrokes
-
-Q: When to use exception?
-
-Q: What is the Standard template library (STL)?
-template library part of the C++ standard which are use for commonly used object (eg vector, list, queue, set, map, etc)
-
-Q: What is multiple inheritance?
 Q: what is a virtual base?
 Diamond double inheritance without confusion
+
+Q: overrride and final keywords?
+A method that is declared final in the super class cannot be overridden; 
+also, a method can be declared override to make the compiler check that it overrides a method in the base class.
+
+
+#-----------------------------------------------------------------------
+# INHERITANCE
+
+Q: Simple inheritance code?
+class Mercedes : public Car                      # <-- Mercedes is derived from the Car class
+{
+    public:
+    protected:
+    private:
+}
+Q: What are base class, derived class, inheritance?
+base class = super class
+derived class = subclass
+inheritance is a way to use code reuse
+the code only appears in the base class and is automatically inserted in its derived classes as we go.
+==> easier to maintain, debug, modify, etc... because the source code exists only in 2 files (h and cpp of base class)
+
+Q: what is a virtual base?
+Diamond double inheritance without confusion
+
+Q: What is multiple inheritance?
 
 #-----------------------------------------------------------------------
 # AUTOMATIC vs STATIC
@@ -215,6 +288,12 @@ Q: What is a static object?
 A non-automatic object!
 Initialized only once, when the definition is first read
 Destructed once, at the end of the main
+
+Q: Difference between C++ and C static?
+In C, static means his function can only be seen in this file
+In C++, static means a function can be called without an instantiated object, 
+as normally member functions (methods) must be called using an instantiation of the class, 
+though with this keyword, you don't need it.
 
 Q: What are the difference between a static variable, a static object, 
 a static data member, a static member function?
@@ -284,6 +363,14 @@ If you want that function to be accessible from the derived class, then ...
 Q: Are private function, etc, inherited?
 No
 
+Q: How can private variables be accessible from a derived class?
+By using a public accessor (or a public member function who reads/accesses those private variables)
+ex:
+void Mercedes::print() const { // print() method of derived class
+   Car::print();  // Invoke parent print() method.
+   std::cout << "; Height= " << this->height;
+}
+
 #-----------------------------------------------------------------------
 # POLYMORPHISM
 
@@ -330,6 +417,11 @@ Q: What are include guards?
 #define WINDOW_H
 .... (header file code goes here) ...
 #endif // WINDOW_H
+
+Q: What is a proxy class?
+A class used as an interface to hide the private data of another class.
+That private data would normally appear in the include file (even so it is not in use)
+The proxy class header file doesn't need to show the private parameters
 
 #-----------------------------------------------------------------------
 # CONST and MUTABLE
