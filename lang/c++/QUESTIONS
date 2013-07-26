@@ -77,7 +77,11 @@ then refer to functions that are part of a namespace like
 net_connect::make_connection()
 
 Q: How to prevent using namespace identifiers?
-using  namespace namespace_name; 
+using  namespace std;       // std is namespace_name
+std::cout -> cout !
+
+Q: Renaming namespace?
+namespace <new> = <old>
 
 #-----------------------------------------------------------------------
 # TERMINOLOGY
