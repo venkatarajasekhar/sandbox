@@ -24,3 +24,9 @@ Q: What are include guard?
 #endif BYTECONVERTERDIALOG_H
 This prevent the file to be included several time in case several source files include this file
 
+Q: Call by value vs call by reference?
+In a call by value, a copy of the parameter is made. (not efficient)
+In call by reference, a 'pointer' to a memory area is passed.
+!!! With a reference, the pointed value can be changed.
+!!! C++ if not desired, then use 'const' key word: const QString &
+
