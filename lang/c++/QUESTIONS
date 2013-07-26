@@ -3,107 +3,33 @@ Q: What are the storage class specifiers?
 * automatic, register
 * static
 
-Q: What is an automatic object?
-Objects with automatic storage duration, or automatic objects for short, 
-are created automatically upon entering a function or a block. 
-They are destroyed and their storage is reclaimed automatically 
-when the function or block in which they are declared exits. 
-Thus, on each entry into a function or a block, a fresh set of its automatic objects is created. 
-The default value of automatic variables and non-class objects is indeterminate. 
-Automatic objects have no linkage; 
-you cannot refer to them from a different translation unit and their visibility 
-is limited to the scope in which they are declared.
-==> a variable with a scope!
+Q: Call by value vs call by reference?
+In a call by value, a copy of the parameter is made. (not efficient)
+In call by reference, a memory area (from the heap) is passed.
+!!! With a reference, the pointed value can be changed.
+!!! C++ if not desired, then use 'const' key word: const QString &
 
-
-Q: Can a constructor or destructor be a const function? 
-No
-
-Q: Can a constructor initialize a const object?
-Yes!
-The 'constness' of a const object is enforced from the time the contructor COMPLETES
-initialization of the object until that object's destructor is called.
-const object (or vars) are instantiated with initializers 
-
-Q: what are const member function?
-A const member function is defined for example as 
-double CommissionEmployee::getCommissionRate() const 
-{
-    return commissionRate;
+Q: Difference between a pointer and a reference?
+Rule of thumb: 
+Use pointers if you want to do arithmetic i(++, --, [] indexing) with them or if you ever have to pass a NULL-pointer.  
+Use references otherwise.
+unsigned long x = 4;
+void func1(unsigned long& val) {
+     val = 5;
 }
-const member function cannot call non-const function
-can be used on 
-const object
-
-Q: Are constructors inherited?
-No! Each class needs to provide a constructor!
-
-Q: What is a copy constructor?
-A friend function? that takes an object as a parameter and returns a reference to a new object
-of the same class as its object argument. The private data member of the new object 
-have the same value as those of the object passed as arg.
-object2 = copy_constructor(object1)
-
-Q: Do every class have a copy constructor?
-Yes. If none are explicitly declared, the compiler will provide a default one.
-Beware of object construction which requires allocation of memory (malloc, calloc type)
-Beware of pointers.
-
-Q: What is a static object?
-A non-automatic object!
-Initialized only once, when the definition is first read
-Destructed once, at the end of the main
+func(x);                                    # <-- reference
+void func2(unsigned long* val) {
+     *val = 5;
+}
+func2(&x);                                  # <-- C pointer
 
 Q: Can object be globals?
 Yes. In which case, they are instantiated BEFORE the main is executed!
 The are Destructed at the very end of the program (after the main exit)
 
-Q: When are destructors of static object run?
-When the main exits.
-!!! A call to exit runs only the static and global destructor (not the automatic variable)
-
-Q: What are initializers?
-Initializers used in constructors (and copy constructors)
-MyClass::MyClass(int c, int i)
-    : count (c), increment (i)      # <-- intializers
-{
-}
-
-!!! A const (private) data member is REQUIRED to have an initializer
-
-Q: When do initializers execute?
-Before the body of the constructor execute!
-
 Q: What is a composition?
 A class can contain instance of other classes.
 This instances can also use initializer in the for of copy constructor!
-
-Q: What is a friend function?
-A C-style function declared at the same time as the class it 'befriended'
-A friend function can have access to private (and protected) data member of that class.
-A friend function is NOT a member of that class.
-A object is passed as a parameter of that function.
-
-Q: Is a copy constructor a friend function?
-
-Q: Are friend function inherited?
-No, they are not class members!
-
-Q: What is 'this'?
-Every object has access to its own address through a pointer called this!
-'this' is a pointer, but is not part of the object itself!          <-- no need to have &this
-'this' is a const pointer on a non-constant object (itself!)        <-- this points to the same memory address, but the content it points to can change!
-ex: 
-this->privateDataArray[i]
-!!! 'this' is not used to access other member functions in a member function, 
-!!! WRONG In member function, this->setTime(h,m,s) wiht setTime another member function is WRONG !!!
-
-Q: Who provides the value for 'this'?
-The compiler does. The compiles pass the pointer this as a parameter to every member function, except STATIC ones.
-!!! this doesn't need to be listed as a parameter (as is the case for self in python!)
-
-Q: In which case is 'this' a 'const Object * const' ?
-In a constant member function (where the object cannot be modified)     # <-- the member function cannot change the content of 
 
 Q: How do you implement cascaded function calls?
 Each function call should return a reference to this (return *this)
@@ -117,17 +43,6 @@ This concept is a very important part of the polymorphism
 !!! A pure virtual function is a virtual function without an implementation in the base class
 !!! Pure virtual functions are used for interface definition
 More @ http://en.wikipedia.org/wiki/Virtual_function
-
-Q: What is a static data member or static function member?
-static data member is a data member that is share by all the instance 
-ex: numberOfInstance
-A static function member is usually an accessor to that static data member
-The keywords static only appears in the interface (include h), not in the class declaration (cpp)
-
-Q: What is particularity of a static data member or static function member?
-They can be accessed without an instance
-eg: MyClass::GetNumberOfInstances()
-!!! static functions DO NOT HAVE 'this' pointer !
 
 Q: What is a proxy class?
 A class used as an interface to hide the private data of another class.
@@ -159,23 +74,6 @@ Q: What is the difference between overloading and overwriting?
 overwriting relates to the inheritance of member functions
 overloading means repurposing
 
-Q: What are the difference between a static variable, a static object, 
-a static data member, a static member function?
-static is opposed to automatic (or default behavior)
-A static variable 
-    - Come from C. 
-    - Are defined and initialize only once. The memory allocation is free'd at the end of the main
-A static object 
-    - is similar to a static variable, except they use constructor and destructor
-A static data member 
-    - is a variable shared by every instance (ex: number of instance created). 
-    - member of a class
-    - Accessible (if public) even if no instance is created.  MyClass::MyVariable
-A static member function 
-    - is accessible through the class MyClass::MyFunction() 
-    - is independent from the instance
-    - doesn't have a 'this' pointer passed as by the compiler
-
 Q: What are base class, derived class, inheritance?
 base class = super class
 derived class = subclass
@@ -183,42 +81,10 @@ inheritance is a way to use code reuse
 the code only appears in the base class and is automatically inserted in its derived classes as we go.
 ==> easier to maintain, debug, modify, etc... because the source code exists only in 2 files (h and cpp of base class)
 
-Q: In a class interface, what is public vs private vs protected?
-An object expose all its public data members and function member to the world!
-The private data/function members are only accessible by the object itself
-(in the code of its member functions)
-protected data/function members are are only accessible to the class instances and derived class instances
-
-Q: In a class interface, what does protected means?
-Protected is an intermediary access right between public and private.
-It comes into play with inheritance.
-Indeed, a derived class cannot access private members of its base class!    <-- WHAOO !!!
-To allow a derived class to access non-public members, that member needs to be declared as protected!
-An alternative is to use getters and setters (mutator and accessor) for every private data. (but beware of overhead due to function calls)
-!!! Function are either private or public, but not protected. Is that true?
-
-Q: When is protected data member an issue? What is the purpose of mutators and accessor (getter and setter)?
-VALIDATION !
-+ access of private data?
-!!! If you change the name of the var (and did not use mutators/accessors), you need to go through the code of all the derived classes.
-
-Q: When to use private over protected?
-when validation is required!
-When the name of the data member can change (but the mutator and accessor won't!)
-==> If base class is also heavily developed and changes to the base class are frequent!
-
-Q: In a class interface, can a function be protected?
-Private functions are utility/helper function.
-If you want that function to be accessible from the derived class, then ...
-??? IS THAT TRUE ???
-==> no getter or setter possible for private function!
-
-Q: Are private function, etc, inherited?
-No
-
 Q: What is an overridden function?
 A function declared in a subclass (interface+definition) that overwrites a function with the same name + same argument + same return value as in the base class
 ??? if you do not use the same arguments type, the member function is not overridden, it is a different one! ??? check name mangling
+See also Virtual functions
 
 Q: what is the size of an empty object?
 1 byte !
@@ -262,17 +128,11 @@ Q: What is DYNAMIC/LATE binding and STATIC binding?
 static dbinding = the function invocation is resolved at compile time
 dynamic binding (with virtual function)= occurs only off pointer (and reference) handles
 
-Q: What is polymorphic behavior?
-basePtr->print()
-The same message -- print, in this case -- sent (off a base class pointer/or reference) to a variatey of 
-objects related by inheritance to that case class, takes on many forms.
-This is polmorphic behavior.
-
 Q: What are abstract classes?
 classes which will never instantiate any object
 Abstract base classes are too generic to define real objects.
-we need to be more specific before we can think of instantiating objects
-(Are used as base-class in inheritance hierarchy)
+We need to be more specific before we can think of instantiating objects
+(Are used as intermediary base-class in inheritance hierarchy)
 They are the opposite of concrete classes!
 ex: 2-d shape class
 if draw is called, which shape should you draw? a round, a square, a triangle? You can't!
@@ -282,7 +142,7 @@ A class is abstract if one of this member function is pure virtual (see below)
 ABSTRACT CLASSES ARE USED TO DEFINE AN INTERFACE (ex: read/write of a driver!)
 
 Q: Can abstract class pointer be created?
-YES! This is use with polymorphism!
+YES! This is used with polymorphism!
 
 Q: What are pure virtual function?
 A class is made abstract by declaring one or more of its virtual functions to be "pure"
@@ -311,26 +171,136 @@ virtual: the base class provide an implementation
 ex: class 2dshape: virtual void getName() const
 Here virtual because base class implementation is default
 
-Q: How is polymorphism implemented?
-Three levels of Pointers to implement polymorphism.
-1/ pointer on the object (could also be reference)
-2/ object has a pointer on a vtable
-3/ vtable has a pointer on the function
-
-Q: What is a virtual destructor?
-A destructor that can be used when polymorphism is used.
-!!! Note that the base-class destructor and derived-class destructor do not have the same name !!!
-Destruction is done explicitly with the 'delete' command
-
-Q: If destructor can be virtual, can constructor be virtual?
-No!
-
 Q: Can a function template be overloaded by providing a nontemplate functions?
 Yes! The pre-compiler looks for an explicit function, then try to build it with the available templates
 
 Q: What are template class?
 ex: vector<int> myvector(4)         <-- vector of 4 * int
 A class whose member function are class templates!
+
+Q: What are exception?
+Exception handling is designed to process synchromous errors, which occur when a statment executes
+eg dividion by zero
+Exception handling is not designed to process errors associated with asynchronous events 
+eg disk IO completions, network message arrival, mouse click, leystrokes
+
+Q: When to use exception?
+
+Q: What is the Standard template library (STL)?
+template library part of the C++ standard which are use for commonly used object (eg vector, list, queue, set, map, etc)
+
+Q: What is multiple inheritance?
+Q: what is a virtual base?
+Diamond double inheritance without confusion
+
+#-----------------------------------------------------------------------
+# AUTOMATIC vs STATIC
+
+Q: What are automatic and static?
+2 of 4 storage specifiers
+
+Q: What is an automatic object?
+Objects with automatic storage duration, or automatic objects for short, 
+are created automatically upon entering a function or a block. 
+They are destroyed and their storage is reclaimed automatically 
+when the function or block in which they are declared exits. 
+Thus, on each entry into a function or a block, a fresh set of its automatic objects is created. 
+The default value of automatic variables and non-class objects is indeterminate. 
+Automatic objects have no linkage; 
+you cannot refer to them from a different translation unit and their visibility 
+is limited to the scope in which they are declared.
+==> a variable with a scope!
+
+Q: What is a static object?
+A non-automatic object!
+Initialized only once, when the definition is first read
+Destructed once, at the end of the main
+
+Q: What are the difference between a static variable, a static object, 
+a static data member, a static member function?
+static is opposed to automatic (or default behavior)
+A static variable 
+    - Come from C. 
+    - Are defined and initialize only once. The memory allocation is free'd at the end of the main
+A static object 
+    - is similar to a static variable, except they use constructor and destructor
+A static data member 
+    - is a variable shared by every instance (ex: number of instance created). 
+    - member of a class
+    - Accessible (if public) even if no instance is created.  MyClass::MyVariable
+A static member function 
+    - is accessible through the class MyClass::MyFunction() 
+    - is independent from the instance
+    - doesn't have a 'this' pointer passed as by the compiler
+
+Q: What is a static data member or static function member?
+static data member is a data member that is share by all the instance 
+ex: numberOfInstance
+A static function member is usually an accessor to that static data member
+The keywords static only appears in the interface (include h), not in the class declaration (cpp)
+
+Q: What is particularity of a static data member or static function member?
+They can be accessed without an instance
+eg: MyClass::GetNumberOfInstances()
+!!! static functions DO NOT HAVE 'this' pointer !
+
+Q: What is the difference between static and global variables/objects, etc?
+Global objects are instantiated before the main
+Both are destroyed at the end of the main
+
+#-----------------------------------------------------------------------
+# PUBLIC, PRIVATE, PROTECTED
+
+Q: In a class interface, what is public vs private vs protected?
+An object expose all its public data members and function member to the world!
+The private data/function members are only accessible by the object itself
+(in the code of its member functions)
+protected data/function members are are only accessible to the class instances and derived class instances
+
+Q: In a class interface, what does protected means?
+Protected is an intermediary access right between public and private.
+It comes into play with inheritance.
+Indeed, a derived class cannot access private members of its base class!    <-- WHAOO !!!
+To allow a derived class to access non-public members, that member needs to be declared as protected!
+An alternative is to use getters and setters (mutator and accessor) for every private data. (but beware of overhead due to function calls)
+!!! Function are either private or public, but not protected. Is that true?
+
+Q: When is protected data member an issue? What is the purpose of mutators and accessor (getter and setter)?
+VALIDATION !
++ access of private data?
+!!! If you change the name of the var (and did not use mutators/accessors), you need to go through the code of all the derived classes.
+
+Q: When to use private over protected?
+when validation is required!
+When the name of the data member can change (but the mutator and accessor won't!)
+==> If base class is also heavily developed and changes to the base class are frequent!
+
+Q: In a class interface, can a function be protected?
+Private functions are utility/helper function.
+If you want that function to be accessible from the derived class, then ...
+??? IS THAT TRUE ???
+==> no getter or setter possible for private function!
+
+Q: Are private function, etc, inherited?
+No
+
+#-----------------------------------------------------------------------
+# POLYMORPHISM
+
+Q: How is polymorphism implemented?
+Three levels of Pointers to implement polymorphism.
+1/ pointer on the object (could also be reference)
+2/ object has a pointer on a vtable
+3/ vtable has a pointer on the function
+
+Q: What is polymorphic behavior?
+basePtr->print()
+The same message -- print, in this case -- sent (off a base class pointer/or reference) to a variety of 
+objects related by inheritance to that case class, takes on many forms.
+This is polymorphic behavior.
+
+#-----------------------------------------------------------------------
+# HEADER FILES
 
 Q: What are forward class declaration?
 In windows.h
@@ -361,21 +331,12 @@ Q: What are include guards?
 .... (header file code goes here) ...
 #endif // WINDOW_H
 
-Q: What are exception?
-Exception handling is designed to process synchromous errors, which occur when a statment executes
-eg dividion by zero
-Exception handling is not designed to process errors associated with asynchronous events 
-eg disk IO completions, network message arrival, mouse click, leystrokes
-
-Q: When to use exception?
-
-Q: What is the Standard template library (STL)?
-template library part of the C++ standard which are use for commonly used object (eg vector, list, queue, set, map, etc)
+#-----------------------------------------------------------------------
+# CONST and MUTABLE
 
 Q: What is const-ness?
 
 Q: What method do you know that can change the const-ness?
-
 1/ const_cast, 
 2/ mutable 
 
@@ -384,9 +345,129 @@ Mutable is a storage class specifier.
 A mutable member is always modifiable even if it's a member of a const object
 See command example
 
-Q: What is multiple inheritance?
-Q: what is a virtual base?
-Diamond double inheritance without confusion
+Q: what are const member function?
+A const member function is defined for example as 
+double CommissionEmployee::getCommissionRate() const 
+{
+    return commissionRate;
+}
+const member function cannot call non-const function
+can be used on 
+const object
+
+
+#-----------------------------------------------------------------------
+# CONSTRUCTORS
+
+Q: Are constructors inherited?
+No! Each class needs to provide a constructor!
+
+Q: What is a copy constructor?
+A friend function? that takes an object as a parameter and returns a reference to a new object
+of the same class as its object argument. The private data member of the new object 
+have the same value as those of the object passed as arg.
+object2 = copy_constructor(object1)
+
+Q: Can a constructor or destructor be a const function? 
+No
+
+Q: Can a constructor initialize a const object?
+Yes!
+The 'constness' of a const object is enforced from the time the contructor COMPLETES
+initialization of the object until that object's destructor is called.
+const object (or vars) are instantiated with initializers 
+
+Q: Do every class have a copy constructor?
+Yes. If none are explicitly declared, the compiler will provide a default one.
+Beware of object construction which requires allocation of memory (malloc, calloc type)
+Beware of pointers.
+
+Q: What is an implicit conversion?
+Here's a simple function that takes a Foo object:
+void DoBar (Foo foo)
+{
+  int i = foo.GetFoo ();
+}
+and here's where the DoBar function is called.
+int main ()
+{
+  DoBar (42);
+}
+The parameter is not a Foo object, but an int. However, there exists a constructor for Foo that 
+takes an int (Foo::Foo(int foo) ) so this constructor can be used to convert the parameter to the correct type.
+
+Q: what does the explicit keyword mean?
+Prefixing the explicit keyword to the constructor prevents the compiler from using that constructor for implicit conversions. 
+Adding it to the above class will create a compiler error at the function call DoBar (42). 
+It is now necessary to call for conversion explicitly with DoBar (Foo (42))
+i
+Q: Why would I want to use the explicit keyword?
+The reason you might want to do this is to avoid accidental construction that can hide bugs. 
+Contrived example:
+You have a MyString(int size) class with a constructor that constructs a string of the given size. 
+You have a function print(MyString&), and you call it with print(3). 
+You expect it to print "3", but it prints an empty string of length 3 instead.
+
+Q: What are initializers?
+Initializers used in constructors (and copy constructors)
+MyClass::MyClass(int c, int i)
+    : count (c), increment (i)      # <-- intializers 
+{
+}
+Above, the count variable is set = to c, the increment variable is set to i
+
+!!! A const (private) data member is REQUIRED to have an initializer
+
+Q: When do initializers execute?
+Before the body of the constructor execute!
+
+#-----------------------------------------------------------------------
+# DESTRUCTORS 
+
+Q: What is a virtual destructor?
+A destructor that can be used when polymorphism is used.
+!!! Note that the base-class destructor and derived-class destructor do not have the same name !!!
+Destruction is done explicitly with the 'delete' command
+
+Q: If destructor can be virtual, can constructor be virtual?
+No!
+
+Q: When are destructors of static object run?
+When the main exits.
+!!! A call to exit runs only the static and global destructor (not the automatic variable)
+
+#-----------------------------------------------------------------------
+# FRIEND FUNCTIONS
+
+Q: Is a copy constructor a friend function?
+
+Q: What is a friend function?
+A C-style function declared at the same time as the class it 'befriended'
+A friend function can have access to private (and protected) data member of that class.
+A friend function is NOT a member of that class.
+A object is passed as a parameter of that function.
+
+Q: Are friend function inherited?
+No, they are not class members!
+
+#-----------------------------------------------------------------------
+# THIS
+
+Q: What is 'this'?
+Every object has access to its own address through a pointer called this!
+'this' is a pointer, but is not part of the object itself!          <-- no need to have &this
+'this' is a const pointer on a non-constant object (itself!)        <-- this points to the same memory address, but the content it points to can change!
+ex: 
+this->privateDataArray[i]
+!!! 'this' is not used to access other member functions in a member function, 
+!!! WRONG In member function, this->setTime(h,m,s) wiht setTime another member function is WRONG !!!
+
+Q: Who provides the value for 'this'?
+The compiler does. The compiles pass the pointer this as a parameter to every member function, except STATIC ones.
+!!! this doesn't need to be listed as a parameter (as is the case for self in python!)
+
+Q: In which case is 'this' a 'const Object * const' ?
+In a constant member function (where the object cannot be modified)     # <-- the member function cannot change the content of 
 
 #-----------------------------------------------------------------------
 # STACK AND HEAP
@@ -454,3 +535,4 @@ We can just leave it to be overwritten by the next item pushed to that piece of 
 Because the stack pointer will be below that memory location, we know that memory location is not on the stack.
 
 So what do we push onto our call stack? Parameters, local variables, and... function calls.
+
