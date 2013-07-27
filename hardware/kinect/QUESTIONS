@@ -1,0 +1,8 @@
+Q: Kinect detected?
+lsusb?
+
+Q: Test processing with kinect?
+Once processing is installed, from the GUI menu download
+3rd party software: OpenKinect
+!!! As far as I can tell no example is provided...
+
