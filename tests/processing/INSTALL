@@ -1,7 +1,11 @@
 rm -rf processing-2.0.1
+mkdir depot
+cd depot
 wget http://download.processing.org/processing-2.0.1-linux64.tgz
-tar xvzf ./processing-2.0.1-linux64.tgz
+cd ..
+tar xvzf ./depot/processing-2.0.1-linux64.tgz
 
 cat > .gitignore <<EOT
-processing-2.0.1*
+depot
+processing-2.0.1
 EOT
