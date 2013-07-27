@@ -1,0 +1,54 @@
+Q: What is Qt creator?
+An IDE for C++ and other programming languages.
+
+Q: How does it works?
+qtcreator
+File > New file or project > Other project > Empty Qt project       # Create a project (.pro) file
+cat hello_world.pro <<EOT
+TEMPLATE = app
+TARGET = hello_world
+QT = core gui
+EOT
+File > New file or project > C++ > C++ source file                  # Create a hello_world.cpp file with correct entries in .pro file
+this operation add in project file
+HEADERS += \
+           hello_world.h
+SOURCES += \
+           hello_world.cpp
+In hello_wold.cpp add main
+cat hello_world.cpp <<EOT
+#include <QApplication>
+#include <QPushButton>
+ 
+int main(int argc, char **argv)
+{
+    QApplication app (argc, argv);
+ 
+    QPushButton button ("Hello world !");
+    button.show();
+ 
+    return app.exec();
+} 
+EOT
+
+Q: How to compile a specific project when several are open?
+Make a project active
+
+Q: icons?
+Design          - start qt-designer
+Help            - start qt-addistant
+Projects        - configure buildi, run. editor. code style settings
+
+Q: How to compile?
+click the gren arrow button! 
+
+Q: What are shadow build? 
+Qt has a wonderful option: you can build Qt depending on your need from the same source code in many different flavors.
+It come with a -prefix option in its configure script, which will allow you to install Qt in a directory of your choice. E.g. if you want to build a different version of Qt with or without webkit, you can do so by using the -no-webkit option in configure and by defining a different installation path using -prefix.
+This way you build different versions of Qt on your development machine from the same source code.
+Unfortunately, this option is not available on Windows.
+
+Q: How to set up shadow builds on Mac and Linux
+Look at the project build settings
+
+

@@ -70,6 +70,16 @@ Q: What are examples of macros?
 <<TableOfContents(2)>>                  - Table of content of depth 2
 More @ http://wikifarm/wiki/HelpOnMacros
 
+Q: Include macro?
+<<Include(/SubPage)>>
+<<Include(/SubPage,"Title Link")>>      - Same as above with a linked-title
+<<Include(/SubPage,"Title Link", 2)>>   - Format the title has a level 2 header
+<<Include(/SubPage,"Title Link", 3, from="^----$")>>                        - from anchor is not included (neither the to anchor)
+<<Include(/SubPage,"Title Link", 3, from="^----$", to="^----$")>>           - to and from can be the same, the search for to string starts at after then from
+<<Include(/HardwareOn, "Power Hardware On", 3, from="==$", to="^==[^=]")>>  - extract first level 2 section
+<<Include(/HardwareOn, "Power Hardware On", 3, from="##begin", to="##end")>>  - extract everything between NON visible keywords
+<<Include(pagename, heading, level, from="regex", to="regex", sort=ascending|descending, items=n, skipitems=n, titlesonly, editlink)>>
+
 Q: what are non standard macros?
 <<ShowTweets(twitteruser>>              - show the tweets of a particular user
 <<CategoryCloud>>                       - generate a tag cloud of category pages
@@ -108,7 +118,7 @@ from MoinMoin.parser.text_moin_wiki import Parser as WikiParser
 def macro_CheckList(macro, dom_id=None, heading=2, text=None, js=None, clear_button=None):
     ret = []
     f = macro.request.formatter
-    text_h = wikiutil.escape(text)          # <-- escape input parameter
+    text_h = wikiutil.escape(text)          # <-- escape input text parameter
     text_h = text_h.strip()
     text_id = wikiutil.escape(text)
     text_id = text_id.replace(' ', '_')
@@ -212,8 +222,9 @@ showtags, sisterpages, sitemap, subscribe, supplementation, thread_monitor, titl
 twikidraw, unsubscribe, userprefs, userprofile
 
 Q: Where are the actions located?
+In /usr/lib/python2.7/dist-packages/MoinMoin/action
+but most files in this directory points to 
 /usr/share/pyshared/MoinMoin/action
-
 
 #-----------------------------------------------------------------------
 # FORMATTER

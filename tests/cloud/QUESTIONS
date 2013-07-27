@@ -38,8 +38,9 @@ S3          - Amazon Simple Storage Service
 EBS         - Amazon Elastic Block Store
 SNS         - Amazon Simple Notification Service
 Route53     - Authoritative DNS
+VPC         - Virtual Private Network 
 ...
-CloudFront  - 1 static repository is mirrored at severael geographical locations (closer to end user)
+CloudFront  - 1 static repository is mirrored at several geographical locations (closer to end user)
 
 Q: What is EC2?
 EC2 Instances let you pay for compute capacity by the hour with no long term commitments. 
@@ -88,6 +89,14 @@ Creating a domain that uses Route 53 requires only a few easy steps:
 2. In the Route 53 console, create a hosted zone.
 3. Using the tools provided by your domain name registrar, update the registrar's name server (NS) records with the four name servers that we assigned to your Route 53 hosted zone. Name servers are listed in the Route 53 console.
 4. In the Route 53 console, add record sets to your hosted zone.
+
+Q: What is VPC?
+Virtual Private Network
+supports Hardware VPNs (using IPSec)
+public and private subnet
+and static or BGP routine
+!!! public subnet is accessible by everyone on the web
+!!! private network can be accessed by public subnet? or through VPN
 
 Q: What is Amazon CloudFront?
 In Amazon CloudFront, your content is organized into distributions. 

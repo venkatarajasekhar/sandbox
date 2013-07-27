@@ -1,0 +1,16 @@
+Q: Sample qmake command?
+/usr/bin/qmake-qt4 -spec /usr/lib64/qt4/mkspecs/linux-g++-64 -o Makefile ../01_hello_world_button/01_hello_world_button.pro
+
+Q: Qmake directive in pro file ?
+TEMPLATE = app
+TARGET = hello_world
+QT = core gui
+QT += network opengl sql xml support            # Add QtNetwork, QtopenGL, .... libraries to the build 
+QT -= network                                   # Remove QtNetwork library requirement
+
+TRANSLATIONS =  application_fr.ts \             # Translation files to be used by QtLinguist (see lupdate, lrelease commands)
+                application_nl.ts
+
+RESOURCES - symbols.qrc                         # Resource file
+
+

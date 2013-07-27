@@ -1,0 +1,28 @@
+Q: CVS server?
+
+apth-get install cvs 
+apth-get install xinetd
+
+cat /etc/xinetd.d/cvs <<EOT
+# default: off
+# description: The CVS service can record the history of your source \
+#              files. CVS stores all the versions of a file in a single \
+#              file in a clever way that only stores the differences \
+#              between versions.
+service cvspserver
+{
+        disable = no
+        port                    = 2401
+        socket_type             = stream
+        protocol                = tcp
+        wait                    = no
+        user                    = root
+        passenv                 = PATH
+        server                  = /usr/bin/cvs
+        env                     = HOME=/var/cvs
+#       server_args             = -f --allow-root=/home/nfs/it/cvs/cvsroot pserver
+        server_args             = -f --allow-root=/exports/it/cvs/cvsroot pserver
+#       bind                    = 127.0.0.1
+}
+EOT
+
