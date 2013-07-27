@@ -1,0 +1,10 @@
+Q: How to do those files work?
+Use processing and export as HTML.
+Everything is based on including the processing.js code
+
+Q: How to run?
+Go in the desired folder and run
+firefox index.html
+
+
+
