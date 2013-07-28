@@ -1,19 +1,21 @@
 Q: Kinect software ?
-openni                         
-digikam                       
-digikam-libs                    
-gstreamer-plugins-bad-free-extras
-kipi-plugins    
-kipi-plugins-libs
-libfreenect-devel 
-libfreenect-opencv 
-libfreenect-static  
-libkface     
-opencv        
-openni-devel   
-openni-examples 
-openni-java      
-openni-primesense 
+base library: 
+ openni                                      x86_64           1.3.2.1-2.fc16               @updates                               1.3 M
+libraries that depends on it:
+ digikam                                     x86_64           2.5.0-4.fc16                 @updates                                50 M
+ digikam-libs                                x86_64           2.5.0-4.fc16                 @updates                               7.3 M
+ gstreamer-plugins-bad-free-extras           x86_64           0.10.22-2.fc16.2             @updates                               403 k
+ kipi-plugins                                x86_64           2.5.0-4.fc16                 @updates                                27 M
+ kipi-plugins-libs                           x86_64           2.5.0-4.fc16                 @updates                               232 k
+ libfreenect-devel                           x86_64           0.1.2-2.fc16                 @updates                               619 k
+ libfreenect-opencv                          x86_64           0.1.2-2.fc16                 @updates                                16 k
+ libfreenect-static                          x86_64           0.1.2-2.fc16                 @updates                                89 k
+ libkface                                    x86_64           2.5.0-4.fc16                 @updates                                12 M
+ opencv                                      x86_64           2.3.1-3.fc16                 @koji-override-0/$releasever            29 M
+ openni-devel                                x86_64           1.3.2.1-2.fc16               @updates                               2.3 M
+ openni-examples                             x86_64           1.3.2.1-2.fc16               @updates                               287 k
+ openni-java                                 x86_64           1.3.2.1-2.fc16               @updates                               119 k
+ openni-primesense                           x86_64           5.0.3.3-1.fc16               @updates                               1.2 M
 
 Q: Kinect detected?
 lsusb
