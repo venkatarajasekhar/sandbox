@@ -1,2 +1,4 @@
 sudo yum install openni*
 sudo yum install libfreenect*
+
+

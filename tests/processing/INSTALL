@@ -9,3 +9,12 @@ cat > .gitignore <<EOT
 depot
 processing-2.0.1
 EOT
+
+cat <<EOT
+1. Test processing is installed correctly by running the Array example
+    ./processing-2.0.1/processing
+2. From the processing interface, you can install 3rd party library e.g. OpenKinect
+    
+
+
+
