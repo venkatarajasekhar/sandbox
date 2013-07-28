@@ -35,4 +35,20 @@ lsusb
 # Bus 002 Device 006: ID 18e3:9106 Fitipower Integrated Technology Inc 
 
 /usr/bin/NiViewer
-# The xtion should activate
+# The xtion should activate (but the RGB camera may not work correctly!)
+#
+# I tried to install from sources
+# NITE-Bin-Dev-Linux-x64-v1.5.2.21
+# OpenNI-Bin-Dev-Linux-x64-v1.5.4.0
+# OpenNI-Linux-x64-2.2
+# Sensor-Bin-Linux-x64-v5.1.2.1                 # <-- May include better drivers, but requires openni
+#
+sudo yum install freeglut-devel 
+# rpm -qa | grep glut
+# freeglut-devel-2.6.0-6.fc15.i686
+# freeglut-devel-2.6.0-6.fc15.x86_64
+# freeglut-2.6.0-6.fc15.x86_64
+# freeglut-2.6.0-6.fc15.i686
+
+printf "If your /usr/bin/NiViewer is not working correctly, then check the source code for comments\n"
+
