@@ -1,6 +1,6 @@
-mkdir -p depot
+mkdir -p ~/depot
 
-pushd depot 
+pushd ~/depot 
 DATE=$(date +%Y%m%d_%H%M%S)
 mv -f OpenNI_NITE_Installer-Linux64-0.27.zip OpenNI_NITE_Installer-Linux64-0.27.zip.$(DATE)
 wget http://simple-openni.googlecode.com/files/OpenNI_NITE_Installer-Linux64-0.27.zip
@@ -10,5 +10,13 @@ cd OpenNI_NITE_Installer-Linux64-0.27
 cd OpenNI-Bin-Dev-Linux-x64-v1.5.4.0; sudo ./install.sh; cd ..
 cd Sensor-Bin-Linux-x64-v5.1.2.1; sudo ./install.sh; cd ..
 cd NITE-Bin-Dev-Linux-x64-v1.5.2.21;   sudo ./insall.sh; cd .. 
+
+mv -f SimpleOpenNI-0.27.zip SimpleOpenNI-0.27.zip.$(DATE)
+wget http://simple-openni.googlecode.com/files/SimpleOpenNI-0.27.zip
+mkdir -p ~/sketchbook/libraries
+cp SimpleOpenNI-0.27.zip ~/sketchbook/libraries
+cd ~/sketchbook/libraries; unzip SimpleOpenNI-0.27.zip
+
+
 popd
 
