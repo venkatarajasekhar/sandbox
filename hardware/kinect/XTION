@@ -36,4 +36,4 @@ Q: Which camera does what?
 from left to right, 
 IR projector
 RGB camera
-IR captor 
+Depth Sensor (~IR camera/receiver) 
