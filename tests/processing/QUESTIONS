@@ -1,0 +1,20 @@
+Q: Where are 3rd party library installed?
+They are installed in ~/sketchbook/libraries
+$ tree libraries/
+libraries/
+└── openkinect
+    ├── examples
+    │   ├── AveragePointTracking
+    │   │   ├── AveragePointTracking.pde
+    │   │   └── KinectTracker.pde
+    │   ├── PointCloud
+    │   │   ├── PointCloud.pde
+    │   │   └── sketch.properties
+    │   └── RGBDepthTest
+    │       └── RGBDepthTest.pde
+    ├── library
+    │   ├── libKinect.jnilib
+    │   └── openkinect.jar
+    └── library.properties
+!!! Examples are available in the example section under Contributed Libraries/OpenKinect
+

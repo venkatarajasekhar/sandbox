@@ -49,6 +49,9 @@ sudo yum install freeglut-devel
 # freeglut-devel-2.6.0-6.fc15.x86_64
 # freeglut-2.6.0-6.fc15.x86_64
 # freeglut-2.6.0-6.fc15.i686
+sudo yum install mesa-libGLU-devel
+sudo yum groupinstall "X Software Development"
+# See http://schnelle-walka.blogspot.com/2013/04/openni-20-with-fedora-18.html
 
 printf "If your /usr/bin/NiViewer is not working correctly, then check the source code for comments\n"
 
