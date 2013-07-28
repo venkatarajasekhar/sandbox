@@ -35,3 +35,4 @@ lsusb
 # Bus 002 Device 006: ID 18e3:9106 Fitipower Integrated Technology Inc 
 
 /usr/bin/NiViewer
+# The xtion should activate

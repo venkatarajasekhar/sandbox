@@ -1,14 +1,30 @@
-Q: Kinect detected?
-lsusb?
+Q: Kinect software ?
+openni                         
+digikam                       
+digikam-libs                    
+gstreamer-plugins-bad-free-extras
+kipi-plugins    
+kipi-plugins-libs
+libfreenect-devel 
+libfreenect-opencv 
+libfreenect-static  
+libkface     
+opencv        
+openni-devel   
+openni-examples 
+openni-java      
+openni-primesense 
 
-Q: Test processing with kinect?
+Q: Kinect detected?
+lsusb
+but no label...
+
+Q: Test 'processing' with kinect?
 Once processing is installed, from the GUI menu download
 3rd party software: OpenKinect
 !!! As far as I can tell no example is provided...
+!!! OpenKinect is a rewrite of SimpleOpenNI library using the libfreenect?
 
 Q: Websites ?
 http://openkinect.org/wiki/Main_Page
 http://www.openni.org/
-
-
-

@@ -1,0 +1,39 @@
+Q: Which model?
+Assus XTION pro live
+!!! PRO modification = same hardware, but includes software for developers!
+
+Q: Compared to the kinect, what does the Xtion offer?
++
+    More Compact    
+    Lighter weight
+    Does not require an external power supply (powered through the USB port)
+    Better RGB quality (?)
+-
+    Less popular device
+    Lower driver quality
+    Doesn't work with some USB controllers (especially USB3)
+    No motor, allow only manual positioning
+Source: http://wiki.ipisoft.com/Depth_Sensors_Comparison
+!!! USB3 support for XTION has been improved in latest version of driver
+!!! More @ http://reconstructme.net/2012/10/13/asus-xtion-usb-3-0-hotfix/
+!!! Firmware may not be compatible with linux (see comments)
+
+
+Q: How to install the Xtion?
+You may want to check the hardware from the windows side first.
+I believe the Xtion works only on a USB2 (and not USB3)
+That wasn't an issue with my XPS 8300 (as it probably has only USB2 ports)
+
+Q: How to know that the Xtion is connected?
+lsusb
+but beware there is no label for that USB channel
+
+Q: How to know whether the xtion is active or not?
+Look at the IR projector, it should be 'red' in the center
+(IR emitter)
+
+Q: Which camera does what?
+from left to right, 
+IR projector
+RGB camera
+IR captor 
