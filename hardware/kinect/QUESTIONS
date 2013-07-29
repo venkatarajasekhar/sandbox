@@ -35,3 +35,21 @@ xtion:
     http://www.xtionstore.com/
     http://www.app-side.com/
     http://support.asus.com/download.aspx?SLanguage=en&m=Xtion+PRO&os= (drivers)
+
+Q: what is the difference between OpenKinect and OpenNI?
+OpenKinect is a community of people, not a library. 
+The OpenKinect community releases the libfreenect Kinect driver. 
+libfreenect and OpenNI+SensorKinect are two competing, opensource libraries/drivers. 
+libfreenect (Apache 2.0 or GPLv2) derives from the initial, reverse-engineered/hacked Kinect driver 
+whereas OpenNI+SensorKinect is derived from open sourced (LGPL) PrimeSense code.
+Both projects work on Windows, Linux (Ubuntu), and Mac OS X. 
+Both projects allow you to access color and depth images from the camera. 
+The projects are not compatible and they can not be used simultaneously.
+Differences between the libraries are motor control (libfreenect has it, OpenNI+SensorKinect doesn't), 
+and integration with the NITE middleware for higher-level NUI support (OpenNI+SensorKinect only). i
+These differences tend to drive projects towards one of the libraries.
+Source @ http://robotics.stackexchange.com/questions/565/kinect-libfreenect-vs-opennisensorkinect
+More @ http://stackoverflow.com/questions/6086981/what-is-the-difference-between-openni-and-openkinect
+More @ http://stackoverflow.com/questions/7706448/official-kinect-sdk-vs-open-source-alternatives
+
+

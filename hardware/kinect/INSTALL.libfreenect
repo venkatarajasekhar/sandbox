@@ -1,0 +1,4 @@
+sudo yum install libfreenect* 
+freenect-glview
+# Kinect camera test
+# Number of devices found: 0

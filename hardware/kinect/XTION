@@ -37,11 +37,47 @@ Look at the IR projector, it should be 'red' in the center
 
 Q: Which camera does what?
 from left to right, 
-IR projector
+IR laser emitter
 RGB camera
-Depth Sensor (~IR camera/receiver) 
+IR camera i(a.k.a Depth Sensor) 
 
 Q: Issues with drivers on linux?
 It seems that only the depth sensor is accessible from processing when using the XTION
 With processing, could never access the RGB camera.
 !!! The RGB camera is accessible using openni (NiViewer) though.
+
+Q: Bug with SimpleOpenNI?
+import SimpleOpenNI.*;
+
+SimpleOpenNI kinect;
+
+void setup()
+{
+    size(640*2, 480);
+    kinect = new SimpleOpenNI(this);
+    kinect.enableDepth();
+    kinect.enableRGB();
+}
+void draw()
+{ 
+    kinect.update();
+    image(kinect.depthImage(),0,0);
+    //image(kinect.rgbImage(),640,0);       // <-- doesn't work with Xtion
+}
+
+Q: Xtion specs?
+Power Consumption       below 2.5W
+Distance of Use         between 0.8m and 3.5m
+Field of View           58° H, 45° V, 70° D (Horizontal, Vertical, Diagonal)
+Sensor                  depth
+Depth Image Size        VGA (640x480) : 30fps QVGA (320x240): 60fps
+Platform                Intel X86 & AMD
+OS Support              Win 32/64:XP/Vista/7 Linux Ubuntu 10.10:X86, 32/64bit Android(by request)
+Interface               USB2.0
+Software                software development kit(OPEN NI SDK bundled)
+Programming Language    C++/C# (Windows) C++(Linux) JAVA
+Operation Environment   Indoor
+Dimensions              18 x 3.5 x 5 cm
+Source @ http://www.asus.com/Multimedia/Xtion_PRO/#specifications
+
+

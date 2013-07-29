@@ -1,5 +1,4 @@
 sudo yum install openni*
-sudo yum install libfreenect*
 
 rpm -qa | grep openni
 # openni-1.3.2.1-2.fc16.x86_64
@@ -54,3 +53,4 @@ sudo yum groupinstall "X Software Development"
 # See http://schnelle-walka.blogspot.com/2013/04/openni-20-with-fedora-18.html
 
 printf "If your /usr/bin/NiViewer is not working correctly, then check the source code for comments\n"
+
