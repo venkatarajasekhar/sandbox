@@ -17,6 +17,10 @@ libraries that depends on it:
  openni-java                                 x86_64           1.3.2.1-2.fc16               @updates                               119 k
  openni-primesense                           x86_64           5.0.3.3-1.fc16               @updates                               1.2 M
 
+Q: Documents?
+$ rpm -ql openni-devel-1.3.2.1-2.fc16.x86_64 | grep pdf
+/usr/share/doc/openni-devel-1.3.2.1/OpenNI_UserGuide.pdf
+
 Q: Kinect detected?
 lsusb
 but no label...
@@ -25,7 +29,8 @@ Q: Test 'processing' with kinect?
 Once processing is installed, from the GUI menu download
 3rd party software: OpenKinect
 !!! As far as I can tell no example is provided...
-!!! OpenKinect is a rewrite of SimpleOpenNI library using the libfreenect?
+!!! OpenKinect library is based on libfreenect (supported by community)
+!!! SimpleOpenNI library is based on OpenNI (developed by community but based on official SDK)
 
 Q: Websites ?
 common:
@@ -52,4 +57,9 @@ Source @ http://robotics.stackexchange.com/questions/565/kinect-libfreenect-vs-o
 More @ http://stackoverflow.com/questions/6086981/what-is-the-difference-between-openni-and-openkinect
 More @ http://stackoverflow.com/questions/7706448/official-kinect-sdk-vs-open-source-alternatives
 
+Q: Programming languages?
+
+OpenNI (Official SDK): C++, C#, or Visual Basic by using Microsoft Visual Studio 2010.
+OpenKinect: Python, C, C++, C#, Java, Lisp and more! Obviously not requiring Visual Studio.
+!!! OpenNI is a C++ interface on linux
 
