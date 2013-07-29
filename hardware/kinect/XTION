@@ -1,0 +1,83 @@
+Q: Which model?
+Assus XTION pro live
+!!! PRO modification = same hardware, but includes software for developers!
+
+Q: Upgraded driver?
+http://support.asus.com/download.aspx?SLanguage=en&m=Xtion+PRO&os=
+
+Q: Compared to the kinect, what does the Xtion offer?
++
+    More Compact    
+    Lighter weight
+    Does not require an external power supply (powered through the USB port)
+    Better RGB quality (?)
+-
+    Less popular device
+    Lower driver quality
+    Doesn't work with some USB controllers (especially USB3)
+    No motor, allow only manual positioning
+Source: http://wiki.ipisoft.com/Depth_Sensors_Comparison
+!!! USB3 support for XTION has been improved in latest version of driver
+!!! More @ http://reconstructme.net/2012/10/13/asus-xtion-usb-3-0-hotfix/
+!!! Firmware may not be compatible with linux (see comments)
+
+
+Q: How to install the Xtion?
+You may want to check the hardware from the windows side first.
+I believe the Xtion works only on a USB2 (and not USB3)
+That wasn't an issue with my XPS 8300 (as it probably has only USB2 ports)
+
+Q: How to know that the Xtion is connected?
+lsusb
+but beware there is no label for that USB channel
+
+Q: How to know whether the xtion is active or not?
+Look at the IR projector, it should be 'red' in the center
+(IR emitter)
+
+Q: Which camera does what?
+from left to right, 
+IR laser emitter
+RGB camera
+IR camera i(a.k.a Depth Sensor) 
+
+Q: Issues with drivers on linux?
+It seems that only the depth sensor is accessible from processing when using the XTION
+With processing, could never access the RGB camera.
+!!! The RGB camera is accessible using openni (NiViewer) though.
+
+Q: Bug with SimpleOpenNI?
+import SimpleOpenNI.*;
+
+SimpleOpenNI kinect;
+
+void setup()
+{
+    size(640*2, 480);
+    kinect = new SimpleOpenNI(this);
+    kinect.enableDepth();
+    kinect.enableRGB();
+}
+void draw()
+{ 
+    kinect.update();
+    image(kinect.depthImage(),0,0);
+    //image(kinect.rgbImage(),640,0);       // <-- doesn't work with Xtion
+}
+
+Q: Xtion specs?
+Power Consumption       below 2.5W
+Distance of Use         between 0.8m and 3.5m
+Field of View           58° H, 45° V, 70° D (Horizontal, Vertical, Diagonal)
+Sensor                  depth
+Depth Image Size        VGA (640x480) : 30fps QVGA (320x240): 60fps
+Platform                Intel X86 & AMD
+OS Support              Win 32/64:XP/Vista/7 Linux Ubuntu 10.10:X86, 32/64bit Android(by request)
+Interface               USB2.0
+Software                software development kit(OPEN NI SDK bundled)
+Programming Language    C++/C# (Windows) C++(Linux) JAVA
+Operation Environment   Indoor
+Dimensions              18 x 3.5 x 5 cm
+Source @ http://www.asus.com/Multimedia/Xtion_PRO/#specifications
+
+

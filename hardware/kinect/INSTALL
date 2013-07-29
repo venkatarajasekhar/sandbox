@@ -1,0 +1,56 @@
+sudo yum install openni*
+
+rpm -qa | grep openni
+# openni-1.3.2.1-2.fc16.x86_64
+# openni-examples-1.3.2.1-2.fc16.x86_64
+# openni-java-1.3.2.1-2.fc16.x86_64
+# openni-primesense-5.0.3.3-1.fc16.x86_64
+# openni-devel-1.3.2.1-2.fc16.x86_64
+# openni-doc-1.3.2.1-2.fc16.noarch
+
+rpm -ql openni-examples-1.3.2.1-2.fc16.x86_64
+# /etc/openni/SamplesConfig.xml
+# /usr/bin/NiAudioSample
+# /usr/bin/NiBackRecorder
+# /usr/bin/NiCRead
+# /usr/bin/NiConvertXToONI
+# /usr/bin/NiRecordSynthetic
+# /usr/bin/NiSimpleCreate
+# /usr/bin/NiSimpleRead
+# /usr/bin/NiSimpleViewer
+# /usr/bin/NiUserTracker
+# /usr/bin/NiViewer
+
+lsusb
+# Bus 001 Device 002: ID 8087:0024 Intel Corp. Integrated Rate Matching Hub
+# Bus 002 Device 002: ID 8087:0024 Intel Corp. Integrated Rate Matching Hub
+# Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+# Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+# Bus 001 Device 003: ID 1d27:0600  
+# Bus 001 Device 004: ID 4971:1015 SimpleTech 
+# Bus 002 Device 003: ID 046d:c063 Logitech, Inc. DELL Laser Mouse
+# Bus 002 Device 004: ID 04ca:0027 Lite-On Technology Corp. 
+# Bus 002 Device 005: ID 046d:0994 Logitech, Inc. QuickCam Orbit/Sphere AF
+# Bus 002 Device 006: ID 18e3:9106 Fitipower Integrated Technology Inc 
+
+/usr/bin/NiViewer
+# The xtion should activate (but the RGB camera may not work correctly!)
+#
+# I tried to install from sources
+# NITE-Bin-Dev-Linux-x64-v1.5.2.21
+# OpenNI-Bin-Dev-Linux-x64-v1.5.4.0
+# OpenNI-Linux-x64-2.2
+# Sensor-Bin-Linux-x64-v5.1.2.1                 # <-- May include better drivers, but requires openni
+#
+sudo yum install freeglut-devel 
+# rpm -qa | grep glut
+# freeglut-devel-2.6.0-6.fc15.i686
+# freeglut-devel-2.6.0-6.fc15.x86_64
+# freeglut-2.6.0-6.fc15.x86_64
+# freeglut-2.6.0-6.fc15.i686
+sudo yum install mesa-libGLU-devel
+sudo yum groupinstall "X Software Development"
+# See http://schnelle-walka.blogspot.com/2013/04/openni-20-with-fedora-18.html
+
+printf "If your /usr/bin/NiViewer is not working correctly, then check the source code for comments\n"
+

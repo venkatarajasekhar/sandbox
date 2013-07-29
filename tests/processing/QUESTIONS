@@ -1,0 +1,25 @@
+Q: How to install 3rd party libraries?
+From the processing interface, there is a way to download them.
+If not from processing GUI, download the library and expend it 
+in the ~/sketchbook/libraries folder
+
+Q: Where are 3rd party library installed?
+They are installed in ~/sketchbook/libraries
+$ tree libraries/
+libraries/
+└── openkinect
+    ├── examples
+    │   ├── AveragePointTracking
+    │   │   ├── AveragePointTracking.pde
+    │   │   └── KinectTracker.pde
+    │   ├── PointCloud
+    │   │   ├── PointCloud.pde
+    │   │   └── sketch.properties
+    │   └── RGBDepthTest
+    │       └── RGBDepthTest.pde
+    ├── library
+    │   ├── libKinect.jnilib
+    │   └── openkinect.jar
+    └── library.properties
+!!! Examples are available in the example section under Contributed Libraries/OpenKinect
+
