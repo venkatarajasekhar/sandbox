@@ -1,6 +1,14 @@
 #-----------------------------------------------------------------------
 # Qt Fundammentals
 
+Q: training videos?
+http://qt-project.org/videos
+
+Q: Qt demos?
+qtdemo-qt4
+C++ code: /usr/lib64/qt4/examples
+Python code: 
+
 Q: Qt libraries?
 QtCore      - base classes that do not generate any GUI output      # Includes QCoreApplication (Qt application without GUI)
 QtGui       - base GUI classes                                      # Include QApplication
