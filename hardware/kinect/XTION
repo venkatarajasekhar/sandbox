@@ -37,3 +37,8 @@ from left to right,
 IR projector
 RGB camera
 Depth Sensor (~IR camera/receiver) 
+
+Q: Issues with drivers on linux?
+It seems that only the depth sensor is accessible from processing when using the XTION
+With processing, could never access the RGB camera.
+!!! The RGB camera is accessible using openni (NiViewer) though.
