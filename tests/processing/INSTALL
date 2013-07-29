@@ -4,11 +4,8 @@ rm -rf processing-2.0.1*
 wget http://download.processing.org/processing-2.0.1-linux64.tgz
 tar xvzf processing-2.0.1-linux64.tgz
 
-cat <<EOT
-1. Test processing is installed correctly by running the Array example
-    ./processing-2.0.1/processing
-2. From the processing interface, you can install 3rd party library e.g. OpenKinect
-EOT
+~/depot/processing-2.0.1/processing
+
 popd
     
 
