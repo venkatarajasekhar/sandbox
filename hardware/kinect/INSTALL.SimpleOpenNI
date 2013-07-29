@@ -1,3 +1,29 @@
+cat << EOT
+Source @ http://stackoverflow.com/questions/14265896/processing-get-sketch-to-recognize-xtion-kinect-device
+AFAIK Daniel Shiffman's Kinect wrapper is for OpenKinect/libfreenect which has a driver only for Xbox Kinect 
+(not for Kinect for Windows/Asus Xtion/Primesense Sensor)
+
+You might need to use OpenNI and the PrimeSense Drivers. 
+Since you're using Processing I recommend using the SimpleOpenNI wrapper. 
+The only catch is OpenNI 2 was released recently but SimpleOpenNI isn't 
+updated for that so it will only work with the older (1.5.x) SDK. 
+Luckily the SimpleOpenNI downloads also includes the installers you need.
+
+Try this first:
+
+    Use the hardware/middleware/etc. installer provided by SimpleOpenNI
+    Install the Processing library
+    Run a simple sample to see if it works)
+
+Hopefully it should all be fine.
+
+If not you might need to install OpenNI/NITE/Sensor (not SensorKinect) manually one by one in this order. i
+You should be able to download the individual installers from the official OpenNI site. 
+Before you move to Processing, you should be run one of the OpenNI samples (like SimpleNiViewer)
+to check if everything is fine up to this stage.
+EOT
+
+
 mkdir -p ~/depot
 
 pushd ~/depot 
