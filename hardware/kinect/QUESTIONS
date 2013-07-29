@@ -28,5 +28,10 @@ Once processing is installed, from the GUI menu download
 !!! OpenKinect is a rewrite of SimpleOpenNI library using the libfreenect?
 
 Q: Websites ?
-http://openkinect.org/wiki/Main_Page
-http://www.openni.org/
+common:
+    http://openkinect.org/wiki/Main_Page
+    http://www.openni.org/
+xtion:
+    http://www.xtionstore.com/
+    http://www.app-side.com/
+    http://support.asus.com/download.aspx?SLanguage=en&m=Xtion+PRO&os= (drivers)
