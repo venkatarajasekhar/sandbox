@@ -188,7 +188,7 @@ Q: Can abstract class pointer be created?
 YES! This is used with polymorphism!
 
 #-----------------------------------------------------------------------
-# TEMPLATE
+# TEMPLATES, MACROS
 
 Q: What are template class?
 ex: vector<int> myvector(4)         <-- vector of 4 * int
@@ -218,6 +218,11 @@ int main()
 
 Q: When are template expanded?
 At compile time!
+
+Q: What are macros?
+They are called preprocessor macros!
+Q: How would this macro 
+
 
 #-----------------------------------------------------------------------
 # VIRTUAL, PURE VIRTUAL, STUB, DOWNCASTING, OVERRIDE

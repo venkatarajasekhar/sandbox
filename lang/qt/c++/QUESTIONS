@@ -1,3 +1,8 @@
+Q: Qt demo?
+qtdemo-qt4
+C++ code: /usr/lib64/qt4/examples
+
+
 Q: Compiled?
 So, Qt apps are compiled in a 3 steps operations
 A .pro file is written to describe the project to compile
