@@ -45,6 +45,8 @@ Q: Issues with drivers on linux?
 It seems that only the depth sensor is accessible from processing when using the XTION
 With processing, could never access the RGB camera.
 !!! The RGB camera is accessible using openni (NiViewer) though.
+!!! Update: After a reboot and working on windows side, now on linux the RGB camera is working
+!!! UNPLUG THE XTION AND REPLG IT IF REQUIRED. THAT SEEMS TO WORK!
 
 Q: Bug with SimpleOpenNI?
 import SimpleOpenNI.*;
@@ -62,7 +64,7 @@ void draw()
 { 
     kinect.update();
     image(kinect.depthImage(),0,0);
-    //image(kinect.rgbImage(),640,0);       // <-- doesn't work with Xtion
+    //image(kinect.rgbImage(),640,0);       // <-- doesn't work with Xtion? Well, now it does!?!?!?
 }
 
 Q: Xtion specs?

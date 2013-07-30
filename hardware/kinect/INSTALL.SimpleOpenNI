@@ -1,5 +1,8 @@
 cat << EOT
-Source @ http://stackoverflow.com/questions/14265896/processing-get-sketch-to-recognize-xtion-kinect-device
+!!! SIMPLEOPENNI doesn't seem to work with PROCESSING < 2.0 !
+!!! Tried with 2.0.1, a few example work
+!!! Tried with 1.5.2 a java exceptin is returned at each run
+
 AFAIK Daniel Shiffman's Kinect wrapper is for OpenKinect/libfreenect which has a driver only for Xbox Kinect 
 (not for Kinect for Windows/Asus Xtion/Primesense Sensor)
 
@@ -21,6 +24,7 @@ If not you might need to install OpenNI/NITE/Sensor (not SensorKinect) manually 
 You should be able to download the individual installers from the official OpenNI site. 
 Before you move to Processing, you should be run one of the OpenNI samples (like SimpleNiViewer)
 to check if everything is fine up to this stage.
+Source @ http://stackoverflow.com/questions/14265896/processing-get-sketch-to-recognize-xtion-kinect-device
 EOT
 
 
