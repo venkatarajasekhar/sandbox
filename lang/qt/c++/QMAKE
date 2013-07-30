@@ -1,8 +1,12 @@
 Q: Sample qmake command?
 /usr/bin/qmake-qt4 -spec /usr/lib64/qt4/mkspecs/linux-g++-64 -o Makefile ../01_hello_world_button/01_hello_world_button.pro
+or simply
+qmake-qt4 ../01_hello_world_button/01_hello_world_button.pro
+
+qmake-qt4 -project                              # build project file based on extensions
 
 Q: Qmake directive in pro file ?
-TEMPLATE = app
+TEMPLATE = app                                  # This is an application type project (not a library or plugin or ...)
 TARGET = hello_world
 QT = core gui
 QT += network opengl sql xml support            # Add QtNetwork, QtopenGL, .... libraries to the build 
@@ -11,6 +15,15 @@ QT -= network                                   # Remove QtNetwork library requi
 TRANSLATIONS =  application_fr.ts \             # Translation files to be used by QtLinguist (see lupdate, lrelease commands)
                 application_nl.ts
 
-RESOURCES - symbols.qrc                         # Resource file
+RESOURCES = symbols.qrc                         # Resource file that needs to be compiled (file points to files to be included in resource)
+
+CONFIG =
+FORMS  =                                        # ui files 
+
+
+Q: The generated makefile?
+make clean                                      # Remove all the intermediary files
+make distclean                                  # Remove intermediary files + built files
+
 
 
