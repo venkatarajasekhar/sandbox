@@ -545,13 +545,15 @@ You expect it to print "3", but it prints an empty string of length 3 instead.
 
 Q: What are initializers?
 Initializers used in constructors (and copy constructors)
-MyClass::MyClass(int c, int i)
-    : count (c), increment (i)      # <-- intializers 
+MyClass::MyClass(int c, int i)          
+    : QWizardPage(parent),              # <-- if a class is part of the initializer, then it is a parent class!
+      m_count (c),                      # <-- if not a class (start with lowercase), then it is a const or a variable
+      m_increment (i)                   # <-- initializers 
 {
 }
 Above, the count variable is set = to c, the increment variable is set to i
-
 !!! A const (private) data member is REQUIRED to have an initializer
+!!! m_ as in m_count defines a member variable, etc
 
 Q: When do initializers execute?
 Before the body of the constructor execute!
