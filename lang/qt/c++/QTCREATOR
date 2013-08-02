@@ -51,4 +51,26 @@ Unfortunately, this option is not available on Windows.
 Q: How to set up shadow builds on Mac and Linux
 Look at the project build settings
 
+Q:
+
+Q: Deployment (install)?
+Projects > Run Settings > Deployment > Add (Build tarball and install on linux host)
+
+Create a linux Device
+    Linux Device > Add > Generic Linux Device > Configuration Setup
+    Name of configuration: loclahost
+    IP address: 127.0.0.1                               # <-- You can do remote install from local machine !!!
+    Username: Root
+    Authentication: Password (Key available!)
+    Password: XXXX (key file otherwise)
+!!! QtCreator immediately test the configuration
+Go to your project file, and see the code:
+unix:!symbian:!maemo5:isEmpty(MEEGO_VERSION_MAJOR) {
+    target.path = /home/local/epics/bin
+    INSTALLS += target
+}
+Then add
+INSTALLS += <binaries to install>
+Then DEPLOY !
+!!! TO deploy, in menu select Build > Deploy all
 
