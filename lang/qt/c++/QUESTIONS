@@ -52,8 +52,32 @@ public:
 private slots:
     void slotButtonClicked(bool checked);
 private:
-    QPushButton *m_button;
+    QPushButton *m_button;                          // m_ means member of the class!
 };
  
 #endif // WINDOW_H
 
+Q: Reference vs pointer?
+
+class MyClass :  public QOBject
+{
+    Q_OBJECT
+public:
+    MyClass(const QString &text, QObject *parent = 0 );     // <-- Passage by reference vs pointer?
+    const QString& text() const;
+    int getLengthOfText() const;
+public slots:
+    void setText(const QString &text);
+signals:
+    void textChanged(const QString &);
+private:
+    QString m_text;
+};
+
+void MyClass::setText( const QString &text)
+{
+    if (m_text == text) 
+        return;
+    m_text = text;                                          // <-- equality between strings ok in C++ !
+    emit textChanged(m_text);
+}; 
