@@ -168,7 +168,7 @@ In call by reference, a memory area (from the heap) is passed.
 
 Q: Difference between a pointer and a reference?
 Rule of thumb: 
-Use pointers if you want to do arithmetic i(++, --, [] indexing) with them or if you ever have to pass a NULL-pointer.  
+Use pointers if you want to do arithmetic (++, --, [] indexing) with them or if you ever have to pass a NULL-pointer.  
 Use references otherwise.
 unsigned long x = 4;
 void func1(unsigned long& val) {
@@ -547,13 +547,14 @@ Q: What are initializers?
 Initializers used in constructors (and copy constructors)
 MyClass::MyClass(int c, int i)          
     : QWizardPage(parent),              # <-- if a class is part of the initializer, then it is a parent class!
-      m_count (c),                      # <-- if not a class (start with lowercase), then it is a const or a variable
-      m_increment (i)                   # <-- initializers 
+      m_count (c),                      # <-- if not a class (start with lowercase), then it is a const variable
+      m_increment (i)                   # <-- another CONST variable !!! 
 {
 }
 Above, the count variable is set = to c, the increment variable is set to i
 !!! A const (private) data member is REQUIRED to have an initializer
 !!! m_ as in m_count defines a member variable, etc
+!!! Non-const variables are not initialized in initializer
 
 Q: When do initializers execute?
 Before the body of the constructor execute!
