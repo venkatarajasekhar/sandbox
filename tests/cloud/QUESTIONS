@@ -203,7 +203,16 @@ https://770194671265.signin.aws.amazon.com/console
 !!! 770194671265 is the AWS account ID (see account identifier)
 
 Q: What are roles?
-???
+There are a variety of scenarios in which you need to delegate access to users 
+or services that normally don't have access to your AWS resources. For example, 
+a user in one AWS account might need access to resources in another account. 
+Or a mobile app might use AWS resources but it's impractical to create an IAM 
+identity for every user of the app.
+* Applications running on Amazon EC2 instances that need to access AWS resources
+* Cross-account access
+* Federated identity (federation)
+* Web identity federation for mobile apps
+More @ http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html
 
 #-----------------------------------------------------------------------
 # 
