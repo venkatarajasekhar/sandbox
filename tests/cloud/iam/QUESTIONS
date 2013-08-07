@@ -38,9 +38,9 @@ arn:aws:s3:::example_bucket/developers/design_info.doc
 #---------------------------------------------------------------------- 
 # CREDENTIALS
 
-Q: Access credentials vs sing-in credentials?
+Q: Access credentials vs sign-in credentials?
 Sign-in credentials are used to log on the AWS website.
-Access credentials is used by 3rd party applications to work as the user.
+Access credentials is used by 3rd party applications (and programs) to work as the user.
 
 Q: How many access credentials can a user account have?
 Many!
