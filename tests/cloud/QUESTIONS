@@ -8,7 +8,7 @@ Q: Account number?
 !!! This info is acccessible from the "Sign in using our secure server" page
 
 Q: Identity Access Management, IAM log in page?
-username: emmanuel_mayssat
+username: EmmanuelMayssat
 passd: <Must have been enabled for this account!> Tom...
 https://770194671265.signin.aws.amazon.com/console
 
@@ -172,15 +172,40 @@ http://onlinenoram.gemalto.com/
 Q: What are AWS Identity and Access Management, or IAM?
 IAM enables you to securely control access to AWS services and resources for your users. 
 Using IAM you can create and manage AWS users and groups and use permissions to allow and deny their permissions to AWS resources.
+!!! Similar to /etc/passwd and /etc/group and selinux (policy)
+Example: Allow EmmanuelMayssat access to AWS_Administrator 
+
+Q: what about passwords?
+Before you create your first password, you should modify the default
+password policy. Recommended policy is 8 char min with at least 1 uppercase, 
+1 lowercase, 1 numeric, and 1 non-alpha characters
+Once this policy is put in place, select a user and create his/her password
+
+Q: What about user access key?
+Access keys are required if you want to have your AWS privilege without using the 
+web interface ( such as programming interface or a 3rd party program)
+!!! Only when the credentials are created can they be downloaded (?)
+ex: Duplicati, a backup program, doesn't need a password, but security credentials
 
 Q: What are IAM best practice?
-Do not use your AWS root account credentals (access key and secret key). Instead create an IAM for yourself!
+Do not use your AWS root account credentials (access key and secret key). 
+Instead create an administrator group and an IAM for yourself!
 More @ http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html
+!!! Limit the use of the root account (as on a unix system)
 
 Q: Where can the administrator manage the IAM?
 https://console.aws.amazon.com/iam/home
 
-Q: Where can the user log in?
+Q: Identity Access Management, IAM log in page?
+username: EmmanuelMayssat
+passd: <Must have been enabled for this account!> Tom...
 https://770194671265.signin.aws.amazon.com/console
-Note that 770194671265 is the AWS account ID (see account identifier)
+!!! 770194671265 is the AWS account ID (see account identifier)
+
+Q: What are roles?
+???
+
+#-----------------------------------------------------------------------
+# 
+
 
