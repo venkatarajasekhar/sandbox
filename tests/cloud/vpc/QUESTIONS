@@ -1,5 +1,61 @@
+Q: VPC?
+Virtual Private Cloud
+
+Q: Create a VPC?
+Go to amazon VPC service page.
+Create a VPC by choosing a CIDR block.
+10.0.0.0/16 
+Then select a tenancy { default | dedicated }
+!!! You cannot create a VPC larger than /16
+!!! As a result, you can have 256 VPCs (10.0 to 10.255)
+
+Q: Add subnet to the VPC?
+1) Select a VPC to whom that subnet belows to.
+2) Select an availability zone
+3) Choose a CIDR block for the subnet
+!!! CIDR addresses for subnets must have the form 10.0.0.0/24 
+!!! Netmask must be between 16 and 28
+!!! Subnet should also be within the VPC's 10.0.0.0/16 CIDR
+
+Q: Add computers to a VPC?
+Create the instance and attach it to a subnet of the VPC
+!!! Before assigning a public IP to the EC2 instance, the VPC needs to have an INTERNET gateway
+
+Q: VPC cannot access the network!
+Once the VPc and its subnets have been created, you need to attach an INTERNET gateway!
+If no iINTERNET gateway is attached to the VPC, then you cannot allocate public IP 
+(Elastic IP) to the attached EC2 instances!
+!!! There are other types of gateway (like the virtual private gateway)
+
+Q: How to add and use an INTERNET gateway?
+To create the gateway, go to the gateway page!!
+But for the gateway to be usable, you need to update the EC2 instance routing tables
+To do so, go n the Route Tables section, and add a default route
+If destination is not yet matched (0.0.0.0/0), use the gateway
+
+#-----------------------------------------------------------------------
+# Security?
+
+Q: Cannot access my machine?
+* Check the VPC network ACL
+* Check the EC2 instance security policy
+* Check the routing tables (is there a default route)
+* Is the subnet associated with the aforementioned routing table?
+
+
+#-----------------------------------------------------------------------
+# VPN
+
 Q: What is IPSec ?
+IPSec is a protocol used to establish a VPN
+To establish a VPN, yuo need a Customer Gateway (remote gateway of the VPN)
+and a Virtual Private Gateway (VPG).
+The VPG is assigned to the amazon VPC
+
+#-----------------------------------------------------------------------
 
 Q: What is BGP?
-
+Border Gateway Protocol
+I believe it can be used by 2 gateways on different networks (i.e through VPN?)
+to identify which IP is on which side of the VPN
 
