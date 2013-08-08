@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Pre-requisites
+sudo apt-get install apt-file; apt-file update
+sudo apt-get install apache2
+sudo apt-get install libapache2-mod-php5
+sudo apt-get install mysql-client
+sudo apt-get install mysql-server
+sudo apt-get install phpmyadmin
+
+
+#wget -O mantisbt-1.1.8.tgz http://sourceforge.net/projects/mantisbt/files/mantis-stable/1.1.8/mantisbt-1.1.8.tar.gz/download 
+wget -O mantisbt-1.2.15.tgz http://sourceforge.net/projects/mantisbt/files/mantis-stable/1.2.15/mantisbt-1.2.15.tar.gz/download 
+
+sudo cp ~/mantisbt-* /usr/www
+
+cd /usr/www
