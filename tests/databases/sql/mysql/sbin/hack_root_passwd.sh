@@ -1,6 +1,8 @@
 #!/usr/bin/sudo /bin/sh
 
-cat /root/tmp/file.sql <<EOT
+# DOESN'T SEEM TO WORK !
+
+cat > /root/file.sql <<EOT
 UPDATE mysql.user SET Password=PASSWORD('MyNewPass') WHERE User='root';
 FLUSH PRIVILEGES;
 EOT

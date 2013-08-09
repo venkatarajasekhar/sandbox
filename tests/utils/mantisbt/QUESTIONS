@@ -1,0 +1,37 @@
+README FIRST
+Read this notes carefully before you install or upgrade your database. Remember you have all needed information on your local system /usr/share/doc/mantis/ 
+
+NEW INSTALLATION
+* Database collation "UTF-8": releases Mantis 1.1.a2 and avobe now uses UTF-8 encoding by default on language files and encoding for database saved and read from the database.
+The script installation set up the encoding UTF-8 for your new databases.
+Be aware if you are using non-Latin characters on your database configuration and do not install before you ensure that will be work on your system. 
+* User custom configuration: debian installation creates a custom file config_local.php, instead of editing config_inc.php directly. Everything you set on this file has precedence over settings defined in the config_inc.php 
+
+UPGRADE INSTALLATION
+* Backup before upgrading: - Always backup your database data before upgrading 
+* Database collation "UTF-8": releases Mantis 1.1.a2 and avobe now uses UTF-8 encoding by default on language files and encoding for database saved and read from the database.
+The script installation set up the encoding UTF-8 just for the newest creation information, do not update existing.
+It highly recommended convert to UTF-8 your data information before upgrade. 
+Read this information: Upgrading to a Mantis UTF8
+Be aware if you are using non-Latin characters on your database configuration and do not install before you ensure that will be work on your system. 
+* User custom configuration: debian installation maintains a custom file config_local.php, instead of editing config_inc.php directly. Everything you set on this file has precedence over settings defined in the config_inc.php 
+* Upgrading:: Upgrades may take several minutes depending on the size of your database. 
+
+Warning: When you finish the installation or upgrade process is is highly recommended to delete the admin directory.
+
+#-----------------------------------------------------------------------
+Installation process was complete! 
+
+Continue to log into Mantis. 
+You haved change the default 'administrator' email to: root@localhost 
+You haved change the default 'administrator' password to: root 
+Warning: When you finish the installation or upgrade process is is highly recommended to delete the admin directory.
+
+Q: Where is the mantis login page?
+Once mantis is installed correctly, go to
+http://bugtracker.lynceantech.com/mantis/login_page.php
+
+Q: First account to login?
+user: administrator
+password: root
+!!! You need to disable that account immediately!

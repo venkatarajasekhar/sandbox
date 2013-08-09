@@ -1,17 +1,44 @@
 #!/bin/sh
 
+VERSION=1.2.15
+
+
 # Pre-requisites
 sudo apt-get install apt-file; apt-file update
 sudo apt-get install apache2
 sudo apt-get install libapache2-mod-php5
-sudo apt-get install mysql-client
+
+# firefox http://54.208.111.231
+# firefox http://bugtracker.lynceantech.com
+# should return ... the it works! apache page!
+
 sudo apt-get install mysql-server
+# mysqlshow
+# should display public mysql databases 
+# namely information_schema + test database
+
+sudo apt-get install mysql-client
 sudo apt-get install phpmyadmin
 
+# firefox http://bugtracker.lynceantech.com/phpmyadmin
+# should return a login page for phphadmin
 
-#wget -O mantisbt-1.1.8.tgz http://sourceforge.net/projects/mantisbt/files/mantis-stable/1.1.8/mantisbt-1.1.8.tar.gz/download 
-wget -O mantisbt-1.2.15.tgz http://sourceforge.net/projects/mantisbt/files/mantis-stable/1.2.15/mantisbt-1.2.15.tar.gz/download 
 
-sudo cp ~/mantisbt-* /usr/www
+#wget -O mantisbt-${VERSION}.tgz http://sourceforge.net/projects/mantisbt/files/mantis-stable/${VERSION}/mantisbt-${VERSION}.tar.gz/download 
 
-cd /usr/www
+# Note /usr/www is where apache store its index.html files
+#sudo cp ~/mantisbt-${VERSION}.tgz /usr/www
+
+#cd /usr/www
+
+#sudo tar xvzf mantisbt-${VERSION}.tgz
+
+sudo apt-get install mantis
+#  Installation complete                                                                                                           │                                                     
+# Mantis has been installed on this system but still may require further configuration.                                           │                                                     
+# Please read /usr/share/doc/mantis/README.Debian carefully.                                                                      │                                                     
+# You should point your browser to http://<yourhost>/mantis/admin/install.php in order to install or update the Mantis database.  │                                                     
+# The Mantis database is not automatically removed when the package is uninstalled; this must be done manually if required.     
+# firefox http://<yourhost>/mantis/admin/install.php
+# admin account: admin
+# password: AP...
