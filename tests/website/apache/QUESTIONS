@@ -101,6 +101,17 @@ When using + or - in front of options, it means that you are setting a delta
   Options +Includes -Indexes
 </Directory>
 
+Q: Other method of autnetication?
+Alias /mantis /usr/share/mantis/www                         # <-- where all the mantis php files are located
+<Directory /usr/share/mantis/www/admin>                     # <-- When any file under this dir is accessed, first pop up an authentication dialog 
+        AuthType Basic                                      # ex: http://<yourhost>/mantis/admin/install.php
+        AuthName "Restricted Admin mantis"                  # Comment on authentication dialog box
+        AuthUserFile /etc/mantis/htaccess.dat               # htaccess file to use
+        Require valid-user
+</Directory>
+
+Q: Can htaccess files be used for authentication and directory configuration?
+Well, it can be used for authentication (user:<hashed password>)
 
 #-----------------------------------------------------------------------
 # ISSUES

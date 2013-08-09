@@ -19,6 +19,12 @@ Be aware if you are using non-Latin characters on your database configuration an
 
 Warning: When you finish the installation or upgrade process is is highly recommended to delete the admin directory.
 
+Q: How to delete the admin directory?
+Following mantis's apache2 configuration
+the admin directory is located at 
+/usr/share/mantis/www/admin
+!!! The php pages in the admin directory can recreate, update, or erase the mantis database
+
 #-----------------------------------------------------------------------
 Installation process was complete! 
 
@@ -35,3 +41,12 @@ Q: First account to login?
 user: administrator
 password: root
 !!! You need to disable that account immediately!
+
+Q: Path?
+Site Path /usr/share/mantis/www/
+Core Path /usr/share/mantis/www/core/
+Plugin Path /usr/share/mantis/www/plugins/              # <-- What is that?
+
+Q: Mantis's apache configuration?
+/etc/apache2/conf.d/mantis --> /etc/mantis/apache.conf
+
