@@ -6,9 +6,19 @@ service mysqld stop                         - shutdown mysql daemon (linux)
 service mysqld start                        - start mysql daemon (linux)
 /usr/bin/safe_mysqld &                      - start mysql daemon
 
+Q: Mysql configuration file?
+cat /etc/my.cnf
+
+Q: How to allow unix-root to reset mysql-root?
+sudo dpkg-reconfigure mysql-server          - rerun the configuration section of the mysql-server package
+mysqld --init-file=file.sql                 - execute the file.sql at init (required to change root password for example)
+
 Q: Sample shell command for mysql 
 mysql -u root -p                            - How to connect to mysql server as root with password?
 mysql --help                                - help for mysql
+
+mysqld --verbose --help                     - show the command that can be running at mysqld startup
+mysqld --init-file=file.sql                 - execute the file.sql at init (required to change root password for example)
 
 mysqladmin --help                           - help for mysqladmin
 mysqladmin -u root -p ping                  - check mysql process is running
@@ -28,7 +38,7 @@ mysqlshow mydatabase -p                     - show tables of specified database
 
 mysqldump -u root --password="toto" documents > /tmp/documents.dump
 
-Q: Hoe to execute a SQL statement from the command line?
+Q: How to execute a SQL statement from the command line?
 ../../bin/mysql -u root -p <<EOT
 source myfile.sql;
 use mydatabase;
@@ -80,6 +90,7 @@ create database documents_db;
 use documents_db;
 source documents_db.dump;                   - reload a dump file (sql format)
 
-
+#-----------------------------------------------------------------------
+# WEB INTERFACE (PHP_MY_ADMIN)
 
 

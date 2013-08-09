@@ -4,6 +4,9 @@ Q: What is the default username/password for mysql?
 user: root
 password: <none>
 
+Q: How to reset the mysql-root passwd?
+sudo dpkg-reconfigure mysql-server-5.5      # on ubuntu 12.04
+
 Q: Mysql configuration file?
 This file, entitled my.cnf, stores default startup options for both the server and for clients. 
 Correct configuration of this file can go a long way towards optimizing MySQL, 
@@ -15,4 +18,23 @@ as various memory buffer settings and other valuable options can be set here.
  Keep in mind that even if MySQL does locate a my.cnf file in /etc/my.cnf (global to all MySQL servers on that machine), 
 it will continue its search for a server-specific file, and then a user-specific file. 
 You can think of the final configuration settings as being the result of the /etc/my.cnf, mysql-data-dir/my.cnf, and ~/.my.cnf files.
+
+#-----------------------------------------------------------------------
+# WEB ADMIN INTERFACE
+
+Q: Which one to install?
+apt-get install phpmyadmin
+database: phpmyadmin              
+default user: phpmyadmin
+!!! make sure that mysql-server is installed and running first.
+
+Q: What does the interface look like?
+http://bugtracker.lynceantech.com/phpmyadmin/
+If you log in as the phphmyadmin user, 
+you can access the phpmyadmin and public database
+
+Q: What is the phpmyadmin database used for?
+
+
+
 
