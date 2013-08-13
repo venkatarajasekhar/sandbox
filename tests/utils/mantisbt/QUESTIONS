@@ -50,3 +50,16 @@ Plugin Path /usr/share/mantis/www/plugins/              # <-- What is that?
 Q: Mantis's apache configuration?
 /etc/apache2/conf.d/mantis --> /etc/mantis/apache.conf
 
+#-----------------------------------------------------------------------
+# User creation
+
+Q: To create your first account account?
+Login as an administrator (administrator / root)
+Go to the manage tab
+Select manage user
+Create the first account emayssat as administrator
+Change the password of the initial administrator account
+
+Q: How to create your second, third account?
+
+
