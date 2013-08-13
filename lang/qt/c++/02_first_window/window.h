@@ -3,8 +3,9 @@
 
 #include <QWidget>
 
-class QPushButton;                 //QPushButton is a class defined someother place!
-class QVBoxLayout;
+class QPushButton;                  // QPushButton is a class defined someother place!
+class QVBoxLayout;                  // Another class defined some other place!
+
 class Window : public QWidget
 {
     Q_OBJECT
