@@ -40,7 +40,7 @@ http://bugtracker.lynceantech.com/mantis/login_page.php
 Q: First account to login?
 user: administrator
 password: root
-!!! You need to disable that account immediately!
+!!! You need to change the default-account password immediately!
 
 Q: Path?
 Site Path /usr/share/mantis/www/
@@ -53,12 +53,21 @@ Q: Mantis's apache configuration?
 #-----------------------------------------------------------------------
 # User creation
 
+Q: Can you send emails from the mantis host?
+Install sendEmail;  sudo apt-get install sendemail
+sendemail -f emayssat@outlook.com -t emayssat@outlook.com -u SUBJECT -m MESSAGE -s localhost
+!!! emails can be sent from aws.amazon.com to outlook.com
+
+
 Q: To create your first account account?
 Login as an administrator (administrator / root)
 Go to the manage tab
 Select manage user
 Create the first account emayssat as administrator
-Change the password of the initial administrator account
+
+Q: How to remove the warning at the login page?
+Change the password of the initial administrator account!!!
+This is down for security 
 
 Q: How to create your second, third account?
 
