@@ -50,6 +50,14 @@ Plugin Path /usr/share/mantis/www/plugins/              # <-- What is that?
 Q: Mantis's apache configuration?
 /etc/apache2/conf.d/mantis --> /etc/mantis/apache.conf
 
+Q: How to go directly to mantis page?
+To go from the default apache page to the mantis page, you will need to redirect it to 
+http://<hostname>/mantis
+To do that, in /var/www/index.html, add
+<head>
+<meta HTTP-EQUIV="REFRESH" content="0; url=http://www.yourdomain.com/index.html">
+</head>
+
 #-----------------------------------------------------------------------
 # User creation
 

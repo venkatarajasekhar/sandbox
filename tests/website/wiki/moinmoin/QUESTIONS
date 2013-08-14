@@ -20,15 +20,15 @@ Go to the SystemInfo page
 
 Q: How to install on ubuntu?
 
-apt-get install python-moinmoin
+sudo apt-get install python-moinmoin
 cd /usr/share/moin
-sudo mkdir mywiki
-sudo cp -R data mywiki
-sudo cp -R underlay mywiki
-sudo cp server/moin.cgi mywiki
-sudo chown -R www-data.www-data mywiki
-sudo chmod -R ug+rwX mywiki
-sudo chmod -R o-rwx mywiki
+sudo mkdir -p wikis/emayssat                        # <-- personal wikis are located in wikis/<username> !
+sudo cp -R data wikis/emayssat
+sudo cp -R underlay wikis/emayssat
+sudo cp server/moin.cgi wikis/emayssat
+sudo chown -R www-data.www-data wikis/emayssat
+sudo chmod -R ug+rwX wikis/emayssat
+sudo chmod -R o-rwx wikis/emayssat
 
 Master configuration file: /etc/moin/farmconfig.py
 Check wikis configuration. The "manuals" entry points to /etc/moint/manuals.py wiki config file
