@@ -72,3 +72,7 @@ This is down for security
 Q: How to create your second, third account?
 
 
+Q: How to set, change a user password?
+mysql -u root -p
+use bucktracker;
+update mantis_user_table set password=md5('password') where username='username';
