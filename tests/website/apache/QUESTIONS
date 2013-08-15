@@ -45,7 +45,7 @@ vi crowdsets.com
 [...]
 <VirtualHost *:80>
         ServerAdmin webmaster@crowdsets.com
-        ServerName crowdsets.com
+        ServerName crowdsets.com                        # <-- If url's server name matches this, then this configuration applies
         ServerAlias www.crowdsets.com
         DocumentRoot /var/www/crowdsets/public
 [...]
@@ -53,12 +53,18 @@ cat >> /etc/hosts <<EOT
 127.0.0.1       www.crowdsets.com crowdsets.com
 EOT
 
-$ sudo a2ensite crowdsets
+$ sudo a2ensite crowdsets                               # <-- To remove a configured apache2 site, use a2dissite (restart of apache doesn't work!)
 Enabling site crowdsets.
 To activate the new configuration, you need to run:
   service apache2 reload
 $ sudo service apache2 reload
  * Reloading web server config apache2  
+
+Q: How to delete/disable a virtual host?
+Instead of a2ensite, use a2dissite
+sudo a2dissite <virtual-host-file-name>
+!!! If you want to modify the virtual host config, YOU HAVE TO DISABLE IT FIRST 
+!!! If you don't, then There will be several sites fighting for the same script aliase, etc
 
 Q: IP-based vitual hosts?
 An IP address for each website

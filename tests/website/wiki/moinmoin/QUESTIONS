@@ -251,7 +251,7 @@ Q: Where are user accounts saved?
 In the /usr/share/moin/wikis/manuals/data/user directory
 In that directory each file represents a user.
 In a file are stored all users settings and credentials.
-The pasword is hashed with SHA1.
+The password is hashed with SHA1.
 If the password is lost, you can overwrite it manually!
 
 Q: does the admin user have a file in /usr/share/moin/wikis/manuals/data/user too?
@@ -270,8 +270,9 @@ http://wikifarm/wiki/EmmanuelMayssat
 !!! When creating a WikiHomePage, place a link to CategoryHomepage on the bottom of the page. (It is done in the HomePageTemplate)!!!
 
 Q: What are the privileges of superusers?
-* bypass ACL
-* can switch user
+* bypass ACL? No!
+* can switch user? No!
+A super user is only authorized to install moinmoin packages
 
 Q: what are logged in accounts?
 Once logged in, you can 
@@ -444,13 +445,13 @@ First look at the configuration parameter
 * acl_rights_before            - check configuration file (used for administrators)
 * acl defined on the page
 * acl_rights_default           - check configuration file (default ACL on every page)
-* acl_rights_after             - check configuration file (make sure those rights are not foggotten, i.e. read!)
+* acl_rights_after             - check configuration file (make sure those rights are not forgotten, i.e. read!)CL order:
 !!! DEFAULT FOR acl_rights_default = u'Known:read,write,delete,revert All:read,write'
 
 Q: How to create a ACL group?
 A group must end with the prefix Group
 Create a page called AdminGroup, TrustedGroup, ...
-and add an undordered list of users
+and add an unordered list of users
 More @ http://moinmo.in/HelpOnGroups
 
 #---------------------------------------------------------------------- 
