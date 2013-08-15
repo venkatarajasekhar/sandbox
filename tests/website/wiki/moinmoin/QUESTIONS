@@ -25,7 +25,7 @@ cd /usr/share/moin
 sudo mkdir -p wikis/emayssat                        # <-- personal wikis are located in wikis/<username> !
 sudo cp -R data wikis/emayssat
 sudo cp -R underlay wikis/emayssat
-sudo cp server/moin.cgi wikis/emayssat
+sudo cp server/moin.cgi wikis/                      # <-- all the wikis are going to use this file (so not wiki specific!)
 sudo chown -R www-data.www-data wikis/emayssat
 sudo chmod -R ug+rwX wikis/emayssat
 sudo chmod -R o-rwx wikis/emayssat
@@ -47,9 +47,9 @@ In wiki configuration, i.e /etc/moin/manuals.py, we have
 
 apt-get install apache2
 vi /etc/apache2/sites-available/default
-### moin
+### moin                                                    # <-- to add just before the </VirtualHost> closing tag!
   ScriptAlias /wiki "/usr/share/moin/wikis/moin.cgi"        # <-- where to find the script (can be shared between all wikis!)
-  alias /moin_static184 "/usr/share/moin/htdocs"
+  alias /moin_static193 "/usr/share/moin/htdocs"            # <-- where static files (CSS, etc) are located!
   <Directory /usr/share/moin/htdocs>
   Order allow,deny
   allow from all
@@ -61,6 +61,18 @@ Verification:
 http://localhost/wiki
 http://manuals/wiki
 http://manuals.lynceantech.com/wiki
+
+Q: what to do if I still cannot access wiki?
+Check apache logs:
+tail -f /var/log/apache2/error.log
+
+Q: What if the CSS cannot be accessed?
+Check the apache log file to see if a file cannot be found
+Look at the location of the static files in the apache configuration of moinmoin
+There is probably a mismatch
+ was: alias /moin_static193 "/usr/share/moin/htdocs"
+ now: alias /moin_static193 "/usr/share/moin/htdocs"
+!!! service apache2 restart is required 
 
 Q: How to have a GUI editor?
 MoinMoin supplied by Ubuntu (python-moinmoin), the fckeditor is not by default included -- its 
@@ -75,13 +87,31 @@ sudo service apache2 restart                                                # <-
 Source @ http://moinmo.in/MoinMoinQuestions/Installing#GUI_Editor_not_installed.2Fconfigured.3F.3F
 
 Q:Still no Edit (GUI)! What's going on?
-The GUI editor doesn't work on web-kit based broser, ie chrome or safari
+The GUI editor doesn't work on web-kit based browser, ie chrome or safari
 http://moinmo.in/MoinMoinBugs/1.9.3GUIEditorInWebKit
 
+Q: what is the purpose of a superuser?
+A superuser can add modules, packages to the moinmoin installation (through moinmoin)
+For example, to install the language packs, you need to be a moinmoin superuser!
+
+Q: How to create a superuser?
+In the wiki.py configuration file, add
+superuser = [u"EmmanuelMayssat", ]
+!!! This has nothing to do with ACL
+
+
 Q: How to add the help and search engine page ?
+Create an account
+Make him/her a superuser by changing your wiki.py configuration
+Restart the wiki (apache2) for configuration to be reread
 Got to the LanguageSetup, select your language and click on the download all_page link.
+http://wiki.ouchmasters.com/wiki/LanguageSetup
+Click on 'install help and system pages'
+Select your language
+Select all_page                         # <-- you can be more selective of course!
 The installation is automatic !
 Files are installed in .../wikis/manuals/underlay directory as expected 
+A message is returned : Attachment 'English--all_pages.zip' installed.
 !!! FindPage is created in .../wikis/manuals/data/page
 
 Q: How to get the list of files installed with python-moinmoin?
