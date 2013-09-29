@@ -42,3 +42,10 @@ sudo apt-get install mantis
 # firefox http://<yourhost>/mantis/admin/install.php
 # admin account: admin
 # password: AP...
+
+# Note that on the default apache page, you will need to redirect it to 
+# http://<hostname>/mantis
+# To do that, in /var/www/index.html, add
+# <head>
+# <meta HTTP-EQUIV="REFRESH" content="0; url=http://www.yourdomain.com/index.html">
+# </head>
