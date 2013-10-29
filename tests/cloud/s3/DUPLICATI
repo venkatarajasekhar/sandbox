@@ -28,7 +28,7 @@ s3.allow_full_access
 In duplicati
 Encryption password: Tom...
 S3 servername : s3.amazonaws.com
-Use AWS credential
+Use AWS credential (for duplicati user)     # <-- can be found in the AWS IAM user page
 S3 Bucket name = backups.lynceantech.com/yucca ( For yucca machine)
 Bucket create region: us-west-1
 Do NOT use Reduced Redundancy
