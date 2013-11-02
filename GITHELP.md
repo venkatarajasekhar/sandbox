@@ -62,6 +62,9 @@ If you do not push to master repository, others cannot see
     git push origin master            	                    # origin is parent repo
     git fetch                		                        # Update local *refs* with remote’s *refs*
 
+Change URL
+    git remote set-url origin git@github.com:GitUserName/GitRepoName.git
+
 Other operations
 ------------------
 
@@ -118,3 +121,27 @@ Tag versions
 ------------
 
     git tag -a 1.0.0 -m 'First version.'
+
+File committed, but not pushed
+------------------------------
+
+For a list of files to be pushed, run:
+    git diff --stat [remote/branch]
+    ex: git diff --stat origin/master 
+
+For the code diff of the files to be pushed, run:
+    git diff [remote repo/branch]
+
+To see full file paths of the files that will change, run:
+    git diff --numstat [remote repo/branch]
+
+How to do that with a GUI
+    git difftool                    # Accept the same option as git diff
+    git difftool -t kdiff3 HEAD     # Accept the same option as git diff
+    meld .                          # Third party tool
+
+
+How to clean?
+    git gc
+
+
