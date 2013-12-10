@@ -29,3 +29,5 @@ twitter app             @helpedite                      rr...
                                                         Access token    979443954-gZGU3JcWOJf24gXUzuxC9dRSbXEiSoHMECmdAoR2
                                                         Access token secret 24Wg6yIcqNxkq2xdJezHSjuMvdRMaU0w02V1FnU
                                                         Access level    Read-only
+amazon.aws              emmanuel.mayssat@aya.yale.edu   T0m0..
+
