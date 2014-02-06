@@ -18,6 +18,10 @@ Note that 770194671265 is the administrative account (AWS Account ID).
 !!! The User should also have a password that was assigned to him by the administrator
 !!! > IAM > User > username > Security Credentials > (sign in credential) Manage Password
 
+Q: Can I create an alias for the above URL?
+Yes! on the IAM service page, you can create aliases!
+https://lynceantech.signin.aws.amazon.com/console 
+
 !!! NOTE THIS WEBSITE IS TO ACCESS THE SAME AMAZON ADMINISTRATIVE INTERFACE !!!
 
 Q: What are users?
