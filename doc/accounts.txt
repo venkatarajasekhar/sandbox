@@ -35,4 +35,6 @@ amazon.aws              emmanuel.mayssat@aya.yale.edu   T0...       (ouchmasters
                         emayssat@outlook.com            TO...       (EpicsQt)       Acct# 7352-6829-8394 
 
 whois                   emmanuel.mayssat@aya            T0...       http://shop.whois.com/login.php
+                                                                    select myaccount
+                                                                    select domain
 
