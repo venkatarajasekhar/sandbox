@@ -33,6 +33,7 @@ twitter app             @helpedite                      rr...
 amazon.aws              emmanuel.mayssat@aya.yale.edu   T0...       (ouchmasters)
                         emayssat@gmail.com              T0...       (LTI)
                         emayssat@outlook.com            TO...       (EpicsQt)       Acct# 7352-6829-8394 
+                        amazon@epicsqt.org              AP...       associate: epi034-20a 
 
 whois                   emmanuel.mayssat@aya            T0...       http://shop.whois.com/login.php
                                                                     select myaccount
